@@ -62,7 +62,7 @@ nav.top a.nav-home:hover{color:var(--on-accent,#000);filter:brightness(1.07)}
 .btn-sm{padding:11px 20px;font-size:11.5px}
 
 /* ---------- sections ---------- */
-.section{padding:112px 0}
+.section{padding:88px 0}
 .section.alt{background:var(--sec-alt,#fff)}
 .section.dark{background:var(--c-deep);color:#fff}
 .section.black{background:var(--c-black);color:#fff}
@@ -76,7 +76,7 @@ h2.title .c2{color:var(--c-title2,var(--c-action))}
 .dark h2.title .c2,.black h2.title .c2{color:var(--c-soft)}
 .lead{font-size:18px;max-width:64ch;color:var(--text-2)}
 .dark .lead,.black .lead{color:var(--c-soft)}
-h3.sub{font-family:var(--display);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--c-action);margin:56px 0 18px}
+h3.sub{font-family:var(--display);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--c-action);margin:44px 0 16px}
 .dark h3.sub,.black h3.sub{color:var(--c-soft)}
 .grid{display:grid;gap:20px}
 .g2{grid-template-columns:repeat(2,1fr)}
@@ -368,7 +368,7 @@ footer a{color:#fff}
 @media screen and (max-width:600px){
   .wrap{padding:0 20px}
   nav.top{padding:10px 16px}
-  .section{padding:72px 0}
+  .section{padding:60px 0}
   .g2,.g3,.g4,.fam,.cc-grid,.voice-ex,.ph-rules,.sw-grid,.logo-grid,.wrong,.tex-grid,.dl-grid{grid-template-columns:1fr}
   .sw.wide,.tex.wide{grid-column:auto}
   .tex.tall{grid-row:auto;aspect-ratio:1/1}
@@ -1159,7 +1159,7 @@ Alura – Rebranding Toolkit (Brand Guidelines V2.0, abril de 2026) · alura.com
       b.addEventListener('click', () => sel(i)); bar.appendChild(b); c.classList.add('show'); return b;
     });
     function sel(i){ comps.forEach((c, k) => { c.classList.toggle('is-hidden', k !== i); btns[k].setAttribute('aria-selected', k === i ? 'true' : 'false'); }); window.dispatchEvent(new Event('resize')); }
-    w.insertBefore(bar, comps[0]); sel(0);
+    w.insertBefore(bar, comps[0]); const tq = location.search.match(/[?&]tab=([0-9]+)/); sel(tq ? Math.min(+tq[1], comps.length - 1) : 0);
   });
   $('.pieces').forEach(p => {
     const wrap = document.createElement('div'); wrap.className = 'pieces-wrap'; p.parentNode.insertBefore(wrap, p); wrap.appendChild(p);

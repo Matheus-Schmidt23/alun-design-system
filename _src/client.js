@@ -115,7 +115,7 @@
       b.addEventListener('click', () => sel(i)); bar.appendChild(b); c.classList.add('show'); return b;
     });
     function sel(i){ comps.forEach((c, k) => { c.classList.toggle('is-hidden', k !== i); btns[k].setAttribute('aria-selected', k === i ? 'true' : 'false'); }); window.dispatchEvent(new Event('resize')); }
-    w.insertBefore(bar, comps[0]); sel(0);
+    w.insertBefore(bar, comps[0]); const tq = location.search.match(/[?&]tab=([0-9]+)/); sel(tq ? Math.min(+tq[1], comps.length - 1) : 0);
   });
   $('.pieces').forEach(p => {
     const wrap = document.createElement('div'); wrap.className = 'pieces-wrap'; p.parentNode.insertBefore(wrap, p); wrap.appendChild(p);

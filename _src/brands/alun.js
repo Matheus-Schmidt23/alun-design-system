@@ -435,7 +435,10 @@ module.exports = (H) => {
     <div class="attr reveal" style="margin-top:0"><span>Veia tech</span><span>Futuros desejados</span><span>Inovação</span><span>Experiência</span><span>Pulsar</span><span>Paixão</span><span>Força</span><span>Transformação</span><span>Resultados</span><span>Gera valor</span><span>Rede</span><span>Conexões</span><span>Move</span><span>Comunidade</span><span>Olhares curiosos</span><span>Sede de aprender</span><span>Criar o novo</span><span>Ecossistema robusto</span><span>Impacto social</span><span>Despertar</span><span>Compartilhar</span><span>Aprendizado contínuo</span></div>`
   });
 
-  // ---------------- 10 TOKENS & IA ----------------
+  // ---------------- 10 ALUN BUSINESS ----------------
+  const biz = require('./alun-business')(H, B);
+
+  // ---------------- 11 TOKENS & IA ----------------
   const tokenGroups = [
     { comment: 'Neutros', vars: [['--alun-preto', '#000000', 'Preto'], ['--alun-cinza', '#333131', 'Cinza'], ['--alun-placa-mae', '#D1CDCD', 'Placa Mãe'], ['--alun-branco', '#FFFFFF', 'Branco']] },
     { comment: 'Destaques', vars: [['--alun-magenta-on', '#ED1360'], ['--alun-magenta-off', '#600724'], ['--alun-odisseia-on', '#FF9413'], ['--alun-odisseia-off', '#994800']] },
@@ -446,7 +449,7 @@ module.exports = (H) => {
   ];
   tokenGroups.title = 'Alun — Design tokens v1.0';
   const s10 = sec({
-    id: 'ia', num: '10', label: 'Tokens & IA', cls: 'dark', title: ['Pronto para', 'código'],
+    id: 'ia', num: '11', label: 'Tokens & IA', cls: 'dark', title: ['Pronto para', 'código'],
     lead: 'Tokens CSS para sites, apresentações e ferramentas — e um contexto em Markdown para alimentar outras IAs na criação de peças consistentes com a marca.',
     body: `
     <div class="code-card reveal"><div class="bar"><span>tokens.css</span><button class="btn btn-light btn-sm" id="copyCss">Copiar CSS</button></div>
@@ -471,7 +474,7 @@ module.exports = (H) => {
   B.sections = [
     { id: 'essencia', navLabel: 'Estratégia', html: s1 }, { id: 'logo', navLabel: 'Logo', html: s2 }, { id: 'cores', navLabel: 'Cores', html: s3 },
     { id: 'tipografia', navLabel: 'Tipografia', html: s4 }, { id: 'grafismo', navLabel: 'Grafismo & grid', html: s5 }, { id: 'imagem', navLabel: 'Imagem & ícones', html: s6 },
-    { id: 'componentes', navLabel: 'Componentes', html: s7 }, { id: 'pecas', navLabel: 'Peças', html: s8 }, { id: 'voz', navLabel: 'Voz', html: s9 }, { id: 'ia', navLabel: 'Tokens & IA', html: s10 }
+    { id: 'componentes', navLabel: 'Componentes', html: s7 }, { id: 'pecas', navLabel: 'Peças', html: s8 }, { id: 'voz', navLabel: 'Voz', html: s9 }, { id: 'business', navLabel: 'Business', html: biz.html }, { id: 'ia', navLabel: 'Tokens & IA', html: s10 }
   ];
 
   // ---------------- CSS específico ----------------
@@ -546,20 +549,20 @@ module.exports = (H) => {
   .strat .st:nth-child(3) p{font-weight:400}
   .black .wrong > div{background:#fff}
   /* hero em grid 4×4 */
-  .hero{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,minmax(0,1fr));min-height:min(calc(100svh - 49px),860px);background:#000}
+  .hero{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto clamp(190px,21vw,290px);background:#000}
   .hb{position:relative;overflow:hidden;padding:26px;display:flex;flex-direction:column;justify-content:space-between}
   .hb .lab,.lab{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
   .hb .lab.dim{opacity:.6}
-  .h-main{grid-column:1/4;grid-row:1/3;background:#000;color:#fff;padding:32px 36px}
+  .h-main{grid-column:1/4;grid-row:1/3;background:#000;color:#fff;padding:32px 36px;min-height:clamp(420px,56vh,600px)}
   .h-top{display:flex;justify-content:space-between;gap:12px;color:${PM}}
   .h-main h1{font-weight:300;font-size:clamp(38px,4.7vw,80px);line-height:.96;letter-spacing:-.03em;color:#fff;margin:0 0 20px;max-width:14ch}
   .h-main h1 em{font-style:italic;color:${MON}}
   .h-main p{color:${PM};max-width:52ch;font-size:15px;margin:0}
   .h-wine{grid-column:4;grid-row:1;background:${MOFF};color:${PM}}
   .h-or{grid-column:4;grid-row:2;background:${OON};color:#000}
-  .h-mag{grid-column:1/3;grid-row:3/5;background:${MON};color:#000;justify-content:flex-end}
-  .h-mag h2{font-weight:300;font-size:clamp(34px,4.6vw,76px);line-height:.98;letter-spacing:-.03em;color:#000}
-  .h-mos{grid-column:3/5;grid-row:3/5;background:#D1CDCD;justify-content:flex-end;align-items:flex-start}
+  .h-mag{grid-column:1/3;grid-row:3;background:${MON};color:#000;justify-content:flex-end}
+  .h-mag h2{font-weight:300;font-size:clamp(28px,3.4vw,56px);max-width:16ch;line-height:.98;letter-spacing:-.03em;color:#000}
+  .h-mos{grid-column:3/5;grid-row:3;background:#D1CDCD;justify-content:flex-end;align-items:flex-start}
   .h-mos canvas{position:absolute;left:0;right:0;bottom:0;top:auto;width:100%;height:38%}
   /* mosaico interativo */
   .mos-box{position:relative}
@@ -594,12 +597,13 @@ module.exports = (H) => {
   @media screen and (max-width:980px){
     .hero{grid-template-rows:auto;min-height:0;grid-template-columns:repeat(2,1fr)}
     .h-main{grid-column:1/3;grid-row:auto}.h-wine{grid-column:1;grid-row:auto;min-height:140px}.h-or{grid-column:2;grid-row:auto;min-height:140px}
-    .h-mag{grid-column:1/3;grid-row:auto;min-height:260px}.h-mos{grid-column:1/3;grid-row:auto;min-height:300px}
+    .h-mag{grid-column:1/3;grid-row:auto;min-height:200px}.h-mos{grid-column:1/3;grid-row:auto;min-height:140px}
     .strat{grid-template-columns:1fr}.strat .st{border-right:none;border-bottom:1px solid #000}
     .picto{grid-template-columns:repeat(4,1fr)}.aud{grid-template-columns:1fr}.aud > div:nth-child(odd){border-right:none}
   }
   @media screen and (max-width:600px){.picto{grid-template-columns:repeat(3,1fr)}.hb{padding:20px}.h-main{padding:24px}}
   `;
+  B.css += biz.css;
 
   // ---------------- gráficos (módulos 4×2) ----------------
   B.gfx = `
@@ -719,6 +723,8 @@ Grid 4×4 · blocos de cor chapada · título em serifa leve + apoio em grotesca
 ## 10. Fonte
 Brandbook Alun 2025 (250822_ALUN_Brandbook_V2) · alun.com.br
 `;
+
+  B.md += biz.md;
 
   return B;
 };
