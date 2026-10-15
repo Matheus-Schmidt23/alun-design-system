@@ -16,7 +16,8 @@ body{background:#0D0C0C;color:#fff;font-family:"DM Mono",ui-monospace,Consolas,m
 a{color:inherit;text-decoration:none}
 .lg{display:inline-block;line-height:0}.lg svg{height:100%;width:auto}
 header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 28px;height:68px;flex:none}
-header .home{display:inline-flex;align-items:center}
+header .home{display:inline-flex;align-items:center;gap:14px}
+header .home .ds{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a9a5a5;padding-left:14px;border-left:1px solid #ffffff33;line-height:20px;white-space:nowrap}
 header nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 header nav a{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a9a5a5;padding:8px 12px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
 header nav a:hover,header nav a:focus-visible{color:#fff;border-color:#fff;outline:none}
@@ -28,12 +29,13 @@ main{flex:1;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:
 .box .go{position:absolute;right:22px;bottom:18px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:0;transform:translateX(-6px);transition:opacity .25s,transform .25s}
 .box:hover .go,.box:focus-visible .go{opacity:.95;transform:none}
 @media(max-width:760px){header{padding:0 16px}header nav a{padding:8px 8px;font-size:11px}main{display:flex;flex-direction:column;gap:12px}.box{flex:1;min-height:180px}.box .go{display:none}}
+@media(max-width:560px){header .home .ds{display:none}}
 @media(prefers-reduced-motion:reduce){.box,.box:hover{transition:none;transform:none}}
 </style>
 </head>
 <body>
 <header>
-  <a class="home" href="index.html" aria-label="Início"><span class="lg" style="height:20px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#D1CDCD"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span></a>
+  <a class="home" href="index.html" aria-label="Alun — Design System"><span class="lg" style="height:20px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#D1CDCD"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span><span class="ds">Design System</span></a>
   <nav aria-label="Marcas"><a href="alun.html">Alun</a><a href="alura.html">Alura</a><a href="fiap.html">FIAP</a><a href="pm3.html">PM3</a><a href="startse.html">StartSe</a></nav>
 </header>
 <main>

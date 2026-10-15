@@ -39,7 +39,8 @@ body{background:#0D0C0C;color:#fff;font-family:"DM Mono",ui-monospace,Consolas,m
 a{color:inherit;text-decoration:none}
 .lg{display:inline-block;line-height:0}.lg svg{height:100%;width:auto}
 header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 28px;height:68px;flex:none}
-header .home{display:inline-flex;align-items:center}
+header .home{display:inline-flex;align-items:center;gap:14px}
+header .home .ds{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a9a5a5;padding-left:14px;border-left:1px solid #ffffff33;line-height:20px;white-space:nowrap}
 header nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 header nav a{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a9a5a5;padding:8px 12px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
 header nav a:hover,header nav a:focus-visible{color:#fff;border-color:#fff;outline:none}
@@ -51,12 +52,13 @@ main{flex:1;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:
 .box .go{position:absolute;right:22px;bottom:18px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:0;transform:translateX(-6px);transition:opacity .25s,transform .25s}
 .box:hover .go,.box:focus-visible .go{opacity:.95;transform:none}
 @media(max-width:760px){header{padding:0 16px}header nav a{padding:8px 8px;font-size:11px}main{display:flex;flex-direction:column;gap:12px}.box{flex:1;min-height:180px}.box .go{display:none}}
+@media(max-width:560px){header .home .ds{display:none}}
 @media(prefers-reduced-motion:reduce){.box,.box:hover{transition:none;transform:none}}
 </style>
 </head>
 <body>
 <header>
-  <a class="home" href="index.html" aria-label="Início">${logo(alun, '#D1CDCD', 20)}</a>
+  <a class="home" href="index.html" aria-label="Alun — Design System">${logo(alun, '#D1CDCD', 20)}<span class="ds">Design System</span></a>
   <nav aria-label="Marcas">${menu.map(([n, id]) => `<a href="${id}.html">${n}</a>`).join('')}</nav>
 </header>
 <main>
