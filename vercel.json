@@ -3,7 +3,7 @@
   "buildCommand": "",
   "functions": {
     "api/index.js": {
-      "includeFiles": "{index,alun,alura,fiap,pm3,startse}.html,assets/**",
+      "includeFiles": "**",
       "maxDuration": 20
     }
   },
