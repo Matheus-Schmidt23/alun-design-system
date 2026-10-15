@@ -69,7 +69,7 @@ module.exports = (H) => {
   <div class="hb h-wine"><span class="lab">01</span><span class="lab">Pulso humano.</span></div>
   <div class="hb h-or"><span class="lab">Impulso tech.</span><span class="lab">Alun ecosystem</span></div>
   <div class="hb h-mag"><h2>um chamado para mudar o mundo.</h2></div>
-  <div class="hb h-mos"><canvas data-gfx="mosaic" data-seed="7" data-variant="full" data-mask="ellipse"></canvas></div>
+  <div class="hb h-mos"><canvas data-gfx="mosaic" data-seed="7" data-variant="full" data-mask="ellipse" data-cell="30"></canvas></div>
 </header>`;
 
   // ---------------- 01 ESSÊNCIA ----------------
@@ -137,20 +137,7 @@ module.exports = (H) => {
     <div class="clear-demo reveal">
       <div class="cs-box" style="padding:40px"><i class="xt">2X</i><i class="xl">2X</i><i class="xr">2X</i><i class="xb">2X</i>${lg(B, 'logo', PM, 'height:56px')}</div>
       <p style="max-width:470px;margin:0">Sendo <b style="color:#fff">X</b> a largura da haste da letra que compõe o logotipo, a área de segurança é de <b style="color:#fff">duas vezes essa dimensão</b> em todos os lados. O mesmo vale para o símbolo.<br><br><b style="color:#fff">Redução máxima:</b> 20&nbsp;px. Em reduções menores (favicon, avatar) use o símbolo.</p>
-    </div>
-
-    ${sub('Usos incorretos')}
-    <div class="wrong reveal">
-      <div><span style="display:block;transform:scaleX(1.5)">${lg(B, 'logo', BL, 'height:20px')}</span><span>Não deformar</span><b class="x">✕</b></div>
-      <div><span style="display:block;transform:rotate(-14deg)">${lg(B, 'logo', BL, 'height:20px')}</span><span>Não rotacionar</span><b class="x">✕</b></div>
-      <div><span class="lg" style="height:20px"><svg viewBox="0 0 357 86" fill="none" stroke="#000" stroke-width="3" style="height:100%;width:auto">${B.logo.paths}</svg></span><span>Não usar em outline</span><b class="x">✕</b></div>
-      <div>${lg(B, 'logo', '#1fb6a6', 'height:20px')}<span>Não usar cores fora da paleta</span><b class="x">✕</b></div>
-      <div style="background:${MON}">${lg(B, 'logo', '#c9185a', 'height:20px')}<span style="color:#fff">Sem contraste com o fundo</span><b class="x" style="color:#fff">✕</b></div>
-      <div><span style="filter:drop-shadow(4px 5px 3px rgba(0,0,0,.45));display:block">${lg(B, 'logo', BL, 'height:20px')}</span><span>Não usar sombras ou efeitos</span><b class="x">✕</b></div>
-      <div><span style="display:inline-block;transform:rotate(-90deg);margin:18px 0">${lg(B, 'logo', BL, 'height:14px')}</span><span>Não aplicar na vertical</span><b class="x">✕</b></div>
-      <div><span style="display:flex;flex-direction:column;gap:3px;align-items:flex-start"><svg viewBox="0 0 160 86" style="height:12px;width:auto"><g fill="#000">${B.logo.paths}</g></svg><svg viewBox="177 0 180 86" style="height:12px;width:auto"><g fill="#000">${B.logo.paths}</g></svg></span><span>Não quebrar o texto da marca</span><b class="x">✕</b></div>
-    </div>
-    <p class="reveal" style="margin-top:16px;font-size:13.5px">Toda aplicação que não consta no brandbook não deve ser utilizada. Também não sangrar a marca, não alterar espaçamentos e respeitar sempre a margem de segurança.</p>`
+    </div>`
   });
 
   // ---------------- 03 CORES ----------------
@@ -184,7 +171,7 @@ module.exports = (H) => {
       <div style="flex-grow:12;background:${PM};color:#000">Placa Mãe · ~12%</div>
       <div style="flex-grow:8;background:${OON};color:#000">On · ~8%</div>
       <div style="flex-grow:7;background:${OOFF};color:#fff">Off · ~7%</div>
-      <div style="flex-grow:11;background:linear-gradient(90deg,#fff 50%,${CZ} 50%);color:#000;font-size:10.5px">Branco + Cinza · ~11%</div>
+      <div style="flex-grow:11;background:linear-gradient(90deg,#fff 50%,${CZ} 50%);color:#000;font-size:10.5px">B + C · ~11%</div>
     </div>
     <p class="reveal" style="margin-top:16px;font-size:14px">Preto e Magenta dominam; Placa Mãe, Branco e Cinza dão respiro; Odisseia entra em doses menores, como acento. Cada peça é montada em <b>blocos de cor chapada</b> — sem gradientes.</p>
 
@@ -304,12 +291,12 @@ module.exports = (H) => {
     body: `
     ${sub('Quatro direcionais fotográficos')}
     <div class="grid g2 reveal">
-      <div class="card"><div class="label-k">01 · Aspiracional urbano</div><h3>O aluno numa paisagem aspiracional</h3><p>Em ambiente acadêmico e cosmopolita: arquitetura de vidro, vegetação, estilo contemporâneo e minimalista, laptop na mão, sorriso suave e olhar à frente.</p><div class="kw"><span>soft smile</span><span>confident</span><span>modern student</span><span>minimalist</span><span>urban</span></div></div>
-      <div class="card"><div class="label-k">02 · Aprendizado online</div><h3>Luz natural e madeira</h3><p>O aluno no contexto de estudo online, em cenários calorosos: interior aconchegante, estantes de madeira, plantas, luz ambiente e expressão concentrada.</p><div class="kw"><span>casual &amp; modern</span><span>warm lighting</span><span>wooden shelves</span><span>plants</span><span>focused</span></div></div>
-      <div class="card"><div class="label-k">03 · Comunidade em ação</div><h3>Construções coletivas</h3><p>Grupo diverso colaborando em ambiente industrial moderno — janelas grandes, concreto, vidro, madeira e metal — com linguagem corporal de trabalho em equipe e resolução de problemas.</p><div class="kw"><span>teamwork</span><span>problem-solving</span><span>natural light</span><span>industrial workspace</span></div></div>
-      <div class="card"><div class="label-k">04 · Institucional</div><h3>Professores e alunos</h3><p>Iluminação de recorte suave nas cores da marca, <b>sem tornar a imagem muito neon</b>. Fundo neutro, foco na expressão e na presença; atmosfera profissional, acadêmica e aspiracional.</p><div class="kw"><span>dramatic light</span><span>warm glow</span><span>neutral studio</span><span>professional</span></div></div>
+      <div class="card"><div class="label-k">01 · Aspiracional urbano</div><h3>O aluno numa paisagem aspiracional</h3><p>Em ambiente acadêmico e cosmopolita: arquitetura de vidro, vegetação, estilo contemporâneo e minimalista, laptop na mão, sorriso suave e olhar à frente.</p></div>
+      <div class="card"><div class="label-k">02 · Aprendizado online</div><h3>Luz natural e madeira</h3><p>O aluno no contexto de estudo online, em cenários calorosos: interior aconchegante, estantes de madeira, plantas, luz ambiente e expressão concentrada.</p></div>
+      <div class="card"><div class="label-k">03 · Comunidade em ação</div><h3>Construções coletivas</h3><p>Grupo diverso colaborando em ambiente industrial moderno — janelas grandes, concreto, vidro, madeira e metal — com linguagem corporal de trabalho em equipe e resolução de problemas.</p></div>
+      <div class="card"><div class="label-k">04 · Institucional</div><h3>Professores e alunos</h3><p>Iluminação de recorte suave nas cores da marca, <b>sem tornar a imagem muito neon</b>. Fundo neutro, foco na expressão e na presença; atmosfera profissional, acadêmica e aspiracional.</p></div>
     </div>
-    <p class="reveal" style="margin-top:14px;font-size:13.5px">O brandbook traz, para cada direcional, <i>prompts</i> de referência para produção fotográfica (ou geração por IA). Eles ficam no Markdown da seção Tokens &amp; IA, em inglês, como no original.</p>
+    <p class="reveal" style="margin-top:14px;font-size:13.5px">Palavras-chave e <i>prompts</i> de referência para produção fotográfica ou geração por IA estão reunidos no fim do guia, em Tokens &amp; IA.</p>
 
     ${sub('Fotografia → módulos')}
     <div class="tex-grid reveal">
@@ -380,8 +367,7 @@ module.exports = (H) => {
       <div class="pc-wrap p-feed reveal"><div class="piece sq" style="background:#000">
         ${cellBox(1, 1, 1, 2, `background:${MOFF}`)}
         ${cellBox(2, 4, 1, 2, 'background:#000', `<span class="a M" style="right:calc(26*var(--u));top:calc(24*var(--u));font-size:calc(21*var(--u));color:${PM}">ALUN.COM.BR</span>`)}
-        ${cellBox(3, 4, 2, 2, `background:#1b1a1a`, mosCanvas(4, 'full', 'ellipse', 8))}
-        ${cellBox(1, 1, 3, 4, 'background:#000', `${lg(B, 'logo', PM, 'position:absolute;left:calc(26*var(--u));bottom:calc(30*var(--u));height:calc(34*var(--u))')}`)}
+                ${cellBox(1, 1, 3, 4, 'background:#000', `${lg(B, 'logo', PM, 'position:absolute;left:calc(26*var(--u));bottom:calc(30*var(--u));height:calc(34*var(--u))')}`)}
         ${cellBox(2, 2, 3, 4, '', mosCanvas(9, 'full', 'diag', 8))}
         ${cellBox(3, 4, 3, 4, `background:${MON}`, `<div class="a" style="left:calc(24*var(--u));top:calc(24*var(--u));right:calc(24*var(--u));bottom:calc(24*var(--u));display:flex;flex-direction:column;justify-content:space-between"><span class="M" style="font-size:calc(20*var(--u));color:#000">Mais que<br>conhecimento tech</span><span class="S" style="font-size:calc(74*var(--u));line-height:.98;color:#000;font-weight:300">um chamado para mudar o mundo.</span></div>`)}
       </div><div class="pc-cap"><b>Feed</b><span>1080 × 1080</span></div></div>
@@ -466,6 +452,14 @@ module.exports = (H) => {
     <div class="code-card reveal"><div class="bar"><span>tokens.css</span><button class="btn btn-light btn-sm" id="copyCss">Copiar CSS</button></div>
 <pre id="cssTokens">${tokensPre(tokenGroups)}</pre></div>
     <p class="reveal" style="margin-top:14px;font-size:13.5px">As fontes oficiais (Flecha, FK Grotesk) são licenciadas; carregue-as a partir da licença da Alun. Para prévias, use Newsreader, Hanken Grotesk e DM Mono (Google Fonts).</p>
+    <h3 class="sub reveal" style="margin-top:56px">Geração de imagens por IA</h3>
+    <p class="reveal" style="max-width:66ch">Os quatro direcionais fotográficos, com palavras-chave e <i>prompt</i> de referência (em inglês, como no brandbook) para produção fotográfica ou geração por IA.</p>
+    <div class="grid g2 reveal" style="margin-top:20px">
+      <div class="card"><div class="label-k">01 · Aspiracional urbano</div><p><b>Prompt:</b> A young student walking in a modern urban environment, glass architecture and greenery, oversized white textured T-shirt, round metal glasses, silver laptop, soft confident smile.</p><div class="kw"><span>soft smile</span><span>confident</span><span>modern student</span><span>minimalist</span><span>urban</span></div></div>
+      <div class="card"><div class="label-k">02 · Aprendizado online</div><p><b>Prompt:</b> A young woman with curly hair indoors, focused on her laptop, wooden shelves softly lit by ambient lights, plants, cozy warm lamp.</p><div class="kw"><span>casual &amp; modern</span><span>warm lighting</span><span>wooden shelves</span><span>plants</span><span>focused</span></div></div>
+      <div class="card"><div class="label-k">03 · Comunidade em ação</div><p><b>Prompt:</b> A diverse group of five young adults around a table in a modern industrial workspace, large windows, concrete and wood, natural light, collaborating on laptops.</p><div class="kw"><span>teamwork</span><span>problem-solving</span><span>natural light</span><span>industrial workspace</span></div></div>
+      <div class="card"><div class="label-k">04 · Institucional</div><p><b>Prompt:</b> A confident older woman with gray hair in soft waves, large black glasses, gray zip-up top, modern dramatic light with warm glow, neutral studio background. <b>Sem tornar a imagem muito neon.</b></p><div class="kw"><span>dramatic light</span><span>warm glow</span><span>neutral studio</span><span>professional</span></div></div>
+    </div>
     <div class="llm-block">
       <h3 class="sub reveal">Contexto para LLM</h3>
       <p class="reveal" style="max-width:66ch">Gera um bloco em Markdown com a identidade completa — pronto para colar como contexto em outra IA.</p>
@@ -485,6 +479,9 @@ module.exports = (H) => {
   /* Alun: blocos retos, rótulos em mono, sem sombras */
   .btn,.kicker,.kicker .num,.tag,.chip-prop,.dl-lb,.dl-seg button,.dl-meta b,.logo-tile small,.wrong span,.ctr-pair,.ctr-badge,.field label,.c-kicker,.pc-wrap .pc-cap b,.dd h4,.fam .label,.vx .lb,.code-card .bar,.toast,.proportion div,.sw .hint,.quote-bar small,.attr span,.type-demo .k,.dodont h4,.tok h4,.c-quote .who{font-weight:500}
   .sw .nm{font-weight:400;font-size:22px;letter-spacing:-.01em}
+  .fam .label,.scale-row .tg,.label-k,.c-kicker{color:#600724}
+  .black .label-k,.dark .label-k,.card.is-dark .label-k{color:#FF9413}
+  .section.alt h2.title .c2{color:#600724}
   .dl-meta b{font-size:12.5px}
   .logo-tile small{font-size:11px;text-transform:uppercase;letter-spacing:.04em}
   .wrong span{font-size:10px}
@@ -515,7 +512,9 @@ module.exports = (H) => {
   .attr span:hover{background:${MON};color:#000;border-color:#000}
   .mini-attr{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
   .mini-attr span{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.04em;background:${PM};padding:3px 8px}
-  .label-k{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:${MON};margin-bottom:10px}
+  .label-k{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:${MOFF};margin-bottom:10px}
+  .black .label-k,.dark .label-k,.card.is-dark .label-k{color:#FF9413}
+  .dark .card:not(.is-dark) .label-k,.black .card:not(.is-dark) .label-k{color:${MOFF}}
   .kw{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}.kw span{font-family:var(--mono);font-size:11px;border:1px solid #000;padding:3px 8px}
   .quote-bar{border-radius:0;background:#000;border-left:14px solid ${MON}}
   .quote-bar .qm{font-family:"Newsreader",serif}
@@ -561,7 +560,7 @@ module.exports = (H) => {
   .h-mag{grid-column:1/3;grid-row:3/5;background:${MON};color:#000;justify-content:flex-end}
   .h-mag h2{font-weight:300;font-size:clamp(34px,4.6vw,76px);line-height:.98;letter-spacing:-.03em;color:#000}
   .h-mos{grid-column:3/5;grid-row:3/5;padding:0;background:#000}
-  .h-mos canvas{position:absolute;inset:0;width:100%;height:100%}
+  .h-mos canvas{position:absolute;left:0;right:0;bottom:0;top:auto;width:100%;height:38%}
   /* mosaico interativo */
   .mos-box{position:relative}
   .mos-box canvas{width:100%;aspect-ratio:1/1;background:#000;display:block;border:1px solid #333}
@@ -626,24 +625,20 @@ module.exports = (H) => {
       else if(type==='orange'){ctx.fillStyle=COL.oon;ctx.fillRect(x,y,s,s);ctx.fillStyle=COL.bk;ctx.fillRect(x+s*.38,y+s*.25,s*.24,s*.5);}
       else if(type==='stripe'){ctx.fillStyle=COL.bk;ctx.fillRect(x,y,s,s);ctx.fillStyle='#3a3838';ctx.fillRect(x+s*.38,y,s*.24,s);}
     }
+    // faixa de módulos: progressão ordenada (vazio → traço → anel → colchete → bloco), sem ruído de imagem
     function mosaic(cv,seedOverride,variantOverride){
-      var seed=+(seedOverride||cv.dataset.seed||1),variant=variantOverride||cv.dataset.variant||'full',mask=cv.dataset.mask||'ellipse';
+      var seed=+(seedOverride||cv.dataset.seed||1),variant=variantOverride||cv.dataset.variant||'full',dir=cv.dataset.mask==='diag'?-1:1;
       var dpr=Math.min(window.devicePixelRatio||1,2),w=cv.clientWidth||cv.parentNode.clientWidth,h=cv.clientHeight||cv.parentNode.clientHeight;
       if(!w||!h)return;cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);
       var ctx=cv.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle='#000';ctx.fillRect(0,0,w,h);
-      var cell=+(cv.dataset.cell||Math.max(8,Math.round(Math.min(w,h)/34)));var cols=Math.ceil(w/cell),rows=Math.ceil(h/cell);
-      var n1=noise(seed),n2=noise(seed*7+3),r=rng(seed*13+5),full=variant==='full';
+      var cell=+(cv.dataset.cell||Math.max(12,Math.round(Math.min(w,h)/10)));var cols=Math.ceil(w/cell),rows=Math.ceil(h/cell);
+      var r=rng(seed*13+5),full=variant==='full';
       for(var j=0;j<rows;j++){for(var i=0;i<cols;i++){
-        var u=i/cols,v=j/rows,m;
-        if(mask==='ellipse'){var dx=(u-.5)/.46,dy=(v-.5)/.5;m=1-Math.sqrt(dx*dx+dy*dy);}
-        else if(mask==='diag'){m=1.1-(u*.7+(1-v)*.5)+0.0;m=Math.min(1,Math.max(-1,(u-0.15)*1.5+(.5-v)*.4));}
-        else m=1;
-        var val=n1(i*.18+seed,j*.18)*.6+n2(i*.5,j*.5)*.4;val=val*.75+m*.55-.2;
-        var x=i*cell,y=j*cell,t;
-        if(val<.18)t='stripe';else if(val<.3)t='dash';else if(val<.44)t='ring';else if(val<.56)t='bracket';else if(val<.66)t=(full&&r()>.55)?'orange':'bar';else if(val<.78)t='solidOn';else t=r()>.4?'solidPm':'solidOn';
-        if(!full&&t==='orange')t='solidOn';
-        if(t==='stripe'&&(i%3))continue;
-        cellDraw(ctx,x,y,cell,t,variant,r);
+        var u=cols>1?i/(cols-1):1;if(dir<0)u=1-u;
+        var t=u*.92+(j%2?.03:0)+(r()-.5)*.1,x=i*cell,y=j*cell,ty;
+        if(t<.1){if(i%3===0)cellDraw(ctx,x,y,cell,'stripe',variant,r);continue;}
+        if(t<.24)ty='dash';else if(t<.4)ty='ring';else if(t<.56)ty='bracket';else if(t<.72)ty=(full&&r()<.14)?'orange':'bar';else if(t<.88)ty='solidOn';else ty=r()<.5?'solidPm':'solidOn';
+        cellDraw(ctx,x,y,cell,ty,variant,r);
       }}
     }
     window.GFX={mosaic:function(cv){mosaic(cv);}};

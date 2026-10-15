@@ -29,7 +29,7 @@ module.exports = (H) => {
       vars: {
         '--c-deep': AM, '--c-action': AC, '--c-action-hover': '#0067BF', '--on-action': '#fff', '--c-black': '#000', '--c-soft': '#A9C0DA', '--c-accent': VD, '--on-accent': '#00183C',
         '--c-tint': '#D6E8FB', '--c-sec': AC, '--on-sec': '#fff', '--c-title2': AC,
-        '--ink': '#1F2A33', '--paper': '#FAFAFA', '--text-2': '#4d5a61', '--muted': CM, '--line': 'rgba(0,24,60,.12)', '--fog-soft': '#E6ECEE', '--sec-alt': '#FFFFFF',
+        '--ink': '#1F2A33', '--paper': '#FAFAFA', '--text-2': '#4d5a61', '--muted': '#5B6264','--line': 'rgba(0,24,60,.12)', '--fog-soft': '#E6ECEE', '--sec-alt': '#FFFFFF',
         '--grad-b': 'linear-gradient(135deg,#00183C 0%,#0080ED 100%)',
         '--display': '"Barlow",system-ui,sans-serif', '--body': '"IBM Plex Sans","Calibri",system-ui,sans-serif', '--serif': '"Barlow",sans-serif', '--mono': '"IBM Plex Mono",ui-monospace,Consolas,monospace',
         '--serif-style': 'normal', '--serif-w': '300',
@@ -78,7 +78,7 @@ module.exports = (H) => {
 
   // ---------------- 01 ESSÊNCIA ----------------
   const s1 = sec({
-    id: 'essencia', num: '1.', label: 'Bem-vindo ao nosso universo visual', title: ['Mais que um logo,', 'um sistema'],
+    id: 'essencia', num: '01', label: 'Bem-vindo ao nosso universo visual', title: ['Mais que um logo,', 'um sistema'],
     lead: 'A identidade StartSe é muito mais que um logo: é um sistema visual composto por diversos elementos — tipografia, cores e iconografia — que se conectam e se combinam para criar uma estética única e diferenciada. Não é só um logo: é um resumo da nossa história e do nosso propósito.',
     body: `
     <div class="grid g3 reveal" style="margin-top:40px">
@@ -107,7 +107,7 @@ module.exports = (H) => {
   const wr = (inner, label, bg = '#fff', color = '') => `<div style="background:${bg}">${inner}<span${color ? ` style="color:${color}"` : ''}>${label}</span><b class="x"${color ? ` style="color:${color}"` : ''}>✕</b></div>`;
   const noArrow = `<span class="lg" style="height:20px"><svg viewBox="0 0 132 25" fill="none"><g fill="${AC}"><path d="${DOT}M${SYM_S.slice(1)}M${LETTERS.slice(1)}"/></g></svg></span>`;
   const s2 = sec({
-    id: 'logo', num: '2.', label: 'Nossa logo', cls: 'dark', title: ['Um ponto', 'de partida'],
+    id: 'logo', num: '02', label: 'Nossa logo', cls: 'dark', title: ['Um ponto', 'de partida'],
     lead: 'A marca é o elemento mais visível da identidade: carrega o ponto de partida, a conexão entre as pessoas e o aprendizado contínuo. A <b style="color:#fff">assinatura completa</b> (wordmark + seta pontilhada, na horizontal) é a de uso preferencial.',
     body: `
     <div class="logo-grid reveal" style="margin-top:44px">
@@ -140,16 +140,6 @@ module.exports = (H) => {
         ${rule(2, 'Respiro mínimo de 4x', 'A logo merece destaque em todos os pontos de contato: mantenha 4x livres em todos os lados entre a logo e qualquer outro elemento.')}
         ${rule(3, 'Reduções máximas', 'Logo completa: 18 px / 3,6 mm de altura. Assinatura simplificada (.S + seta): 55 px / 11 mm. Válido para digital e impresso — inclusive para o selo de certificação.', true)}
       </div>
-    </div>
-
-    ${sub('Usos proibidos')}
-    <div class="wrong reveal">
-      ${wr(`<span style="display:block;letter-spacing:5px;transform:scaleX(1.05)">${lg(B, 'logo', AC, 'height:20px;clip-path:inset(0 0 0 0)')}</span>`, 'Não alterar a estrutura')}
-      ${wr(lg(B, 'logo', VD, 'height:20px'), 'Não alterar as cores, mesmo p/ um tom da paleta')}
-      ${wr(`<span style="filter:drop-shadow(4px 5px 3px rgba(0,0,0,.45));display:block">${lg(B, 'logo', AC, 'height:20px')}</span>`, 'Não aplicar efeitos gráficos')}
-      ${wr(`<span class="lg" style="height:20px"><svg viewBox="0 0 170 25" fill="none" stroke="${AC}" stroke-width=".9" style="height:100%;width:auto">${B.logo.paths}</svg></span>`, 'Não usar a logo em outline')}
-      ${wr(`<span style="display:block;transform:rotate(-14deg) skewX(-10deg)">${lg(B, 'logo', AC, 'height:20px')}</span>`, 'Não girar ou distorcer')}
-      ${wr(noArrow, 'Não usar a logo sem a seta pontilhada')}
     </div>`
   });
 
@@ -158,7 +148,7 @@ module.exports = (H) => {
   const c = (name, hex, role, o = {}) => Object.assign({ name, hex, role, rgb: rgb(hex), wide: false }, o);
   const bars = (arr) => `<div class="bars">${arr.map(([h, v, n, ol]) => `<div><i style="height:${v}%;background:${h};${ol ? 'outline:1.5px solid #00183C;outline-offset:-1.5px' : ''}"></i><span>${n}</span></div>`).join('')}</div>`;
   const s3 = sec({
-    id: 'cores', num: '2.', label: 'Nossas cores', cls: 'alt', title: ['Do sóbrio', 'ao vibrante'],
+    id: 'cores', num: '03', label: 'Nossas cores', cls: 'alt', title: ['Do sóbrio', 'ao vibrante'],
     lead: 'A marca é próxima, diversa e adaptável — e a paleta reflete isso: do sóbrio azul marinho a um verde mais vibrante, passando por cores sóbrias que representam o público executivo (preto, branco, cinza) e o tom educacional (StartSe University). Siga as especificações rigorosamente. Clique em qualquer cor para copiar o HEX.',
     body: `
     ${sub('Primárias')}
@@ -195,7 +185,7 @@ module.exports = (H) => {
   // ---------------- 04 TIPOGRAFIA ----------------
   const BW = "'Barlow',sans-serif", PX = "'IBM Plex Sans',sans-serif";
   const s4 = sec({
-    id: 'tipografia', num: '3.', label: 'Nossa tipografia', title: ['Barlow &', 'IBM Plex Sans'],
+    id: 'tipografia', num: '04', label: 'Nossa tipografia', title: ['Barlow &', 'IBM Plex Sans'],
     lead: 'Duas famílias minimalistas que se complementam para ilustrar a diversidade e a versatilidade da marca. Como nas cores, a escolha reflete o lado inovador da StartSe: <b>Barlow</b> nos títulos e <b>IBM Plex Sans</b> no corpo. Fonte de segurança: Calibri.',
     body: `
     <div class="fam reveal" style="margin-top:40px;--fams:2">
@@ -250,7 +240,7 @@ module.exports = (H) => {
     ['Instituição', ic('<path d="M4 18L24 6l20 12zM8 18v18M18 18v18M30 18v18M40 18v18M4 40h40"/>')]
   ];
   const s5 = sec({
-    id: 'grafismo', num: '4.', label: 'Grafismo & iconografia', cls: 'dark', title: ['O ponto', 'que se conecta'],
+    id: 'grafismo', num: '05', label: 'Grafismo & iconografia', cls: 'dark', title: ['O ponto', 'que se conecta'],
     lead: 'O elemento gráfico central é o <b style="color:#fff">ponto</b> — o mesmo que dá início à wordmark e compõe a seta pontilhada do Lifelong Learning. Em grade, os pontos viram padrões, fundos e destaques; em traço fino, nascem os ícones.',
     body: `
     <div class="two reveal" style="margin-top:40px;align-items:stretch">
@@ -272,7 +262,7 @@ module.exports = (H) => {
 
   // ---------------- 06 COMPONENTES ----------------
   const s6 = sec({
-    id: 'componentes', num: '5.', label: 'Componentes', title: ['Blocos de', 'interface'],
+    id: 'componentes', num: '06', label: 'Componentes', title: ['Blocos de', 'interface'],
     lead: 'Limpos e diretos, com cantos suaves, caixa alta nos botões e o azul claro como sinal de ação. Tudo abaixo é HTML/CSS real, derivado do site startse.com e do manual.',
     body: `
     <div class="comp reveal">
@@ -320,7 +310,7 @@ module.exports = (H) => {
 
   // ---------------- 07 PEÇAS ----------------
   const s7 = sec({
-    id: 'pecas', num: '6.', label: 'Peças & layouts', cls: 'black', title: ['Tudo', 'junto'],
+    id: 'pecas', num: '07', label: 'Peças & layouts', cls: 'black', title: ['Tudo', 'junto'],
     lead: 'Três aplicações de referência montadas com o sistema: fundo de cor chapada, a seta pontilhada em baixo contraste, Barlow nos títulos, Plex Sans no corpo e a assinatura em um canto. Textos são exemplos.',
     body: `
     <div class="pieces" style="margin-top:44px">
@@ -360,7 +350,7 @@ module.exports = (H) => {
 
   // ---------------- 08 VOZ ----------------
   const s8 = sec({
-    id: 'voz', num: '7.', label: 'Voz & mensagens', cls: 'alt', title: ['Direta,', 'global, para líderes'],
+    id: 'voz', num: '08', label: 'Voz & mensagens', cls: 'alt', title: ['Direta,', 'global, para líderes'],
     lead: 'O manual define a identidade visual e <b>não traz um guia de tom de voz</b>. Os princípios abaixo são uma <b>leitura do próprio manual e do site</b> — para alinhar com o time de marca antes de virarem regra.',
     body: `
     <div class="chip-note reveal"><span class="chip-prop">proposta</span> Conteúdo derivado de startse.com e do manual; não é uma diretriz oficial aprovada.</div>
@@ -402,7 +392,7 @@ module.exports = (H) => {
   ];
   tokenGroups.title = 'StartSe — Design tokens v1.0';
   const s9 = sec({
-    id: 'ia', num: '8.', label: 'Tokens & IA', cls: 'dark', title: ['Pronto para', 'código'],
+    id: 'ia', num: '09', label: 'Tokens & IA', cls: 'dark', title: ['Pronto para', 'código'],
     lead: 'Tokens CSS para sites, apresentações e ferramentas — e um contexto em Markdown para alimentar outras IAs na criação de peças consistentes com a marca.',
     body: `
     <div class="code-card reveal"><div class="bar"><span>tokens.css</span><button class="btn btn-light btn-sm" id="copyCss">Copiar CSS</button></div>
@@ -424,9 +414,9 @@ module.exports = (H) => {
   // ---------------- CSS ----------------
   B.css = `
   nav.top a{font-weight:600}
-  nav.top a.nav-home{background:#fff;color:${AC}}nav.top a.nav-home:hover{color:${AC}}
-  .kicker{font-weight:500;letter-spacing:.06em;font-size:13px;text-transform:none}
-  .kicker .num{border:none;padding:0;color:${AC};font-family:var(--mono);font-weight:500;background:transparent}
+  nav.top a.nav-home{background:#fff;color:${AM}}nav.top a.nav-home:hover{color:${AM}}
+  .kicker{font-weight:500;letter-spacing:.06em;font-size:13px;text-transform:none;color:${AM}}
+  .kicker .num{border:none;padding:0;color:${AM};font-family:var(--mono);font-weight:500;background:transparent}
   .dark .kicker .num,.black .kicker .num{background:transparent;color:#A9C0DA}
   h2.title{font-size:clamp(36px,5.4vw,78px);font-weight:700;color:${AC};letter-spacing:-.02em;line-height:.98}
   h2.title::after{content:' —';color:${AC}}
@@ -434,11 +424,12 @@ module.exports = (H) => {
   .dark h2.title,.black h2.title{color:${AC}}.dark h2.title .c2,.black h2.title .c2{color:#fff}
   .black h2.title::after,.dark h2.title::after{color:${AC}}
   .lead{font-size:17px}
-  h3.sub{font-family:var(--mono);font-weight:500;letter-spacing:.06em;text-transform:none;font-size:13px;color:${AC}}
+  h3.sub{font-family:var(--mono);font-weight:500;letter-spacing:.06em;text-transform:none;font-size:13px;color:${AM}}
+  h3.sub::before{color:${AC}}
   .dark h3.sub,.black h3.sub{color:#A9C0DA}
   h3.sub::before{content:'● ';font-size:10px}
   .card h3{font-weight:700;letter-spacing:-.01em}
-  .card .idx{font-family:var(--mono);font-weight:500;font-size:14px;color:${AC}}
+  .card .idx{font-family:var(--mono);font-weight:500;font-size:14px;color:${AM}}
   .card.is-dark .idx{color:${VD}}
   .attr span{border-color:${AC};font-weight:600}
   .quote-bar{border-radius:var(--r-xl)}
@@ -454,7 +445,7 @@ module.exports = (H) => {
   .chip-note{font-size:14px;color:var(--text-2)}
   .mean{height:60px;display:flex;align-items:center;margin-bottom:12px}.mean svg{height:100%;width:auto}.mean .rt{font-family:var(--display);font-weight:800;font-size:44px;letter-spacing:-.06em;color:${AC}}
   .arch{border-radius:var(--r-card);padding:26px;display:flex;flex-direction:column;gap:10px;min-height:200px;justify-content:flex-end}.arch b{font-family:var(--display);font-size:28px;letter-spacing:-.01em}.arch span{font-size:14px;opacity:.92;line-height:1.45}
-  .bars{display:flex;gap:10px;align-items:flex-end;height:200px;margin-top:16px}.bars > div{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px}.bars i{display:block;width:100%;border-radius:3px}.bars span{font-size:10.5px;color:var(--muted);font-family:var(--mono);text-align:center}
+  .bars{display:flex;gap:10px;align-items:flex-end;height:200px;margin-top:16px}.bars > div{flex:1;min-width:0;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px}.bars i{display:block;width:100%;border-radius:3px}.bars span{font-size:10.5px;color:var(--muted);font-family:var(--mono);text-align:center}
   .constr .cx{display:flex;gap:2px;font-family:var(--mono);font-size:12px;color:#A9C0DA;margin-bottom:8px}.constr .cx span{flex:1;text-align:center;border-bottom:1px solid #A9C0DA55;padding-bottom:4px}
   .constr .cbox{border:1px dashed #A9C0DA;padding:34px;display:flex;justify-content:center}.constr .clear{position:relative;padding:34px 44px;border:1px dashed #7aa7d6;background:#ffffff0a}
   .constr .clear i{position:absolute;font-style:normal;font-family:var(--mono);font-size:11px;font-weight:700;color:${AM};background:#A9C0DA;padding:1px 6px;border-radius:4px}.constr .clear .t{top:6px;left:50%;transform:translateX(-50%)}.constr .clear .r{right:8px;top:50%;transform:translateY(-50%)}

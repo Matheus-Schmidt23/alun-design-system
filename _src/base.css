@@ -391,3 +391,11 @@ footer a{color:#fff}
 .wrong .lg{height:20px}
 .section.black .pc-wrap .pc-cap,.section.dark .pc-wrap .pc-cap{color:var(--c-soft)}
 .section.black .pc-wrap .pc-cap b,.section.dark .pc-wrap .pc-cap b{color:#fff}
+
+.fam .card,.grid > *,.two > *{min-width:0}
+.fam .card{overflow:hidden}
+.fam .card div[style*='AaBb']{overflow-wrap:anywhere}
+
+/* evita estouro horizontal com trechos de código longos */
+p code,li code{overflow-wrap:anywhere;word-break:break-word}
+html,body{overflow-x:clip}

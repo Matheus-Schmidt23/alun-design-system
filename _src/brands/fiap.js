@@ -134,18 +134,6 @@ module.exports = (H) => {
       <div style="max-width:470px"><p style="margin:0 0 14px">Use o <b style="color:#fff">F do logo em toda a sua altura</b> como referência da área de segurança mínima — a margem que garante legibilidade e impacto visual. Cada variação define a sua letra de referência (F, O, M, R, N ou P).</p>
         <div class="min-tab"><div><b>117 px</b><span>largura mínima digital</span></div><div><b>2,3 cm</b><span>largura mínima impresso</span></div></div>
         <p style="margin:12px 0 0;font-size:12.5px">Redução mínima do logo FIAP. As demais variações têm valores próprios (de 117 a 280&nbsp;px em digital, de 2,3 a 4,3&nbsp;cm em impresso) — consulte a página do produto no arquivo Figma.</p></div>
-    </div>
-
-    ${sub('Usos incorretos', 'boas práticas')}
-    <div class="wrong reveal">
-      ${wr(`<span style="display:block;transform:scaleX(1.5)">${lg(B, 'logo', MG, 'height:20px')}</span>`, 'Não distorcer')}
-      ${wr(`<span style="display:block;transform:rotate(-12deg)">${lg(B, 'logo', MG, 'height:20px')}</span>`, 'Não rotacionar')}
-      ${wr(lg(B, 'logo', '#1fb6a6', 'height:20px'), 'Não recolorir fora da paleta')}
-      ${wr(`<span style="filter:drop-shadow(4px 5px 3px rgba(0,0,0,.45));display:block">${lg(B, 'logo', MG, 'height:20px')}</span>`, 'Não aplicar sombras')}
-      ${wr(lg(B, 'logo', '#c9185a', 'height:20px'), 'Sem contraste com o fundo', MG, '#fff')}
-      ${wr(`<span class="lg" style="height:20px"><svg viewBox="0 0 100 28" fill="none" stroke="${MG}" stroke-width=".6" style="height:100%;width:auto">${B.logo.paths}</svg></span>`, 'Não usar apenas em contorno sobre branco')}
-      ${wr(lg(B, 'logo', MG, 'height:8px'), 'Abaixo da redução mínima')}
-      ${wr(`<span style="display:block;letter-spacing:5px;font-family:var(--display);font-size:22px;font-weight:500;color:${MG}">FIAP</span>`, 'Não recriar em outra fonte')}
     </div>`
   });
 
@@ -462,7 +450,9 @@ module.exports = (H) => {
   B.css = `
   nav.top a{font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:11px}
   nav.top a.nav-home{border-radius:0}
-  .kicker{letter-spacing:.18em}
+  .kicker{letter-spacing:.18em;color:#14191C}
+  .dark .kicker,.black .kicker{color:#ACC1CC}
+  .scale-row .tg,.fam .label{color:#14191C}
   h2.title{font-size:clamp(34px,5vw,70px);font-weight:600}
   .black h2.title .c2,.dark h2.title .c2{color:${MG}}
   h3.sub{letter-spacing:.16em;color:#14191C;display:flex;align-items:center;gap:10px}
@@ -476,7 +466,9 @@ module.exports = (H) => {
   .card .idx{font-weight:500;color:${MG}}
   .rule{border-left:3px solid ${MG}}
   .rule .n{color:${MG}}
-  .label-k{font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:${MG};margin-bottom:12px}
+  .label-k{font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#14191C;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .label-k::before{content:'';width:8px;height:8px;background:${MG}}
+  .card.is-dark .label-k,.black .label-k,.dark .label-k{color:#ACC1CC}
   .attr span{border-radius:0;border-color:#14191C;color:#14191C;text-transform:uppercase;font-size:12px;letter-spacing:.06em;font-weight:500}
   .attr span:hover{background:${MG};border-color:${MG};color:#fff}
   .quote-bar{border-radius:0;border-left:14px solid ${MG}}

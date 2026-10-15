@@ -102,6 +102,15 @@ if (fs.existsSync(pm3Src)) {
   html = html.replace(pdfLink,
     '<a class="btn btn-sm" href="index.html" style="background:transparent;color:#B9B5C1;border:1.5px solid #B9B5C1;border-radius:99px;padding:9px 16px;font-size:11px;letter-spacing:.06em">&larr; Marcas do grupo</a> ' +
     '<a class="btn btn-pdf btn-sm" href="assets/Design-System-PM3.pdf" download>Baixar PDF</a>');
+  // remove o bloco visual de usos incorretos do logo
+  const w0 = html.indexOf('<div class="wrong reveal">');
+  if (w0 > -1) {
+    // o bloco termina no </div> que antecede o fechamento do wrap e da seção
+    const sec = html.indexOf('</section>', w0);
+    const wrapClose = html.lastIndexOf('</div>', sec);          // fecha .wrap
+    const blockClose = html.lastIndexOf('</div>', wrapClose - 1); // fecha .wrong
+    html = html.slice(0, w0).trimEnd() + '\n  ' + html.slice(blockClose + '</div>'.length).trimStart();
+  }
   fs.writeFileSync(path.join(OUT, 'pm3.html'), html);
   console.log('ok pm3.html', Math.round(fs.statSync(path.join(OUT, 'pm3.html')).size / 1024) + ' KB');
 }

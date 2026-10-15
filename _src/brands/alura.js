@@ -77,7 +77,7 @@ module.exports = (H) => {
     body: `
     <div class="grid g2 reveal" style="margin-top:40px">
       <div class="card is-dark" style="background:${BU}"><div class="label-k">Propósito</div><h3 style="font-weight:300;font-size:26px;line-height:1.2">Despertar os superpoderes da tecnologia nas pessoas — amplificando potenciais, vozes e comunidades.</h3></div>
-      <div class="card is-dark" style="background:${TB}"><div class="label-k">Sonho</div><h3 style="font-weight:300;font-size:26px;line-height:1.2">Alavancar o protagonismo dev em um mundo onde a tecnologia é a base de todo o mercado e de todas as carreiras.</h3></div>
+      <div class="card is-dark" style="background:${TB}"><div class="label-k" style="color:#D1DEF9">Sonho</div><h3 style="font-weight:300;font-size:26px;line-height:1.2">Alavancar o protagonismo dev em um mundo onde a tecnologia é a base de todo o mercado e de todas as carreiras.</h3></div>
     </div>
 
     ${sub('Posicionamento')}
@@ -131,20 +131,7 @@ module.exports = (H) => {
     <div class="clear-demo reveal">
       <div class="cs-box"><i class="xt">x</i><i class="xl">x</i><i class="xr">x</i><i class="xb">x</i>${lg(B, 'logo', '#fff', 'height:56px')}</div>
       <p style="max-width:460px;margin:0">A área de respiro é a <b style="color:#fff">altura-x</b> — a medida de um caractere em caixa baixa, proporcional ao logo — em todos os lados. Nenhum texto, foto ou borda de bloco invade essa área.<br><br><b style="color:#fff">Tamanho mínimo:</b> o guia não fixa um valor; recomendamos 64&nbsp;px de largura em tela. <span class="chip-prop">proposta</span></p>
-    </div>
-
-    ${sub('Usos incorretos')}
-    <div class="wrong reveal">
-      ${wr(`<span style="display:block;transform:scaleX(1.5)">${lg(B, 'logo', NB, 'height:20px')}</span>`, 'Não distorcer')}
-      ${wr(`<span style="display:block;transform:rotate(-12deg)">${lg(B, 'logo', NB, 'height:20px')}</span>`, 'Não rotacionar')}
-      ${wr(lg(B, 'logo', '#E6193B', 'height:20px'), 'Não recolorir fora da paleta')}
-      ${wr(`<span style="filter:drop-shadow(4px 5px 3px rgba(0,0,0,.45));display:block">${lg(B, 'logo', NB, 'height:20px')}</span>`, 'Não aplicar sombras')}
-      ${wr(lg(B, 'logo', '#3165E7', 'height:20px'), 'Sem contraste com o fundo', TB, '#fff')}
-      ${wr(`<span class="lg" style="height:20px"><svg viewBox="0 0 107 32" fill="none" stroke="${NB}" stroke-width="1.2" style="height:100%;width:auto">${B.logo.paths}</svg></span>`, 'Não usar em outline')}
-      ${wr(`<span style="display:flex;gap:10px;align-items:center">${lg(B, 'logo', NB, 'height:20px')}<span style="position:static;color:${NB};font-weight:700;font-size:10px;padding:0">+ SELO</span></span>`, 'Não adicionar elementos')}
-      ${wr(`<span style="display:block;letter-spacing:6px;font-family:var(--display);font-size:22px;font-weight:500;color:${NB}">alura</span>`, 'Não recriar em outra fonte')}
-    </div>
-    <p class="reveal" style="margin-top:16px;font-size:13.5px">Tais exemplos descaracterizam a marca e confundem a audiência, gerando inconsistências e fazendo com que a marca perca seu valor.</p>`
+    </div>`
   });
 
   // ---------------- 03 CORES ----------------
@@ -323,17 +310,10 @@ module.exports = (H) => {
     <div class="tex-grid reveal">
       <div class="tex"><div class="fill" style="background:radial-gradient(circle at 30% 30%,#e8c9a3,#8a6a4a 55%,#3b2c20)"></div><div class="cap"><b>Documental</b>Luz natural, tons terrosos</div></div>
       <div class="tex"><div class="fill" style="background:radial-gradient(circle at 50% 35%,#8a8a8a 0,#444444 55%,#1b1b1b)"></div><div class="cap"><b>Autoral</b>P&amp;B, fundo #444444, luz suave</div></div>
-      <div class="tex"><div class="fill" style="background:radial-gradient(circle at 70% 25%,#7A9FF0,#0429BC 50%,#010C53)"></div><div class="cap"><b>High-end (IA)</b>Topo de funil, aspiracional</div></div>
+      <div class="tex"><div class="fill" style="background:radial-gradient(circle at 70% 25%,#7A9FF0,#0429BC 50%,#010C53)"></div><div class="cap"><b>High-end</b>Topo de funil, aspiracional</div></div>
       <div class="tex"><div class="fill" style="background:linear-gradient(135deg,#f0ede6,#c9c3b6)"></div><div class="cap"><b>Performance</b>Realista, estilo “não produzido”</div></div>
     </div>
-    <p class="reveal" style="margin-top:12px;font-size:13px;color:var(--muted)">Blocos de cor ilustram o tom de cada tratamento — não são fotografias. As imagens oficiais estão no acervo da marca.</p>
-
-    ${sub('Imagens geradas por IA')}
-    <div class="grid g2 reveal">
-      <div class="card is-dark" style="background:${BU}"><h3>Campanhas de marca e movimento</h3><p>Imagens <i>high-end</i> geradas por IA em projetos de alta visibilidade (topo de funil): cenas refinadas, controladas e simbólicas, que reforçam que tecnologia e estética refinada coexistem.</p></div>
-      <div class="card is-dark" style="background:${NB}"><h3>Campanhas de performance</h3><p>Meio e fundo de funil: imagens mais espontâneas, que simulam a realidade — estilo documental, autoral, “não produzido”. Imperfeições trazem realismo e profundidade.</p></div>
-    </div>
-    <div class="prompt reveal" style="max-width:none;margin-top:18px;color:var(--muted);border-color:${TB}"><b style="color:var(--ink)">Exemplo de prompt (retrato autoral)</b><br>“Recreate the exactly same person but change the background to #444444, make a very soft light behind her so the background doesn’t look flat. Change the photo to black and white.”<br>Modelo: Nano Banana 2 · Resolução: 2K · Enquadramento: 3:4 · Finalize no Photoshop: camada como objeto inteligente, aplique <i>noise</i> e o efeito <i>soft light</i>.</div>`
+    <p class="reveal" style="margin-top:12px;font-size:13px;color:var(--muted)">Blocos de cor ilustram o tom de cada tratamento — não são fotografias. As imagens oficiais estão no acervo da marca.</p>`
   });
 
   // ---------------- 07 COMPONENTES ----------------
@@ -470,6 +450,12 @@ module.exports = (H) => {
     <div class="code-card reveal"><div class="bar"><span>tokens.css</span><button class="btn btn-light btn-sm" id="copyCss">Copiar CSS</button></div>
 <pre id="cssTokens">${tokensPre(tokenGroups)}</pre></div>
     <p class="reveal" style="margin-top:14px;font-size:13.5px">Fontes: <code>&lt;link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@200;300;400;500;600&amp;family=Encode+Sans+Expanded:wght@200;300;500&amp;family=Roboto+Flex:wght@300;400;500;600&amp;display=swap" rel="stylesheet"&gt;</code></p>
+    ${sub('Imagens geradas por IA')}
+    <div class="grid g2 reveal">
+      <div class="card is-dark" style="background:${BU};border:1px solid #ffffff33"><h3>Campanhas de marca e movimento</h3><p>Imagens <i>high-end</i> geradas por IA em projetos de alta visibilidade (topo de funil): cenas refinadas, controladas e simbólicas, que reforçam que tecnologia e estética refinada coexistem.</p></div>
+      <div class="card is-dark" style="background:${NB};border:1px solid #ffffff33"><h3>Campanhas de performance</h3><p>Meio e fundo de funil: imagens mais espontâneas, que simulam a realidade — estilo documental, autoral, “não produzido”. Imperfeições trazem realismo e profundidade.</p></div>
+    </div>
+    <div class="prompt reveal" style="max-width:none;margin-top:18px;color:#C9D3F5;background:#ffffff0d;border-color:#7A9FF0"><b style="color:#fff">Exemplo de prompt (retrato autoral)</b><br>“Recreate the exactly same person but change the background to #444444, make a very soft light behind her so the background doesn’t look flat. Change the photo to black and white.”<br>Modelo: Nano Banana 2 · Resolução: 2K · Enquadramento: 3:4 · Finalize no Photoshop: camada como objeto inteligente, aplique <i>noise</i> e o efeito <i>soft light</i>.</div>
     <div class="llm-block">
       <h3 class="sub reveal">Contexto para LLM</h3>
       <p class="reveal" style="max-width:66ch">Gera um bloco em Markdown com a identidade completa — pronto para colar como contexto em outra IA.</p>
@@ -490,7 +476,8 @@ module.exports = (H) => {
   nav.top a.nav-home{background:#fff;color:${TB}}
   nav.top a.nav-home:hover{color:${TB}}
   .kicker{font-weight:500;letter-spacing:.14em;font-size:12px}
-  .kicker .num{border:1px solid currentColor;padding:2px 9px;font-weight:500}
+  .kicker .num{border:1px solid currentColor;padding:2px 9px;font-weight:500;color:#0429BC}
+  .dark .kicker .num,.black .kicker .num{color:#7A9FF0;background:transparent}
   h2.title{font-size:clamp(38px,5.4vw,76px)}
   h2.title .c2{color:#3165E7}
   .black h2.title .c2,.dark h2.title .c2{color:#7A9FF0}
@@ -545,6 +532,7 @@ module.exports = (H) => {
   .tex .fill{position:absolute;inset:0}
   .c-course .im{background-color:#010C53}
   @media screen and (max-width:980px){.hero-pat{width:100%;opacity:.5}.orb{right:-30%;width:90vw;opacity:.7}.h-meta{flex-direction:column;gap:4px}}
+  @media screen and (max-width:600px){.orb{opacity:.38}.hero-pat{opacity:.3}}
   `;
 
   // ---------------- gráficos ----------------

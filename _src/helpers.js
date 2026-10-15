@@ -22,22 +22,25 @@ function sec({ id, num, label, cls = '', title, lead = '', body = '' }) {
 }
 
 // swatch clicável (copia HEX)
+const bestText = hex => (ratio('#FFFFFF', hex) >= ratio('#0D0D0D', hex) ? '#FFFFFF' : '#0D0D0D');
 function sw(c) {
-  const cls = ['sw', c.wide ? 'wide' : '', c.light ? 'light' : '', c.bordered ? 'bordered' : '', c.sm ? 'sm' : ''].filter(Boolean).join(' ');
+  const auto = /^#[0-9a-f]{6}$/i.test(c.hex || '') && !c.bg ? bestText(c.hex) : null;
+  const dark = auto ? auto !== '#FFFFFF' : !!c.light;
+  const cls = ['sw', c.wide ? 'wide' : '', dark ? 'light' : '', c.bordered ? 'bordered' : '', c.sm ? 'sm' : ''].filter(Boolean).join(' ');
   const copyVal = c.copy || c.hex;
   const bg = c.bg || c.hex;
   const lines = c.lines || [
     [['HEX', c.hex], c.rgb ? ['RGB', c.rgb] : null],
     [c.cmyk ? ['CMYK', c.cmyk] : null, c.pantone ? ['PANTONE', c.pantone] : null]
   ].map(row => row.filter(Boolean).map(([k, v]) => `<b>${k}</b>${v}`).join(' &nbsp; ')).filter(Boolean);
-  const style = `background:${bg};${c.style || ''}`;
+  const style = `background:${bg};${auto && !/color:/.test(c.style || '') ? 'color:' + auto + ';' : ''}${c.style || ''}`;
   return `<div class="${cls}" role="button" tabindex="0" data-hex="${esc(copyVal)}" style="${style}"><span class="hint">${c.copy && !c.copy.startsWith('#') ? 'copiar CSS' : 'copiar HEX'}</span><div><div class="nm">${c.name}</div><div class="role">${c.role || ''}</div></div><div class="codes">${lines.join('<br>')}</div></div>`;
 }
 const swGrid = (arr, extra = '') => `<div class="sw-grid reveal" ${extra}>${arr.map(sw).join('')}</div>`;
 
 // rampa de tons (escala 50–1600 etc.)
 function ramp(items, n) {
-  return `<div class="ramp reveal" style="--n:${n || items.length}">${items.map(([name, hex, dark]) => `<div data-hex="${hex}" style="background:${hex};color:${dark ? '#fff' : '#111'}"><b>${name}</b>${hex}</div>`).join('')}</div>`;
+  return `<div class="ramp reveal" style="--n:${n || items.length}">${items.map(([name, hex, dark]) => `<div data-hex="${hex}" style="background:${hex};color:${bestText(hex)}"><b>${name}</b>${hex}</div>`).join('')}</div>`;
 }
 
 const card = (t, d, o = {}) => `<div class="card${o.dark ? ' is-dark' : ''}">${o.idx ? `<div class="idx">${o.idx}</div>` : ''}<h3>${t}</h3><p>${d}</p></div>`;
