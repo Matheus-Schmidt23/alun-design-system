@@ -1,4 +1,6 @@
 {
+  "outputDirectory": "public",
+  "buildCommand": "",
   "functions": {
     "api/index.js": {
       "includeFiles": "{index,alun,alura,fiap,pm3,startse}.html,assets/**",
