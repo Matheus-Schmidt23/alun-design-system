@@ -69,7 +69,7 @@ module.exports = (H) => {
   <div class="hb h-wine"><span class="lab">01</span><span class="lab">Pulso humano.</span></div>
   <div class="hb h-or"><span class="lab">Impulso tech.</span><span class="lab">Alun ecosystem</span></div>
   <div class="hb h-mag"><h2>um chamado para mudar o mundo.</h2></div>
-  <div class="hb h-mos"><canvas data-gfx="mosaic" data-seed="7" data-variant="full" data-mask="ellipse" data-cell="30"></canvas></div>
+  <div class="hb h-mos">${lg(B, 'symbol', '#000', 'height:clamp(54px,7vw,110px)')}</div>
 </header>`;
 
   // ---------------- 01 ESSÊNCIA ----------------
@@ -559,7 +559,7 @@ module.exports = (H) => {
   .h-or{grid-column:4;grid-row:2;background:${OON};color:#000}
   .h-mag{grid-column:1/3;grid-row:3/5;background:${MON};color:#000;justify-content:flex-end}
   .h-mag h2{font-weight:300;font-size:clamp(34px,4.6vw,76px);line-height:.98;letter-spacing:-.03em;color:#000}
-  .h-mos{grid-column:3/5;grid-row:3/5;padding:0;background:#000}
+  .h-mos{grid-column:3/5;grid-row:3/5;background:#D1CDCD;justify-content:flex-end;align-items:flex-start}
   .h-mos canvas{position:absolute;left:0;right:0;bottom:0;top:auto;width:100%;height:38%}
   /* mosaico interativo */
   .mos-box{position:relative}

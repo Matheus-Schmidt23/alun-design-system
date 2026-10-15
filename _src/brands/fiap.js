@@ -60,11 +60,9 @@ module.exports = (H) => {
   // ---------------- HERO ----------------
   B.hero = `
 <header class="hero">
-  <canvas class="hero-pt" data-gfx="particles" data-seed="3"></canvas>
   <div class="wrap hero-in">
     <div class="h-meta"><span>Design System · v2.0 · 2026</span><span>Criação FIAP</span></div>
     <div class="h-mid">
-      <svg class="h-logo" viewBox="0 0 100 28" fill="none" stroke="${MG}" stroke-width=".22" aria-hidden="true">${B.logo.paths}</svg>
       <div class="h-txt">
         <h1>A melhor faculdade <span>tech</span> do Brasil.</h1>
         <p>Elementos visuais, padrões de design, guias de tamanho, templates e paleta de cores — um só sistema para unificar interfaces, garantir consistência, acessibilidade e eficiência em todos os produtos e plataformas da FIAP.</p>
@@ -492,11 +490,11 @@ module.exports = (H) => {
   .min-tab{display:flex;gap:12px}.min-tab div{flex:1;border:1px solid rgba(255,255,255,.25);padding:14px 16px}.min-tab b{display:block;font-family:var(--display);font-size:26px;color:${MG};font-weight:600;letter-spacing:-.02em}.min-tab span{font-size:12px;color:${UL}}
   .ftxt{margin:6px 0 10px;line-height:1.1}
   /* hero */
-  .hero{position:relative;overflow:hidden;background:#000;color:#fff;min-height:min(calc(100svh - 49px),860px);display:flex}
+  .hero{position:relative;overflow:hidden;background:radial-gradient(70% 90% at 92% 55%,rgba(237,20,91,.30),transparent 68%),#000;color:#fff;min-height:min(calc(100svh - 49px),860px);display:flex}
   .hero-pt{position:absolute;inset:0;width:100%;height:100%}
   .hero-in{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;padding-top:34px;padding-bottom:96px;width:100%}
   .h-meta{display:flex;justify-content:space-between;gap:16px;font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:${UL}}
-  .h-mid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:40px;align-items:center;margin:36px 0}
+  .h-mid{display:grid;grid-template-columns:minmax(0,1fr);align-items:center;margin:36px 0}.h-txt{max-width:760px}
   .h-logo{width:100%;height:auto;max-height:46vh;overflow:visible}
   .hero h1{font-weight:500;font-size:clamp(34px,4.4vw,66px);line-height:1;letter-spacing:-.025em;text-transform:uppercase;margin:0 0 22px}
   .hero h1 span{color:${MG}}

@@ -63,7 +63,7 @@ module.exports = (H) => {
   // ---------------- HERO ----------------
   B.hero = `
 <header class="hero">
-  <div class="hero-dots">${dotsSvg('#fff', .14)}</div>
+  <div class="hero-dots">${dotsSvg('#fff', .07)}</div>
   <div class="wrap hero-in">
     <div class="h-top"><span>Manual de Identidade Visual —</span><span>2026</span></div>
     <div class="h-right">
@@ -458,7 +458,7 @@ module.exports = (H) => {
   .chipo{display:inline-block;border-radius:999px;background:#E6ECEE;color:#1F2A33;font-family:var(--display);font-weight:600;font-size:13px;padding:10px 18px}
   .banner{position:relative;overflow:hidden;border-radius:var(--r-xl);background:linear-gradient(120deg,#0b2c5a,${AM});color:#fff;padding:36px 40px}.banner .bdots{position:absolute;right:0;top:0;bottom:0;display:flex;align-items:center}.banner > div:last-child{position:relative;max-width:620px}.banner h4{font-size:28px;line-height:1.1;margin:0 0 10px;font-weight:700}.banner p{color:#d1d9db;font-size:14.5px;margin:0 0 18px}
   .hero{position:relative;overflow:hidden;background:${AC};color:#fff;min-height:min(calc(100svh - 49px),800px);display:flex}
-  .hero-dots{position:absolute;left:-4%;top:6%;bottom:6%;width:min(62%,880px);display:flex;align-items:center}.hero-dots svg{width:100%;height:auto}
+  .hero-dots{position:absolute;left:-6%;top:6%;bottom:6%;width:min(46%,640px);display:flex;align-items:center}.hero-dots svg{width:100%;height:auto}
   .hero-in{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;padding-top:34px;padding-bottom:44px;width:100%}
   .h-top{display:flex;justify-content:space-between;font-family:var(--body);font-size:14px;color:#fff;opacity:.9}
   .h-right{margin-left:auto;max-width:560px;margin-top:40px;margin-bottom:40px}
@@ -467,7 +467,7 @@ module.exports = (H) => {
   .h-actions{display:flex;gap:12px;flex-wrap:wrap}
   .hero .btn-secondary{color:#fff;border-color:#fff}.hero .btn-secondary:hover{background:#fff;color:${AC}}
   .h-bottom{margin-left:auto;max-width:560px;font-family:var(--display);font-weight:400;font-size:24px;color:#fff;opacity:.95;width:100%}
-  @media screen and (max-width:980px){.hero-dots{opacity:.7;width:120%}.h-right{margin-left:0}.h-bottom{margin-left:0}.icgrid{grid-template-columns:repeat(4,1fr)}.tcol{grid-template-columns:1fr 1fr}}
+  @media screen and (max-width:980px){.hero-dots{opacity:.5;width:90%}.h-right{margin-left:0}.h-bottom{margin-left:0}.icgrid{grid-template-columns:repeat(4,1fr)}.tcol{grid-template-columns:1fr 1fr}}
   @media screen and (max-width:600px){.icgrid{grid-template-columns:repeat(3,1fr)}.tcol{grid-template-columns:1fr}.banner{padding:26px 22px}}
   `;
 

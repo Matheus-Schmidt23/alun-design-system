@@ -464,7 +464,7 @@ html,body{overflow-x:clip}
   /* hero */
   .hero{position:relative;overflow:hidden;background:#0C0C0E;color:#fff;min-height:min(calc(100svh - 49px),820px);display:flex}
   .hero-pat{position:absolute;right:0;top:0;bottom:0;width:62%;height:100%;opacity:.9;-webkit-mask-image:linear-gradient(90deg,transparent,#000 55%);mask-image:linear-gradient(90deg,transparent,#000 55%)}
-  .orb{position:absolute;right:-7%;top:50%;width:min(48vw,700px);aspect-ratio:1/1;transform:translateY(-50%);border-radius:50%;background:radial-gradient(circle at 30% 28%,#9AB7F3 0,#1F53E5 34%,#0429BC 62%,#010C53 100%);box-shadow:0 0 120px rgba(31,83,229,.35)}
+  .orb{position:absolute;right:-9%;top:50%;width:min(40vw,560px);aspect-ratio:1/1;transform:translateY(-50%);border-radius:50%;background:radial-gradient(circle at 30% 28%,#7A9FF0 0,#1F53E5 36%,#0429BC 66%,#010C53 100%);opacity:.9}
   .hero-in{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;padding-top:34px;padding-bottom:40px;width:100%}
   .h-meta{display:flex;justify-content:space-between;gap:16px;font-family:var(--display);font-size:12.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#A7A9B4}
   .h-body{max-width:760px;margin:60px 0}
@@ -491,8 +491,8 @@ html,body{overflow-x:clip}
   .piece.wd{border-radius:6px}
   .tex .fill{position:absolute;inset:0}
   .c-course .im{background-color:#010C53}
-  @media screen and (max-width:980px){.hero-pat{width:100%;opacity:.5}.orb{right:-30%;width:90vw;opacity:.7}.h-meta{flex-direction:column;gap:4px}}
-  @media screen and (max-width:600px){.orb{opacity:.38}.hero-pat{opacity:.3}}
+  @media screen and (max-width:980px){.orb{right:-32%;width:80vw;opacity:.4}.h-meta{flex-direction:column;gap:4px}}
+  @media screen and (max-width:600px){.orb{opacity:.28}}
   
 </style>
 </head>
@@ -506,7 +506,6 @@ html,body{overflow-x:clip}
 
 
 <header class="hero">
-  <canvas class="hero-pat" data-gfx="quads" data-seed="12" data-mode="quads"></canvas>
   <div class="orb"></div>
   <div class="wrap hero-in">
     <div class="h-meta"><span>Design System · v1.0 · 2026</span><span>Brand Guidelines V2.0 · Abril 2026</span></div>
