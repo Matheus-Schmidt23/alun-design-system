@@ -35,5 +35,5 @@ node _src/build.js
 - **Cores do Alun:** os campos HEX/RGB/CMYK/Pantone do PDF original repetem um código de exemplo (B0F867). Os HEX/RGB do guia foram medidos nas páginas de paleta e conferidos com o Design System da FIAP e com o site; **CMYK e Pantone do Alun precisam ser confirmados com o time de marca**.
 - Conteúdo marcado com a etiqueta **proposta** ou **derivado do site** não consta no material oficial (por exemplo, tom de voz da StartSe, tamanho mínimo do logo da Alura, rampa de azuis da StartSe).
 - Fotografias e pictogramas oficiais não foram copiados: os guias usam gráficos procedurais e ícones redesenhados como referência.
-- A tela inicial e as páginas das marcas novas não têm login. O `pm3.html` mantém o login do guia original.
+- Publicado no Vercel com login por senha (função `api/index.js`; a senha fica na variável de ambiente `DS_PASSWORD`, fora do repositório). O repositório é público e contém os guias em texto aberto.
 - O parâmetro `?qa` na URL desliga as animações de entrada (usado só para conferência visual).
