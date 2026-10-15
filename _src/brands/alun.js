@@ -123,14 +123,8 @@ module.exports = (H) => {
     </div>
     <p class="reveal" style="margin-top:14px;font-size:13.5px">O brandbook mostra o logo em Preto e Placa Mãe sobre fundos neutros e sobre fotografia e grafismo. As aplicações sobre cores de destaque seguem o contraste da seção Cores.</p>
 
-    ${sub('Baixar em PNG')}
-    <div class="dl-bar reveal">
-      <span class="dl-lb">Largura do arquivo</span>
-      <div class="dl-seg" id="dlSize" role="group" aria-label="Largura do PNG">
-        <button type="button" data-w="512">512 px</button><button type="button" data-w="1024">1024 px</button><button type="button" data-w="2048" class="on">2048 px</button><button type="button" data-w="4096">4096 px</button>
-      </div>
-      <span class="dl-note">Fundo transparente · gerado a partir do vetor</span>
-    </div>
+    ${sub('Baixar o logo em SVG')}
+    <div class="dl-bar reveal"><span class="dl-note">Vetor oficial · fundo transparente · escala sem perda de qualidade</span></div>
     <div class="dl-grid reveal" id="dlGrid"></div>
 
     ${sub('Área de segurança e tamanho mínimo')}

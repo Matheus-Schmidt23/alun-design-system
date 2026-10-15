@@ -120,10 +120,8 @@ module.exports = (H) => {
     </div>
     <p class="reveal" style="margin-top:14px;font-size:13.5px">O arquivo oficial inclui as variações de uso: <b style="color:#fff">rara utilização</b> (documentos oficiais) e <b style="color:#fff">CNPJ</b> (documentos oficiais); <b style="color:#fff">Graduação ON</b> e <b style="color:#fff">MBA ON</b> (site e meios digitais), <b style="color:#fff">Vestibular</b> e <b style="color:#fff">MBA Refresh</b>.</p>
 
-    ${sub('Baixar em PNG')}
-    <div class="dl-bar reveal"><span class="dl-lb">Largura do arquivo</span>
-      <div class="dl-seg" id="dlSize" role="group" aria-label="Largura do PNG"><button type="button" data-w="512">512 px</button><button type="button" data-w="1024">1024 px</button><button type="button" data-w="2048" class="on">2048 px</button><button type="button" data-w="4096">4096 px</button></div>
-      <span class="dl-note">Fundo transparente · gerado a partir do vetor</span></div>
+    ${sub('Baixar o logo em SVG')}
+    <div class="dl-bar reveal"><span class="dl-note">Vetor oficial · fundo transparente · escala sem perda de qualidade</span></div>
     <div class="dl-grid reveal" id="dlGrid"></div>
 
     ${sub('Área de segurança e redução mínima')}

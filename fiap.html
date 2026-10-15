@@ -595,10 +595,8 @@ html,body{overflow-x:clip}
     </div>
     <p class="reveal" style="margin-top:14px;font-size:13.5px">O arquivo oficial inclui as variações de uso: <b style="color:#fff">rara utilização</b> (documentos oficiais) e <b style="color:#fff">CNPJ</b> (documentos oficiais); <b style="color:#fff">Graduação ON</b> e <b style="color:#fff">MBA ON</b> (site e meios digitais), <b style="color:#fff">Vestibular</b> e <b style="color:#fff">MBA Refresh</b>.</p>
 
-    <h3 class="sub reveal">Baixar em PNG</h3>
-    <div class="dl-bar reveal"><span class="dl-lb">Largura do arquivo</span>
-      <div class="dl-seg" id="dlSize" role="group" aria-label="Largura do PNG"><button type="button" data-w="512">512 px</button><button type="button" data-w="1024">1024 px</button><button type="button" data-w="2048" class="on">2048 px</button><button type="button" data-w="4096">4096 px</button></div>
-      <span class="dl-note">Fundo transparente · gerado a partir do vetor</span></div>
+    <h3 class="sub reveal">Baixar o logo em SVG</h3>
+    <div class="dl-bar reveal"><span class="dl-note">Vetor oficial · fundo transparente · escala sem perda de qualidade</span></div>
     <div class="dl-grid reveal" id="dlGrid"></div>
 
     <h3 class="sub reveal">Área de segurança e redução mínima</h3>
@@ -1099,42 +1097,26 @@ Design System FIAP 2.0 (Criação FIAP, arquivo Figma) · fiap.com.br
     }).join('');
   }
 
-  // ---- download de logo em PNG (gerado no navegador a partir do vetor) ----
+  // ---- download de logo em SVG (vetor oficial, sem rasterizar) ----
   (function(){
     const grid = $('#dlGrid'); if (!grid || !DS.logo) return;
     const KINDS = { logo: Object.assign({ label: 'Logo' }, DS.logo) };
     if (DS.symbol) KINDS.simbolo = Object.assign({ label: 'Símbolo' }, DS.symbol);
     const COLORS = DS.dlColors || [];
-    const svgStr = (kind, hex, w, h) => { const K = KINDS[kind]; return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${K.w} ${K.h}" fill="none"><g fill="${hex}">${K.paths}</g></svg>`; };
+    const svgStr = (kind, hex) => { const K = KINDS[kind]; return `<svg xmlns="http://www.w3.org/2000/svg" width="${K.w}" height="${K.h}" viewBox="0 0 ${K.w} ${K.h}" fill="none"><title>${DS.name} — ${K.label}</title><g fill="${hex}">${K.paths}</g></svg>`; };
     const uri = s => 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(s);
-    function makePng(kind, hex, width){
-      const K = KINDS[kind], h = Math.round(width * K.h / K.w);
-      return new Promise((res, rej) => {
-        const img = new Image();
-        img.onload = () => { const c = document.createElement('canvas'); c.width = width; c.height = h; c.getContext('2d').drawImage(img, 0, 0, width, h); c.toBlob(b => b ? res(b) : rej(new Error('toBlob')), 'image/png'); };
-        img.onerror = () => rej(new Error('svg'));
-        img.src = uri(svgStr(kind, hex, width, h));
-      });
-    }
-    let W = 2048;
     grid.innerHTML = Object.keys(KINDS).map(kind => COLORS.map(c =>
-      `<div class="dl-card"><div class="dl-prev${kind === 'simbolo' ? ' sym' : ''}" style="background:${c.bg}"><img alt="${KINDS[kind].label} ${DS.name} ${c.name.toLowerCase()}" src="${uri(svgStr(kind, c.hex, KINDS[kind].w, KINDS[kind].h))}"></div>` +
+      `<div class="dl-card"><div class="dl-prev${kind === 'simbolo' ? ' sym' : ''}" style="background:${c.bg}"><img alt="${KINDS[kind].label} ${DS.name} ${c.name.toLowerCase()}" src="${uri(svgStr(kind, c.hex))}"></div>` +
       `<div class="dl-meta"><b>${KINDS[kind].label} ${c.name.toLowerCase()}</b><span>${c.hex}</span></div>` +
-      `<button type="button" class="btn btn-light btn-sm" data-kind="${kind}" data-k="${c.k}" data-hex="${c.hex}">Baixar PNG</button></div>`
+      `<button type="button" class="btn btn-light btn-sm" data-kind="${kind}" data-k="${c.k}" data-hex="${c.hex}">Baixar SVG</button></div>`
     ).join('')).join('');
-    const seg = $('#dlSize');
-    seg && seg.addEventListener('click', e => { const b = e.target.closest('button[data-w]'); if (!b) return; W = +b.dataset.w; $$('#dlSize button').forEach(x => x.classList.toggle('on', x === b)); });
-    grid.addEventListener('click', async e => {
+    grid.addEventListener('click', e => {
       const b = e.target.closest('button[data-kind]'); if (!b) return;
-      const old = b.textContent, w = W; b.disabled = true; b.textContent = 'Gerando…';
-      try {
-        const blob = await makePng(b.dataset.kind, b.dataset.hex, w);
-        const name = `${DS.brand}-${b.dataset.kind}-${b.dataset.k}-${w}px.png`;
-        const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); a.remove();
-        setTimeout(() => URL.revokeObjectURL(a.href), 4000);
-        showToast('PNG baixado: ' + name);
-      } catch (err) { showToast('Não foi possível gerar o PNG neste navegador'); }
-      b.disabled = false; b.textContent = old;
+      const name = `${DS.brand}-${b.dataset.kind}-${b.dataset.k}.svg`;
+      const blob = new Blob(['<?xml version="1.0" encoding="UTF-8"?>\n' + svgStr(b.dataset.kind, b.dataset.hex)], { type: 'image/svg+xml' });
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+      showToast('SVG baixado: ' + name);
     });
   })();
 

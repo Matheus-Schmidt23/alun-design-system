@@ -618,17 +618,8 @@
       <div class="logo-tile sym lt-black"><img src="data:image/svg+xml;base64,77u/PHN2ZyB3aWR0aD0iNTEwIiBoZWlnaHQ9IjUxMCIgdmlld0JveD0iMCAwIDUxMCA1MTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNDQ3LjI2NCAwSDYyLjg1NTVDMjguMTQ3OCAwIDAgMjguMTQxMiAwIDYyLjg0MDhWNDQ3LjE1OUMwIDQ4MS44NTkgMjguMTQ3OCA1MTAgNjIuODU1NSA1MTBIMzA0LjEzOUMzNDUuMDQ5IDUxMCAzODcuMTUyIDQ2My42MTUgMzg3LjE1MiA0MTAuNzlDMzg3LjE1MiAzNTAuOTMxIDMyOS4wNjcgMzAyLjM5OSAyNjkuMTkzIDMwMi4zOTlIMTg3LjEzNVYyNzMuMzA0TDM0Mi41NDQgMTI1LjY4MkgxMDkuMjUyVjgwLjEzMDlINDE4LjI4MVYxMTEuNDkyTDQxMy4wMzMgMTE2LjVMMjY3LjE2NiAyNTYuNzI5QzM1Ni44NTcgMjU2LjcyOSA0MzIuODMyIDMzMC42NTkgNDMyLjgzMiA0MTAuNjcxQzQzMi44MzIgNDUwLjAyMSA0MTguNjM5IDQ4My4wNTEgMzk2LjQ1NSA1MDkuODgxSDQ0Ny4xNDVDNDgxLjg1MiA1MDkuODgxIDUxMCA0ODEuNzQgNTEwIDQ0Ny4wNFY2Mi44NDA4QzUxMCAyOC4xNDEyIDQ4MS44NTIgMCA0NDcuMTQ1IDAiIGZpbGw9IiM2NjQ1QjEiLz4KPC9zdmc+Cg==" alt=""><small>Símbolo vibrante — destaque em preto</small></div>
     </div>
 
-    <h3 class="sub reveal">Baixar em PNG</h3>
-    <div class="dl-bar reveal">
-      <span class="dl-lb">Largura do arquivo</span>
-      <div class="dl-seg" id="dlSize" role="group" aria-label="Largura do PNG">
-        <button type="button" data-w="512">512 px</button>
-        <button type="button" data-w="1024">1024 px</button>
-        <button type="button" data-w="2048" class="on">2048 px</button>
-        <button type="button" data-w="4096">4096 px</button>
-      </div>
-      <span class="dl-note">Fundo transparente · gerado a partir do vetor oficial</span>
-    </div>
+    <h3 class="sub reveal">Baixar o logo em SVG</h3>
+    <div class="dl-bar reveal"><span class="dl-note">Vetor oficial · fundo transparente · escala sem perda de qualidade</span></div>
     <div class="dl-grid reveal" id="dlGrid"></div>
 
     <h3 class="sub reveal">Respiro e tamanho mínimo <span class="chip-prop">proposta</span></h3>
@@ -1362,24 +1353,9 @@ Key Visual 2025 (KEYVISUAL.pdf, moodboards, assets Figma) · Modelo de apresenta
     grid.innerHTML=Object.keys(KINDS).map(kind=>COLORS.map(c=>
       '<div class="dl-card"><div class="dl-prev'+(kind==='simbolo'?' sym':'')+'" style="background:'+c.bg+'"><img alt="'+KINDS[kind].label+' PM3 '+c.name.toLowerCase()+'" src="'+uri(svgStr(kind,c.hex,KINDS[kind].w,KINDS[kind].h))+'"></div>'+
       '<div class="dl-meta"><b>'+KINDS[kind].label+' '+c.name.toLowerCase()+'</b><span>'+c.hex+'</span></div>'+
-      '<button type="button" class="btn btn-light btn-sm" data-kind="'+kind+'" data-k="'+c.k+'" data-hex="'+c.hex+'">Baixar PNG</button></div>'
+      '<button type="button" class="btn btn-light btn-sm" data-kind="'+kind+'" data-k="'+c.k+'" data-hex="'+c.hex+'">Baixar SVG</button></div>'
     ).join('')).join('');
-    document.getElementById('dlSize').addEventListener('click',e=>{
-      const b=e.target.closest('button[data-w]');if(!b)return;
-      W=+b.dataset.w;document.querySelectorAll('#dlSize button').forEach(x=>x.classList.toggle('on',x===b));
-    });
-    grid.addEventListener('click',async e=>{
-      const b=e.target.closest('button[data-kind]');if(!b)return;
-      const old=b.textContent,w=W;b.disabled=true;b.textContent='Gerando…';
-      try{
-        const blob=await makePng(b.dataset.kind,b.dataset.hex,w);
-        const name='pm3-'+b.dataset.kind+'-'+b.dataset.k+'-'+w+'px.png';
-        const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();
-        setTimeout(()=>URL.revokeObjectURL(a.href),4000);
-        showToast('PNG baixado: '+name);
-      }catch(err){showToast('Não foi possível gerar o PNG neste navegador')}
-      b.disabled=false;b.textContent=old;
-    });
+    grid.addEventListener('click',e=>{const b=e.target.closest('button[data-kind]');if(!b)return;const name='pm3-'+b.dataset.kind+'-'+b.dataset.k+'.svg';const blob=new Blob(['<?xml version="1.0" encoding="UTF-8"?>\n'+svgStr(b.dataset.kind,b.dataset.hex)],{type:'image/svg+xml'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000);showToast('SVG baixado: '+name);});
   })();
   // contraste (WCAG)
   function lum(hex){const c=[1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)/255).map(v=>v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4));return .2126*c[0]+.7152*c[1]+.0722*c[2]}

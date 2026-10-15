@@ -116,6 +116,19 @@ if (fs.existsSync(pm3Src)) {
     const blockClose = html.lastIndexOf('</div>', wrapClose - 1); // fecha .wrong
     html = html.slice(0, w0).trimEnd() + '\n  ' + html.slice(blockClose + '</div>'.length).trimStart();
   }
+  // download do logo: só SVG (sem seletor de largura / PNG)
+  const d0 = html.indexOf('<h3 class="sub reveal">Baixar em PNG</h3>'), d1 = html.indexOf('<div class="dl-grid', d0);
+  if (d0 < 0 || d1 < 0) throw new Error('PM3: bloco de download não encontrado para o patch');
+  html = html.slice(0, d0) + '<h3 class="sub reveal">Baixar o logo em SVG</h3>\n    <div class="dl-bar reveal"><span class="dl-note">Vetor oficial · fundo transparente · escala sem perda de qualidade</span></div>\n    ' + html.slice(d1);
+  const j0 = html.indexOf("document.getElementById('dlSize').addEventListener('click'");
+  const jTail = 'b.disabled=false;b.textContent=old;';
+  const jt = html.indexOf(jTail, j0);
+  const j1 = jt < 0 ? -1 : html.indexOf('});', jt) + 3;   // fecha o listener de clique
+  const jEnd = '';
+  if (j0 < 0 || j1 < 3) throw new Error('PM3: script de download não encontrado para o patch');
+  const svgHandler = "grid.addEventListener('click',e=>{const b=e.target.closest('button[data-kind]');if(!b)return;const name='pm3-'+b.dataset.kind+'-'+b.dataset.k+'.svg';const blob=new Blob(['<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n'+svgStr(b.dataset.kind,b.dataset.hex)],{type:'image/svg+xml'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000);showToast('SVG baixado: '+name);});";
+  html = html.slice(0, j0) + svgHandler + html.slice(j1 + jEnd.length);
+  html = html.replace('>Baixar PNG</button>', '>Baixar SVG</button>');
   fs.writeFileSync(path.join(OUT, 'pm3.html'), html);
   console.log('ok pm3.html', Math.round(fs.statSync(path.join(OUT, 'pm3.html')).size / 1024) + ' KB');
 }
