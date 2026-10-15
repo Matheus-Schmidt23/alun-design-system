@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Design System — Grupo Alun</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Plataforma unificada de Design System do Grupo Alun: guias de Alun, Alura, FIAP, PM3 e StartSe.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20250%20232%22%3E%3Cg%20fill%3D%22%23ED1360%22%3E%3Cpath%20d%3D%22M50%200H100V50H46V182H100V232H50A50%2050%200%200%201%200%20182V50A50%2050%200%200%201%2050%200ZM100%2050H150V182H100ZM200%200H150V50H204V182H150V232H200A50%2050%200%200%200%20250%20182V50A50%2050%200%200%200%20200%200Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0D0C0C;--pm:#D1CDCD;--mag:#ED1360;--or:#FF9413;--serif:"Newsreader",Georgia,serif;--sans:"Hanken Grotesk",system-ui,sans-serif;--mono:"DM Mono",ui-monospace,Consolas,monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:#000;color:#fff;font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.lg{display:inline-block;line-height:0}.lg svg{height:100%;width:auto}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.lab{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 32px;border-bottom:1px solid #222}
+header.top .brand{display:flex;align-items:center;gap:16px}
+header.top .lab{color:var(--pm)}
+header.top nav{display:flex;gap:22px}header.top nav a{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--pm);padding:4px 0;border-bottom:1px solid transparent}header.top nav a:hover{color:#fff;border-color:var(--or)}
+.intro{padding-top:84px;padding-bottom:56px}
+.intro .lab{background:#fff;color:#000;display:inline-block;padding:6px 10px;margin-bottom:28px}
+.intro h1{font-family:var(--serif);font-weight:300;font-size:clamp(44px,7vw,104px);line-height:.96;letter-spacing:-.03em;margin:0 0 26px;max-width:15ch}
+.intro h1 em{color:var(--mag)}
+.intro p{color:var(--pm);font-size:18px;max-width:58ch;margin:0}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;padding-bottom:80px}
+.bc{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;min-height:360px;padding:28px 30px;isolation:isolate;transition:transform .35s ease,box-shadow .35s ease}
+.bc:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,.55)}
+.bc:focus-visible{outline:3px solid var(--or);outline-offset:4px}
+.bc canvas,.bc .bgsvg{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.bc .row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.bc .row + div{margin-top:30px}
+.bc .tagc{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;background:rgba(255,255,255,.14);backdrop-filter:blur(6px)}
+.bc .ver{font-family:var(--mono);font-size:11px;letter-spacing:.06em;opacity:.8}
+.bc h2{font-size:clamp(22px,2.6vw,32px);line-height:1.08;margin:18px 0 8px;max-width:20ch}
+.bc p{margin:0;max-width:44ch;font-size:14.5px;opacity:.9}
+.bc .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-top:26px}
+.go{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;padding:12px 16px;background:#fff;color:#000;white-space:nowrap;transition:gap .25s}
+.bc:hover .go{gap:16px}
+.sws{display:flex;gap:6px}.sws i{width:22px;height:22px;border-radius:50%;display:block;box-shadow:0 0 0 1px rgba(255,255,255,.28)}.sws i.w{box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+/* Alun — faixa larga */
+.bc-alun{grid-column:1/-1;min-height:420px;background:#000;border:1px solid #222}
+.bc-alun .cv{position:absolute;right:0;top:0;bottom:0;width:48%;z-index:-1}.bc-alun .cv canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.bc-alun .side{position:absolute;left:0;top:0;bottom:0;width:6%;background:#600724;z-index:-1}
+.bc-alun .inner{max-width:52%;padding-left:6%}
+.bc-alun h2{font-family:var(--serif);font-weight:300;font-size:clamp(30px,4vw,56px);letter-spacing:-.025em;max-width:16ch}
+.bc-alun .go{background:var(--mag);color:#000}
+.bc-alun .tagc{background:var(--or);color:#000}
+/* Alura */
+.bc-alura{background:#0C0C0E}
+.bc-alura .orb{position:absolute;right:-12%;top:-14%;width:62%;aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle at 30% 28%,#9AB7F3 0,#1F53E5 34%,#0429BC 62%,#010C53 100%);z-index:-1}
+.bc-alura canvas{opacity:.7}
+.bc-alura .go{background:#fff;color:#0429BC;border-radius:4px;font-family:var(--sans);text-transform:none;letter-spacing:.01em;font-weight:500;font-size:14px}
+/* FIAP */
+.bc-fiap{background:#000}
+.bc-fiap .go{background:#ED145B;color:#fff;font-weight:500}
+/* PM3 */
+.bc-pm3{background:#452E78;border-radius:0}
+.bc-pm3::before{content:'';position:absolute;right:0;top:0;width:34%;height:44%;background:linear-gradient(135deg,#B04DDD,#FCCBC9);border-radius:0 0 0 70px;z-index:-1}
+.bc-pm3 p{max-width:34ch}
+.bc-pm3::after{content:'';position:absolute;left:0;bottom:0;width:14px;height:44%;background:#FFB12A;z-index:-1}
+.bc-pm3 .go{background:#6645B1;color:#fff;border-radius:14px}
+/* StartSe */
+.bc-startse{background:#0080ED}
+.bc-startse .bgsvg{width:78%;left:auto;right:-10%;opacity:1}
+.bc-startse .go{background:#fff;color:#0080ED;border-radius:8px}
+/* comparativo */
+.cmp{background:#fff;color:var(--ink);padding:88px 0}
+.cmp h2{font-family:var(--serif);font-weight:300;font-size:clamp(34px,4.4vw,60px);letter-spacing:-.025em;margin:0 0 14px;line-height:1}
+.cmp h2 em{color:var(--mag)}
+.cmp .lead{color:#4a4747;max-width:62ch;margin:0 0 34px}
+.tbl{border:1px solid var(--ink)}
+.tr{display:grid;grid-template-columns:130px 1.3fr 1.5fr .8fr 1.2fr 80px;gap:18px;align-items:center;padding:18px 22px;border-top:1px solid var(--ink)}
+.tr:first-child{border-top:none}
+.tr.h{background:var(--pm);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tr b{font-family:var(--serif);font-weight:400;font-size:24px}
+.tr .sws i{width:20px;height:20px;box-shadow:0 0 0 1px rgba(0,0,0,.2)}
+.tr a.open{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--mag);padding-bottom:2px;justify-self:end}
+.tr:not(.h):hover{background:#f5f3f3}
+.note{margin-top:26px;font-size:13.5px;color:#5b5757;max-width:80ch}
+footer{padding:48px 32px;text-align:center;color:var(--pm);font-size:13px;border-top:1px solid #222}
+footer .lg{height:30px;margin-bottom:16px}
+footer .lab{opacity:.8}
+@media(max-width:980px){.grid{grid-template-columns:1fr}.bc-alun .inner{max-width:100%;padding-left:8%}.bc-alun .cv{width:100%;opacity:.22}.tr{grid-template-columns:100px 1fr;gap:8px 16px}.tr.h{display:none}.tr .sws{grid-column:1/-1}.tr > span{grid-column:2/-1}.tr a.open{grid-column:1/-1;justify-self:start}header.top nav{display:none}}
+@media(max-width:600px){.wrap{padding:0 20px}.intro{padding-top:56px;padding-bottom:40px}.bc{padding:22px}.bc .foot{flex-direction:column;align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){.bc,.bc:hover{transition:none;transform:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="lg" style="height:22px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#D1CDCD"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span><span class="lab">Design System</span></div>
+  <nav><a href="#marcas">Marcas</a><a href="#comparativo">Comparativo</a></nav>
+</header>
+
+<section class="wrap intro">
+  <div class="lab">Plataforma · Grupo Alun · 2026</div>
+  <h1>Um grupo. <em>Cinco</em> identidades.</h1>
+  <p>Escolha a marca para abrir o guia de Design System — fundamentos, componentes, peças, voz e tokens de cada uma, no mesmo formato.</p>
+</section>
+
+<section class="wrap grid" id="marcas">
+  <a class="bc bc-alun" href="alun.html" aria-label="Abrir o guia da Alun">
+    <div class="side"></div><div class="cv"><canvas data-g="alunMosaic" data-seed="7" data-variant="full" data-mask="ellipse"></canvas></div>
+    <div class="inner">
+      <div class="row"><span class="tagc">Marca-mãe</span><span class="ver">v1.0 · Brandbook 2025</span></div>
+      <div style="margin-top:34px"><span class="lg" style="height:56px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#D1CDCD"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span></div>
+      <h2>Superpoderes tech para superconquistas humanas.</h2>
+      <p>O ecossistema de educação tech que cria a conexão mais profunda e duradoura com seus alunos.</p>
+      <div class="foot"><div class="sws"><i style="background:#000000"></i><i style="background:#333131"></i><i style="background:#D1CDCD"></i><i style="background:#FFFFFF" class="w"></i><i style="background:#ED1360"></i><i style="background:#600724"></i><i style="background:#FF9413"></i><i style="background:#994800"></i></div><span class="go">Abrir guia →</span></div>
+    </div>
+  </a>
+
+  <a class="bc bc-alura" href="alura.html" aria-label="Abrir o guia da Alura">
+    <canvas data-g="aluraQuads" data-seed="12" data-mode="quads"></canvas><div class="orb"></div>
+    <div class="row"><span class="tagc">Marca do grupo</span><span class="ver">v1.0 · Brand Guidelines V2.0</span></div>
+    <div><span class="lg" style="height:34px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 107 32" fill="none" role="img" aria-label="Alura"><g fill="#FFFFFF"><path d="M21.73,32L15.4,5.66c-.2-.8-.46-1.31-.8-1.57-.34-.26-.9-.39-1.73-.39s-1.4.13-1.73.39c-.33.26-.6.77-.8,1.57l-6.33,26.34H0L6.56,4.72c.36-1.41,1.13-2.56,2.29-3.42C10,.44,11.36,0,12.87,0s2.87.44,4.03,1.3c1.16.86,1.92,2.01,2.29,3.43l6.56,27.27h-4.01,0Z"/><path d="M34.23,0h-3.89v32h3.89V0Z"/><path d="M47.92,32c-2.58,0-4.6-.7-5.99-2.08-1.39-1.38-2.09-3.39-2.09-5.96v-15.11h3.89v14.72c0,1.35.1,2.31.31,2.94.23.69.66,1.18,1.29,1.44.58.24,1.47.36,2.72.36h9.38V8.84h3.89v23.16h-13.41Z"/><path d="M66.95,32v-15.11c0-2.57.75-4.57,2.22-5.95,1.48-1.39,3.6-2.09,6.31-2.09h4.39v3.7h-4.7c-1.24,0-2.13.12-2.72.36-.63.26-1.07.75-1.29,1.44-.21.63-.31,1.59-.31,2.94v14.72h-3.9Z"/><path d="M91.16,32c-1.03,0-1.98-.26-2.84-.77-.86-.51-1.56-1.2-2.07-2.06-.51-.85-.77-1.8-.77-2.82,0-1.16.34-2.23,1-3.2.67-.97,1.55-1.66,2.63-2.08l13.91-5.31-.03-.28c-.05-.47-.12-.84-.22-1.14-.22-.69-.66-1.18-1.29-1.44-.58-.24-1.47-.36-2.72-.36h-12.83v-3.7h12.52c2.71,0,4.82.7,6.3,2.09,1.47,1.38,2.22,3.38,2.22,5.95v10.52c0,1.27-.44,2.33-1.34,3.24-.9.91-1.97,1.35-3.27,1.35h-11.2ZM90.54,24.68c-.5.18-.81.38-.96.64-.14.24-.2.6-.2,1.15,0,.73.12,1.2.37,1.45.25.25.7.37,1.41.37h11.2c.13,0,.32-.04.5-.22.14-.14.22-.31.22-.5v-7.7l-12.54,4.8Z"/></g></svg></span><h2>Despertar os superpoderes da tecnologia nas pessoas.</h2><p>Ecossistema de aprendizagem tech conectado ao presente e ao próximo movimento do mercado.</p></div>
+    <div class="foot"><div class="sws"><i style="background:#0429BC"></i><i style="background:#011676"></i><i style="background:#010C53"></i><i style="background:#1F53E5"></i><i style="background:#F4F5F6"></i></div><span class="go">Abrir guia →</span></div>
+  </a>
+
+  <a class="bc bc-fiap" href="fiap.html" aria-label="Abrir o guia da FIAP">
+    <canvas data-g="fiapParticles" data-seed="3"></canvas>
+    <div class="row"><span class="tagc">Marca do grupo</span><span class="ver">v2.0 · Design System 2.0</span></div>
+    <div><span class="lg" style="height:34px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 28" fill="none" role="img" aria-label="FIAP"><g fill="#ED145B"><path d="M30.906.205h-2.68v27.301h2.68zM17.667 12.929H7.344v2.537h10.323z"/><path d="M0 27.506h2.671V2.742h20.421V.205H0zM89.786.1H73.742v27.3h2.68V2.636h13.22c4.808 0 7.675 2.264 7.675 6.062v.076c0 3.692-3.177 6.176-7.9 6.176H82.85v2.537h6.452c7.388 0 10.693-4.436 10.693-8.827v-.076C99.996 3.191 96.276.1 89.794.1zM53.631 0h-2.286L34.53 27.491h2.876l15.047-24.3 7.743 12.48h3.064zM62.813 19.872l4.739 7.62h2.988l-4.686-7.62z"/></g></svg></span><h2>A melhor faculdade tech do Brasil.</h2><p>Magenta, preto e luz: graduação, MBAs, pós tech, FIAP School e Colégio Módulo.</p></div>
+    <div class="foot"><div class="sws"><i style="background:#ED145B"></i><i style="background:#000000"></i><i style="background:#FFFFFF" class="w"></i><i style="background:#ACC1CC"></i><i style="background:#75838B"></i></div><span class="go">Abrir guia →</span></div>
+  </a>
+
+  <a class="bc bc-pm3" href="pm3.html" aria-label="Abrir o guia da PM3">
+    <div class="row"><span class="tagc">Marca do grupo</span><span class="ver">v1.0 · Key Visual 2025</span></div>
+    <div><span class="lg" style="height:34px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 179 55" fill="none" role="img" aria-label="PM3"><g fill="#FFFFFF"><path d="M164.746 23.643L176.437 12.519L177.013 11.9819V8.61914H152.518V12.5317H171.538L159.221 24.244V27.5684H165.757C170.502 27.5684 174.493 29.4608 174.493 34.5881C174.493 39.7154 170.349 42.7074 164.9 42.7074C159.451 42.7074 156.471 40.5977 153.49 38.4879C152.237 40.1885 151.124 41.8891 151.124 41.8891C154.155 44.2801 157.545 46.6072 164.823 46.6072C172.766 46.6072 178.803 41.838 178.803 34.3708C178.803 28.2589 174.109 23.6558 166.703 23.6558H164.746V23.643Z"/><path d="M85.8388 8.60547H70.3364V46.0821H74.6469V31.4546H85.826C94.9203 31.4546 98.7831 26.3656 98.7831 20.0364C98.7831 13.7072 94.9203 8.60547 85.826 8.60547M86.9772 27.542H74.6341V12.5181H86.9772C93.3854 12.5181 94.3831 17.7093 94.3831 20.0364C94.3831 22.3635 93.3854 27.5548 86.9772 27.5548"/><path d="M139.663 8.60547L125.069 38.4615L110.474 8.60547H105.307V46.0821H109.63V16.5585L123.841 46.0949H126.297L140.52 16.5585V46.0821H144.843V8.60547H139.663Z"/><path d="M47.9654 0H6.74073C3.01862 0 0 3.01757 0 6.73838V47.9486C0 51.6694 3.01862 54.687 6.74073 54.687H32.6165C37.0037 54.687 41.5188 49.7131 41.5188 44.0488C41.5188 37.6301 35.2897 32.4261 28.8688 32.4261H20.0687V29.3062L36.7351 13.4768H11.7163V8.59239H44.8572V11.9552L44.2944 12.4922L28.6513 27.5289C38.27 27.5289 46.4177 35.4564 46.4177 44.036C46.4177 48.2555 44.8956 51.7973 42.5165 54.6742H47.9526C51.6747 54.6742 54.6933 51.6567 54.6933 47.9358V6.73838C54.6933 3.01757 51.6747 0 47.9526 0" fill-rule="evenodd" clip-rule="evenodd"/></g></svg></span><h2>Pessoas criam produtos.</h2><p>Ensino de produtos digitais para pessoas reais — grid fluido, roxo profundo e itálico de virada.</p></div>
+    <div class="foot"><div class="sws"><i style="background:#452E78"></i><i style="background:#6645B1"></i><i style="background:#000000"></i><i style="background:#FFFFFF" class="w"></i><i style="background:#B9B5C1"></i><i style="background:#FFB12A"></i></div><span class="go">Abrir guia →</span></div>
+  </a>
+
+  <a class="bc bc-startse" href="startse.html" aria-label="Abrir o guia da StartSe">
+    <div class="bgsvg"><svg viewBox="0 0 9 7" fill="#fff" fill-opacity="0.14"><circle cx="0.5" cy="0.5" r=".33"/><circle cx="2.5" cy="0.5" r=".33"/><circle cx="3.5" cy="0.5" r=".33"/><circle cx="4.5" cy="0.5" r=".33"/><circle cx="5.5" cy="0.5" r=".33"/><circle cx="2.5" cy="1.5" r=".33"/><circle cx="3.5" cy="1.5" r=".33"/><circle cx="4.5" cy="1.5" r=".33"/><circle cx="5.5" cy="1.5" r=".33"/><circle cx="6.5" cy="1.5" r=".33"/><circle cx="3.5" cy="2.5" r=".33"/><circle cx="4.5" cy="2.5" r=".33"/><circle cx="5.5" cy="2.5" r=".33"/><circle cx="6.5" cy="2.5" r=".33"/><circle cx="7.5" cy="2.5" r=".33"/><circle cx="4.5" cy="3.5" r=".33"/><circle cx="5.5" cy="3.5" r=".33"/><circle cx="6.5" cy="3.5" r=".33"/><circle cx="7.5" cy="3.5" r=".33"/><circle cx="8.5" cy="3.5" r=".33"/><circle cx="3.5" cy="4.5" r=".33"/><circle cx="4.5" cy="4.5" r=".33"/><circle cx="5.5" cy="4.5" r=".33"/><circle cx="6.5" cy="4.5" r=".33"/><circle cx="7.5" cy="4.5" r=".33"/><circle cx="2.5" cy="5.5" r=".33"/><circle cx="3.5" cy="5.5" r=".33"/><circle cx="4.5" cy="5.5" r=".33"/><circle cx="5.5" cy="5.5" r=".33"/><circle cx="6.5" cy="5.5" r=".33"/><circle cx="1.5" cy="6.5" r=".33"/><circle cx="2.5" cy="6.5" r=".33"/><circle cx="3.5" cy="6.5" r=".33"/><circle cx="4.5" cy="6.5" r=".33"/><circle cx="5.5" cy="6.5" r=".33"/></svg></div>
+    <div class="row"><span class="tagc">Marca do grupo</span><span class="ver">v1.0 · Manual 2026</span></div>
+    <div><span class="lg" style="height:30px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 25" fill="none" role="img" aria-label="StartSe"><g fill="#FFFFFF"><path d="M2.98 23.973a2.98 2.98 0 1 0 0-5.96 2.98 2.98 0 0 0 0 5.96M24.702 9.603l-1.325-.265c-2.715-.398-4.9-.795-4.9-2.318s1.788-2.45 4.503-2.45 4.371.53 6.424 1.655c.397.265.927.133 1.192-.265.397-.53.662-1.06 1.06-1.655.132-.265.265-.53.53-.795.132-.265.264-.53.132-.795-.133-.265-.265-.53-.53-.53C29.073.795 25.96 0 22.782.132c-2.45-.132-4.901.53-7.02 1.855-1.92 1.192-3.113 3.245-3.113 5.563 0 3.84 2.583 5.96 7.88 6.82l1.656.266c3.246.397 5.034.927 5.034 2.45s-1.921 2.45-4.636 2.45-5.033-.662-7.219-2.053c-.397-.265-1.06-.265-1.39.133-.398.397-1.789 2.45-1.921 2.715-.265.397 0 .927.397 1.192 2.98 1.788 6.557 2.583 10.067 2.583 2.582.132 5.033-.53 7.218-1.92 2.053-1.193 3.245-3.378 3.245-5.696-.132-3.841-2.98-6.026-8.278-6.887M90.795 18.742h-.53l-.795.132a6.1 6.1 0 0 1-2.185 0c-.397-.132-.53-.53-.53-1.192V9.205h4.239c.397 0 .794-.397.794-.794V5.43q0-.133-.132-.265v-.133l-.133-.132c-.132-.133-.397-.265-.53-.265h-4.238V.795s0-.133-.132-.133L86.49.53h-1.192l-3.112 1.92a.73.73 0 0 0-.398.663v1.92h-4.106c-1.788-.132-3.51.53-4.9 1.656-.265.265-.53.53-.663.794V5.96c0-.53-.397-1.06-.927-1.06H68.08c-.53 0-.927.398-.927 1.06v16.888c0 .53.397 1.06.927 1.06h2.98c.53 0 .927-.398.927-1.06v-9.272c0-.662.132-1.192.397-1.788 1.06-2.185 4.106-2.318 5.166-2.318h4.106v9.272c-.265 2.45 1.523 4.768 3.973 5.165h1.788c.398 0 .927 0 1.391-.132.795 0 1.656-.133 2.318-.397a1 1 0 0 0 .662-.928v-2.715c0-.728-.397-.993-.993-.993M105.894 9.603l-1.391-.265c-2.715-.398-4.9-.795-4.9-2.318s1.788-2.45 4.503-2.45 4.371.53 6.424 1.655c.397.265.927.132 1.192-.265.397-.53.662-1.06 1.059-1.655.133-.265.265-.53.53-.795.133-.265.265-.53.133-.795-.133-.265-.265-.53-.53-.53C110.199.795 107.086 0 103.907.132c-2.45-.132-4.9.53-7.086 1.92-1.92.928-3.112 3.113-3.112 5.299 0 3.84 2.582 5.96 7.88 6.821l1.656.265c3.245.397 5.033.927 5.033 2.45s-1.92 2.45-4.636 2.45c-2.715 0-5.033-.662-7.218-2.052-.398-.265-1.06-.265-1.39.132-.398.397-1.789 2.45-1.921 2.715-.265.398 0 .927.397 1.192 2.98 1.788 6.556 2.583 9.934 2.583 2.583.133 5.033-.53 7.218-1.92 2.053-1.192 3.245-3.378 3.245-5.696.199-3.642-2.516-5.828-8.013-6.688M128.212 4.9a13.6 13.6 0 0 0-3.245-.397c-5.033-.397-9.404 3.378-9.801 8.543v1.06c0 5.96 3.973 9.801 10.198 9.801s5.166-.794 7.219-2.318c.265-.132.397-.53.397-.794q0-.398-.397-.795c-1.192-1.192-1.656-1.523-1.656-1.656-.265-.265-.53-.265-.795-.265-.264 0-.397.133-.662.265l-.132.133c-1.192.662-2.583.927-3.974 1.06-2.847 0-4.9-1.391-5.165-3.51h13.178c.53 0 .928-.398.928-.928v-.794c.132-2.186-.53-4.371-1.656-6.093-.993-1.722-2.517-2.782-4.437-3.311m1.391 7.02h-9.404c.662-2.052 2.715-3.377 4.9-3.112 2.583 0 4.239 1.126 4.504 3.113M43.775 18.742h-.398l-.927.132a6.1 6.1 0 0 1-2.185 0c-.397-.132-.53-.53-.53-1.192V9.205h4.106c.53 0 .927-.397.927-1.06V5.763c0-.53-.397-1.06-.927-1.06h-3.973V1.06c0-.53-.398-1.06-.928-1.06s-.397 0-.53.132l-3.112 1.921c-.265.132-.397.53-.397.795v15.496c-.265 2.45 1.523 4.769 3.973 5.166h1.788c.398 0 .928 0 1.391-.133.795 0 1.656-.132 2.318-.397a1 1 0 0 0 .662-.927v-2.45c-.331-.464-.728-.861-1.258-.861M63.51 4.702h-2.98c-.53 0-.927.397-.927 1.06v.132c-1.391-.927-2.848-1.39-4.504-1.39h-.132c-2.45-.133-4.9.794-6.821 2.317-1.92 1.92-2.98 4.636-2.848 7.351-.132 2.715.927 5.298 2.715 7.219 1.855 1.722 4.172 2.516 6.755 2.516h.265c1.656 0 3.245-.53 4.503-1.523v.265c0 .53.398 1.06.928 1.06h2.98c.53 0 .927-.398.927-1.06V5.828c.199-.662-.331-1.126-.861-1.126M50.397 16.027l.133-.133v-3.377c.265-.928.662-1.788 1.39-2.318l.265-.265.133-.133c.132-.132.265-.132.265-.265.132-.132.265-.132.397-.264.265-.133.53-.265.927-.265.398 0 .265-.133.398-.133h1.06c1.655-.132 3.112.662 4.105 1.92v6.226c-.927 1.192-2.45 2.053-4.106 1.92-1.39 0-2.582-.397-3.642-1.39l-.133-.133v-.198l-.198-.133-.133-.132-.132-.133c-.133-.265-.398-.53-.398-.794 0-.265 0-.133-.132-.265zM141.457 2.384a1.192 1.192 0 1 0 0-2.384 1.192 1.192 0 0 0 0 2.384M143.907 23.973a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M147.417 2.384a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M147.417 5.894a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M147.417 20.331a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M147.417 23.973a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M150.993 2.384a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M150.993 5.894a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M150.993 9.536a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M150.993 16.755a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M150.993 20.331a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M150.993 23.973a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M154.503 2.384a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M154.503 5.894a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M154.503 9.536a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M154.503 13.113a1.192 1.192 0 1 0 0-2.384 1.192 1.192 0 0 0 0 2.384M154.503 16.755a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M154.503 20.331a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M154.503 23.973a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M158.013 2.384a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M158.013 5.894a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M158.013 9.536a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M158.013 13.113a1.192 1.192 0 1 0 0-2.384 1.192 1.192 0 0 0 0 2.384M158.013 16.755a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M158.013 20.331a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M158.013 23.973a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M161.589 5.894a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M161.589 9.536a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M161.589 13.113a1.192 1.192 0 1 0 0-2.384 1.192 1.192 0 0 0 0 2.384M161.589 16.755a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M161.589 20.331a1.192 1.192 0 1 0 0-2.383 1.192 1.192 0 0 0 0 2.383M165.232 9.536a1.192 1.192 0 1 0 0-2.384 1.192 1.192 0 0 0 0 2.384M165.232 13.113a1.192 1.192 0 1 0 0-2.385 1.192 1.192 0 0 0 0 2.385M165.232 16.755a1.192 1.192 0 1 0 0-2.384 1.192 1.192 0 0 0 0 2.384M168.808 13.113a1.192 1.192 0 1 0 0-2.385 1.192 1.192 0 0 0 0 2.385"/></g></svg></span><h2>A sua escola internacional de negócios.</h2><p>Lifelong Learning: formações, imersões, Global MBAs, eventos e AI Tools para líderes.</p></div>
+    <div class="foot"><div class="sws"><i style="background:#0080ED"></i><i style="background:#00183C"></i><i style="background:#000000"></i><i style="background:#FFFFFF" class="w"></i><i style="background:#D1D9DB"></i><i style="background:#00BFB8"></i></div><span class="go">Abrir guia →</span></div>
+  </a>
+</section>
+
+<section class="cmp" id="comparativo">
+  <div class="wrap">
+    <div class="lab" style="margin-bottom:20px">Visão geral</div>
+    <h2>Lado a lado, <em>sem perder</em> a identidade.</h2>
+    <p class="lead">O mesmo esqueleto de guia — essência, logo, cores, tipografia, grafismo, componentes, peças, voz e tokens — com a personalidade visual de cada marca.</p>
+    <div class="tbl">
+      <div class="tr h"><span>Marca</span><span>Cores principais</span><span>Tipografia</span><span>Cantos</span><span>Assinatura gráfica</span><span></span></div>
+      <div class="tr"><b>Alun</b><div class="sws"><i style="background:#000000"></i><i style="background:#333131"></i><i style="background:#D1CDCD"></i><i style="background:#FFFFFF" class="w"></i><i style="background:#ED1360"></i><i style="background:#600724"></i><i style="background:#FF9413"></i><i style="background:#994800"></i></div><span>Flecha · FK Grotesk · FK Grotesk Mono</span><span>Retos · 0 px</span><span>Módulos 4×2 · grid 4×4</span><a class="open" href="alun.html">Abrir →</a></div><div class="tr"><b>Alura</b><div class="sws"><i style="background:#0429BC"></i><i style="background:#011676"></i><i style="background:#010C53"></i><i style="background:#1F53E5"></i><i style="background:#0C0C0E"></i><i style="background:#F4F5F6"></i></div><span>Encode Sans · Encode Sans Expanded · Roboto Flex</span><span>4 px</span><span>Patterns procedurais · círculo</span><a class="open" href="alura.html">Abrir →</a></div><div class="tr"><b>FIAP</b><div class="sws"><i style="background:#ED145B"></i><i style="background:#000000"></i><i style="background:#FFFFFF" class="w"></i><i style="background:#ACC1CC"></i><i style="background:#75838B"></i></div><span>Gotham HTF · Roboto</span><span>Retos · 0 px</span><span>Grafismo F · partículas</span><a class="open" href="fiap.html">Abrir →</a></div><div class="tr"><b>PM3</b><div class="sws"><i style="background:#452E78"></i><i style="background:#6645B1"></i><i style="background:#000000"></i><i style="background:#FFFFFF" class="w"></i><i style="background:#B9B5C1"></i><i style="background:#FFB12A"></i></div><span>Inter Tight · Rubik · Playfair Display</span><span>14 – 40 px</span><span>Grid fluido · canto côncavo</span><a class="open" href="pm3.html">Abrir →</a></div><div class="tr"><b>StartSe</b><div class="sws"><i style="background:#0080ED"></i><i style="background:#00183C"></i><i style="background:#000000"></i><i style="background:#FFFFFF" class="w"></i><i style="background:#D1D9DB"></i><i style="background:#808384"></i><i style="background:#00BFB8"></i></div><span>Barlow · IBM Plex Sans</span><span>6 – 12 px</span><span>Seta pontilhada · ícones de traço fino</span><a class="open" href="startse.html">Abrir →</a></div>
+    </div>
+    <p class="note">Fontes oficiais licenciadas (Flecha, FK Grotesk, Gotham HTF, entre outras) não acompanham a plataforma: os guias usam fontes abertas de desenho semelhante apenas para visualização, e indicam a fonte oficial em cada página.</p>
+  </div>
+</section>
+
+<footer>
+  <span class="lg" style="height:26px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#D1CDCD"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span>
+  <div class="lab">Plataforma de Design System · Grupo Alun · 2026</div>
+  <div style="margin-top:8px">Alun · Alura · FIAP · PM3 · StartSe</div>
+</footer>
+
+<script>
+var GA=(function(){var fw={devicePixelRatio:window.devicePixelRatio,addEventListener:function(){},GFX:null};(function(window){
+  (function(){
+    var COL={on:'#ED1360',off:'#600724',oon:'#FF9413',ooff:'#994800',pm:'#D1CDCD',bk:'#000',cz:'#333131',wh:'#fff'};
+    function rng(seed){var s=seed>>>0||1;return function(){s^=s<<13;s>>>=0;s^=s>>>17;s^=s<<5;s>>>=0;return s/4294967296;};}
+    function noise(seed){var r=rng(seed),p=[];for(var i=0;i<4096;i++)p.push(r());
+      function h(x,y){x=((x%64)+64)%64;y=((y%64)+64)%64;return p[(y*64+x)&4095];}
+      function s(t){return t*t*(3-2*t);}
+      return function(x,y){var xi=Math.floor(x),yi=Math.floor(y),xf=s(x-xi),yf=s(y-yi);
+        var a=h(xi,yi),b=h(xi+1,yi),c=h(xi,yi+1),d=h(xi+1,yi+1);return a+(b-a)*xf+(c-a)*yf+(a-b-c+d)*xf*yf;};}
+    function cellDraw(ctx,x,y,s,type,variant,r){
+      var full=variant==='full';
+      if(type==='solidOn'){ctx.fillStyle=COL.on;ctx.fillRect(x,y,s,s);}
+      else if(type==='solidPm'){ctx.fillStyle=COL.pm;ctx.fillRect(x,y,s,s);}
+      else if(type==='solidOff'){ctx.fillStyle=COL.off;ctx.fillRect(x,y,s,s);}
+      else if(type==='bar'){ctx.fillStyle=COL.pm;ctx.fillRect(x,y,s,s);ctx.fillStyle=r()>.5?COL.on:COL.bk;ctx.fillRect(x+s*.4,y+s*.2,s*.2,s*.6);}
+      else if(type==='ring'){ctx.fillStyle=COL.off;ctx.fillRect(x,y,s,s);ctx.strokeStyle=COL.on;ctx.lineWidth=Math.max(1,s*.16);ctx.strokeRect(x+s*.26,y+s*.26,s*.48,s*.48);}
+      else if(type==='bracket'){ctx.fillStyle=full&&r()>.35?COL.ooff:COL.bk;ctx.fillRect(x,y,s,s);ctx.strokeStyle=full?COL.oon:COL.on;ctx.lineWidth=Math.max(1,s*.14);
+        ctx.beginPath();ctx.moveTo(x+s*.42,y+s*.22);ctx.lineTo(x+s*.26,y+s*.22);ctx.lineTo(x+s*.26,y+s*.78);ctx.lineTo(x+s*.42,y+s*.78);
+        ctx.moveTo(x+s*.58,y+s*.22);ctx.lineTo(x+s*.74,y+s*.22);ctx.lineTo(x+s*.74,y+s*.78);ctx.lineTo(x+s*.58,y+s*.78);ctx.stroke();}
+      else if(type==='dash'){ctx.fillStyle=COL.bk;ctx.fillRect(x,y,s,s);ctx.fillStyle=r()>.5?COL.off:COL.on;ctx.fillRect(x+s*.42,y+s*.3,s*.16,s*.4);}
+      else if(type==='orange'){ctx.fillStyle=COL.oon;ctx.fillRect(x,y,s,s);ctx.fillStyle=COL.bk;ctx.fillRect(x+s*.38,y+s*.25,s*.24,s*.5);}
+      else if(type==='stripe'){ctx.fillStyle=COL.bk;ctx.fillRect(x,y,s,s);ctx.fillStyle='#3a3838';ctx.fillRect(x+s*.38,y,s*.24,s);}
+    }
+    function mosaic(cv,seedOverride,variantOverride){
+      var seed=+(seedOverride||cv.dataset.seed||1),variant=variantOverride||cv.dataset.variant||'full',mask=cv.dataset.mask||'ellipse';
+      var dpr=Math.min(window.devicePixelRatio||1,2),w=cv.clientWidth||cv.parentNode.clientWidth,h=cv.clientHeight||cv.parentNode.clientHeight;
+      if(!w||!h)return;cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);
+      var ctx=cv.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle='#000';ctx.fillRect(0,0,w,h);
+      var cell=+(cv.dataset.cell||Math.max(8,Math.round(Math.min(w,h)/34)));var cols=Math.ceil(w/cell),rows=Math.ceil(h/cell);
+      var n1=noise(seed),n2=noise(seed*7+3),r=rng(seed*13+5),full=variant==='full';
+      for(var j=0;j<rows;j++){for(var i=0;i<cols;i++){
+        var u=i/cols,v=j/rows,m;
+        if(mask==='ellipse'){var dx=(u-.5)/.46,dy=(v-.5)/.5;m=1-Math.sqrt(dx*dx+dy*dy);}
+        else if(mask==='diag'){m=1.1-(u*.7+(1-v)*.5)+0.0;m=Math.min(1,Math.max(-1,(u-0.15)*1.5+(.5-v)*.4));}
+        else m=1;
+        var val=n1(i*.18+seed,j*.18)*.6+n2(i*.5,j*.5)*.4;val=val*.75+m*.55-.2;
+        var x=i*cell,y=j*cell,t;
+        if(val<.18)t='stripe';else if(val<.3)t='dash';else if(val<.44)t='ring';else if(val<.56)t='bracket';else if(val<.66)t=(full&&r()>.55)?'orange':'bar';else if(val<.78)t='solidOn';else t=r()>.4?'solidPm':'solidOn';
+        if(!full&&t==='orange')t='solidOn';
+        if(t==='stripe'&&(i%3))continue;
+        cellDraw(ctx,x,y,cell,t,variant,r);
+      }}
+    }
+    window.GFX={mosaic:function(cv){mosaic(cv);}};
+    window.addEventListener('load',function(){
+      var d=document.getElementById('mosDemo'),nb=document.getElementById('mosNew'),seg=document.getElementById('mosVar');
+      if(!d)return;var seed=+d.dataset.seed;
+      nb&&nb.addEventListener('click',function(){seed=Math.floor(Math.random()*9000)+10;d.dataset.seed=seed;mosaic(d);});
+      seg&&seg.addEventListener('click',function(e){var b=e.target.closest('button[data-v]');if(!b)return;d.dataset.variant=b.dataset.v;[].forEach.call(seg.querySelectorAll('button'),function(x){x.classList.toggle('on',x===b)});mosaic(d);});
+    });
+  })();
+  })(fw);return fw.GFX;})();
+var GU=(function(){var fw={devicePixelRatio:window.devicePixelRatio,addEventListener:function(){},GFX:null};(function(window){
+  (function(){
+    function rng(seed){var s=seed>>>0||1;return function(){s^=s<<13;s>>>=0;s^=s>>>17;s^=s<<5;s>>>=0;return s/4294967296;};}
+    var COLORS=['#0429BC','#1F53E5','#3165E7','#4878EA','#7A9FF0','#B5CBF6','#FFFFFF'];
+    var WEIGHTS=[3,4,3,3,2,1,1];
+    function pick(r){var t=0,i;for(i=0;i<WEIGHTS.length;i++)t+=WEIGHTS[i];var x=r()*t;for(i=0;i<WEIGHTS.length;i++){x-=WEIGHTS[i];if(x<=0)return COLORS[i];}return COLORS[0];}
+    function quads(cv,seed,mode){
+      seed=+(seed||cv.dataset.seed||1);mode=mode||cv.dataset.mode||'quads';
+      var dpr=Math.min(window.devicePixelRatio||1,2),w=cv.clientWidth||cv.parentNode.clientWidth,h=cv.clientHeight||cv.parentNode.clientHeight;if(!w||!h)return;
+      cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);var ctx=cv.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
+      var r=rng(seed*7919+13),cell=Math.max(14,Math.round(Math.min(w,h)/(mode==='lines'?26:20))),cols=Math.ceil(w/cell),rows=Math.ceil(h/cell);
+      for(var j=0;j<rows;j++){for(var i=0;i<cols;i++){
+        var u=i/cols,v=j/rows,p=.25+.6*u*(1-Math.abs(v-.5)*.8);
+        if(r()>p)continue;
+        var a=.15+r()*.7,x=i*cell,y=j*cell,col=pick(r);ctx.globalAlpha=a;ctx.fillStyle=col;
+        if(mode==='quads'){var s=cell*(.5+r()*.38);ctx.fillRect(x+(cell-s)/2,y+(cell-s)/2,s,s);}
+        else if(mode==='lines'){var L=cell*(1+Math.floor(r()*4));ctx.fillRect(x,y+cell*.4,L,Math.max(2,cell*.18));i+=Math.floor(L/cell);}
+        else{ctx.beginPath();ctx.arc(x+cell/2,y+cell/2,cell*(.14+r()*.28),0,6.2832);ctx.fill();}
+      }}
+      ctx.globalAlpha=1;
+    }
+    window.GFX={quads:function(cv){quads(cv);}};
+    window.addEventListener('load',function(){
+      var d=document.getElementById('patDemo'),nb=document.getElementById('patNew'),seg=document.getElementById('patMode');if(!d)return;
+      var seed=+d.dataset.seed,mode='quads';
+      nb&&nb.addEventListener('click',function(){seed=Math.floor(Math.random()*9000)+10;d.dataset.seed=seed;quads(d,seed,mode);});
+      seg&&seg.addEventListener('click',function(e){var b=e.target.closest('button[data-m]');if(!b)return;mode=b.dataset.m;d.dataset.mode=mode;[].forEach.call(seg.querySelectorAll('button'),function(x){x.classList.toggle('on',x===b)});quads(d,seed,mode);});
+    });
+  })();
+  })(fw);return fw.GFX;})();
+var GF=(function(){var fw={devicePixelRatio:window.devicePixelRatio,addEventListener:function(){},GFX:null};(function(window){
+  (function(){
+    function rng(seed){var s=seed>>>0||1;return function(){s^=s<<13;s>>>=0;s^=s>>>17;s^=s<<5;s>>>=0;return s/4294967296;};}
+    function setup(cv){var dpr=Math.min(window.devicePixelRatio||1,2),w=cv.clientWidth||cv.parentNode.clientWidth,h=cv.clientHeight||cv.parentNode.clientHeight;if(!w||!h)return null;
+      cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);var ctx=cv.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);return {ctx:ctx,w:w,h:h};}
+    function particles(cv){
+      var s=setup(cv);if(!s)return;var ctx=s.ctx,w=s.w,h=s.h,r=rng(+(cv.dataset.seed||1)*97+5);
+      var g=ctx.createRadialGradient(w*.35,h*.55,0,w*.35,h*.55,Math.max(w,h)*.7);g.addColorStop(0,'rgba(237,20,91,.22)');g.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle='#050506';ctx.fillRect(0,0,w,h);ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+      var fx=w*.34,fy=h*.56,N=Math.round(w*h/260);
+      for(var i=0;i<N;i++){
+        var side=r()<.62?1:-1,t=Math.pow(r(),1.4),spread=(r()-.5)*2;
+        var x=fx+side*t*w*.85, bend=Math.sin(t*3.1+spread*1.2)*h*.14*(1-t*.2);
+        var y=fy+spread*h*(.02+t*.34)*Math.pow(t,.6)+bend*(side>0?1:-.6);
+        var near=1-Math.min(1,Math.abs(x-fx)/(w*.5)),sz=.5+r()*1.6+near*1.2,a=(.12+r()*.7)*(.35+near*.65);
+        ctx.fillStyle='rgba(237,20,91,'+a.toFixed(3)+')';ctx.beginPath();ctx.arc(x,y,sz,0,6.2832);ctx.fill();
+        if(r()<.04){ctx.fillStyle='rgba(255,255,255,'+(a*.9).toFixed(3)+')';ctx.beginPath();ctx.arc(x,y,sz*.8,0,6.2832);ctx.fill();}
+      }
+      var f=ctx.createRadialGradient(fx,fy,0,fx,fy,Math.min(w,h)*.22);f.addColorStop(0,'rgba(255,170,200,.55)');f.addColorStop(.35,'rgba(237,20,91,.28)');f.addColorStop(1,'rgba(237,20,91,0)');ctx.fillStyle=f;ctx.fillRect(0,0,w,h);
+    }
+    function fgrafismo(cv){
+      var s=setup(cv);if(!s)return;var ctx=s.ctx,w=s.w,h=s.h,r=rng(+(cv.dataset.seed||1)*131+7);
+      var g=ctx.createLinearGradient(0,0,w,h);g.addColorStop(0,'#050506');g.addColorStop(1,'#2a0612');ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+      var F=new Path2D('M0 27.506h2.671V2.742h20.421V.205H0zM17.667 12.929H7.344v2.537h10.323z');
+      var base=Math.min(w,h)*.26;
+      for(var k=0;k<14;k++){
+        var sc=(base/28)*(.35+r()*1.5),x=(r()*1.1-.05)*w,y=(r()*1.1-.05)*h;
+        ctx.save();ctx.translate(x,y);ctx.scale(sc,sc);ctx.globalAlpha=.25+r()*.75;ctx.fillStyle=r()<.8?'#ED145B':'#fff';ctx.fill(F);ctx.restore();
+      }
+      var sc2=(Math.min(w,h)*.34)/28;ctx.globalAlpha=1;
+      for(var i=0;i<3;i++){ctx.save();ctx.translate(w*.1+i*(24*sc2*.9),h*.16);ctx.scale(sc2,sc2);ctx.fillStyle='#ED145B';ctx.fill(F);ctx.restore();}
+    }
+    window.GFX={particles:particles,fgrafismo:fgrafismo};
+  })();
+  })(fw);return fw.GFX;})();
+(function(){
+  var map={alunMosaic:GA.mosaic,aluraQuads:GU.quads,fiapParticles:GF.particles};
+  function draw(){[].forEach.call(document.querySelectorAll('canvas[data-g]'),function(cv){var f=map[cv.dataset.g];if(!f)return;
+    if(cv.dataset.g==='alunMosaic'){var s=cv.parentNode.getBoundingClientRect();}
+    try{cv.dataset.gfx=cv.dataset.g;f(cv);}catch(e){}});}
+  draw();var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(draw,150)});
+})();
+</script>
+</body>
+</html>

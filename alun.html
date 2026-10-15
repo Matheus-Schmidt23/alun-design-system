@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Design System — Alun</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Design System do Grupo Alun: marca, cores, tipografia, grafismo modular, componentes, peças, tom de voz e tokens — baseado no Brandbook 2025.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20250%20232%22%3E%3Cg%20fill%3D%22%23ED1360%22%3E%3Cpath%20d%3D%22M50%200H100V50H46V182H100V232H50A50%2050%200%200%201%200%20182V50A50%2050%200%200%201%2050%200ZM100%2050H150V182H100ZM200%200H150V50H204V182H150V232H200A50%2050%200%200%200%20250%20182V50A50%2050%200%200%200%20200%200Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--c-deep:#000000;--c-action:#ED1360;--c-action-hover:#FF9413;--on-action:#000;--c-black:#000000;--c-soft:#D1CDCD;--c-accent:#FF9413;--c-tint:#D1CDCD;--c-sec:#000;--on-sec:#fff;--c-title2:#ED1360;--ink:#0D0C0C;--paper:#FFFFFF;--text-2:#3a3737;--muted:#6b6767;--line:rgba(13,12,12,.16);--fog-soft:#D1CDCD;--sec-alt:#D1CDCD;--grad-b:linear-gradient(90deg,#600724 0%,#ED1360 100%);--display:"Newsreader","Flecha M",Georgia,serif;--body:"Hanken Grotesk","FK Grotesk",system-ui,sans-serif;--serif:"Newsreader","Flecha M",Georgia,serif;--mono:"DM Mono","FK Grotesk Mono",ui-monospace,Consolas,monospace;--serif-style:normal;--serif-w:300;--r-sm:0;--r-btn:0;--r-card:0;--r-xl:0;--r-pill:0;--r-chk:0;--r-piece:0;--shadow:none;--shadow-lg:0 0 0 1px #000;--h-w:300;--h-tt:none;--h-ls:-.025em;--h-lh:1;--ui:"DM Mono",monospace;--btn-font:"DM Mono",monospace;--btn-w:500;--btn-ls:.04em;--kicker-font:"DM Mono",monospace;--nav-bg:rgba(0,0,0,.9);--nav-dim:#D1CDCD;--on-accent:#000;--num-bg:#ED1360;--num-fg:#000;--num-r:0;--q-font:"Newsreader",serif;--q-w:300;--q-tt:none;--vx-font:"Newsreader",serif;--h4-w:400;--h4-tt:none;--al-info-bg:#ece9e9;--al-info-fg:#0D0C0C;--al-info:#333131}
+/* ===== Base compartilhada dos guias de Design System — Grupo Alun =====
+   Estrutura derivada do guia PM3. Cada marca define as variáveis (--c-*, --display…)
+   e, se precisar, sobrescreve componentes no seu tema. */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.55}
+h1,h2,h3,h4{font-family:var(--display);margin:0;text-wrap:balance}
+p{margin:0 0 14px;color:var(--text-2)}
+img,svg{display:block;max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.em{font-family:var(--serif);font-style:var(--serif-style,italic);font-weight:var(--serif-w,500);letter-spacing:0;font-variant-numeric:lining-nums}
+code,.mono{font-family:var(--mono);font-size:.86em}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.show{opacity:1;transform:none}
+.lg{display:inline-block;line-height:0}
+.lg svg{height:100%;width:auto}
+
+/* ---------- nav ---------- */
+nav.top{position:sticky;top:0;z-index:60;background:var(--nav-bg,rgba(0,0,0,.84));backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 32px}
+nav.top .brand{display:flex;align-items:center;gap:12px;color:#fff;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.02em;white-space:nowrap}
+nav.top .brand .lg{height:22px}
+nav.top .brand span{color:var(--nav-dim,var(--c-soft));font-weight:500}
+nav.top ul{list-style:none;display:flex;gap:20px;margin:0;padding:0}
+nav.top a{white-space:nowrap;color:var(--nav-dim,var(--c-soft));text-decoration:none;font-family:var(--display);font-size:12.5px;font-weight:600;position:relative;padding:4px 0;transition:color .2s}
+nav.top a::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--c-accent);transition:width .3s}
+nav.top a:hover,nav.top a.active{color:#fff}
+nav.top a:hover::after,nav.top a.active::after{width:100%}
+nav.top a.nav-home{display:inline-flex;align-items:center;gap:8px;background:var(--c-accent);color:var(--on-accent,#000);border-radius:var(--r-pill);padding:8px 14px;font-size:11.5px}
+nav.top a.nav-home::after{display:none}
+nav.top a.nav-home:hover{color:var(--on-accent,#000);filter:brightness(1.07)}
+
+/* ---------- buttons ---------- */
+.btn{font-family:var(--btn-font,var(--display));font-weight:var(--btn-w,700);font-size:13px;letter-spacing:var(--btn-ls,.06em);text-transform:var(--btn-tt,uppercase);border:2px solid transparent;border-radius:var(--r-btn);padding:15px 28px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s,color .2s,border-color .2s,gap .2s;line-height:1}
+.btn:focus-visible{outline:3px solid var(--c-accent);outline-offset:3px}
+.btn-primary{background:var(--c-action);color:var(--on-action,#fff)}
+.btn-primary:hover{background:var(--c-action-hover,var(--c-deep));transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.btn-primary:active{transform:translateY(0);box-shadow:none}
+.btn-secondary{background:transparent;color:var(--c-sec,var(--c-deep));border-color:var(--c-sec,var(--c-deep))}
+.btn-secondary:hover{background:var(--c-sec,var(--c-deep));color:var(--on-sec,#fff);transform:translateY(-2px)}
+.on-dark .btn-secondary,.on-black .btn-secondary{color:#fff;border-color:#fff}
+.on-dark .btn-secondary:hover,.on-black .btn-secondary:hover{background:#fff;color:var(--c-deep) !important}
+.btn-ghost{background:transparent;color:var(--c-action);padding-left:4px;padding-right:4px}
+.btn-ghost:hover{color:var(--c-deep);gap:14px}
+.btn-light{background:#fff;color:var(--c-deep)}
+.btn-light:hover{background:var(--fog-soft);transform:translateY(-2px)}
+.btn-accent{background:var(--c-accent);color:var(--on-accent,#000)}
+.btn-accent:hover{filter:brightness(1.06);transform:translateY(-2px)}
+.btn[disabled],.btn.is-disabled{background:var(--fog-soft);color:#8d8899;border-color:transparent;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-sm{padding:11px 20px;font-size:11.5px}
+
+/* ---------- sections ---------- */
+.section{padding:112px 0}
+.section.alt{background:var(--sec-alt,#fff)}
+.section.dark{background:var(--c-deep);color:#fff}
+.section.black{background:var(--c-black);color:#fff}
+.dark p,.black p{color:var(--c-soft)}
+.kicker{font-family:var(--kicker-font,var(--display));font-weight:700;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--c-action);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.kicker .num{font-family:var(--display);font-weight:800;letter-spacing:0;font-size:13px;color:var(--num-fg,var(--c-accent));background:var(--num-bg,#000);border-radius:var(--num-r,var(--r-pill));padding:3px 9px}
+.dark .kicker .num,.black .kicker .num{background:var(--c-accent);color:var(--on-accent,#000)}
+.dark .kicker,.black .kicker{color:var(--c-soft)}
+h2.title{font-weight:var(--h-w,800);font-size:clamp(34px,4.6vw,60px);line-height:var(--h-lh,.98);text-transform:var(--h-tt,uppercase);letter-spacing:var(--h-ls,-.02em);margin-bottom:22px}
+h2.title .c2{color:var(--c-title2,var(--c-action))}
+.dark h2.title .c2,.black h2.title .c2{color:var(--c-soft)}
+.lead{font-size:18px;max-width:64ch;color:var(--text-2)}
+.dark .lead,.black .lead{color:var(--c-soft)}
+h3.sub{font-family:var(--display);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--c-action);margin:56px 0 18px}
+.dark h3.sub,.black h3.sub{color:var(--c-soft)}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.plate{display:inline-block;background:rgba(22,18,31,.62);border-radius:12px;padding:8px 12px;color:#fff}
+.chip-prop{font-family:var(--display);font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--on-accent,#000);background:var(--c-accent);padding:3px 8px;border-radius:var(--r-pill);vertical-align:middle;margin-left:8px;white-space:nowrap}
+
+/* ---------- cards ---------- */
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:28px;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.card h3{font-size:19px;font-weight:700;margin-bottom:8px}
+.card p{font-size:14.5px;margin:0}
+.card .idx{font-family:var(--display);font-weight:800;font-size:30px;color:var(--c-action);line-height:1;margin-bottom:12px;letter-spacing:-.03em}
+.card.is-dark{background:var(--c-deep);color:#fff;border:none}
+.card.is-dark h3{color:#fff}.card.is-dark p{color:var(--c-soft)}.card.is-dark .idx{color:var(--c-accent)}
+.attr{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.attr span{font-family:var(--display);font-weight:600;font-size:14px;border:1.5px solid var(--c-action);color:var(--c-sec,var(--c-deep));border-radius:var(--r-pill);padding:8px 18px;transition:.2s;cursor:default}
+.attr span:hover{background:var(--c-action);color:var(--on-action,#fff);transform:translateY(-2px)}
+.quote-bar{background:var(--c-black);color:#fff;border-radius:var(--r-xl);padding:44px 52px;margin:48px 0 0;display:flex;gap:28px;align-items:flex-start}
+.quote-bar .qm{font-family:var(--display);font-weight:800;font-size:92px;line-height:.7;color:var(--c-accent)}
+.quote-bar p{font-family:var(--q-font,var(--display));font-weight:var(--q-w,800);text-transform:var(--q-tt,uppercase);letter-spacing:-.02em;font-size:clamp(26px,3.4vw,44px);line-height:1.02;color:#fff;margin:0}
+.quote-bar small{display:block;margin-top:14px;font-family:var(--display);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-soft);font-style:normal}
+
+/* ---------- logo ---------- */
+.logo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.logo-tile{border-radius:var(--r-card);height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:20px;position:relative;overflow:hidden}
+.logo-tile .lg{height:44px}
+.logo-tile.sym .lg{height:64px}
+.logo-tile small{font-family:var(--display);font-size:11.5px;font-weight:600;opacity:.8;text-align:center}
+.clear-demo{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:28px}
+.cs-box{position:relative;background:rgba(255,255,255,.05);border:1.5px dashed var(--c-accent);border-radius:10px;padding:34px}
+.cs-box .lg{height:52px;outline:1px solid rgba(255,255,255,.3)}
+.cs-box i{position:absolute;font-style:normal;font-family:var(--display);font-size:11px;font-weight:800;color:var(--on-accent,#000);background:var(--c-accent);border-radius:4px;padding:1px 6px;line-height:1.4}
+.cs-box .xt{top:6px;left:50%;transform:translateX(-50%)}
+.cs-box .xl{left:7px;top:50%;transform:translateY(-50%)}
+.cs-box .xr{right:7px;top:50%;transform:translateY(-50%)}
+.cs-box .xb{bottom:6px;left:50%;transform:translateX(-50%)}
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.dd3{grid-template-columns:repeat(3,1fr)}
+.dd > div{border-radius:var(--r-card);padding:24px 26px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.dd h4{font-size:14px;margin-bottom:12px;letter-spacing:.04em;text-transform:uppercase}
+.dd .ok h4{color:#9fe3a8}.dd .no h4{color:#ffadb4}
+.dd ul{list-style:none;margin:0;padding:0}
+.dd li{font-size:14px;color:#ddd8e8;padding:9px 0 9px 22px;position:relative;border-top:1px solid rgba(255,255,255,.08)}
+.dd li:first-child{border-top:none}
+.dd li::before{content:'';position:absolute;left:0;top:16px;width:10px;height:2px;background:var(--c-soft)}
+.wrong{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+.wrong > div{background:#fff;border-radius:14px;height:112px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.wrong .lg{height:24px}
+.wrong span{position:absolute;bottom:8px;left:0;right:0;text-align:center;font-family:var(--display);font-size:10.5px;font-weight:700;color:#b3222f;letter-spacing:.04em;text-transform:uppercase;padding:0 8px}
+.wrong .x{position:absolute;top:8px;right:10px;color:#b3222f;font-weight:900;font-size:16px}
+.dl-bar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.dl-lb{font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--c-soft)}
+.dl-note{font-size:13px;color:var(--c-soft)}
+.dl-seg{display:inline-flex;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:var(--r-pill);padding:4px;gap:2px}
+.dl-seg button{font-family:var(--display);font-weight:700;font-size:13px;color:var(--c-soft);background:transparent;border:none;border-radius:var(--r-pill);padding:8px 16px;cursor:pointer;transition:background .2s,color .2s}
+.dl-seg button:hover{color:#fff}
+.dl-seg button.on{background:var(--c-accent);color:var(--on-accent,#000)}
+.dl-seg button:focus-visible{outline:3px solid var(--c-accent);outline-offset:2px}
+.dl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.dl-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--r-card);padding:14px;display:flex;flex-direction:column;gap:14px}
+.dl-prev{height:132px;border-radius:12px;display:flex;align-items:center;justify-content:center}
+.dl-prev img{max-width:72%;max-height:60px;width:auto;height:auto}
+.dl-prev.sym img{max-height:76px}
+.dl-meta{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:0 4px}
+.dl-meta b{font-family:var(--display);font-size:15px;color:#fff}
+.dl-meta span{font-size:12.5px;color:var(--c-soft)}
+.dl-card .btn{justify-content:center;width:100%}
+
+/* ---------- cores ---------- */
+.sw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.sw{border-radius:var(--r-card);min-height:230px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;position:relative;transition:transform .3s,box-shadow .3s;color:#fff}
+.sw:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.sw.light{color:var(--ink)}
+.sw.bordered{border:1px solid var(--line)}
+.sw .nm{font-family:var(--display);font-weight:800;font-size:17px;line-height:1.1}
+.sw .role{font-size:12px;opacity:.85;margin-top:4px}
+.sw .codes{font-size:11.5px;line-height:1.65;font-family:var(--mono)}
+.sw .codes b{opacity:.65;font-weight:500;margin-right:6px}
+.sw .hint{position:absolute;top:14px;right:14px;font-size:10px;font-family:var(--display);font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(0,0,0,.3);color:#fff;padding:3px 9px;border-radius:99px;opacity:0;transition:opacity .2s}
+.sw.light .hint{background:rgba(255,255,255,.7);color:var(--ink)}
+.sw:hover .hint{opacity:1}
+.sw.wide{grid-column:span 2}
+.sw.sm{min-height:150px}
+.sw:focus-visible{outline:3px solid var(--c-accent);outline-offset:3px}
+.ramp{display:grid;grid-template-columns:repeat(var(--n,10),1fr);gap:0;border-radius:var(--r-card);overflow:hidden;margin-top:12px}
+.ramp div{height:84px;padding:8px;display:flex;flex-direction:column;justify-content:flex-end;font-family:var(--mono);font-size:10.5px;cursor:pointer;transition:transform .2s}
+.ramp div:hover{transform:scaleY(1.06)}
+.ramp b{font-weight:600;display:block}
+.proportion{display:flex;height:64px;border-radius:var(--r-card);overflow:hidden;margin-top:16px}
+.proportion div{display:flex;align-items:flex-end;padding:10px 12px;font-family:var(--display);font-size:11.5px;font-weight:700;transition:flex-grow .3s}
+.proportion div:hover{flex-grow:1.2 !important}
+.ctr-table{width:100%;border-collapse:collapse;margin-top:12px}
+.ctr-table td{padding:12px 14px;border-top:1px solid var(--line);font-size:14px;vertical-align:middle}
+.ctr-table tr:first-child td{border-top:none}
+.ctr-pair{display:inline-flex;align-items:center;justify-content:center;width:150px;height:44px;border-radius:10px;font-family:var(--display);font-weight:700;font-size:14px}
+.ctr-badge{font-family:var(--display);font-weight:800;font-size:11px;letter-spacing:.06em;padding:3px 9px;border-radius:99px;display:inline-block}
+.ctr-badge.aaa{background:#d8f3dc;color:#0b5d1e}.ctr-badge.aa{background:#e6f4d6;color:#3b6b0a}.ctr-badge.lg2{background:#fff1c7;color:#7a5200}.ctr-badge.no{background:#d6283c;color:#fff}
+
+/* ---------- tipografia ---------- */
+.fam{display:grid;grid-template-columns:repeat(var(--fams,3),1fr);gap:20px}
+.fam .card .big{font-size:56px;line-height:1;margin:6px 0 14px;overflow-wrap:anywhere}
+.fam .label{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--c-action)}
+.fam .meta{font-size:12.5px;color:var(--muted);margin-top:14px}
+.fam .sub-note{font-size:11.5px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.fam .card.is-dark .meta,.fam .card.is-dark .sub-note{color:var(--c-soft)}
+.weights{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:12px;font-size:15px}
+.scale{margin-top:16px}
+.scale-row{display:grid;grid-template-columns:110px 1fr 230px;align-items:baseline;gap:18px;padding:16px 0;border-top:1px solid var(--line)}
+.scale-row:first-child{border-top:none}
+.scale-row .tg{font-family:var(--mono);font-size:11.5px;color:var(--c-action);font-weight:600}
+.scale-row .sp{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:right}
+.type-demo{background:var(--c-deep);color:#fff;border-radius:var(--r-xl);padding:56px;display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center}
+.type-demo .k{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-soft);margin-bottom:18px}
+.type-demo h3{font-size:clamp(34px,4.4vw,62px);font-weight:var(--h-w,800);line-height:.97;text-transform:var(--h-tt,uppercase);letter-spacing:var(--h-ls,-.02em)}
+.type-demo h3 .c2{color:var(--c-soft)}
+.type-demo .em-line{font-family:var(--serif);font-style:var(--serif-style,italic);font-weight:var(--serif-w,500);font-size:clamp(30px,3.6vw,48px);margin-top:10px;color:#fff;line-height:1.1}
+.anat{list-style:none;margin:0;padding:0;counter-reset:a}
+.anat li{counter-increment:a;display:flex;gap:14px;padding:12px 0;border-top:1px solid rgba(255,255,255,.12);font-size:14px;color:#ddd8e8}
+.anat li::before{content:counter(a);font-family:var(--display);font-weight:800;color:var(--c-accent);font-size:15px;width:18px}
+.anat b{color:#fff;font-family:var(--display)}
+
+/* ---------- regras / listas ---------- */
+.rules{display:grid;gap:12px}
+.rule{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:18px 20px}
+.rule .n{font-family:var(--display);font-weight:800;font-size:24px;color:var(--c-action);line-height:1;min-width:22px;letter-spacing:-.03em}
+.rule h4{font-size:15.5px;font-weight:700;margin-bottom:3px}
+.rule p{font-size:13.5px;margin:0}
+.rule.hl{border-color:var(--c-action);box-shadow:0 0 0 3px color-mix(in srgb,var(--c-action) 14%,transparent)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.tok-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.tok{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:24px 26px}
+.tok h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-action);margin-bottom:16px}
+.sp-row{display:flex;align-items:center;gap:14px;padding:5px 0;font-size:12.5px}
+.sp-row .bar{height:12px;background:var(--c-action);border-radius:3px}
+.sp-row .v{font-family:var(--mono);color:var(--muted);width:92px;flex:none}
+.rd-row{display:flex;gap:14px;flex-wrap:wrap}
+.rd{width:84px;text-align:center;font-size:11.5px;color:var(--muted)}
+.rd div{height:64px;background:var(--c-deep);margin-bottom:8px}
+.sh-row{display:flex;gap:16px;flex-wrap:wrap}
+.sh{width:120px;height:72px;background:#fff;border-radius:var(--r-card);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);border:1px solid var(--line)}
+
+/* ---------- imagem / texturas ---------- */
+.tex-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tex{border-radius:var(--r-card);overflow:hidden;position:relative;aspect-ratio:1/1;background:#000}
+.tex.wide{grid-column:span 2;aspect-ratio:2/1}
+.tex.tall{grid-row:span 2;aspect-ratio:auto}
+.tex canvas,.tex > svg,.tex > .fill{position:absolute;inset:0;width:100%;height:100%}
+.tex .cap{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;background:linear-gradient(0deg,rgba(0,0,0,.72),transparent);color:#fff;font-size:12px}
+.tex .cap b{display:block;font-family:var(--display);font-size:13.5px}
+.ph-rules{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.ph-rules .card{padding:22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);box-shadow:none;color:#fff}
+.ph-rules .card:hover{transform:none;box-shadow:none;border-color:rgba(255,255,255,.3)}
+.ph-rules .card p{color:var(--c-soft)}
+.ph-rules h3{font-size:16px;color:#fff}
+.prompt{font-family:var(--mono);font-size:12px;line-height:1.6;color:var(--c-soft);border-left:2px solid var(--c-accent);padding:4px 0 4px 14px;margin-top:14px}
+.prompt b{color:#fff;font-weight:600}
+
+/* ---------- componentes ---------- */
+.comp{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:30px;margin-bottom:20px}
+.comp > .ct{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.comp > .ct h3{font-size:19px;font-weight:700}
+.comp > .ct span{font-size:12px;color:var(--muted);font-family:var(--mono)}
+.comp .row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.comp .on-dark{background:var(--c-deep);border-radius:var(--r-card);padding:28px;margin-top:18px}
+.comp .on-black{background:#000;border-radius:var(--r-card);padding:28px;margin-top:18px}
+.comp .cap{font-size:12.5px;color:var(--muted);margin-top:14px}
+.c-kicker{font-family:var(--kicker-font,var(--display));font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--c-action)}
+.c-kicker.on-d{color:var(--c-soft)}
+.tag{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:var(--r-pill);display:inline-block}
+.tag-solid{background:var(--c-deep);color:#fff}
+.tag-soft{background:var(--c-tint);color:var(--c-deep)}
+.tag-line{border:1.5px solid var(--c-action);color:var(--c-sec,var(--c-deep))}
+.tag-accent{background:var(--c-accent);color:var(--on-accent,#000)}
+.tag-fog{background:var(--fog-soft);color:var(--ink)}
+.field{display:grid;gap:7px;min-width:280px}
+.field label{font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+.field input,.field select{font-family:var(--body);font-size:15px;padding:14px 16px;border-radius:var(--r-btn);border:1.5px solid #cfcad9;background:#fff;color:var(--ink);transition:border-color .2s,box-shadow .2s;outline:none}
+.field input::placeholder{color:#9a95a8}
+.field input:hover{border-color:var(--c-soft)}
+.field input:focus{border-color:var(--c-action);box-shadow:0 0 0 4px color-mix(in srgb,var(--c-action) 20%,transparent)}
+.field.err input{border-color:#c0283a;box-shadow:0 0 0 4px rgba(192,40,58,.12)}
+.field .help{font-size:12.5px;color:var(--muted)}
+.field.err .help{color:#b3222f}
+.chk{display:flex;gap:10px;align-items:center;font-size:14px}
+.chk i{width:20px;height:20px;border-radius:var(--r-chk,6px);border:1.5px solid var(--c-action);display:inline-flex;align-items:center;justify-content:center}
+.chk i.on{background:var(--c-action)}
+.chk i.on::after{content:'';width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.cc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.c-course{border-radius:var(--r-xl);overflow:hidden;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.c-course:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.c-course .im{height:170px;position:relative;overflow:hidden}
+.c-course .im canvas,.c-course .im > svg,.c-course .im > .fill{position:absolute;inset:0;width:100%;height:100%}
+.c-course .im .tag{position:absolute;left:16px;top:16px;z-index:2}
+.c-course .bd{padding:24px 24px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.c-course h4{font-size:21px;font-weight:var(--h4-w,700);line-height:1.08;text-transform:var(--h4-tt,uppercase)}
+.c-course p{font-size:14px;margin:0}
+.c-course .ft{margin-top:auto;padding-top:12px;display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--muted)}
+.c-dark{background:var(--c-deep);border:none;color:#fff}
+.c-dark h4{color:#fff}.c-dark p{color:var(--c-soft)}.c-dark .ft{color:var(--c-soft)}
+.c-stat{border-radius:var(--r-card);padding:26px;background:var(--grad-b);color:#fff}
+.c-stat .n{font-family:var(--display);font-weight:800;font-size:56px;line-height:1;letter-spacing:-.03em}
+.c-stat p{color:#fff;margin:12px 0 0;font-size:14px}
+.c-quote{border-radius:var(--r-xl);background:#000;color:#fff;padding:32px}
+.c-quote .qm{font-family:var(--serif);font-style:var(--serif-style,italic);color:var(--c-accent);font-size:56px;line-height:.6}
+.c-quote p{font-family:var(--serif);font-style:var(--serif-style,italic);font-size:21px;line-height:1.4;color:#fff;margin:6px 0 16px}
+.c-quote .who{font-family:var(--display);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--c-soft);font-weight:600}
+.cta-band{border-radius:var(--r-xl);background:var(--c-deep);color:#fff;padding:44px 48px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;left:0;top:0;bottom:0;width:14px;background:var(--c-accent)}
+.cta-band h4{font-size:clamp(26px,3.2vw,40px);font-weight:var(--h-w,800);text-transform:var(--h-tt,uppercase);line-height:1;margin-bottom:8px}
+.cta-band p{color:var(--c-soft);margin:0;max-width:44ch}
+.alert{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:var(--r-btn);font-size:14px;max-width:420px}
+.alert i{width:22px;height:22px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:800;font-size:13px;color:#fff;font-family:var(--display)}
+.alert.info{background:var(--al-info-bg,#e8efff);color:var(--al-info-fg,#10337a)}.alert.info i{background:var(--al-info,#2f5da8)}
+.alert.warn{background:#fff3d6;color:#6b4300}.alert.warn i{background:#ffb12a;color:#000}
+.alert.err{background:#ffe6e8;color:#8f1d29}.alert.err i{background:#c0283a}
+.alert.ok{background:#e0f5e6;color:#14602a}.alert.ok i{background:#2c9a4b}
+
+/* ---------- peças (mockups em unidade 1080) ---------- */
+.pieces{display:grid;grid-template-columns:repeat(12,1fr);gap:28px;align-items:start}
+.pc-wrap{display:flex;flex-direction:column;gap:12px}
+.pc-wrap .pc-cap{font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;gap:10px}
+.pc-wrap .pc-cap b{font-family:var(--display);color:var(--ink);font-size:13.5px}
+.piece{container-type:inline-size;position:relative;overflow:hidden;background:#000;box-shadow:var(--shadow-lg);border-radius:var(--r-piece,14px);--u:calc(100cqw / 1080)}
+.piece *{box-sizing:border-box}
+.piece .a{position:absolute}
+.p-feed{grid-column:span 5}.p-story{grid-column:span 3}.p-poster{grid-column:span 4}.p-slide{grid-column:span 8}.p-slide2{grid-column:span 4}
+.piece.sq{aspect-ratio:1/1}.piece.st{aspect-ratio:9/16}.piece.po{aspect-ratio:4/5}
+.piece.wd{aspect-ratio:16/9;--u:calc(100cqw / 1920)}
+.piece canvas{position:absolute;inset:0;width:100%;height:100%}
+.T{font-family:var(--display);font-weight:var(--h-w,700);letter-spacing:var(--h-ls,-.025em);line-height:.97}
+.R{font-family:var(--body)}
+.S{font-family:var(--serif);font-style:var(--serif-style,italic);font-weight:var(--serif-w,500);letter-spacing:0}
+.M{font-family:var(--mono)}
+
+/* ---------- voz ---------- */
+.voice-ex{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.vx{border-radius:var(--r-xl);padding:30px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between}
+.vx .lb{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.vx p{font-family:var(--vx-font,var(--display));font-size:25px;font-weight:700;line-height:1.08;letter-spacing:-.02em;margin:0;color:inherit}
+.dodont{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.dodont > div{border-radius:var(--r-card);padding:24px 28px;background:#fff;border:1px solid var(--line)}
+.dodont h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
+.dodont .do h4{color:#14602a}.dodont .dont h4{color:#9a1b27}
+.dodont li{font-size:14.5px;padding:8px 0;border-top:1px solid var(--line);list-style:none}
+.dodont ul{margin:0;padding:0}
+.dodont li:first-child{border-top:none}
+.check{columns:2;column-gap:36px;margin-top:16px;margin-left:0;padding:0}
+.check li{list-style:none;position:relative;padding:9px 0 9px 32px;font-size:14.5px;break-inside:avoid;border-bottom:1px solid var(--line)}
+.check li::before{content:'';position:absolute;left:0;top:11px;width:18px;height:18px;border-radius:5px;border:1.5px solid var(--c-action)}
+
+/* ---------- tokens / IA ---------- */
+.code-card{background:#0d0a14;border-radius:var(--r-card);padding:0;overflow:hidden;margin-top:20px}
+.code-card .bar{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.08);font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c-soft)}
+.code-card pre{margin:0;padding:22px 24px;overflow:auto;max-height:430px;font-family:var(--mono);font-size:12.5px;line-height:1.65;color:#d8d2e6}
+.code-card pre .k{color:#a9c8ff}.code-card pre .v{color:#ffcf87}.code-card pre .c{color:#7d7691}
+textarea#mdOut{width:100%;min-height:340px;margin-top:16px;padding:20px 22px;border-radius:var(--r-card);border:1px solid rgba(255,255,255,.12);background:#0d0a14;color:#d8d2e6;font-family:var(--mono);font-size:12.5px;line-height:1.6;resize:vertical;display:none}
+
+footer{background:#000;color:var(--c-soft);padding:64px 32px;text-align:center;font-size:13px}
+footer .lg{height:34px;margin:0 auto 20px}
+footer b{color:var(--c-accent)}
+footer a{color:#fff}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#000;color:#fff;padding:12px 22px;border-radius:99px;font-family:var(--display);font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:300;box-shadow:0 10px 30px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.15)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ---------- responsivo ---------- */
+@media screen and (max-width:1240px){ nav.top ul{display:none} }
+@media screen and (max-width:980px){
+  .g3,.g4,.fam,.cc-grid,.voice-ex,.ph-rules{grid-template-columns:1fr 1fr}
+  .sw-grid{grid-template-columns:1fr 1fr}
+  .tex-grid{grid-template-columns:1fr 1fr}
+  .type-demo,.tok-grid,.dodont,.dd,.dd3,.two{grid-template-columns:1fr}
+  .pieces{grid-template-columns:1fr 1fr}
+  .p-feed,.p-story,.p-poster,.p-slide,.p-slide2{grid-column:span 2}
+  .logo-grid{grid-template-columns:1fr 1fr}
+  .wrong{grid-template-columns:1fr 1fr}
+  .dl-grid{grid-template-columns:1fr 1fr}
+  .scale-row{grid-template-columns:80px 1fr}
+  .scale-row .sp{grid-column:1/-1;text-align:left}
+}
+@media screen and (max-width:600px){
+  .wrap{padding:0 20px}
+  nav.top{padding:10px 16px}
+  .section{padding:72px 0}
+  .g2,.g3,.g4,.fam,.cc-grid,.voice-ex,.ph-rules,.sw-grid,.logo-grid,.wrong,.tex-grid,.dl-grid{grid-template-columns:1fr}
+  .sw.wide,.tex.wide{grid-column:auto}
+  .tex.tall{grid-row:auto;aspect-ratio:1/1}
+  .pieces{grid-template-columns:1fr}
+  .p-feed,.p-story,.p-poster,.p-slide,.p-slide2{grid-column:auto}
+  .check{columns:1}
+  .quote-bar{padding:30px 26px;flex-direction:column;gap:6px}
+  .type-demo{padding:32px 26px}
+  .cta-band{padding:34px 28px 34px 38px}
+  code{overflow-wrap:anywhere}
+  .scale-row > span{min-width:0;overflow-wrap:anywhere}
+  .ctr-table,.ctr-table tbody{display:block}
+  .ctr-table tr{display:grid;grid-template-columns:116px 1fr;gap:4px 10px;padding:12px 0;border-top:1px solid var(--line)}
+  .ctr-table tr:first-child{border-top:none}
+  .ctr-table td{border:none !important;padding:2px 0 !important;width:auto !important}
+  .ctr-table td:nth-child(3){grid-column:1/-1;text-align:left !important}
+  .ctr-pair{width:108px}
+  .ramp{grid-template-columns:repeat(5,1fr)}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}
+  .reveal{opacity:1;transform:none}
+  .card:hover,.sw:hover,.c-course:hover,.btn:hover{transform:none}
+}
+@media print{
+  *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+  nav.top,.toast,#mdOut,.dl-bar,.dl-grid,.llm-block{display:none !important}
+  .reveal{opacity:1 !important;transform:none !important}
+  .section{padding:48px 0}
+}
+
+/* ---------- tipografia de interface (rótulos/chips) e cartões brancos em seções escuras ---------- */
+.btn,.kicker,.kicker .num,.tag,.chip-prop,.dl-lb,.dl-seg button,.dl-meta b,.logo-tile small,.wrong span,.ctr-pair,.ctr-badge,.field label,.c-kicker,.pc-wrap .pc-cap b,.dd h4,.fam .label,.vx .lb,.code-card .bar,.toast,.proportion div,.sw .hint,.quote-bar small,.attr span,.type-demo .k,.dodont h4,.tok h4,.card .idx,.rule .n,.c-quote .who,.nav-home,nav.top a,nav.top .brand span{font-family:var(--ui,var(--display))}
+.section.black .rule,.section.dark .rule,.section.black .comp,.section.dark .comp,.section.black .tok,.section.dark .tok,.section.black .card:not(.is-dark),.section.dark .card:not(.is-dark){color:var(--ink)}
+.section.black .rule h4,.section.dark .rule h4,.section.black .card:not(.is-dark) h3,.section.dark .card:not(.is-dark) h3,.section.black .comp h3,.section.dark .comp h3,.section.black .tok h4,.section.dark .tok h4{color:var(--ink)}
+.section.black .rule p,.section.dark .rule p,.section.black .card:not(.is-dark) p,.section.dark .card:not(.is-dark) p,.section.black .comp p,.section.dark .comp p{color:var(--text-2)}
+.section.alt .card.is-dark{background:var(--c-deep)}
+.wrong > div{padding:14px 10px 34px;align-items:center;justify-content:center}
+.wrong .lg{height:20px}
+.section.black .pc-wrap .pc-cap,.section.dark .pc-wrap .pc-cap{color:var(--c-soft)}
+.section.black .pc-wrap .pc-cap b,.section.dark .pc-wrap .pc-cap b{color:#fff}
+
+
+  /* Alun: blocos retos, rótulos em mono, sem sombras */
+  .btn,.kicker,.kicker .num,.tag,.chip-prop,.dl-lb,.dl-seg button,.dl-meta b,.logo-tile small,.wrong span,.ctr-pair,.ctr-badge,.field label,.c-kicker,.pc-wrap .pc-cap b,.dd h4,.fam .label,.vx .lb,.code-card .bar,.toast,.proportion div,.sw .hint,.quote-bar small,.attr span,.type-demo .k,.dodont h4,.tok h4,.c-quote .who{font-weight:500}
+  .sw .nm{font-weight:400;font-size:22px;letter-spacing:-.01em}
+  .dl-meta b{font-size:12.5px}
+  .logo-tile small{font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+  .wrong span{font-size:10px}
+  .proportion div{font-size:10.5px}
+  .section.alt .card.is-dark{background:#000}
+  nav.top .brand span,nav.top a{font-family:var(--mono);font-weight:500;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em}
+  nav.top a.nav-home{border-radius:0;font-size:11px}
+  .kicker{display:inline-flex;background:#000;color:#fff;padding:6px 10px;font-size:11.5px;letter-spacing:.08em;margin-bottom:22px}
+  .kicker .num{background:#ED1360;color:#000;padding:1px 6px;font-weight:500}
+  .dark .kicker,.black .kicker{background:#fff;color:#000}
+  .dark .kicker .num,.black .kicker .num{background:#ED1360;color:#000}
+  h2.title{font-size:clamp(40px,6vw,84px);line-height:.98;margin-bottom:26px}
+  h2.title .c2{color:#ED1360;font-style:italic}
+  .black h2.title .c2,.dark h2.title .c2{color:#FF9413}
+  .lead{font-family:var(--body)}
+  h3.sub{font-family:var(--mono);font-weight:500;letter-spacing:.08em;color:#000;background:transparent;display:flex;align-items:center;gap:10px}
+  h3.sub::before{content:'';width:10px;height:10px;background:#ED1360}
+  .black h3.sub,.dark h3.sub{color:#fff}
+  .black h3.sub::before,.dark h3.sub::before{background:#FF9413}
+  .card,.comp,.tok,.rule{border:1px solid #0D0C0C}
+  .card:hover{transform:none;box-shadow:6px 6px 0 #000}
+  .card h3{font-weight:400;font-size:22px;letter-spacing:-.01em}
+  .card .idx,.rule .n{font-family:var(--mono);font-weight:500;font-size:14px;letter-spacing:.04em;color:#000;background:#ED1360;display:inline-block;padding:2px 7px;margin-bottom:14px}
+  .rule .n{margin:0;min-width:0;height:max-content}
+  .card.is-dark{border:1px solid #333}
+  .sw:hover{box-shadow:none;transform:translateY(-4px)}
+  .attr span{border-radius:0;font-family:var(--mono);font-weight:400;font-size:12.5px;letter-spacing:.03em;text-transform:uppercase;border:1px solid #000;color:#000}
+  .attr span:hover{background:#ED1360;color:#000;border-color:#000}
+  .mini-attr{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+  .mini-attr span{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.04em;background:#D1CDCD;padding:3px 8px}
+  .label-k{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#ED1360;margin-bottom:10px}
+  .kw{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}.kw span{font-family:var(--mono);font-size:11px;border:1px solid #000;padding:3px 8px}
+  .quote-bar{border-radius:0;background:#000;border-left:14px solid #ED1360}
+  .quote-bar .qm{font-family:"Newsreader",serif}
+  .quote-bar p{font-style:italic}
+  .tag{font-family:var(--mono);font-weight:400}
+  .btn{border-width:1.5px}
+  .btn-secondary{border-color:#000;color:#000}.btn-secondary:hover{background:#000;color:#fff}
+  .btn-ghost{color:#000;padding:15px 4px}.btn-ghost:hover{color:#ED1360}
+  .logo-tile{border-radius:0}
+  .cs-box{border-radius:0}
+  .c-course,.c-stat,.c-quote,.cta-band{border-radius:0}
+  .c-course h4{letter-spacing:-.01em}
+  .cta-band{background:#000}.cta-band::before{background:#ED1360}
+  .field input{border:1px solid #000;font-family:var(--body)}
+  .field label{font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:.06em}
+  .alert{border-left:6px solid #000;border-radius:0}
+  .alert.info{border-color:#333131}.alert.ok{border-color:#2c9a4b}.alert.warn{border-color:#FF9413}.alert.err{border-color:#c0283a}
+  .ctr-pair{border-radius:0}
+  .section.alt .card,.section.alt .comp,.section.alt .tok{background:#fff}
+  .sw.light.bordered{border:1px solid #0D0C0C}
+  .proportion{border-radius:0}
+  .strat{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid #000;margin-top:40px}
+  .strat .st{padding:30px 28px;border-right:1px solid #000}.strat .st:last-child{border-right:none}
+  .strat .st:nth-child(2){background:#000;color:#fff}.strat .st:nth-child(2) p{color:#D1CDCD}
+  .strat .st:nth-child(3){background:#ED1360}.strat .st:nth-child(3) p{color:#000}
+  .strat .lab-k{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;background:#000;color:#fff;padding:3px 8px;display:inline-block;margin-bottom:16px}
+  .strat .st:nth-child(2) .lab-k{background:#fff;color:#000}.strat .st:nth-child(3) .lab-k{background:#000;color:#fff}
+  .strat p{font-family:var(--display);font-weight:300;font-size:20px;line-height:1.3;margin:0;color:#000}
+  .strat .st:nth-child(3) p{font-weight:400}
+  .black .wrong > div{background:#fff}
+  /* hero em grid 4×4 */
+  .hero{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,minmax(0,1fr));min-height:min(calc(100svh - 49px),860px);background:#000}
+  .hb{position:relative;overflow:hidden;padding:26px;display:flex;flex-direction:column;justify-content:space-between}
+  .hb .lab,.lab{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+  .hb .lab.dim{opacity:.6}
+  .h-main{grid-column:1/4;grid-row:1/3;background:#000;color:#fff;padding:32px 36px}
+  .h-top{display:flex;justify-content:space-between;gap:12px;color:#D1CDCD}
+  .h-main h1{font-weight:300;font-size:clamp(38px,4.7vw,80px);line-height:.96;letter-spacing:-.03em;color:#fff;margin:0 0 20px;max-width:14ch}
+  .h-main h1 em{font-style:italic;color:#ED1360}
+  .h-main p{color:#D1CDCD;max-width:52ch;font-size:15px;margin:0}
+  .h-wine{grid-column:4;grid-row:1;background:#600724;color:#D1CDCD}
+  .h-or{grid-column:4;grid-row:2;background:#FF9413;color:#000}
+  .h-mag{grid-column:1/3;grid-row:3/5;background:#ED1360;color:#000;justify-content:flex-end}
+  .h-mag h2{font-weight:300;font-size:clamp(34px,4.6vw,76px);line-height:.98;letter-spacing:-.03em;color:#000}
+  .h-mos{grid-column:3/5;grid-row:3/5;padding:0;background:#000}
+  .h-mos canvas{position:absolute;inset:0;width:100%;height:100%}
+  /* mosaico interativo */
+  .mos-box{position:relative}
+  .mos-box canvas{width:100%;aspect-ratio:1/1;background:#000;display:block;border:1px solid #333}
+  .mos-ctl{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:14px}
+  /* grid 4×4 */
+  .grid4{display:flex;justify-content:center}
+  .g4-box{position:relative;width:min(100%,380px);aspect-ratio:1/1;background:#D1CDCD;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:10px;border:1px solid #333}
+  .g4-box i{background:#fff;display:block}
+  .g4-box u,.g4-box s{position:absolute;background:#ED1360;opacity:.8}
+  .g4-box u{top:0;bottom:0;width:1px}.g4-box s{left:0;right:0;height:1px}
+  /* pictogramas */
+  .picto{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border-top:1px solid #000;border-left:1px solid #000;margin-top:20px}
+  .picto > div{border-right:1px solid #000;border-bottom:1px solid #000;background:#D1CDCD;aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:12px}
+  .picto .pi{width:44%;color:#000}.picto span{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase}
+  .picto > div:hover{background:#ED1360}
+  /* públicos */
+  .aud{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid #000}
+  .aud > div{padding:18px 22px;border-bottom:1px solid #000;display:grid;gap:4px}
+  .aud > div:nth-child(odd){border-right:1px solid #000}
+  .aud > div:last-child:nth-child(odd){grid-column:1/-1;border-right:none}
+  .aud b{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  .aud span{font-size:14.5px;color:#3a3737}
+  .logo-tile.sym .lg{height:64px}
+  .wrong > div{border-radius:0}
+  .wrong .lg{height:26px}
+  .piece{border-radius:0}
+  .dl-card{border-radius:0}.dl-prev{border-radius:0}
+  .tex{border-radius:0}
+  .tex canvas{width:100%;height:100%}
+  .c-course .im canvas{width:100%;height:100%}
+  @media screen and (max-width:980px){
+    .hero{grid-template-rows:auto;min-height:0;grid-template-columns:repeat(2,1fr)}
+    .h-main{grid-column:1/3;grid-row:auto}.h-wine{grid-column:1;grid-row:auto;min-height:140px}.h-or{grid-column:2;grid-row:auto;min-height:140px}
+    .h-mag{grid-column:1/3;grid-row:auto;min-height:260px}.h-mos{grid-column:1/3;grid-row:auto;min-height:300px}
+    .strat{grid-template-columns:1fr}.strat .st{border-right:none;border-bottom:1px solid #000}
+    .picto{grid-template-columns:repeat(4,1fr)}.aud{grid-template-columns:1fr}.aud > div:nth-child(odd){border-right:none}
+  }
+  @media screen and (max-width:600px){.picto{grid-template-columns:repeat(3,1fr)}.hb{padding:20px}.h-main{padding:24px}}
+  
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="brand"><span class="lg" style=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#D1CDCD"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span> <span>Design System</span></div>
+  <ul><li><a href="#essencia">Estratégia</a></li><li><a href="#logo">Logo</a></li><li><a href="#cores">Cores</a></li><li><a href="#tipografia">Tipografia</a></li><li><a href="#grafismo">Grafismo & grid</a></li><li><a href="#imagem">Imagem & ícones</a></li><li><a href="#componentes">Componentes</a></li><li><a href="#pecas">Peças</a></li><li><a href="#voz">Voz</a></li><li><a href="#ia">Tokens & IA</a></li></ul>
+  <a class="nav-home" href="index.html">&larr; Marcas do grupo</a>
+</nav>
+
+
+<header class="hero">
+  <div class="hb h-main">
+    <div class="h-top"><span class="lab">Design System · v1.0 · 2026</span><span class="lab dim">alun.com.br</span></div>
+    <span class="lg" style="height:clamp(40px,6vw,84px);margin:36px 0 34px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#D1CDCD"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span>
+    <div>
+      <h1>Superpoderes <em>tech</em> para superconquistas humanas.</h1>
+      <p>Fundamentos, módulos e regras de composição para criar qualquer peça do Grupo Alun — do site ao outdoor — com a mesma voz: expert, sempre em movimento e que convida à comunidade.</p>
+    </div>
+  </div>
+  <div class="hb h-wine"><span class="lab">01</span><span class="lab">Pulso humano.</span></div>
+  <div class="hb h-or"><span class="lab">Impulso tech.</span><span class="lab">Alun ecosystem</span></div>
+  <div class="hb h-mag"><h2>um chamado para mudar o mundo.</h2></div>
+  <div class="hb h-mos"><canvas data-gfx="mosaic" data-seed="7" data-variant="full" data-mask="ellipse"></canvas></div>
+</header>
+
+
+<section class="section " id="essencia">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="num">01</span> Estratégia</div>
+    <h2 class="title reveal">Pulso humano. <span class="c2">Impulso tech.</span></h2>
+    <p class="lead reveal">Alun vem de <i>alumnus</i> — aluno, em latim. Somos mais que um grupo de educação: um universo de possibilidades complementares em capacitação tech, do online ao presencial, do livre ao regulado, do ensino fundamental ao profissionalizante. Este documento traduz o Brandbook 2025 em um sistema reutilizável.</p>
+    
+    <div class="strat reveal">
+      <div class="st"><span class="lab-k">Visão</span><p>Em um mundo onde tecnologia é a linguagem universal, seremos o espaço mais relevante para evoluir, impulsionar e conectar os profissionais do futuro, nos consolidando como o maior e mais completo ecossistema de capacitação tech da América Latina.</p></div>
+      <div class="st"><span class="lab-k">Propósito</span><p>Oferecer experiências de educação memoráveis. Para todos os profissionais que usam alguma forma de tecnologia. Para todos os estágios de evolução. E para todas as pessoas que querem multiplicar conexões — com seus pares e com o mercado.</p></div>
+      <div class="st"><span class="lab-k">Posicionamento</span><p>O ecossistema de educação em tecnologia que cria a conexão mais profunda e duradoura com seus alunos ao longo de suas vidas, construindo pontes reais com o mercado e laços genuínos com uma comunidade que os impulsiona.</p></div>
+    </div>
+
+    <h3 class="sub reveal">Três direcionadores</h3>
+    <div class="grid g3 reveal">
+      <div class="card"><div class="idx">01</div><h3>Fazer junto — um mundo de conexão</h3><p>Ser completa, integrando todas as possibilidades para expandir alcances e horizontes. Conectar-se e ser conector de oportunidades. Criar forte senso de pertencimento.</p><div class="mini-attr"><span>Conectora</span><span>High touch</span><span>Diversa</span><span>Parceira</span><span>Expansiva</span></div></div>
+      <div class="card"><div class="idx">02</div><h3>Fazer diferente — um mundo de inovação</h3><p>Viver o mundo pensando sempre em novas técnicas, tecnologias e metodologias. Alimentar-se do talento, da dedicação e da paixão genuína. A veia tech e a vontade de mudar o mundo.</p><div class="mini-attr"><span>Apaixonada</span><span>High tech</span><span>Criativa</span><span>Disruptiva</span><span>Inteligente</span></div></div>
+      <div class="card"><div class="idx">03</div><h3>Fazer a diferença — evolução para o mundo</h3><p>Ser agente impulsionador capaz de conquistar e manter uma comunidade forte, que une potências para promover mudanças reais em pessoas, empresas e no mundo.</p><div class="mini-attr"><span>Protagonista</span><span>Potente</span><span>Engajadora</span></div></div>
+    </div>
+
+    <h3 class="sub reveal">O grupo</h3>
+    <div class="grid g4 reveal" id="grupo-cards">
+      <div class="card"><h3>Alura</h3><p>Plataforma de cursos online para quem vive de tecnologia.</p></div>
+      <div class="card"><h3>FIAP</h3><p>Faculdade, MBAs e pós-graduação tech com nota máxima no MEC.</p></div>
+      <div class="card"><h3>PM3</h3><p>Formações e comunidade em produtos digitais.</p></div>
+      <div class="card"><h3>StartSe</h3><p>Escola internacional de negócios, inovação e IA.</p></div>
+    </div>
+    <p class="reveal" style="margin-top:14px;font-size:13.5px">Cada marca tem a sua própria identidade e o seu guia nesta plataforma. A marca Alun fala em nome do ecossistema e de todos os seus públicos.</p>
+
+    <div class="quote-bar reveal">
+      <div class="qm">“</div>
+      <div><p>Superpoderes tech para superconquistas humanas.</p><small>Tagline · Brandbook Alun 2025</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="section black" id="logo">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="num">02</span> Logo & símbolo</div>
+    <h2 class="title reveal">Tech <span class="c2">&amp; touch</span></h2>
+    <p class="lead reveal">A marca nasce do encontro entre a origem da tecnologia e sua conexão com o humano — do código binário ao cartão perfurado. O logotipo de quatro letras em módulos retos e cantos arredondados dá o grid de toda a identidade. O símbolo, inspirado no cérebro, é o ponto de convergência entre máquina e mente: o equilíbrio entre <i>tech</i> e <i>touch</i>.</p>
+    
+    <div class="logo-grid reveal" style="margin-top:44px">
+      <div class="logo-tile" style="background:#fff;color:#0D0C0C"><span class="lg" style=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#000000"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span><small>Preto — padrão em fundo claro</small></div>
+      <div class="logo-tile" style="background:#333131;color:#fff"><span class="lg" style=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#D1CDCD"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span><small>Placa Mãe — sobre Cinza</small></div>
+      <div class="logo-tile" style="background:#D1CDCD;color:#000"><span class="lg" style=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#000000"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span><small>Preto — sobre Placa Mãe</small></div>
+      <div class="logo-tile" style="background:#000;color:#fff;border:1px solid rgba(255,255,255,.2)"><span class="lg" style=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#D1CDCD"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span><small>Placa Mãe — sobre Preto</small></div>
+      <div class="logo-tile" style="background:#600724;color:#fff"><span class="lg" style=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#D1CDCD"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span><small>Placa Mãe — sobre Magenta Off</small></div>
+      <div class="logo-tile" style="background:#FF9413;color:#000"><span class="lg" style=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#000000"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span><small>Preto — sobre Odisseia On</small></div>
+      <div class="logo-tile sym" style="background:#fff;color:#0D0C0C"><span class="lg" style=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 232" fill="none" role="img" aria-label="Alun"><g fill="#000000"><path d="M50 0H100V50H46V182H100V232H50A50 50 0 0 1 0 182V50A50 50 0 0 1 50 0ZM100 50H150V182H100ZM200 0H150V50H204V182H150V232H200A50 50 0 0 0 250 182V50A50 50 0 0 0 200 0Z"/></g></svg></span><small>Símbolo — avatar, favicon, redução máxima</small></div>
+      <div class="logo-tile sym" style="background:#000;color:#fff;border:1px solid rgba(255,255,255,.2)"><span class="lg" style=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 232" fill="none" role="img" aria-label="Alun"><g fill="#D1CDCD"><path d="M50 0H100V50H46V182H100V232H50A50 50 0 0 1 0 182V50A50 50 0 0 1 50 0ZM100 50H150V182H100ZM200 0H150V50H204V182H150V232H200A50 50 0 0 0 250 182V50A50 50 0 0 0 200 0Z"/></g></svg></span><small>Símbolo Placa Mãe — sobre Preto</small></div>
+      <div class="logo-tile sym" style="background:#ED1360;color:#000"><span class="lg" style=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 232" fill="none" role="img" aria-label="Alun"><g fill="#000000"><path d="M50 0H100V50H46V182H100V232H50A50 50 0 0 1 0 182V50A50 50 0 0 1 50 0ZM100 50H150V182H100ZM200 0H150V50H204V182H150V232H200A50 50 0 0 0 250 182V50A50 50 0 0 0 200 0Z"/></g></svg></span><small>Símbolo preto — sobre Magenta On</small></div>
+    </div>
+    <p class="reveal" style="margin-top:14px;font-size:13.5px">O brandbook mostra o logo em Preto e Placa Mãe sobre fundos neutros e sobre fotografia e grafismo. As aplicações sobre cores de destaque seguem o contraste da seção Cores.</p>
+
+    <h3 class="sub reveal">Baixar em PNG</h3>
+    <div class="dl-bar reveal">
+      <span class="dl-lb">Largura do arquivo</span>
+      <div class="dl-seg" id="dlSize" role="group" aria-label="Largura do PNG">
+        <button type="button" data-w="512">512 px</button><button type="button" data-w="1024">1024 px</button><button type="button" data-w="2048" class="on">2048 px</button><button type="button" data-w="4096">4096 px</button>
+      </div>
+      <span class="dl-note">Fundo transparente · gerado a partir do vetor</span>
+    </div>
+    <div class="dl-grid reveal" id="dlGrid"></div>
+
+    <h3 class="sub reveal">Área de segurança e tamanho mínimo</h3>
+    <div class="clear-demo reveal">
+      <div class="cs-box" style="padding:40px"><i class="xt">2X</i><i class="xl">2X</i><i class="xr">2X</i><i class="xb">2X</i><span class="lg" style="height:56px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#D1CDCD"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span></div>
+      <p style="max-width:470px;margin:0">Sendo <b style="color:#fff">X</b> a largura da haste da letra que compõe o logotipo, a área de segurança é de <b style="color:#fff">duas vezes essa dimensão</b> em todos os lados. O mesmo vale para o símbolo.<br><br><b style="color:#fff">Redução máxima:</b> 20&nbsp;px. Em reduções menores (favicon, avatar) use o símbolo.</p>
+    </div>
+
+    <h3 class="sub reveal">Usos incorretos</h3>
+    <div class="wrong reveal">
+      <div><span style="display:block;transform:scaleX(1.5)"><span class="lg" style="height:20px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#000000"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span></span><span>Não deformar</span><b class="x">✕</b></div>
+      <div><span style="display:block;transform:rotate(-14deg)"><span class="lg" style="height:20px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#000000"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span></span><span>Não rotacionar</span><b class="x">✕</b></div>
+      <div><span class="lg" style="height:20px"><svg viewBox="0 0 357 86" fill="none" stroke="#000" stroke-width="3" style="height:100%;width:auto"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></svg></span><span>Não usar em outline</span><b class="x">✕</b></div>
+      <div><span class="lg" style="height:20px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#1fb6a6"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span><span>Não usar cores fora da paleta</span><b class="x">✕</b></div>
+      <div style="background:#ED1360"><span class="lg" style="height:20px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#c9185a"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span><span style="color:#fff">Sem contraste com o fundo</span><b class="x" style="color:#fff">✕</b></div>
+      <div><span style="filter:drop-shadow(4px 5px 3px rgba(0,0,0,.45));display:block"><span class="lg" style="height:20px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#000000"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span></span><span>Não usar sombras ou efeitos</span><b class="x">✕</b></div>
+      <div><span style="display:inline-block;transform:rotate(-90deg);margin:18px 0"><span class="lg" style="height:14px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#000000"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span></span><span>Não aplicar na vertical</span><b class="x">✕</b></div>
+      <div><span style="display:flex;flex-direction:column;gap:3px;align-items:flex-start"><svg viewBox="0 0 160 86" style="height:12px;width:auto"><g fill="#000"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg><svg viewBox="177 0 180 86" style="height:12px;width:auto"><g fill="#000"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span><span>Não quebrar o texto da marca</span><b class="x">✕</b></div>
+    </div>
+    <p class="reveal" style="margin-top:16px;font-size:13.5px">Toda aplicação que não consta no brandbook não deve ser utilizada. Também não sangrar a marca, não alterar espaçamentos e respeitar sempre a margem de segurança.</p>
+  </div>
+</section>
+
+<section class="section " id="cores">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="num">03</span> Cores</div>
+    <h2 class="title reveal">Cores dos <span class="c2">questionadores</span></h2>
+    <p class="lead reveal">A paleta é cromática e direta: quatro neutros que sustentam a leitura e dois pares de cor — Magenta e Odisseia — cada um com versão <b>On</b> (luz) e <b>Off</b> (sombra). Clique em qualquer cor para copiar o HEX.</p>
+    
+    <h3 class="sub reveal">Neutros <span class="chip-prop">valores medidos no brandbook</span></h3>
+    <div class="sw-grid reveal" ><div class="sw" role="button" tabindex="0" data-hex="#000000" style="background:#000000;"><span class="hint">copiar HEX</span><div><div class="nm">Preto</div><div class="role">Base — blocos principais, fundo, texto</div></div><div class="codes"><b>HEX</b>#000000 &nbsp; <b>RGB</b>0 0 0</div></div><div class="sw" role="button" tabindex="0" data-hex="#333131" style="background:#333131;"><span class="hint">copiar HEX</span><div><div class="nm">Cinza</div><div class="role">Superfície escura secundária</div></div><div class="codes"><b>HEX</b>#333131 &nbsp; <b>RGB</b>51 49 49</div></div><div class="sw light" role="button" tabindex="0" data-hex="#D1CDCD" style="background:#D1CDCD;"><span class="hint">copiar HEX</span><div><div class="nm">Placa Mãe</div><div class="role">Cinza quente — fundo neutro, logo em escuro</div></div><div class="codes"><b>HEX</b>#D1CDCD &nbsp; <b>RGB</b>209 205 205</div></div><div class="sw light bordered" role="button" tabindex="0" data-hex="#FFFFFF" style="background:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">Branco</div><div class="role">Respiro e texto</div></div><div class="codes"><b>HEX</b>#FFFFFF &nbsp; <b>RGB</b>255 255 255</div></div></div>
+    <h3 class="sub reveal">Cores de destaque</h3>
+    <div class="sw-grid reveal" ><div class="sw wide" role="button" tabindex="0" data-hex="#ED1360" style="background:#ED1360;color:#000"><span class="hint">copiar HEX</span><div><div class="nm">Magenta On</div><div class="role">Energia — blocos de ação, grafismo, módulos</div></div><div class="codes"><b>HEX</b>#ED1360 &nbsp; <b>RGB</b>237 19 96</div></div><div class="sw wide" role="button" tabindex="0" data-hex="#600724" style="background:#600724;"><span class="hint">copiar HEX</span><div><div class="nm">Magenta Off</div><div class="role">Sombra do magenta — blocos profundos, fundos</div></div><div class="codes"><b>HEX</b>#600724 &nbsp; <b>RGB</b>96 7 36</div></div><div class="sw wide light" role="button" tabindex="0" data-hex="#FF9413" style="background:#FF9413;color:#000"><span class="hint">copiar HEX</span><div><div class="nm">Odisseia On</div><div class="role">Laranja — destaque, links e CTAs em fundo preto</div></div><div class="codes"><b>HEX</b>#FF9413 &nbsp; <b>RGB</b>255 148 19</div></div><div class="sw wide" role="button" tabindex="0" data-hex="#994800" style="background:#994800;"><span class="hint">copiar HEX</span><div><div class="nm">Odisseia Off</div><div class="role">Sombra do laranja — blocos terrosos</div></div><div class="codes"><b>HEX</b>#994800 &nbsp; <b>RGB</b>153 72 0</div></div></div>
+    <p class="reveal" style="margin-top:16px;font-size:13.5px">Valores HEX/RGB medidos nas páginas de paleta do Brandbook 2025 e conferidos com o Design System da FIAP e com o site. <b>Atenção:</b> os campos CMYK e Pantone do PDF original repetem um código de exemplo (B0F867) — confirme com o time de marca antes de produzir material impresso.</p>
+
+    <h3 class="sub reveal">Proporção de uso <span class="chip-prop">leitura do brandbook</span></h3>
+    <div class="proportion reveal">
+      <div style="flex-grow:26;background:#000;color:#fff">Preto · ~26%</div>
+      <div style="flex-grow:19;background:#ED1360;color:#000">Magenta On · ~19%</div>
+      <div style="flex-grow:17;background:#600724;color:#fff">Magenta Off · ~17%</div>
+      <div style="flex-grow:12;background:#D1CDCD;color:#000">Placa Mãe · ~12%</div>
+      <div style="flex-grow:8;background:#FF9413;color:#000">On · ~8%</div>
+      <div style="flex-grow:7;background:#994800;color:#fff">Off · ~7%</div>
+      <div style="flex-grow:11;background:linear-gradient(90deg,#fff 50%,#333131 50%);color:#000;font-size:10.5px">Branco + Cinza · ~11%</div>
+    </div>
+    <p class="reveal" style="margin-top:16px;font-size:14px">Preto e Magenta dominam; Placa Mãe, Branco e Cinza dão respiro; Odisseia entra em doses menores, como acento. Cada peça é montada em <b>blocos de cor chapada</b> — sem gradientes.</p>
+
+    <h3 class="sub reveal">Contraste e acessibilidade <span class="chip-prop">calculado</span></h3>
+    <div class="card reveal" style="padding:10px 18px"><table class="ctr-table" id="ctrTable"></table></div>
+    <p class="reveal" style="margin-top:14px;font-size:13.5px">Razões calculadas pela fórmula WCAG 2.x (texto normal exige 4,5:1; texto grande, 3:1). O brandbook declara prioridade de contraste forte entre as cores da comunicação. <b>Branco sobre Magenta On só funciona em texto grande</b> — para texto menor use Preto.</p>
+  </div>
+</section>
+
+<section class="section alt" id="tipografia">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="num">04</span> Tipografia</div>
+    <h2 class="title reveal">Serifa para <span class="c2">um mundo digital</span></h2>
+    <p class="lead reveal">Uma tipografia proprietária, protagonista, disruptiva e expansiva. Flecha — uma serifa, tradicionalmente ligada à mídia impressa — numa marca digital; FK Grotesk e FK Grotesk Mono completam o sistema e tensionam retas e arredondados, equilibrando <i>tech</i> e <i>touch</i>.</p>
+    
+    <div class="fam reveal" style="margin-top:40px">
+      <div class="card"><div class="label">Títulos · Flecha M</div><div class="big" style="font-family:var(--display);font-weight:300;letter-spacing:-.03em">Flecha</div>
+        <div style="font-family:var(--display);font-size:22px;line-height:1.2;font-weight:300">AaBbCcDdEeFfGgHhIiJjKk<br>LlMmNnOoPpQqRrSsTtUuVv<br>WwXxYyZz 0123456789</div>
+        <div class="weights" style="font-family:var(--display)"><span style="font-weight:300">Light</span><span style="font-weight:400">Regular</span><span style="font-weight:500">Medium</span></div>
+        <div class="meta">Sentença em caixa baixa e mista, tracking levemente negativo, entrelinha ~1,0. Grande contraste com o texto de apoio.</div>
+        <div class="sub-note">Fonte oficial licenciada (R-Typography). Prévia neste guia: Newsreader.</div></div>
+      <div class="card"><div class="label">Subtítulos e corpo · FK Grotesk</div><div class="big" style="font-family:var(--body);font-weight:500;letter-spacing:-.03em">Grotesk</div>
+        <div style="font-family:var(--body);font-size:20px;line-height:1.3">AaBbCcDdEeFfGgHhIiJjKk<br>LlMmNnOoPpQqRrSsTtUuVv<br>WwXxYyZz 0123456789</div>
+        <div class="weights" style="font-family:var(--body)"><span style="font-weight:300">Light</span><span style="font-weight:400">Regular</span><span style="font-weight:500">Medium</span></div>
+        <div class="meta">Regular para corpo, entrelinha ~1,5, nunca justificado. Itálico para ênfase pontual (“<i>alumnus</i>”).</div>
+        <div class="sub-note">Fonte oficial licenciada (Florian Karsten). Prévia: Hanken Grotesk.</div></div>
+      <div class="card is-dark"><div class="label" style="color:var(--c-soft)">Detalhes e destaques · FK Grotesk Mono</div><div class="big" style="font-family:var(--mono);font-weight:400;letter-spacing:-.02em;font-size:46px">Mono</div>
+        <div style="font-family:var(--mono);font-size:15px;line-height:1.5">LINGUAGEM VISUAL / TIPOGRAFIA<br>ALUN.COM.BR · SAIBA MAIS →<br>0123456789</div>
+        <div class="weights" style="font-family:var(--mono)"><span style="font-weight:400">Regular</span><span style="font-weight:500">Medium</span></div>
+        <div class="meta" style="color:var(--c-soft)">Caixa alta, pequena. Labels, URLs, números de página, CTAs e etiquetas de seção.</div>
+        <div class="sub-note">Fonte oficial licenciada. Prévia: DM Mono.</div></div>
+    </div>
+    <p class="reveal" style="margin-top:14px;font-size:13.5px">As fontes oficiais são licenciadas e não acompanham esta plataforma — baixe em <a href="https://www.r-typography.com/fonts/flecha-m" target="_blank" rel="noopener">r-typography.com</a> e <a href="https://fonts.floriankarsten.com/fk-grotesk" target="_blank" rel="noopener">fonts.floriankarsten.com</a>. As prévias usam fontes abertas de desenho semelhante, apenas para visualização.</p>
+
+    <h3 class="sub reveal">A assinatura: serifa grande + apoio pequeno + mono</h3>
+    <div class="type-demo reveal" style="background:#000">
+      <div>
+        <div class="k M">Linguagem visual</div>
+        <h3>A força<br>de muitas<br><span class="c2">mentes.</span></h3>
+        <div class="em-line" style="font-family:var(--body);font-size:16px;font-weight:400;margin-top:18px">Um só ecossistema.</div>
+      </div>
+      <div>
+        <ol class="anat">
+          <li><div><b>Rótulo</b> — FK Grotesk Mono, caixa alta, 11–13 px; identifica seção, URL ou formato.</div></li>
+          <li><div><b>Título</b> — Flecha, grande, em sentença (caixa baixa). Branco ou Placa Mãe sobre preto; preto sobre cor.</div></li>
+          <li><div><b>Apoio</b> — FK Grotesk Regular, pequeno, alinhado a um módulo do grid.</div></li>
+          <li><div><b>CTA</b> — FK Grotesk Mono, caixa alta, com seta → em Odisseia On (fundo preto).</div></li>
+        </ol>
+      </div>
+    </div>
+
+    <h3 class="sub reveal">Escala tipográfica — web <span class="chip-prop">derivada do site</span></h3>
+    <div class="card reveal" style="padding:10px 28px">
+      <div class="scale">
+        <div class="scale-row"><span class="tg">Display</span><span style="font-family:var(--display);font-weight:300;font-size:64px;line-height:.95;letter-spacing:-.03em">Superpoderes tech</span><span class="sp">Flecha · 64–120 px · LH .95 · −3%</span></div>
+        <div class="scale-row"><span class="tg">H2</span><span style="font-family:var(--display);font-weight:300;font-size:48px;line-height:1;letter-spacing:-.02em">O maior ecossistema</span><span class="sp">Flecha L · 48/48 · site</span></div>
+        <div class="scale-row"><span class="tg">Lead</span><span style="font-family:var(--display);font-weight:400;font-size:20px;line-height:1.6">Unimos Alura, FIAP, PM3 e StartSe numa jornada completa.</span><span class="sp">Flecha M · 20/32 · site</span></div>
+        <div class="scale-row"><span class="tg">Corpo</span><span style="font-size:16px;line-height:1.5">Acreditamos na força transformadora da educação contínua e da conexão com a comunidade.</span><span class="sp">FK Grotesk 400 · 16/24 · site</span></div>
+        <div class="scale-row"><span class="tg">CTA</span><span style="font-family:var(--body);font-size:24px;line-height:1.3;color:#d96f00">Conheça a tese →</span><span class="sp">FK Grotesk · 24/32 · Odisseia On</span></div>
+        <div class="scale-row"><span class="tg">Rótulo</span><span class="M" style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:#000;color:#fff;padding:5px 9px;display:inline-block;width:max-content">Linguagem visual</span><span class="sp">FK Grotesk Mono · 11–13 · caixa alta</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section black" id="grafismo">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="num">05</span> Grafismo & grid</div>
+    <h2 class="title reveal">Pequenas partes, <span class="c2">um todo maior</span></h2>
+    <p class="lead reveal">Um sistema feito do coletivo de pequenas partes. O grafismo é formado por <b style="color:#fff">módulos derivados do símbolo</b> — eles mostram como nossa didática transforma o complexo em simples e o simples em complexo. Uma plataforma digital, com módulo 4×2, converte qualquer imagem ou vídeo na linguagem proprietária da Alun.</p>
+    
+    <div class="two reveal" style="margin-top:40px;align-items:start">
+      <div class="mos-box">
+        <canvas id="mosDemo" data-gfx="mosaic" data-seed="3" data-variant="full" data-mask="ellipse"></canvas>
+        <div class="mos-ctl">
+          <button class="btn btn-accent btn-sm" id="mosNew" type="button">Nova variação</button>
+          <div class="dl-seg" id="mosVar" role="group" aria-label="Paleta do grafismo"><button type="button" data-v="full" class="on">Magenta + laranja</button><button type="button" data-v="mono">Só magenta</button></div>
+        </div>
+      </div>
+      <div class="rules">
+        <div class="rule"><div class="n">1</div><div><h4>Módulo 4×2</h4><p>A unidade é um módulo de 4 × 2 células derivado das formas do símbolo: anéis, colchetes, barras e blocos chapados.</p></div></div>
+        <div class="rule"><div class="n">2</div><div><h4>Duas versões</h4><p>Uma com pequena dosagem de <b>laranja</b> (Odisseia) e outra apenas de <b>magenta</b> como cores de destaque, sobre preto e Placa Mãe.</p></div></div>
+        <div class="rule"><div class="n">3</div><div><h4>Do complexo ao simples</h4><p>Retratos, objetos e formas orgânicas viram mosaico: quanto mais denso o módulo, mais luz na imagem original.</p></div></div>
+        <div class="rule hl"><div class="n">4</div><div><h4>Uma fonte por peça</h4><p>O grafismo ocupa um ou dois blocos do grid — nunca o fundo atrás de texto corrido.</p></div></div>
+      </div>
+    </div>
+
+    <h3 class="sub reveal">Grid modular 4×4</h3>
+    <div class="two reveal" style="align-items:center">
+      <div class="grid4">
+        <div class="g4-box"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><u style="left:25%"></u><u style="left:50%"></u><u style="left:75%"></u><s style="top:25%"></s><s style="top:50%"></s><s style="top:75%"></s></div>
+      </div>
+      <div class="rules">
+        <div class="rule"><div class="n">1</div><div><h4>4 módulos cambiantes</h4><p>Baseado no logotipo de quatro letras, o grid divide a peça em 4 colunas × 4 linhas — independente do formato.</p></div></div>
+        <div class="rule"><div class="n">2</div><div><h4>Margem 10 px · gutter 20 px</h4><p>Malha modular de 4×4 usada em composições digitais ou impressas.</p></div></div>
+        <div class="rule"><div class="n">3</div><div><h4>Blocos de cor chapada</h4><p>Cada módulo (ou grupo de módulos) recebe uma cor da paleta, tipografia ou grafismo — sempre com modularidade equilibrada.</p></div></div>
+        <div class="rule"><div class="n">4</div><div><h4>Dosagem</h4><p>Cores, tipografia e elementos visuais em proporção coerente: um bloco de texto, um de cor, um de grafismo.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section " id="imagem">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="num">06</span> Fotografia & pictogramas</div>
+    <h2 class="title reveal">Gente real, <span class="c2">luz de marca</span></h2>
+    <p class="lead reveal">O aluno é o centro. Contamos com quatro direcionais fotográficos — mesma intenção, cenários e poses variados — e pictogramas que nascem das retas e curvas da própria marca.</p>
+    
+    <h3 class="sub reveal">Quatro direcionais fotográficos</h3>
+    <div class="grid g2 reveal">
+      <div class="card"><div class="label-k">01 · Aspiracional urbano</div><h3>O aluno numa paisagem aspiracional</h3><p>Em ambiente acadêmico e cosmopolita: arquitetura de vidro, vegetação, estilo contemporâneo e minimalista, laptop na mão, sorriso suave e olhar à frente.</p><div class="kw"><span>soft smile</span><span>confident</span><span>modern student</span><span>minimalist</span><span>urban</span></div></div>
+      <div class="card"><div class="label-k">02 · Aprendizado online</div><h3>Luz natural e madeira</h3><p>O aluno no contexto de estudo online, em cenários calorosos: interior aconchegante, estantes de madeira, plantas, luz ambiente e expressão concentrada.</p><div class="kw"><span>casual &amp; modern</span><span>warm lighting</span><span>wooden shelves</span><span>plants</span><span>focused</span></div></div>
+      <div class="card"><div class="label-k">03 · Comunidade em ação</div><h3>Construções coletivas</h3><p>Grupo diverso colaborando em ambiente industrial moderno — janelas grandes, concreto, vidro, madeira e metal — com linguagem corporal de trabalho em equipe e resolução de problemas.</p><div class="kw"><span>teamwork</span><span>problem-solving</span><span>natural light</span><span>industrial workspace</span></div></div>
+      <div class="card"><div class="label-k">04 · Institucional</div><h3>Professores e alunos</h3><p>Iluminação de recorte suave nas cores da marca, <b>sem tornar a imagem muito neon</b>. Fundo neutro, foco na expressão e na presença; atmosfera profissional, acadêmica e aspiracional.</p><div class="kw"><span>dramatic light</span><span>warm glow</span><span>neutral studio</span><span>professional</span></div></div>
+    </div>
+    <p class="reveal" style="margin-top:14px;font-size:13.5px">O brandbook traz, para cada direcional, <i>prompts</i> de referência para produção fotográfica (ou geração por IA). Eles ficam no Markdown da seção Tokens &amp; IA, em inglês, como no original.</p>
+
+    <h3 class="sub reveal">Fotografia → módulos</h3>
+    <div class="tex-grid reveal">
+      <div class="tex"><canvas data-gfx="mosaic" data-seed="11" data-variant="full" data-mask="ellipse" data-cell="9"></canvas><div class="cap"><b>Magenta + laranja</b>Versão padrão</div></div>
+      <div class="tex"><canvas data-gfx="mosaic" data-seed="21" data-variant="mono" data-mask="ellipse" data-cell="9"></canvas><div class="cap"><b>Só magenta</b>Versão sóbria</div></div>
+      <div class="tex wide"><canvas data-gfx="mosaic" data-seed="5" data-variant="full" data-mask="diag" data-cell="12"></canvas><div class="cap"><b>Faixa de módulos</b>Transição bloco ↔ imagem</div></div>
+    </div>
+
+    <h3 class="sub reveal">Pictogramas</h3>
+    <p class="reveal" style="max-width:68ch">A base construtiva é uma malha de <b>15 × 15 unidades</b>; a espessura mínima do traço é de 1 unidade. Personalidade derivada da marca, ligada a retas e curvas — didática e essencial.</p>
+    <div class="picto reveal">
+      <div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M8 4H4v16h4M16 4h4v16h-4"/></svg></div><span>Programação</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="4" y="10" width="16" height="11"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg></div><span>Segurança</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><rect x="10" y="10" width="4" height="4"/></svg></div><span>Configurações</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M4 6h12v14H4zM16 9h4v11h-4M7 10h6M7 14h6"/></svg></div><span>Biblioteca</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M7 3h10v9a5 5 0 0 1-10 0zM12 12v5M8 21h8"/></svg></div><span>Criatividade</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M4 8h16v8l-3 3-3-3h-4l-3 3-3-3zM8 11v3M6.5 12.5h3M16 12.5h1"/></svg></div><span>Games</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M12 18v.01"/></svg></div><span>Mobile</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M6 3h8l4 4v14H6zM14 3v4h4"/></svg></div><span>Arquivos</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="9" r="3"/><path d="M2 20c0-4 3-6 6-6M22 20c0-4-3-6-6-6M9 20c0-3 1.5-5 3-5s3 2 3 5"/></svg></div><span>Comunidade</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M5 15l7-8 7 8"/></svg></div><span>Cima</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M5 9l7 8 7-8"/></svg></div><span>Baixo</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M9 5l8 7-8 7"/></svg></div><span>Direita</span></div>
+    </div>
+    <p class="reveal" style="margin-top:12px;font-size:13px;color:var(--muted)">Pictogramas redesenhados como referência de estilo (traço quadrado, ângulos retos). Os arquivos oficiais estão no brandbook e na biblioteca de ícones da Alun.</p>
+  </div>
+</section>
+
+<section class="section alt" id="componentes">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="num">07</span> Componentes</div>
+    <h2 class="title reveal">Blocos de <span class="c2">construção</span></h2>
+    <p class="lead reveal">Retos, chapados e tipográficos. Sem cantos arredondados nem sombras: a hierarquia vem de cor, escala e do rótulo em mono. Tudo abaixo é HTML/CSS real, derivado do estilo do site e do brandbook.</p>
+    
+    <div class="comp reveal">
+      <div class="ct"><h3>Botões</h3><span>.btn · primário · secundário · ghost · acento</span></div>
+      <div class="row"><a class="btn btn-primary">Quero conhecer</a><a class="btn btn-secondary">Saiba mais</a><a class="btn btn-ghost">Conheça a tese →</a><a class="btn btn-accent">Inscreva-se</a><a class="btn is-disabled">Indisponível</a></div>
+      <div class="on-black"><div class="row"><a class="btn btn-primary">Quero conhecer</a><a class="btn btn-secondary">Saiba mais</a><a class="btn btn-ghost" style="color:#FF9413">Conheça a tese →</a></div></div>
+      <div class="cap">Texto em FK Grotesk Mono, caixa alta, +4%. Primário: Magenta On com texto preto (contraste 5,1:1). Em fundo preto, o ghost usa Odisseia On e seta.</div>
+    </div>
+    <div class="comp reveal">
+      <div class="ct"><h3>Rótulo, tag e badge</h3><span>.kicker · .tag</span></div>
+      <div class="row"><span class="tag tag-solid M">Linguagem visual</span><span class="tag tag-accent M">Novo</span><span class="tag tag-line M">Ecossistema</span><span class="tag tag-fog M">01/04</span><span class="tag M" style="background:#ED1360;color:#000">Potência tech</span></div>
+      <div class="cap">Rótulos em caixa preta com mono branco identificam seção e assunto, como nos cabeçalhos do brandbook.</div>
+    </div>
+    <div class="comp reveal">
+      <div class="ct"><h3>Campos de formulário</h3><span>.field</span></div>
+      <div class="row" style="align-items:flex-start">
+        <div class="field"><label>Seu e-mail</label><input placeholder="nome@empresa.com"><span class="help">Usamos para enviar o convite.</span></div>
+        <div class="field err"><label>Telefone</label><input value="11 9999"><span class="help">Informe o número completo com DDD.</span></div>
+        <div class="chk"><i class="on"></i> Quero receber novidades</div><div class="chk"><i></i> Aceito os termos</div>
+      </div>
+      <div class="cap">Campos retos, borda de 1,5 px; foco em Magenta On; erro sempre com texto, não só com cor.</div>
+    </div>
+    <div class="comp reveal">
+      <div class="ct"><h3>Cards</h3><span>.c-course · .c-stat · .c-quote</span></div>
+      <div class="cc-grid">
+        <div class="c-course"><div class="im" style="background:#000"><canvas data-gfx="mosaic" data-seed="31" data-variant="full" data-mask="diag" data-cell="8"></canvas><span class="tag tag-accent M">Tech</span></div><div class="bd"><h4 style="font-weight:300;font-size:26px">Um chamado para mudar o mundo</h4><p>Cursos, formações e comunidade num só ecossistema.</p><div class="ft M"><span>ALUN.COM.BR</span><span>→</span></div></div></div>
+        <div class="c-stat" style="background:#ED1360;color:#000;border-radius:0"><div class="n" style="font-family:var(--display);font-weight:300">95%</div><p style="color:#000">de efetivação após a conclusão dos cursos. <span class="M" style="font-size:11px;display:block;margin-top:10px">EXEMPLO DE DADO · VEJA MAIS →</span></p></div>
+        <div class="c-quote" style="background:#000;border:1px solid #333"><div class="qm" style="font-style:normal">“</div><p style="font-style:normal;font-weight:300">A inovação é tech, mas as conexões são humanas.</p><div class="who M">Mensagem para B2C</div></div>
+      </div>
+    </div>
+    <div class="comp reveal">
+      <div class="ct"><h3>Faixa de chamada</h3><span>.cta-band</span></div>
+      <div class="cta-band"><div><h4 style="font-weight:300">Pulso humano.<br>Impulso tech.</h4><p>Seja parte do maior ecossistema de educação tech da América Latina.</p></div><a class="btn btn-primary">Conhecer o grupo</a></div>
+    </div>
+    <div class="comp reveal">
+      <div class="ct"><h3>Alertas</h3><span>.alert</span></div>
+      <div class="row" style="align-items:flex-start"><div class="alert info"><i>i</i><div>Inscrições abertas até sexta-feira.</div></div><div class="alert ok"><i>✓</i><div>Cadastro confirmado.</div></div><div class="alert warn"><i>!</i><div>Faltam 3 dias para o prazo.</div></div><div class="alert err"><i>×</i><div>Não foi possível enviar.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section black" id="pecas">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="num">08</span> Peças & layouts</div>
+    <h2 class="title reveal">Tudo <span class="c2">junto</span></h2>
+    <p class="lead reveal">Layouts montados no grid 4×4: blocos de cor chapada, tipografia serifada grande, um rótulo em mono e uma faixa de módulos. A mesma gramática para feed, stories, slides e impressos.</p>
+    
+    <div class="pieces" style="margin-top:44px">
+      <div class="pc-wrap p-feed reveal"><div class="piece sq" style="background:#000">
+        <div class="a" style="left:0%;top:0%;width:25%;height:50%;background:#600724"></div>
+        <div class="a" style="left:25%;top:0%;width:75%;height:50%;background:#000"><span class="a M" style="right:calc(26*var(--u));top:calc(24*var(--u));font-size:calc(21*var(--u));color:#D1CDCD">ALUN.COM.BR</span></div>
+        <div class="a" style="left:50%;top:25%;width:50%;height:25%;background:#1b1a1a"><canvas data-gfx="mosaic" data-seed="4" data-variant="full" data-mask="ellipse" data-cell="8"></canvas></div>
+        <div class="a" style="left:0%;top:50%;width:25%;height:50%;background:#000"><span class="lg" style="position:absolute;left:calc(26*var(--u));bottom:calc(30*var(--u));height:calc(34*var(--u))"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#D1CDCD"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span></div>
+        <div class="a" style="left:25%;top:50%;width:25%;height:50%;"><canvas data-gfx="mosaic" data-seed="9" data-variant="full" data-mask="diag" data-cell="8"></canvas></div>
+        <div class="a" style="left:50%;top:50%;width:50%;height:50%;background:#ED1360"><div class="a" style="left:calc(24*var(--u));top:calc(24*var(--u));right:calc(24*var(--u));bottom:calc(24*var(--u));display:flex;flex-direction:column;justify-content:space-between"><span class="M" style="font-size:calc(20*var(--u));color:#000">Mais que<br>conhecimento tech</span><span class="S" style="font-size:calc(74*var(--u));line-height:.98;color:#000;font-weight:300">um chamado para mudar o mundo.</span></div></div>
+      </div><div class="pc-cap"><b>Feed</b><span>1080 × 1080</span></div></div>
+
+      <div class="pc-wrap p-feed reveal"><div class="piece sq" style="background:#000">
+        <div class="a" style="left:0%;top:0%;width:50%;height:50%;background:#FF9413"><span class="a M" style="left:calc(24*var(--u));top:calc(22*var(--u));font-size:calc(20*var(--u));color:#000">ALUN.COM.BR</span></div>
+        <div class="a" style="left:50%;top:0%;width:50%;height:50%;#000"><span class="lg" style="position:absolute;left:calc(24*var(--u));top:calc(22*var(--u));height:calc(78*var(--u))"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#D1CDCD"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span></div>
+        <div class="a" style="left:50%;top:25%;width:50%;height:25%;"><canvas data-gfx="mosaic" data-seed="15" data-variant="full" data-mask="ellipse" data-cell="8"></canvas></div>
+        <div class="a" style="left:0%;top:50%;width:50%;height:50%;background:#000"><span class="a S" style="left:calc(24*var(--u));bottom:calc(24*var(--u));right:calc(24*var(--u));font-size:calc(72*var(--u));line-height:1;color:#D1CDCD;font-weight:300">Superpoderes tech para superconquistas humanas.</span></div>
+        <div class="a" style="left:50%;top:50%;width:50%;height:50%;background:#994800"></div>
+      </div><div class="pc-cap"><b>Feed · tagline</b><span>1080 × 1080</span></div></div>
+
+      <div class="pc-wrap p-story reveal"><div class="piece st" style="background:#000">
+        <div class="a" style="left:0;top:0;right:0;height:10%;background:#000"><span class="a M" style="left:calc(40*var(--u));top:calc(38*var(--u));font-size:calc(26*var(--u));color:#D1CDCD">ALUN.COM.BR</span></div>
+        <div class="a" style="left:0;top:10%;width:100%;height:34%;background:#ED1360"><span class="a S" style="left:calc(40*var(--u));bottom:calc(40*var(--u));right:calc(40*var(--u));font-size:calc(124*var(--u));line-height:.96;color:#000;font-weight:300">Pulso humano. Impulso tech.</span></div>
+        <div class="a" style="left:0;top:44%;width:100%;height:36%;background:#000"><canvas data-gfx="mosaic" data-seed="27" data-variant="full" data-mask="ellipse" data-cell="8"></canvas></div>
+        <div class="a" style="left:0;top:80%;width:100%;height:20%;background:#600724"><span class="lg" style="position:absolute;left:calc(40*var(--u));bottom:calc(46*var(--u));height:calc(50*var(--u))"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#D1CDCD"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span></div>
+      </div><div class="pc-cap"><b>Stories</b><span>1080 × 1920</span></div></div>
+
+      <div class="pc-wrap p-slide reveal"><div class="piece wd" style="background:#000">
+        <div class="a" style="left:0;top:0;width:25%;height:100%;background:#600724"></div>
+        <div class="a" style="left:25%;top:0;width:50%;height:100%;background:#000;display:flex;flex-direction:column;justify-content:space-between;padding:calc(64*var(--u))"><span class="M" style="font-size:calc(26*var(--u));color:#D1CDCD">LINGUAGEM VERBAL · TOM DE VOZ</span><span class="S" style="font-size:calc(150*var(--u));line-height:.95;color:#fff;font-weight:300">Expert.<br>Sempre em movimento.</span><span class="R" style="font-size:calc(30*var(--u));color:#D1CDCD">Convida à comunidade.</span></div>
+        <div class="a" style="left:75%;top:0;width:25%;height:50%;background:#FF9413"></div>
+        <div class="a" style="left:75%;top:50%;width:25%;height:50%;"><canvas data-gfx="mosaic" data-seed="33" data-variant="full" data-mask="diag" data-cell="7"></canvas></div>
+      </div><div class="pc-cap"><b>Slide</b><span>1920 × 1080</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section " id="voz">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="num">09</span> Tom de voz</div>
+    <h2 class="title reveal">Expert, em <span class="c2">movimento</span></h2>
+    <p class="lead reveal">Tão importante quanto os temas sobre os quais falamos é definir como falamos. A voz da Alun é <b>expert</b>, está <b>sempre em movimento</b> e <b>convida à comunidade</b> — e se adapta a cada público sem perder a essência.</p>
+    
+    <div class="grid g3 reveal" style="margin-top:36px">
+      <div class="card"><div class="idx">01</div><h3>Expert</h3><p>Fala com domínio, clareza e segurança. <b>Seguro</b>, <b>preciso</b>, <b>potente</b>.</p><p style="margin-top:10px;color:#9a1b27"><b>Não é</b> prepotência: não é falar difícil, impor verdades ou diminuir outras vozes.</p></div>
+      <div class="card"><div class="idx">02</div><h3>Sempre em movimento</h3><p>Fluxo constante: uma ideia leva a outra. <b>Dinâmico</b>, <b>propulsor</b>, <b>interligado</b>.</p><p style="margin-top:10px;color:#9a1b27"><b>Não é</b> pressa ou agitação vazia: cada passo importa e faz parte de um percurso.</p></div>
+      <div class="card"><div class="idx">03</div><h3>Convida à comunidade</h3><p>Valoriza múltiplas vozes e provoca o desejo de pertencer. <b>Engaja</b>, <b>inclui</b> (primeira pessoa do plural), <b>conecta</b>.</p><p style="margin-top:10px;color:#9a1b27"><b>Não é</b> agradar a todos nem falar de forma genérica, neutra ou diluída.</p></div>
+    </div>
+
+    <h3 class="sub reveal">Sobre o que falamos</h3>
+    <div class="grid g2 reveal">
+      <div class="card is-dark"><div class="label-k" style="color:#FF9413">Potência tech</div><h3 style="font-weight:300;font-size:28px">O ecossistema mais completo do mercado.</h3><p>Somos referência em educação tech. Transformamos conhecimento em potência e potência em mudança. Reunimos mentes diversas e perspectivas complementares.</p></div>
+      <div class="card is-dark" style="background:#600724"><div class="label-k" style="color:#D1CDCD">Potência humana</div><h3 style="font-weight:300;font-size:28px">Do individual ao coletivo.</h3><p style="color:#D1CDCD">O aluno é o centro. Somos agentes de impulso e mudança. Unimos potências para ir além.</p></div>
+    </div>
+
+    <h3 class="sub reveal">O tom na prática</h3>
+    <div class="voice-ex reveal">
+      <div class="vx" style="background:#000;color:#fff"><span class="lb M" style="color:#D1CDCD">Institucional</span><p style="font-weight:300;font-size:28px">Uma ideia tech leva à outra.</p></div>
+      <div class="vx" style="background:#ED1360;color:#000"><span class="lb M">B2C · aluno</span><p style="font-weight:300;font-size:28px">Não sonhe com o futuro. Venha criá-lo.</p></div>
+      <div class="vx" style="background:#FF9413;color:#000"><span class="lb M">B2B</span><p style="font-weight:300;font-size:28px">Educação tech é estratégia de negócio.</p></div>
+    </div>
+
+    <h3 class="sub reveal">Um tom, sete públicos</h3>
+    <div class="aud reveal">
+      <div><b>Público interno</b><span>Humana e colaborativa. “Somos Alun. Em nossa veia tech pulsa criatividade.”</span></div>
+      <div><b>B2C · Alunos</b><span>Autoridade e proximidade. “A inovação é tech, mas as conexões são humanas.”</span></div>
+      <div><b>Professores</b><span>Reconhecimento e respeito. “Sua aula move o mundo.”</span></div>
+      <div><b>B2B</b><span>Embasada, estratégica, objetiva. “Uma comunidade tech conectada aos seus desafios.”</span></div>
+      <div><b>Investidores</b><span>Clareza e visão de longo prazo. “Grupo Alun: pulso humano, impulso tech.”</span></div>
+      <div><b>Sociedade</b><span>Impacto e desenvolvimento. “Alun, uma força em movimento.”</span></div>
+      <div><b>Institucional / Press</b><span>Dados, autoridade e consistência. “O conhecimento pulsa onde há conexão.”</span></div>
+    </div>
+
+    <h3 class="sub reveal">Palavras-chave</h3>
+    <div class="attr reveal" style="margin-top:0"><span>Veia tech</span><span>Futuros desejados</span><span>Inovação</span><span>Experiência</span><span>Pulsar</span><span>Paixão</span><span>Força</span><span>Transformação</span><span>Resultados</span><span>Gera valor</span><span>Rede</span><span>Conexões</span><span>Move</span><span>Comunidade</span><span>Olhares curiosos</span><span>Sede de aprender</span><span>Criar o novo</span><span>Ecossistema robusto</span><span>Impacto social</span><span>Despertar</span><span>Compartilhar</span><span>Aprendizado contínuo</span></div>
+  </div>
+</section>
+
+<section class="section dark" id="ia">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="num">10</span> Tokens & IA</div>
+    <h2 class="title reveal">Pronto para <span class="c2">código</span></h2>
+    <p class="lead reveal">Tokens CSS para sites, apresentações e ferramentas — e um contexto em Markdown para alimentar outras IAs na criação de peças consistentes com a marca.</p>
+    
+    <div class="code-card reveal"><div class="bar"><span>tokens.css</span><button class="btn btn-light btn-sm" id="copyCss">Copiar CSS</button></div>
+<pre id="cssTokens"><span class="c">/* Alun — Design tokens v1.0 */</span>
+:root {
+  <span class="c">/* Neutros */</span>
+  <span class="k">--alun-preto</span>: <span class="v">#000000</span>;   <span class="c">/* Preto */</span>
+  <span class="k">--alun-cinza</span>: <span class="v">#333131</span>;   <span class="c">/* Cinza */</span>
+  <span class="k">--alun-placa-mae</span>: <span class="v">#D1CDCD</span>;   <span class="c">/* Placa Mãe */</span>
+  <span class="k">--alun-branco</span>: <span class="v">#FFFFFF</span>;   <span class="c">/* Branco */</span>
+
+  <span class="c">/* Destaques */</span>
+  <span class="k">--alun-magenta-on</span>: <span class="v">#ED1360</span>;
+  <span class="k">--alun-magenta-off</span>: <span class="v">#600724</span>;
+  <span class="k">--alun-odisseia-on</span>: <span class="v">#FF9413</span>;
+  <span class="k">--alun-odisseia-off</span>: <span class="v">#994800</span>;
+
+  <span class="c">/* Interface — derivadas do site */</span>
+  <span class="k">--alun-ink</span>: <span class="v">#0D0C0C</span>;   <span class="c">/* texto em fundo claro */</span>
+
+  <span class="c">/* Tipografia */</span>
+  <span class="k">--alun-font-titulo</span>: <span class="v">"Flecha M", Georgia, serif</span>;
+  <span class="k">--alun-font-corpo</span>: <span class="v">"FK Grotesk", system-ui, sans-serif</span>;
+  <span class="k">--alun-font-mono</span>: <span class="v">"FK Grotesk Mono", ui-monospace, monospace</span>;
+
+  <span class="c">/* Forma e grid */</span>
+  <span class="k">--alun-radius</span>: <span class="v">0</span>;   <span class="c">/* sem cantos arredondados */</span>
+  <span class="k">--alun-grid</span>: <span class="v">4</span>;   <span class="c">/* colunas e linhas */</span>
+  <span class="k">--alun-margin</span>: <span class="v">10px</span>;
+  <span class="k">--alun-gutter</span>: <span class="v">20px</span>;
+
+  <span class="c">/* Espaçamento — base 4 px */</span>
+  <span class="k">--alun-sp-1</span>: <span class="v">4px</span>;
+  <span class="k">--alun-sp-2</span>: <span class="v">8px</span>;
+  <span class="k">--alun-sp-3</span>: <span class="v">12px</span>;
+  <span class="k">--alun-sp-4</span>: <span class="v">16px</span>;
+  <span class="k">--alun-sp-6</span>: <span class="v">24px</span>;
+  <span class="k">--alun-sp-8</span>: <span class="v">32px</span>;
+  <span class="k">--alun-sp-12</span>: <span class="v">48px</span>;
+  <span class="k">--alun-sp-16</span>: <span class="v">64px</span>;}
+</pre></div>
+    <p class="reveal" style="margin-top:14px;font-size:13.5px">As fontes oficiais (Flecha, FK Grotesk) são licenciadas; carregue-as a partir da licença da Alun. Para prévias, use Newsreader, Hanken Grotesk e DM Mono (Google Fonts).</p>
+    <div class="llm-block">
+      <h3 class="sub reveal">Contexto para LLM</h3>
+      <p class="reveal" style="max-width:66ch">Gera um bloco em Markdown com a identidade completa — pronto para colar como contexto em outra IA.</p>
+      <div class="actions reveal" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px"><button class="btn btn-accent" id="genMd">Gerar .md para LLM</button><button class="btn btn-light" id="copyMd" style="display:none">Copiar texto</button><button class="btn btn-light" id="dlMd" style="display:none">Baixar .md</button></div>
+      <textarea id="mdOut" readonly></textarea>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="lg" style=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 86" fill="none" role="img" aria-label="Alun"><g fill="#D1CDCD"><path d="M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z"/><path d="M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z"/><path d="M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z"/><path d="M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z"/></g></svg></span>
+  <div>Design System · Alun · v1.0 · <b>2026</b> · Baseado no Brandbook Alun 2025</div>
+  <div style="margin-top:10px"><a href="index.html">Plataforma de Design System · Grupo Alun</a></div>
+</footer>
+
+<div class="toast" id="toast">Copiado!</div>
+
+<script type="text/markdown" id="ai-context"># Alun — Design System / Brand Context (para uso por IA)
+
+> Referência estruturada da identidade do Grupo Alun, baseada no Brandbook Alun 2025. Ao desenhar logo/símbolo, use sempre os arquivos vetoriais oficiais — não recrie de memória.
+
+## 1. Marca
+- Nome: Alun (do latim "alumnus" — aluno). Grupo de educação tech: Alura, FIAP, PM3, StartSe. Site: ALUN.COM.BR
+- Tagline: "Superpoderes tech para superconquistas humanas." · Assinaturas de campanha: "Pulso humano. Impulso tech." · "Um chamado para mudar o mundo." · "A força de muitas mentes. Um só ecossistema."
+- Visão: ser o espaço mais relevante para evoluir, impulsionar e conectar os profissionais do futuro; maior e mais completo ecossistema de capacitação tech da América Latina.
+- Propósito: oferecer experiências de educação memoráveis, para todos os profissionais que usam tecnologia, em todos os estágios, e para quem quer multiplicar conexões.
+- Direcionadores: Fazer junto (conexão) · Fazer diferente (inovação) · Fazer a diferença (evolução para o mundo).
+- Atributos: Conectora, High touch, Diversa, Parceira, Expansiva, Apaixonada, High tech, Criativa, Disruptiva, Inteligente, Protagonista, Potente, Engajadora.
+
+## 2. Logo
+- Logotipo: ALUN em quatro letras de módulos retos e cantos arredondados (wordmark). Símbolo inspirado no cérebro: quadrado de cantos arredondados com duas fendas verticais e entalhes no topo e na base.
+- Cores do logo: Preto (#000) em fundo claro; Placa Mãe (#D1CDCD) sobre Preto/Cinza; Preto sobre Placa Mãe.
+- Área de segurança: 2X, sendo X a largura da haste da letra. Redução máxima: 20 px; abaixo disso, usar o símbolo.
+- Nunca: deformar, rotacionar, outline, cores fora da paleta, fundo sem contraste, ignorar a margem de segurança, sombras, efeitos, sangrar, alterar espaçamentos, quebrar o texto da marca, aplicar na vertical.
+
+## 3. Cores
+| Nome | HEX | RGB | Uso |
+|---|---|---|---|
+| Preto | #000000 | 0 0 0 | Base, blocos principais, texto |
+| Cinza | #333131 | 51 49 49 | Superfície escura secundária |
+| Placa Mãe | #D1CDCD | 209 205 205 | Cinza quente: fundo neutro, logo sobre preto |
+| Branco | #FFFFFF | 255 255 255 | Respiro, texto |
+| Magenta On | #ED1360 | 237 19 96 | Energia, blocos de ação, grafismo |
+| Magenta Off | #600724 | 96 7 36 | Sombra do magenta, blocos profundos |
+| Odisseia On | #FF9413 | 255 148 19 | Laranja: destaque, links/CTAs em fundo preto |
+| Odisseia Off | #994800 | 153 72 0 | Sombra do laranja |
+- Atenção: CMYK/Pantone do PDF original são placeholder; confirmar com o time de marca.
+- Proporção aproximada: Preto ~26% · Magenta On ~19% · Magenta Off ~17% · Placa Mãe ~12% · Odisseia On ~8% · Odisseia Off ~7% · Branco+Cinza ~11%. Blocos de cor chapada, sem gradiente.
+- Texto: preto sobre Magenta On/Odisseia On; Placa Mãe ou branco sobre preto/vinho. Branco sobre Magenta On só em texto grande.
+
+## 4. Tipografia
+- Títulos: Flecha M/L (serifa, R-Typography), peso leve, caixa baixa/sentença, tracking −2 a −3%, entrelinha ~1.
+- Subtítulos e corpo: FK Grotesk (Florian Karsten), Regular, entrelinha 1,5.
+- Detalhes: FK Grotesk Mono, caixa alta, 11–13 px — rótulos, URLs, CTAs.
+- Escala web (site): H2 48/48 · lead 20/32 · corpo 16/24 · CTA 24/32 em Odisseia On.
+- Fontes licenciadas; prévias abertas: Newsreader, Hanken Grotesk, DM Mono.
+
+## 5. Grafismo e grid
+- Módulos derivados do símbolo (anéis, colchetes, barras, blocos). Módulo 4×2. Plataforma converte imagem/vídeo em mosaico. Duas versões: magenta + laranja, ou só magenta.
+- Grid: malha modular 4×4, margem 10 px, gutter 20 px, independente do formato. Blocos de cor chapada, tipografia e grafismo em dosagem equilibrada.
+- Pictogramas: malha 15×15, traço mínimo de 1 unidade, retas e curvas.
+
+## 6. Fotografia
+- Quatro direcionais: (1) aluno em paisagem urbana aspiracional; (2) aprendizado online com luz natural e madeira; (3) comunidade colaborando em ambiente industrial moderno; (4) retrato institucional com luz de recorte nas cores da marca, sem ficar neon.
+- Prompt de referência (1): A young student walking in a modern urban environment, glass architecture and greenery, oversized white textured T-shirt, round metal glasses, silver laptop, soft confident smile.
+- Prompt de referência (2): A young woman with curly hair indoors, focused on her laptop, wooden shelves softly lit by ambient lights, plants, cozy warm lamp.
+- Prompt de referência (3): A diverse group of five young adults around a table in a modern industrial workspace, large windows, concrete and wood, natural light, collaborating on laptops.
+- Prompt de referência (4): A confident older woman with gray hair in soft waves, large black glasses, gray zip-up top, modern dramatic light with warm glow, neutral studio background.
+
+## 7. Componentes
+- Retos, sem raio e sem sombra. Botão primário: Magenta On, texto preto em FK Grotesk Mono caixa alta. Ghost com seta (→) em Odisseia On sobre preto. Rótulos: caixa preta com mono branco. Campos retos com borda 1 px; erro com texto.
+
+## 8. Tom de voz
+- Expert (seguro, preciso, potente — sem prepotência); Sempre em movimento (dinâmico, propulsor, interligado — sem pressa vazia); Convida à comunidade (engaja, inclui na 1ª pessoa do plural, conecta — sem genericidade).
+- Assuntos: Potência tech (ecossistema mais completo do mercado) · Potência humana (do individual ao coletivo).
+- Públicos: interno, B2C (alunos), professores, B2B, investidores, sociedade, institucional/press.
+- Exemplos: "A inovação é tech, mas as conexões são humanas." · "Não sonhe com o futuro. Venha criá-lo." · "Educação tech é estratégia de negócio."
+
+## 9. Checklist
+Grid 4×4 · blocos de cor chapada · título em serifa leve + apoio em grotesca · rótulo em mono · no máx. 1–2 blocos de grafismo · logo respeitando 2X · texto preto sobre magenta/laranja · voz expert, em movimento, comunitária.
+
+## 10. Fonte
+Brandbook Alun 2025 (250822_ALUN_Brandbook_V2) · alun.com.br
+</script>
+<script>window.DS={"brand":"alun","name":"Alun","logo":{"w":357,"h":86,"paths":"<path d=\"M61.84 18.43V43H18.84V18.5H61.84V0H29.91C13.63 0 .43 13.2.42 29.48V86H18.83V61.43H61.83V86H80.26V18.43H61.83H61.84Z\"/><path d=\"M117.13 67.57V0H98.7V56.51C98.7 72.79 111.9 86 128.19 86H160.13V67.57H117.13Z\"/><path d=\"M239.99 0V67.57H196.99V0H178.56V56.51C178.56 72.79 191.76 86 208.05 86H228.94C245.23 86 258.43 72.8 258.43 56.51V0H240H239.99Z\"/><path d=\"M356.69 29.48C356.68 13.2 343.48 0 327.2 0H295.27V18.43H276.84V86H295.27V18.5H338.27V86H356.7V29.48H356.69Z\"/>"},"symbol":{"w":250,"h":232,"paths":"<path d=\"M50 0H100V50H46V182H100V232H50A50 50 0 0 1 0 182V50A50 50 0 0 1 50 0ZM100 50H150V182H100ZM200 0H150V50H204V182H150V232H200A50 50 0 0 0 250 182V50A50 50 0 0 0 200 0Z\"/>"},"dlColors":[{"k":"preto","hex":"#000000","name":"Preto","bg":"#FFFFFF"},{"k":"placa-mae","hex":"#D1CDCD","name":"Placa Mãe","bg":"#000000"},{"k":"branco","hex":"#FFFFFF","name":"Branco","bg":"#333131"}],"contrast":[["#D1CDCD","#000000","Placa Mãe sobre Preto","Texto e logo em blocos pretos"],["#FFFFFF","#000000","Branco sobre Preto","Texto corrido em fundo preto"],["#000000","#D1CDCD","Preto sobre Placa Mãe","Texto e logo em blocos cinza"],["#000000","#ED1360","Preto sobre Magenta On","Títulos e CTA em bloco magenta"],["#FFFFFF","#ED1360","Branco sobre Magenta On","Só texto grande (≥24 px)"],["#000000","#FF9413","Preto sobre Odisseia On","Títulos em bloco laranja"],["#D1CDCD","#600724","Placa Mãe sobre Magenta Off","Texto em bloco vinho"],["#FFFFFF","#994800","Branco sobre Odisseia Off","Texto em bloco marrom"],["#FF9413","#000000","Odisseia On sobre Preto","Links e CTAs em fundo preto"],["#ED1360","#000000","Magenta On sobre Preto","Acento gráfico — não para texto corrido"]]};</script>
+<script>
+
+  (function(){
+    var COL={on:'#ED1360',off:'#600724',oon:'#FF9413',ooff:'#994800',pm:'#D1CDCD',bk:'#000',cz:'#333131',wh:'#fff'};
+    function rng(seed){var s=seed>>>0||1;return function(){s^=s<<13;s>>>=0;s^=s>>>17;s^=s<<5;s>>>=0;return s/4294967296;};}
+    function noise(seed){var r=rng(seed),p=[];for(var i=0;i<4096;i++)p.push(r());
+      function h(x,y){x=((x%64)+64)%64;y=((y%64)+64)%64;return p[(y*64+x)&4095];}
+      function s(t){return t*t*(3-2*t);}
+      return function(x,y){var xi=Math.floor(x),yi=Math.floor(y),xf=s(x-xi),yf=s(y-yi);
+        var a=h(xi,yi),b=h(xi+1,yi),c=h(xi,yi+1),d=h(xi+1,yi+1);return a+(b-a)*xf+(c-a)*yf+(a-b-c+d)*xf*yf;};}
+    function cellDraw(ctx,x,y,s,type,variant,r){
+      var full=variant==='full';
+      if(type==='solidOn'){ctx.fillStyle=COL.on;ctx.fillRect(x,y,s,s);}
+      else if(type==='solidPm'){ctx.fillStyle=COL.pm;ctx.fillRect(x,y,s,s);}
+      else if(type==='solidOff'){ctx.fillStyle=COL.off;ctx.fillRect(x,y,s,s);}
+      else if(type==='bar'){ctx.fillStyle=COL.pm;ctx.fillRect(x,y,s,s);ctx.fillStyle=r()>.5?COL.on:COL.bk;ctx.fillRect(x+s*.4,y+s*.2,s*.2,s*.6);}
+      else if(type==='ring'){ctx.fillStyle=COL.off;ctx.fillRect(x,y,s,s);ctx.strokeStyle=COL.on;ctx.lineWidth=Math.max(1,s*.16);ctx.strokeRect(x+s*.26,y+s*.26,s*.48,s*.48);}
+      else if(type==='bracket'){ctx.fillStyle=full&&r()>.35?COL.ooff:COL.bk;ctx.fillRect(x,y,s,s);ctx.strokeStyle=full?COL.oon:COL.on;ctx.lineWidth=Math.max(1,s*.14);
+        ctx.beginPath();ctx.moveTo(x+s*.42,y+s*.22);ctx.lineTo(x+s*.26,y+s*.22);ctx.lineTo(x+s*.26,y+s*.78);ctx.lineTo(x+s*.42,y+s*.78);
+        ctx.moveTo(x+s*.58,y+s*.22);ctx.lineTo(x+s*.74,y+s*.22);ctx.lineTo(x+s*.74,y+s*.78);ctx.lineTo(x+s*.58,y+s*.78);ctx.stroke();}
+      else if(type==='dash'){ctx.fillStyle=COL.bk;ctx.fillRect(x,y,s,s);ctx.fillStyle=r()>.5?COL.off:COL.on;ctx.fillRect(x+s*.42,y+s*.3,s*.16,s*.4);}
+      else if(type==='orange'){ctx.fillStyle=COL.oon;ctx.fillRect(x,y,s,s);ctx.fillStyle=COL.bk;ctx.fillRect(x+s*.38,y+s*.25,s*.24,s*.5);}
+      else if(type==='stripe'){ctx.fillStyle=COL.bk;ctx.fillRect(x,y,s,s);ctx.fillStyle='#3a3838';ctx.fillRect(x+s*.38,y,s*.24,s);}
+    }
+    function mosaic(cv,seedOverride,variantOverride){
+      var seed=+(seedOverride||cv.dataset.seed||1),variant=variantOverride||cv.dataset.variant||'full',mask=cv.dataset.mask||'ellipse';
+      var dpr=Math.min(window.devicePixelRatio||1,2),w=cv.clientWidth||cv.parentNode.clientWidth,h=cv.clientHeight||cv.parentNode.clientHeight;
+      if(!w||!h)return;cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);
+      var ctx=cv.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle='#000';ctx.fillRect(0,0,w,h);
+      var cell=+(cv.dataset.cell||Math.max(8,Math.round(Math.min(w,h)/34)));var cols=Math.ceil(w/cell),rows=Math.ceil(h/cell);
+      var n1=noise(seed),n2=noise(seed*7+3),r=rng(seed*13+5),full=variant==='full';
+      for(var j=0;j<rows;j++){for(var i=0;i<cols;i++){
+        var u=i/cols,v=j/rows,m;
+        if(mask==='ellipse'){var dx=(u-.5)/.46,dy=(v-.5)/.5;m=1-Math.sqrt(dx*dx+dy*dy);}
+        else if(mask==='diag'){m=1.1-(u*.7+(1-v)*.5)+0.0;m=Math.min(1,Math.max(-1,(u-0.15)*1.5+(.5-v)*.4));}
+        else m=1;
+        var val=n1(i*.18+seed,j*.18)*.6+n2(i*.5,j*.5)*.4;val=val*.75+m*.55-.2;
+        var x=i*cell,y=j*cell,t;
+        if(val<.18)t='stripe';else if(val<.3)t='dash';else if(val<.44)t='ring';else if(val<.56)t='bracket';else if(val<.66)t=(full&&r()>.55)?'orange':'bar';else if(val<.78)t='solidOn';else t=r()>.4?'solidPm':'solidOn';
+        if(!full&&t==='orange')t='solidOn';
+        if(t==='stripe'&&(i%3))continue;
+        cellDraw(ctx,x,y,cell,t,variant,r);
+      }}
+    }
+    window.GFX={mosaic:function(cv){mosaic(cv);}};
+    window.addEventListener('load',function(){
+      var d=document.getElementById('mosDemo'),nb=document.getElementById('mosNew'),seg=document.getElementById('mosVar');
+      if(!d)return;var seed=+d.dataset.seed;
+      nb&&nb.addEventListener('click',function(){seed=Math.floor(Math.random()*9000)+10;d.dataset.seed=seed;mosaic(d);});
+      seg&&seg.addEventListener('click',function(e){var b=e.target.closest('button[data-v]');if(!b)return;d.dataset.variant=b.dataset.v;[].forEach.call(seg.querySelectorAll('button'),function(x){x.classList.toggle('on',x===b)});mosaic(d);});
+    });
+  })();
+  
+</script>
+<script>
+/* ===== Comportamento compartilhado dos guias (lê window.DS e window.GFX) ===== */
+(function(){
+  const DS = window.DS || {};
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+
+  // ---- reveal ----
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } }), { threshold: .08 });
+  $$('.reveal').forEach(el => io.observe(el));
+  if (/[?&]qa(&|$)/.test(location.search)) { document.documentElement.style.scrollBehavior = 'auto'; $$('.reveal').forEach(el => { el.style.transition = 'none'; el.classList.add('show'); }); }
+  window.addEventListener('beforeprint', () => $$('.reveal').forEach(el => el.classList.add('show')));
+
+  // ---- toast + copiar ----
+  const toast = $('#toast'); let tt;
+  function showToast(m){ if(!toast) return; toast.textContent = m; toast.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('show'), 1800); }
+  function copy(text, msg){
+    const done = () => showToast(msg);
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(done).catch(done); }
+    else { const t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch(e){} t.remove(); done(); }
+  }
+  window.DSUI = { showToast, copy };
+  $$('[data-hex]').forEach(sw => {
+    sw.addEventListener('click', () => { const h = sw.dataset.hex; copy(h, (h.startsWith('#') ? h : 'CSS copiado') + ' copiado!'); });
+    sw.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); sw.click(); } });
+  });
+
+  // ---- scroll-spy + offset da nav ----
+  const links = $$('nav.top a[href^="#"]');
+  const spy = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id)); }), { rootMargin: '-45% 0px -50% 0px' });
+  links.forEach(a => { const s = $(a.getAttribute('href')); if (s) spy.observe(s); });
+  links.forEach(a => a.addEventListener('click', ev => { const t = $(a.getAttribute('href')); if (t) { ev.preventDefault(); scrollTo({ top: t.getBoundingClientRect().top + scrollY - 52, behavior: 'smooth' }); } }));
+
+  // ---- contraste (WCAG) ----
+  function lum(hex){ const c = [1,3,5].map(i => parseInt(hex.slice(i, i+2), 16) / 255).map(v => v <= .03928 ? v/12.92 : Math.pow((v+.055)/1.055, 2.4)); return .2126*c[0] + .7152*c[1] + .0722*c[2]; }
+  function ratio(a, b){ const l1 = lum(a), l2 = lum(b); return (Math.max(l1,l2)+.05) / (Math.min(l1,l2)+.05); }
+  const tb = $('#ctrTable');
+  if (tb && DS.contrast) {
+    tb.innerHTML = DS.contrast.map(([fg, bg, nm, use]) => {
+      const r = ratio(fg, bg);
+      const cls = r >= 7 ? ['aaa','AAA'] : r >= 4.5 ? ['aa','AA'] : r >= 3 ? ['lg2','Só texto grande'] : ['no','Reprovado'];
+      const bord = /^#(FFFFFF|FAFAFA|F4F5F6|FDFBFF)$/i.test(bg) ? 'border:1px solid rgba(22,18,31,.12)' : '';
+      return `<tr><td style="width:170px"><span class="ctr-pair" style="background:${bg};color:${fg};${bord}">Aa Texto</span></td><td><b style="font-family:var(--display)">${nm}</b><br><span style="font-size:12.5px;color:var(--muted)">${use}</span></td><td style="text-align:right;white-space:nowrap"><span class="mono" style="margin-right:10px">${r.toFixed(2)}:1</span><span class="ctr-badge ${cls[0]}">${cls[1]}</span></td></tr>`;
+    }).join('');
+  }
+
+  // ---- download de logo em PNG (gerado no navegador a partir do vetor) ----
+  (function(){
+    const grid = $('#dlGrid'); if (!grid || !DS.logo) return;
+    const KINDS = { logo: Object.assign({ label: 'Logo' }, DS.logo) };
+    if (DS.symbol) KINDS.simbolo = Object.assign({ label: 'Símbolo' }, DS.symbol);
+    const COLORS = DS.dlColors || [];
+    const svgStr = (kind, hex, w, h) => { const K = KINDS[kind]; return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${K.w} ${K.h}" fill="none"><g fill="${hex}">${K.paths}</g></svg>`; };
+    const uri = s => 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(s);
+    function makePng(kind, hex, width){
+      const K = KINDS[kind], h = Math.round(width * K.h / K.w);
+      return new Promise((res, rej) => {
+        const img = new Image();
+        img.onload = () => { const c = document.createElement('canvas'); c.width = width; c.height = h; c.getContext('2d').drawImage(img, 0, 0, width, h); c.toBlob(b => b ? res(b) : rej(new Error('toBlob')), 'image/png'); };
+        img.onerror = () => rej(new Error('svg'));
+        img.src = uri(svgStr(kind, hex, width, h));
+      });
+    }
+    let W = 2048;
+    grid.innerHTML = Object.keys(KINDS).map(kind => COLORS.map(c =>
+      `<div class="dl-card"><div class="dl-prev${kind === 'simbolo' ? ' sym' : ''}" style="background:${c.bg}"><img alt="${KINDS[kind].label} ${DS.name} ${c.name.toLowerCase()}" src="${uri(svgStr(kind, c.hex, KINDS[kind].w, KINDS[kind].h))}"></div>` +
+      `<div class="dl-meta"><b>${KINDS[kind].label} ${c.name.toLowerCase()}</b><span>${c.hex}</span></div>` +
+      `<button type="button" class="btn btn-light btn-sm" data-kind="${kind}" data-k="${c.k}" data-hex="${c.hex}">Baixar PNG</button></div>`
+    ).join('')).join('');
+    const seg = $('#dlSize');
+    seg && seg.addEventListener('click', e => { const b = e.target.closest('button[data-w]'); if (!b) return; W = +b.dataset.w; $$('#dlSize button').forEach(x => x.classList.toggle('on', x === b)); });
+    grid.addEventListener('click', async e => {
+      const b = e.target.closest('button[data-kind]'); if (!b) return;
+      const old = b.textContent, w = W; b.disabled = true; b.textContent = 'Gerando…';
+      try {
+        const blob = await makePng(b.dataset.kind, b.dataset.hex, w);
+        const name = `${DS.brand}-${b.dataset.kind}-${b.dataset.k}-${w}px.png`;
+        const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+        showToast('PNG baixado: ' + name);
+      } catch (err) { showToast('Não foi possível gerar o PNG neste navegador'); }
+      b.disabled = false; b.textContent = old;
+    });
+  })();
+
+  // ---- tokens + markdown para LLM ----
+  const cc = $('#copyCss'); cc && cc.addEventListener('click', () => copy($('#cssTokens').textContent, 'CSS copiado!'));
+  const md = ($('#ai-context') || {}).textContent;
+  const out = $('#mdOut');
+  if (md && out) {
+    const text = md.trim();
+    $('#genMd').addEventListener('click', () => { out.value = text; out.style.display = 'block'; $('#copyMd').style.display = 'inline-flex'; $('#dlMd').style.display = 'inline-flex'; out.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); });
+    $('#copyMd').addEventListener('click', () => copy(out.value, 'Markdown copiado!'));
+    $('#dlMd').addEventListener('click', () => { const b = new Blob([out.value], { type: 'text/markdown;charset=utf-8' }); const u = URL.createObjectURL(b); const a = document.createElement('a'); a.href = u; a.download = DS.brand + '-brand-context.md'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(u); });
+  }
+
+  // ---- gráficos procedurais da marca (canvas/SVG) ----
+  const G = window.GFX || {};
+  const draw = el => { const fn = G[el.dataset.gfx]; if (fn) { try { fn(el); } catch (e) { console.warn('gfx', el.dataset.gfx, e); } } };
+  $$('[data-gfx]').forEach(el => {
+    draw(el);
+    if (window.ResizeObserver && el.tagName === 'CANVAS') { let t; new ResizeObserver(() => { clearTimeout(t); t = setTimeout(() => draw(el), 120); }).observe(el); }
+  });
+})();
+
+// modo QA: ?qa&only=logo,cores mostra só as seções listadas
+(function(){
+  const m = location.search.match(/[?&]only=([^&]+)/); if (!m) return;
+  const keep = decodeURIComponent(m[1]).split(',');
+  document.querySelectorAll('.hero,.section').forEach(s => { if (!keep.includes(s.id || 'hero')) s.style.display = 'none'; });
+})();
+
+</script>
+</body>
+</html>
