@@ -14,6 +14,7 @@ module.exports = (H) => {
 
   const menu = [['Alun', 'alun'], ['Alura', 'alura'], ['FIAP', 'fiap'], ['PM3', 'pm3'], ['StartSe', 'startse']];
   const boxes = [
+    ['Alun', 'alun', '#600724', alun, 44, 'wide'],
     ['Alura', 'alura', '#0429BC', alura, 46],
     ['FIAP', 'fiap', '#ED145B', fiap, 46],
     ['PM3', 'pm3', '#452E78', pm3, 52],
@@ -42,8 +43,9 @@ header .home{display:inline-flex;align-items:center}
 header nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 header nav a{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a9a5a5;padding:8px 12px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
 header nav a:hover,header nav a:focus-visible{color:#fff;border-color:#fff;outline:none}
-main{flex:1;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:12px;padding:0 12px 12px;min-height:0}
+main{flex:1;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:.8fr 1fr 1fr;gap:12px;padding:0 12px 12px;min-height:0}
 .box{position:relative;display:flex;align-items:center;justify-content:center;min-height:240px;transition:transform .3s ease,filter .3s ease}
+.box.wide{grid-column:1/-1}
 .box:hover,.box:focus-visible{transform:translateY(-4px);filter:brightness(1.08);outline:none}
 .box:focus-visible{box-shadow:0 0 0 3px #fff}
 .box .go{position:absolute;right:22px;bottom:18px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:0;transform:translateX(-6px);transition:opacity .25s,transform .25s}
@@ -58,7 +60,7 @@ main{flex:1;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:
   <nav aria-label="Marcas">${menu.map(([n, id]) => `<a href="${id}.html">${n}</a>`).join('')}</nav>
 </header>
 <main>
-  ${boxes.map(([n, id, bg, B, h]) => `<a class="box" href="${id}.html" style="background:${bg}" aria-label="Abrir o guia da ${n}">${logo(B, '#FFFFFF', h)}<span class="go">Abrir guia →</span></a>`).join('\n  ')}
+  ${boxes.map(([n, id, bg, B, h, cls]) => `<a class="box${cls ? ' ' + cls : ''}" href="${id}.html" style="background:${bg}" aria-label="Abrir o guia da ${n}">${logo(B, id === 'alun' ? '#D1CDCD' : '#FFFFFF', h)}<span class="go">Abrir guia →</span></a>`).join('\n  ')}
 </main>
 </body>
 </html>
