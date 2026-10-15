@@ -102,6 +102,64 @@
   });
 })();
 
+// ---- componentes em abas + peças em carrossel ----
+(function(){
+  const $ = (s, r=document) => [...r.querySelectorAll(s)];
+  $('.wrap').forEach(w => {
+    const comps = [...w.children].filter(c => c.classList.contains('comp'));
+    if (comps.length < 3) return;
+    const bar = document.createElement('div'); bar.className = 'comp-tabs'; bar.setAttribute('role', 'tablist');
+    const btns = comps.map((c, i) => {
+      const b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'tab');
+      const h = c.querySelector('.ct h3'); b.textContent = h ? h.textContent : 'Item ' + (i + 1);
+      b.addEventListener('click', () => sel(i)); bar.appendChild(b); c.classList.add('show'); return b;
+    });
+    function sel(i){ comps.forEach((c, k) => { c.classList.toggle('is-hidden', k !== i); btns[k].setAttribute('aria-selected', k === i ? 'true' : 'false'); }); window.dispatchEvent(new Event('resize')); }
+    w.insertBefore(bar, comps[0]); sel(0);
+  });
+  $('.pieces').forEach(p => {
+    const wrap = document.createElement('div'); wrap.className = 'pieces-wrap'; p.parentNode.insertBefore(wrap, p); wrap.appendChild(p);
+    const mk = (cls, t, dir) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'pc-nav ' + cls; b.setAttribute('aria-label', dir < 0 ? 'Anterior' : 'Próxima'); b.textContent = t; b.addEventListener('click', () => p.scrollBy({ left: dir * p.clientWidth * .8, behavior: 'smooth' })); wrap.appendChild(b); return b; };
+    const prev = mk('prev', '←', -1), next = mk('next', '→', 1);
+    const upd = () => { const max = p.scrollWidth - p.clientWidth; wrap.classList.toggle('can-scroll', max > 4); prev.disabled = p.scrollLeft < 4; next.disabled = p.scrollLeft > max - 4; };
+    p.addEventListener('scroll', upd, { passive: true }); window.addEventListener('resize', upd); setTimeout(upd, 300); upd();
+  });
+})();
+
+// ---- simetria: nenhuma grade termina com linha incompleta / coluna vazia ----
+(function(){
+  const cs = el => getComputedStyle(el);
+  const grids = () => [...document.querySelectorAll('body *')].filter(e => !e.closest('svg,pre,canvas,.pieces,.hero-mos,.h-mos') && cs(e).display === 'grid');
+  function reset(g){ if (!g.hasAttribute('data-bal')) return; g.style.gridTemplateColumns = ''; [...g.children].forEach(k => { k.style.gridColumn = ''; }); g.removeAttribute('data-bal'); }
+  function balance(){
+    const gs = grids(); gs.forEach(reset);
+    gs.forEach(g => {
+      const kids = [...g.children].filter(k => cs(k).display !== 'none' && cs(k).position !== 'absolute');
+      const N = kids.length; if (N < 2) return;
+      const tracks = cs(g).gridTemplateColumns.split(' ').map(parseFloat).filter(v => !isNaN(v));
+      const C = tracks.length; if (C < 2) return;
+      if (Math.max(...tracks) - Math.min(...tracks) > 2) return;              // só colunas iguais
+      if (kids.some(k => { const s = cs(k); return (s.gridColumnStart !== 'auto' && !/^span 1$/.test(s.gridColumnStart)) || s.gridRowStart !== 'auto'; })) return; // itens com posição própria
+      const gap = parseFloat(cs(g).columnGap) || 0, W = g.clientWidth;
+      const r = N % C;
+      if (N >= C && r === 0) return;
+      g.setAttribute('data-bal', '1');
+      if (N < C) { g.style.gridTemplateColumns = 'repeat(' + N + ',1fr)'; return; }
+      // tenta uma única linha ou um divisor limpo
+      for (let c = Math.min(N, C + 2); c >= 2; c--) {
+        if (N % c) continue;
+        if ((W - gap * (c - 1)) / c >= tracks[0] * .78) { g.style.gridTemplateColumns = 'repeat(' + c + ',1fr)'; return; }
+      }
+      // última linha ocupa toda a largura, repartida igualmente
+      g.style.gridTemplateColumns = 'repeat(' + (C * r) + ',1fr)';
+      kids.forEach((k, i) => { k.style.gridColumn = 'span ' + (i >= N - r ? C : r); });
+    });
+  }
+  let t; const run = () => { clearTimeout(t); t = setTimeout(balance, 120); };
+  window.addEventListener('resize', run); window.addEventListener('load', balance); setTimeout(balance, 400);
+  window.__balance = balance;
+})();
+
 // modo QA: ?qa&only=logo,cores mostra só as seções listadas
 (function(){
   const m = location.search.match(/[?&]only=([^&]+)/); if (!m) return;

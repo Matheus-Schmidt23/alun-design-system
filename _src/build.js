@@ -99,9 +99,14 @@ if (fs.existsSync(pm3Src)) {
   let html = fs.readFileSync(pm3Src, 'utf8');
   const pdfLink = '<a class="btn btn-pdf btn-sm" href="Design-System-PM3.pdf" download>Baixar PDF</a>';
   if (!html.includes(pdfLink)) throw new Error('PM3: link do PDF não encontrado para o patch');
+  // sem botão de PDF (padrão dos demais guias): só o link de volta, no mesmo formato
   html = html.replace(pdfLink,
-    '<a class="btn btn-sm" href="index.html" style="background:transparent;color:#B9B5C1;border:1.5px solid #B9B5C1;border-radius:99px;padding:9px 16px;font-size:11px;letter-spacing:.06em">&larr; Marcas do grupo</a> ' +
-    '<a class="btn btn-pdf btn-sm" href="assets/Design-System-PM3.pdf" download>Baixar PDF</a>');
+    '<a class="btn btn-pdf btn-sm" href="index.html">&larr; Marcas do grupo</a>');
+  // sem tela de senha própria (o acesso já é protegido pelo login da plataforma)
+  const g0 = html.indexOf('<div id="gate"'), g1 = html.indexOf('<nav class="top">');
+  if (g0 < 0 || g1 < g0) throw new Error('PM3: bloco da tela de senha não encontrado para o patch');
+  html = html.slice(0, g0) + html.slice(g1);
+  html = html.replace('<html lang="pt-BR">', '<html lang="pt-BR" class="unlocked">');
   // remove o bloco visual de usos incorretos do logo
   const w0 = html.indexOf('<div class="wrong reveal">');
   if (w0 > -1) {

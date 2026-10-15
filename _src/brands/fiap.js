@@ -354,7 +354,7 @@ module.exports = (H) => {
 
       <div class="pc-wrap p-story reveal"><div class="piece st" style="background:#000">
         <canvas data-gfx="fgrafismo" data-seed="8"></canvas>
-        <span class="a T" style="left:calc(70*var(--u));top:calc(200*var(--u));right:calc(70*var(--u));font-size:calc(150*var(--u));line-height:.95;color:#fff;font-weight:500;text-transform:uppercase">O futuro está <span style="color:${MG}">te contratando</span></span>
+        <span class="a T" style="left:calc(70*var(--u));top:calc(200*var(--u));right:calc(70*var(--u));font-size:calc(116*var(--u));line-height:1;color:#fff;font-weight:500;text-transform:uppercase">O futuro está <span style="color:${MG}">te contratando</span></span>
         <span class="a R" style="left:calc(70*var(--u));right:calc(70*var(--u));bottom:calc(420*var(--u));font-size:calc(46*var(--u));line-height:1.3;color:${UL}">Estude na faculdade que mais conecta talento e mercado.</span>
         <div class="a" style="left:calc(70*var(--u));bottom:calc(240*var(--u));padding:calc(30*var(--u)) calc(50*var(--u));background:${MG};color:#fff;font-family:var(--display);font-weight:600;font-size:calc(38*var(--u));letter-spacing:.08em">INSCREVA-SE</div>
         ${lg(B, 'logo', MG, 'position:absolute;left:calc(70*var(--u));bottom:calc(100*var(--u));height:calc(52*var(--u))')}
