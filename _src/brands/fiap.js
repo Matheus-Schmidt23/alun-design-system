@@ -323,12 +323,6 @@ module.exports = (H) => {
         <div class="a" style="left:0;bottom:0;width:100%;height:calc(14*var(--u));background:${MG}"></div>
         ${lg(B, 'logo', '#fff', 'position:absolute;right:calc(110*var(--u));bottom:calc(80*var(--u));height:calc(54*var(--u))')}
       </div><div class="pc-cap"><b>Slide</b><span>1920 × 1080</span></div></div>
-    </div>
-
-    ${sub('Organização de arquivos')}
-    <div class="grid g2 reveal">
-      <div class="card is-dark" style="background:#0E0F10;border:1px solid #2a2f33"><div class="label-k">Hierarquia de pastas</div><p style="font-family:var(--mono);font-size:13px;color:${UL}">CRIAÇÃO &gt; PRODUTO / EVENTO &gt; ANO &gt; PASTA ESPECÍFICA</p><p>Todos os arquivos da Criação (designers e redatores) ficam no OneDrive. Arquivos abertos (PSD, etc.) em pasta nomeada pelo tipo de arquivo.</p></div>
-      <div class="card is-dark" style="background:#0E0F10;border:1px solid #2a2f33"><div class="label-k">Nome de arquivo</div><p style="font-family:var(--mono);font-size:13px;color:${UL}">20230818_grad_cpn_PPL_ESTATICOGERAL.PSD</p><p>Padrão: data (AAAAMMDD) · produto · tipo de peça (cpn = campanha) · canal · descrição.</p></div>
     </div>`
   });
 
@@ -560,10 +554,7 @@ module.exports = (H) => {
 - Evitar: pontos de exclamação, tom de varejo, informalidade forçada, mensagens genéricas, jargão sem contexto; palavras: promoção, liquidação, corre, sucesso garantido, imperdível, descontão, preço camarada, bora, partiu.
 - Exemplos: "Sua vida tech começa aqui." · "O futuro como você imagina." · "Tech Intensive. 100% digital e hands-on." · "Aprender fazendo, com desafios reais."
 
-## 9. Organização de arquivos
-- CRIAÇÃO > PRODUTO/EVENTO > ANO > PASTA ESPECÍFICA. Nome: AAAAMMDD_produto_cpn_canal_descrição (ex.: 20230818_grad_cpn_PPL_ESTATICOGERAL.PSD).
-
-## 10. Fonte
+## 9. Fonte
 Design System FIAP 2.0 (Criação FIAP, arquivo Figma) · fiap.com.br
 `;
 

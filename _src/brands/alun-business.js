@@ -1,4 +1,4 @@
-// Alun Business — seção do guia da Alun (fonte: ALUN BUSINESS · Transição de marca & narrativa estratégica, dez/2025)
+// Alun Business — seção do guia da Alun (identidade: posicionamento, logo, cores, imagem e arquitetura)
 const fs = require('fs');
 const path = require('path');
 
@@ -146,87 +146,20 @@ module.exports = (H, B) => {
       <div><h3 class="sub" style="margin-top:0">Os 8 módulos de base</h3><div class="pxrow">${mods}</div><p class="cap" style="margin-top:12px">Combinações de cor e forma usadas como “células” do pixelator: blocos lisos, barras e um anel/colchete que se repetem na grade.</p></div>
     </div>`);
 
-  // ---------- 5. Narrativa de transição ----------
-  const phase = (n, nome, tempo, desc, items) => `<div class="card biz-phase"><div class="label-k">Fase ${n} · ${tempo}</div><h3>${nome}</h3><p>${desc}</p><ul>${items.map(i => `<li>${i}</li>`).join('')}</ul></div>`;
-  const pNarr = panel('Narrativa', 'transição em duas fases', `
-    <p style="max-width:70ch">Rebranding é gestão de percepção: a transição é gradual para criar uma “ponte cognitiva” entre o <i>equity</i> de Alura + FIAP para Empresas e a ambição de Alun Business — sem perder reconhecimento, SEO e eficiência comercial enquanto identidades, canais e equipes se sincronizam.</p>
-    <div class="two" style="margin-top:22px">
-      ${phase(1, 'Integração', 'cerca de 1 ano', 'Alura + FIAP para Empresas atuam como assets de Alun Business, em paralelismo de marcas.', [
-        '<b>Identidade:</b> nova marca Alun Business + “Alura + FIAP para Empresas” nos materiais',
-        '<b>Conteúdo:</b> materiais mais densos, com conteúdos maiores',
-        '<b>Comercial:</b> propostas com dupla marca por 1–2 ciclos, com cláusula explicativa em contratos',
-        '<b>Digital:</b> página “Sobre a transição”, redirecionamento parcial e campanhas com criativos de Alun Business'
-      ])}
-      ${phase(2, 'Consolidação', 'uso indefinido', 'Alun Business como marca única, integrando Alura, FIAP, PM3 e StartSe. Objetivo: maximizar coerência e eficiência de marca.', [
-        '<b>Identidade:</b> Alun Business entra como assinatura única em todos os canais',
-        '<b>Comercial/legal:</b> novos contratos e renovações só com a marca Alun Business; comunicados finais de encerramento da marca anterior',
-        '<b>Conteúdo:</b> manifesto, cases já com a nova marca e calendário editorial'
-      ])}
-    </div>
-    ${sub('Por que em duas fases')}
-    <div class="grid g4">
-      ${card('Cognitivo', 'Ajuda o cérebro do cliente a mapear “nome antigo / nome novo” sem esforço.')}
-      ${card('Comercial', 'Protege o pipeline em andamento que ainda referencia o nome antigo.')}
-      ${card('Técnico', 'Transfere gradualmente a autoridade (SEO/Ads) e mitiga quedas de performance.')}
-      ${card('Político-organizacional', 'Dá tempo de alinhamento interno: squads, parceiros e imprensa.')}
-    </div>
-    ${sub('Consciência que queremos construir')}
-    <div class="grid g4 biz-msgs">
-      <div class="card is-dark"><h3>“Mais integração e potência. É evolução, não ruptura.”</h3></div>
-      <div class="card is-dark"><h3>“Especialista full-stack em tech + business.”</h3></div>
-      <div class="card is-dark"><h3>“Menos complexidade, mais resultado.”</h3></div>
-      <div class="card is-dark"><h3>“Confiança 100% preservada.”</h3></div>
-    </div>`);
-
-  // ---------- 6. Fases, KPIs e prazos ----------
-  const pKpi = panel('KPIs & prazos', 'o que medir · onde aparece · quando', `
-    <div class="two">
-      <div class="card"><div class="label-k">Fase 1 · KPIs-chave</div><ul class="biz-list">
-        <li><b>Recall de marca:</b> mais pessoas lembram de “Alun Business” espontaneamente</li>
-        <li><b>Tráfego orgânico estável:</b> o público continua chegando sem queda significativa</li>
-        <li><b>CTR constante:</b> o interesse nas comunicações segue saudável</li>
-        <li><b>Taxa de fechamento inalterada:</b> o ritmo comercial não sofre impacto</li>
-        <li><b>NPS de clareza elevado:</b> clientes e parceiros entendem a mudança</li></ul></div>
-      <div class="card"><div class="label-k">Fase 2 · KPIs-chave</div><ul class="biz-list">
-        <li><b>Share of voice:</b> o novo nome ganha espaço nas conversas e canais</li>
-        <li><b>Tráfego orgânico recuperado:</b> o público volta a encontrar a marca com naturalidade</li>
-        <li><b>Mais buscas por “Alun Business”:</b> cresce o interesse espontâneo</li>
-        <li><b>Conversões estáveis:</b> os resultados comerciais seguem consistentes</li>
-        <li><b>NPS igual ou maior:</b> clientes mantêm ou ampliam a confiança</li></ul></div>
-    </div>
-    ${sub('Onde a marca estará visível')}
-    <div class="two">
-      <div class="card"><div class="label-k">Fase 1</div><ul class="biz-list"><li>Sites <b>fiap.com.br/empresas</b> e <b>alura.com.br/empresas</b></li><li>Eventos proprietários e vídeo de 1’ de manifesto</li><li>E-mail marketing, apresentação institucional e proposta comercial</li><li>Assinatura de e-mail, posts orgânicos e LinkedIn</li><li>Primeiras ações de PR, podcasts e blogs</li></ul></div>
-      <div class="card"><div class="label-k">Fase 2</div><ul class="biz-list"><li>Virada definitiva no novo site: <b>alunbusiness.com.br</b></li><li>Ativações em eventos corporativos e de inovação</li><li>Mídia paga (jornais e portais de negócios) e posts impulsionados</li><li>Conteúdo autoral: whitepapers e webinars</li><li>SEO, influenciadores de negócios e brindes premium</li></ul></div>
-    </div>
-    ${sub('Checkpoints e prazos estimados')}
-    <div class="grid g4">
-      ${card('2 meses', 'Guia de co-branding, FAQs, treinamento de times e <i>landings</i> de transição publicadas.')}
-      ${card('2 meses', 'Review de KPIs e dúvidas do mercado; ajustes de mensagem.')}
-      ${card('6 meses', 'Decisão de <i>go-live</i> da consolidação com base em critérios; execução da virada.')}
-      ${card('2 meses', 'Auditoria pós-virada e limpeza de resquícios da marca anterior.')}
-    </div>`);
-
   // ---------- 7. Arquitetura & aplicações ----------
   const eco = [alura, fiap, pm3, startse].map(b => `<span class="biz-eco">${lg(b, 'logo', '#fff', 'height:clamp(22px,2.8vw,34px)')}</span>`).join('');
-  const pArq = panel('Arquitetura', 'marca-mãe · peças · kits', `
+  const pArq = panel('Arquitetura', 'marca-mãe', `
     <div class="on-black biz-arch">
       ${lock('#fff', 'clamp(30px,5vw,60px)')}
       <div class="biz-ecos">${eco}</div>
     </div>
-    <p class="cap">Alun Business é a marca-mãe; Alura, FIAP, PM3 e StartSe aparecem como marcas do ecossistema, abaixo da assinatura.</p>
-    ${sub('Peças previstas')}
-    <div class="grid g3">
-      ${card('Digital', 'Site (alunbusiness.com.br), posts e e-mail marketing, assinatura de e-mail, apresentação institucional.')}
-      ${card('Mídia e impressos', 'Jornal, revista e elevador (a animar), além de materiais dos eventos corporativos.')}
-      ${card('Welcome Kit', 'Camiseta, caneta metálica, garrafa, mochila, moleskine, porta-cartões com bloqueio RFID e hub executivo premium. <i>Team kit</i>: chocolates, lenço e itens de alfaiataria.')}
-    </div>`);
+    <p class="cap">Alun Business é a marca-mãe; Alura, FIAP, PM3 e StartSe aparecem como marcas do ecossistema, abaixo da assinatura.</p>`);
 
-  const body = [pPos, pLogo, pCores, pImg, pNarr, pKpi, pArq].join('\n');
+  const body = [pPos, pLogo, pCores, pImg, pArq].join('\n');
 
   const html = sec({
-    id: 'business', num: '10', label: 'Alun Business', title: ['Marca', 'de transição'],
-    lead: 'Alun Business é a marca que consolida Alura, FIAP, PM3 e StartSe numa solução única, full stack, em tecnologia e negócios — lançamento 2025/26. Aqui: posicionamento, logo, cores, imagem, narrativa de transição e arquitetura.',
+    id: 'business', num: '10', label: 'Alun Business', title: ['Marca', 'do ecossistema'],
+    lead: 'Alun Business é a marca que consolida Alura, FIAP, PM3 e StartSe numa solução única, full stack, em tecnologia e negócios. Aqui: posicionamento, logo, cores, imagem e arquitetura.',
     body
   });
 
@@ -271,15 +204,12 @@ module.exports = (H, B) => {
   `;
 
   const md = `
-## Alun Business (marca de transição — lançamento 2025/26)
+## Alun Business
 - Posicionamento: "Somos o único trusted partner em tecnologia e negócios, com um ecossistema capaz de entregar soluções full stack e atuar de ponta a ponta." Evolução natural do ecossistema (Alura: profundidade técnica e escala; FIAP: formação executiva, MBA, graduação e Pós-Tech; PM3: produto, growth e estratégia digital; StartSe: visão global e business trends).
 - Dores de mercado: fragmentação; pressão competitiva por dados e tecnologia; adaptação constante; complexidade de execução e disputa por atenção. Resultado: empresas precisam treinar colaboradores em meio a excesso de trilhas e dispersão de conteúdo.
 - Logo: wordmark ALUN + "BUSINESS" em caixa-alta neutra (estilo Helvetica). A altura de ALUN é a unidade Y; BUSINESS ≈ 0,57 Y, centrado na vertical, respiro ≈ 0,55 Y. Reserva: 1 Y em todos os lados. Escala mínima (altura de ALUN): 25 px digital · 10 mm impresso. Versões: branco sobre preto, preto sobre branco/cinza claro, branco sobre azul marinho/grafite/ouro (sobre ouro o contraste é baixo: prefira preto).
 - Cores (HEX do PDF; nomes sugeridos): Preto ${P.preto} · Grafite ${P.grafite} · Cinza claro ${P.cinza} · Branco ${P.branco} · Areia ${P.areia} · Ouro ${P.ouro} · Azul vivo ${P.azul} · Azul marinho ${P.marinho} · Gradiente areia → ouro.
 - Imagem: retratos de profissionais reais, luz natural suave, olhar fora da câmera, sorriso discreto, fundo desfocado de escritório; blocos escalonados sobre branco. Pixelator: foto convertida em grade de módulos nas cores da paleta sobre listras verticais de areia; 8 módulos de base.
-- Transição em 2 fases: (1) Integração, ~1 ano: Alun Business + "Alura + FIAP para Empresas" em paralelismo de marcas; (2) Consolidação, uso indefinido: Alun Business como marca única (novo site alunbusiness.com.br). Checkpoints: 2 meses (guia de co-branding, FAQs, treinamento, landings) · 2 meses (review de KPIs) · 6 meses (decisão de go-live e virada) · 2 meses (auditoria pós-virada).
-- KPIs fase 1: recall de marca, tráfego orgânico estável, CTR constante, taxa de fechamento inalterada, NPS de clareza. Fase 2: share of voice, tráfego orgânico recuperado, buscas por "Alun Business", conversões estáveis, NPS igual ou maior.
-- Mensagens: "Mais integração e potência. É evolução, não ruptura." · "Especialista full-stack em tech + business." · "Menos complexidade, mais resultado." · "Confiança 100% preservada."
 - Arquitetura: Alun Business como marca-mãe, com Alura, FIAP, PM3 e StartSe como marcas do ecossistema.
 `;
 
