@@ -321,7 +321,7 @@ h3.sub{font-family:var(--display);font-size:13px;font-weight:700;text-transform:
 /* ---------- tokens / IA ---------- */
 .code-card{background:#0d0a14;border-radius:var(--r-card);padding:0;overflow:hidden;margin-top:20px}
 .code-card .bar{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.08);font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c-soft)}
-.code-card pre{margin:0;padding:22px 24px;overflow:auto;max-height:430px;font-family:var(--mono);font-size:12.5px;line-height:1.65;color:#d8d2e6}
+.code-card pre{margin:0;padding:22px 24px;overflow:auto;max-height:300px;font-family:var(--mono);font-size:12.5px;line-height:1.65;color:#d8d2e6}
 .code-card pre .k{color:#a9c8ff}.code-card pre .v{color:#ffcf87}.code-card pre .c{color:#7d7691}
 textarea#mdOut{width:100%;min-height:340px;margin-top:16px;padding:20px 22px;border-radius:var(--r-card);border:1px solid rgba(255,255,255,.12);background:#0d0a14;color:#d8d2e6;font-family:var(--mono);font-size:12.5px;line-height:1.6;resize:vertical;display:none}
 
@@ -413,3 +413,22 @@ html,body{overflow-x:clip}
 .section.dark .comp-tabs button,.section.black .comp-tabs button{background:transparent;color:#fff;border-color:#ffffff40}
 .section.dark .comp-tabs button[aria-selected="true"],.section.black .comp-tabs button[aria-selected="true"]{background:#fff;color:#000}
 @media print{.comp.is-hidden{display:block}.comp-tabs{display:none}.pieces{flex-wrap:wrap;overflow:visible}.pc-nav{display:none !important}}
+
+/* ---- compactação geral (desktop/tablet): guias mais curtos, mesma informação ---- */
+@media (min-width:761px){
+  .section{padding:60px 0}
+  h2.title{font-size:clamp(32px,4vw,52px);margin-bottom:16px}
+  .lead{font-size:17px}
+  h3.sub{margin:34px 0 14px}
+  .card{padding:22px}
+  .sw{min-height:148px;padding:14px 16px}
+  .rule{padding:14px 16px}
+  .ctr-table,.ctr-table tbody{display:block}
+  .ctr-table tbody{display:grid;grid-template-columns:1fr 1fr;gap:0 36px}
+  .ctr-table tr{display:grid;grid-template-columns:104px 1fr auto;align-items:center;gap:12px;padding:7px 0;border-top:1px solid var(--line)}
+  .ctr-table tr:nth-child(-n+2){border-top:none}
+  .ctr-table td{border:none;padding:0;width:auto !important}
+  .ctr-pair{width:104px;height:34px;font-size:12.5px;border-radius:8px}
+  .dl-prev{height:80px}.dl-prev img{max-height:44px}.dl-prev.sym img{max-height:54px}
+  .dl-card{padding:10px;gap:10px}
+}

@@ -78,7 +78,7 @@ module.exports = (H, B) => {
       ${card('2 · Adaptação constante', 'A adaptação tornou-se fundamental até em mercados não caóticos.')}
       ${card('3 · Complexidade e atenção', 'Mais complexidade na execução e na disputa incessante pela atenção.')}
     </div>
-    <p style="max-width:70ch;margin-top:22px">O resultado: empresas pressionadas a evoluir e a treinar seus times em meio a uma overdose de trilhas e conteúdos dispersos. Alun Business nasce como <b>evolução natural do ecossistema</b> — a integração de marcas líderes em educação corporativa numa solução única, full stack, em tecnologia e negócios.</p>
+    ${sub('Evolução natural do ecossistema')}
     <div class="grid g4" style="margin-top:20px">
       ${ecoCard(alura, '#0429BC', 'Profundidade técnica e escala.')}
       ${ecoCard(fiap, '#ED145B', 'Formação executiva, MBA, graduação e Pós-Tech.')}

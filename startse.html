@@ -334,7 +334,7 @@ h3.sub{font-family:var(--display);font-size:13px;font-weight:700;text-transform:
 /* ---------- tokens / IA ---------- */
 .code-card{background:#0d0a14;border-radius:var(--r-card);padding:0;overflow:hidden;margin-top:20px}
 .code-card .bar{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.08);font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c-soft)}
-.code-card pre{margin:0;padding:22px 24px;overflow:auto;max-height:430px;font-family:var(--mono);font-size:12.5px;line-height:1.65;color:#d8d2e6}
+.code-card pre{margin:0;padding:22px 24px;overflow:auto;max-height:300px;font-family:var(--mono);font-size:12.5px;line-height:1.65;color:#d8d2e6}
 .code-card pre .k{color:#a9c8ff}.code-card pre .v{color:#ffcf87}.code-card pre .c{color:#7d7691}
 textarea#mdOut{width:100%;min-height:340px;margin-top:16px;padding:20px 22px;border-radius:var(--r-card);border:1px solid rgba(255,255,255,.12);background:#0d0a14;color:#d8d2e6;font-family:var(--mono);font-size:12.5px;line-height:1.6;resize:vertical;display:none}
 
@@ -427,6 +427,25 @@ html,body{overflow-x:clip}
 .section.dark .comp-tabs button[aria-selected="true"],.section.black .comp-tabs button[aria-selected="true"]{background:#fff;color:#000}
 @media print{.comp.is-hidden{display:block}.comp-tabs{display:none}.pieces{flex-wrap:wrap;overflow:visible}.pc-nav{display:none !important}}
 
+/* ---- compactação geral (desktop/tablet): guias mais curtos, mesma informação ---- */
+@media (min-width:761px){
+  .section{padding:60px 0}
+  h2.title{font-size:clamp(32px,4vw,52px);margin-bottom:16px}
+  .lead{font-size:17px}
+  h3.sub{margin:34px 0 14px}
+  .card{padding:22px}
+  .sw{min-height:148px;padding:14px 16px}
+  .rule{padding:14px 16px}
+  .ctr-table,.ctr-table tbody{display:block}
+  .ctr-table tbody{display:grid;grid-template-columns:1fr 1fr;gap:0 36px}
+  .ctr-table tr{display:grid;grid-template-columns:104px 1fr auto;align-items:center;gap:12px;padding:7px 0;border-top:1px solid var(--line)}
+  .ctr-table tr:nth-child(-n+2){border-top:none}
+  .ctr-table td{border:none;padding:0;width:auto !important}
+  .ctr-pair{width:104px;height:34px;font-size:12.5px;border-radius:8px}
+  .dl-prev{height:80px}.dl-prev img{max-height:44px}.dl-prev.sym img{max-height:54px}
+  .dl-card{padding:10px;gap:10px}
+}
+
 
   nav.top a{font-weight:600}
   nav.top a.nav-home{background:#fff;color:#00183C}nav.top a.nav-home:hover{color:#00183C}
@@ -472,7 +491,7 @@ html,body{overflow-x:clip}
   .nav-demo{display:flex;flex-wrap:wrap;gap:6px 22px;padding:16px 22px;background:#fff;border:1px solid var(--line);border-radius:10px}.nav-demo span{font-family:var(--display);font-weight:500;font-size:14px;color:#1F2A33}
   .chipo{display:inline-block;border-radius:999px;background:#E6ECEE;color:#1F2A33;font-family:var(--display);font-weight:600;font-size:13px;padding:10px 18px}
   .banner{position:relative;overflow:hidden;border-radius:var(--r-xl);background:linear-gradient(120deg,#0b2c5a,#00183C);color:#fff;padding:36px 40px}.banner .bdots{position:absolute;right:0;top:0;bottom:0;display:flex;align-items:center}.banner > div:last-child{position:relative;max-width:620px}.banner h4{font-size:28px;line-height:1.1;margin:0 0 10px;font-weight:700}.banner p{color:#d1d9db;font-size:14.5px;margin:0 0 18px}
-  .hero{position:relative;overflow:hidden;background:#0080ED;color:#fff;min-height:min(calc(100svh - 49px),800px);display:flex}
+  .hero{position:relative;overflow:hidden;background:#0080ED;color:#fff;min-height:min(calc(100svh - 49px),620px);display:flex}
   .hero-dots{position:absolute;right:-7%;top:6%;bottom:6%;width:min(44%,600px);display:flex;align-items:center}.hero-dots svg{width:100%;height:auto}
   .hero-in{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;padding-top:34px;padding-bottom:44px;width:100%}
   .h-top{display:flex;justify-content:space-between;font-family:var(--body);font-size:14px;color:#fff;opacity:.9}
@@ -517,11 +536,6 @@ html,body{overflow-x:clip}
     <h2 class="title reveal">Mais que um logo, <span class="c2">um sistema</span></h2>
     <p class="lead reveal">A identidade StartSe é muito mais que um logo: é um sistema visual composto por diversos elementos — tipografia, cores e iconografia — que se conectam e se combinam para criar uma estética única e diferenciada. Não é só um logo: é um resumo da nossa história e do nosso propósito.</p>
     
-    <div class="grid g3 reveal" style="margin-top:40px">
-      <div class="card"><div class="idx">01</div><h3>Próxima</h3><p>A marca StartSe é próxima: uma paleta que vai do sóbrio azul marinho ao verde vibrante, com cores neutras para o público executivo.</p></div>
-      <div class="card"><div class="idx">02</div><h3>Diversa</h3><p>Diversidade de formatos e públicos: do primeiro passo na carreira à liderança — em programas, imersões, eventos, conteúdo e consultoria.</p></div>
-      <div class="card is-dark"><div class="idx">03</div><h3>Adaptável</h3><p>Um sistema modular que se adapta de logo completo a avatar, de digital a impresso, de produto a evento.</p></div>
-    </div>
 
     <h3 class="sub reveal">O significado do logo</h3>
     <div class="grid g3 reveal">
@@ -575,18 +589,7 @@ html,body{overflow-x:clip}
     <div class="sw-grid reveal" ><div class="sw wide light" role="button" tabindex="0" data-hex="#0080ED" style="background:#0080ED;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">Azul claro</div><div class="role">Protagonista — logo, títulos, botões, links</div></div><div class="codes"><b>HEX</b>#0080ED &nbsp; <b>RGB</b>0 128 237<br><b>CMYK</b>85 45 0 0 &nbsp; <b>PANTONE</b>2174 C</div></div><div class="sw wide" role="button" tabindex="0" data-hex="#00183C" style="background:#00183C;color:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">Azul marinho</div><div class="role">Protagonista — fundos institucionais e texto</div></div><div class="codes"><b>HEX</b>#00183C &nbsp; <b>RGB</b>0 24 60<br><b>CMYK</b>100 70 0 77 &nbsp; <b>PANTONE</b>2767 C</div></div></div>
     <h3 class="sub reveal">Secundárias e neutras</h3>
     <div class="sw-grid reveal" ><div class="sw sm" role="button" tabindex="0" data-hex="#000000" style="background:#000000;color:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">Preto 100</div><div class="role">Programas executivos e University</div></div><div class="codes"><b>HEX</b>#000000 &nbsp; <b>RGB</b>0 0 0<br><b>CMYK</b>91 79 62 97 &nbsp; <b>PANTONE</b>419 C</div></div><div class="sw light bordered sm" role="button" tabindex="0" data-hex="#FFFFFF" style="background:#FFFFFF;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">Branco 100</div><div class="role">Respiro e fundos</div></div><div class="codes"><b>HEX</b>#FFFFFF &nbsp; <b>RGB</b>255 255 255<br><b>CMYK</b>0 0 0 0 &nbsp; <b>PANTONE</b>000 C</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#D1D9DB" style="background:#D1D9DB;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">Cinza claro</div><div class="role">Fundos neutros</div></div><div class="codes"><b>HEX</b>#D1D9DB &nbsp; <b>RGB</b>209 217 219<br><b>CMYK</b>21 11 13 0 &nbsp; <b>PANTONE</b>7541 C</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#808384" style="background:#808384;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">Cinza médio</div><div class="role">Texto — corpo e legendas</div></div><div class="codes"><b>HEX</b>#808384 &nbsp; <b>RGB</b>128 131 132<br><b>CMYK</b>0 0 0 60 &nbsp; <b>PANTONE</b>Cool Grey 8C</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#00BFB8" style="background:#00BFB8;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">Verde</div><div class="role">Detalhes — gráficos e notificações; StartSe AI</div></div><div class="codes"><b>HEX</b>#00BFB8 &nbsp; <b>RGB</b>0 191 184<br><b>CMYK</b>75 0 42 0 &nbsp; <b>PANTONE</b>3262 C</div></div></div>
-    <p class="reveal" style="margin-top:14px;font-size:13.5px">Valores RGB do manual (azul claro 0·128·237; azul marinho 0·24·60; cinza claro 209·217·219; cinza médio 128·131·132; verde 0·191·184). O PDF exibe o azul claro um pouco mais escuro por conversão de CMYK — para telas, use o RGB.</p>
 
-    <h3 class="sub reveal">Hierarquia cromática</h3>
-    <div class="grid g2 reveal">
-      <div class="card"><h3 style="font-size:17px">Digital + Pantone</h3><div class="bars"><div><i style="height:100%;background:#0080ED;"></i><span>Azul claro</span></div><div><i style="height:93%;background:#00183C;"></i><span>Marinho</span></div><div><i style="height:57%;background:#000000;"></i><span>Preto</span></div><div><i style="height:57%;background:#fff;outline:1.5px solid #00183C;outline-offset:-1.5px"></i><span>Branco</span></div><div><i style="height:46%;background:#808384;"></i><span>Cinza médio</span></div><div><i style="height:37%;background:#D1D9DB;"></i><span>Cinza claro</span></div><div><i style="height:16%;background:#00BFB8;"></i><span>Verde</span></div></div><p style="margin-top:12px;font-size:13px">Espaços cromáticos amplos: os tons proprietários de azul claro e azul marinho dividem o protagonismo.</p></div>
-      <div class="card"><h3 style="font-size:17px">Impresso CMYK</h3><div class="bars"><div><i style="height:100%;background:#00183C;"></i><span>Marinho</span></div><div><i style="height:73%;background:#000000;"></i><span>Preto</span></div><div><i style="height:73%;background:#fff;outline:1.5px solid #00183C;outline-offset:-1.5px"></i><span>Branco</span></div><div><i style="height:57%;background:#D1D9DB;"></i><span>Cinza claro</span></div><div><i style="height:37%;background:#0080ED;"></i><span>Azul claro</span></div><div><i style="height:33%;background:#808384;"></i><span>Cinza médio</span></div><div><i style="height:16%;background:#00BFB8;"></i><span>Verde</span></div></div><p style="margin-top:12px;font-size:13px">O azul claro não alcança 100% de fidelidade em CMYK: seu protagonismo é revisto e os tons secundários se aproximam do marinho.</p></div>
-    </div>
-    <p class="reveal" style="margin-top:14px;font-size:14px">Os cinzas servem como tons neutros — <b>médio para textos</b>, <b>claro para fundos</b>. O verde entra só em detalhes (gráficos, notificações) — exceto no braço AI (Tech Academy, @startse.ai) e, no oposto, preto e branco predominam em programas executivos impressos e na StartSe University (@startseuniversity_).</p>
-
-    <h3 class="sub reveal">Escala de interface <span class="chip-prop">derivada do site</span></h3>
-    <div class="ramp reveal" style="--n:10"><div data-hex="#001c3b" style="background:#001c3b;color:#FFFFFF"><b>001c3b</b>#001c3b</div><div data-hex="#003060" style="background:#003060;color:#FFFFFF"><b>003060</b>#003060</div><div data-hex="#004787" style="background:#004787;color:#FFFFFF"><b>004787</b>#004787</div><div data-hex="#005eb1" style="background:#005eb1;color:#FFFFFF"><b>005eb1</b>#005eb1</div><div data-hex="#0077dd" style="background:#0077dd;color:#FFFFFF"><b>0077dd</b>#0077dd</div><div data-hex="#2f91ff" style="background:#2f91ff;color:#0D0D0D"><b>2f91ff</b>#2f91ff</div><div data-hex="#74adff" style="background:#74adff;color:#0D0D0D"><b>74adff</b>#74adff</div><div data-hex="#a7c8ff" style="background:#a7c8ff;color:#0D0D0D"><b>a7c8ff</b>#a7c8ff</div><div data-hex="#d5e3ff" style="background:#d5e3ff;color:#0D0D0D"><b>d5e3ff</b>#d5e3ff</div><div data-hex="#ebf1ff" style="background:#ebf1ff;color:#0D0D0D"><b>ebf1ff</b>#ebf1ff</div></div>
-    <p class="reveal" style="margin-top:12px;font-size:13px;color:var(--muted)">Rampa de azuis usada nas interfaces de startse.com. O manual define só as cores principais; a rampa serve de apoio a estados e fundos de UI.</p>
 
     <h3 class="sub reveal">Contraste e acessibilidade <span class="chip-prop">calculado</span></h3>
     <div class="card reveal" style="padding:10px 18px"><table class="ctr-table" id="ctrTable"></table></div>
@@ -611,24 +614,13 @@ html,body{overflow-x:clip}
         <div class="meta">Corpo de texto em cinza médio. Fallback: Calibri. Ambas as famílias têm download livre.</div></div>
     </div>
 
-    <h3 class="sub reveal">Aplicações cromáticas</h3>
-    <div class="tcol reveal">
-      <div style="background:#fff"><span style="color:#0080ED">Barlow</span><em style="color:#808384">Plex Sans</em></div>
-      <div style="background:#D1D9DB"><span style="color:#0080ED">Barlow</span><em style="color:#808384">Plex Sans</em></div>
-      <div style="background:#0080ED"><span style="color:#fff">Barlow</span><em style="color:#fff">Plex Sans</em></div>
-      <div style="background:#00183C"><span style="color:#0080ED">Barlow<sup>*</sup></span><em style="color:#fff">Plex Sans</em></div>
-      <div style="background:#000"><span style="color:#fff">Barlow</span><em style="color:#fff">Plex Sans</em></div>
-    </div>
-    <p class="reveal" style="margin-top:12px;font-size:13.5px"><sup>*</sup> No fundo azul marinho, a Barlow também pode ser aplicada em branco. Respeite as combinações: garantem máxima legibilidade e aproveitamento das formas de cada família. A frequência de uso de cada cor de fundo segue a hierarquia cromática.</p>
 
     <h3 class="sub reveal">Hierarquia tipográfica</h3>
     <div class="card reveal" style="padding:10px 28px">
       <div class="scale">
         <div class="scale-row"><span class="tg">Headline</span><span style="font-family:'Barlow',sans-serif;font-weight:500;font-size:44px;line-height:1.05;color:#00183C">Apple lança o novo Watch Series 5 em São Francisco —</span><span class="sp">Barlow · 58,2 pt</span></div>
         <div class="scale-row"><span class="tg">Corpo L</span><span style="font-family:'IBM Plex Sans',sans-serif;font-size:18px;line-height:1.5;color:#808384">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span><span class="sp">IBM Plex Sans · 18 pt</span></div>
-        <div class="scale-row"><span class="tg">Retranca</span><span style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#0080ED">Tecnologia</span><span class="sp">IBM Plex Sans · 14,2 pt</span></div>
         <div class="scale-row"><span class="tg">Título</span><span style="font-family:'Barlow',sans-serif;font-weight:600;font-size:22px;text-transform:uppercase;color:#00183C">O novo Apple Watch Series 5 —</span><span class="sp">Barlow · 23 pt</span></div>
-        <div class="scale-row"><span class="tg">Subtítulo</span><span style="font-family:'Barlow',sans-serif;font-weight:600;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#00183C">Design e funcionalidades</span><span class="sp">Barlow · 14,2 pt</span></div>
         <div class="scale-row"><span class="tg">Corpo</span><span style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.5;color:#808384">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span><span class="sp">IBM Plex Sans · 14,2 pt</span></div>
       </div>
     </div>
@@ -655,7 +647,7 @@ html,body{overflow-x:clip}
 
     <h3 class="sub reveal">Ícones</h3>
     <p class="reveal" style="max-width:68ch">Família de ícones de <b style="color:#fff">traço fino e contínuo</b>, em azul marinho, com cantos arredondados — da ideia ao troféu. O manual traz 50 ícones de negócios, educação, tecnologia e IA.</p>
-    <div class="icgrid reveal"><div><div class="pi"><svg viewBox="0 0 48 48" fill="none" stroke="#00183C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6a12 12 0 0 0-7 21.8V33h14v-5.2A12 12 0 0 0 24 6zM18 38h12M20 42h8"/></svg></div><span>Ideia</span></div><div><div class="pi"><svg viewBox="0 0 48 48" fill="none" stroke="#00183C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h14a4 4 0 0 1 4 4v26a3 3 0 0 0-3-3H6zM42 10H28a4 4 0 0 0-4 4v26a3 3 0 0 1 3-3h15z"/></svg></div><span>Livro</span></div><div><div class="pi"><svg viewBox="0 0 48 48" fill="none" stroke="#00183C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="21" cy="21" r="13"/><path d="M31 31l12 12"/></svg></div><span>Busca</span></div><div><div class="pi"><svg viewBox="0 0 48 48" fill="none" stroke="#00183C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l20-9 20 9-20 9zM12 22v10c0 3 6 6 12 6s12-3 12-6V22M44 18v12"/></svg></div><span>Formação</span></div><div><div class="pi"><svg viewBox="0 0 48 48" fill="none" stroke="#00183C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4c7 5 9 13 7 24H17C15 17 17 9 24 4zM17 28l-6 8 7-2M31 28l6 8-7-2M24 32v10"/><circle cx="24" cy="17" r="3"/></svg></div><span>Foguete</span></div><div><div class="pi"><svg viewBox="0 0 48 48" fill="none" stroke="#00183C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="10" width="30" height="22" rx="2"/><path d="M4 38h40"/></svg></div><span>Notebook</span></div><div><div class="pi"><svg viewBox="0 0 48 48" fill="none" stroke="#00183C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6h20v12a10 10 0 0 1-20 0zM14 10H6c0 6 3 10 8 10M34 10h8c0 6-3 10-8 10M24 28v8M16 42h16M18 36h12v6H18z"/></svg></div><span>Troféu</span></div><div><div class="pi"><svg viewBox="0 0 48 48" fill="none" stroke="#00183C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="22" r="16"/><path d="M8 22h32M24 6c6 5 6 27 0 32M24 6c-6 5-6 27 0 32M24 38v6M16 44h16"/></svg></div><span>Globo</span></div><div><div class="pi"><svg viewBox="0 0 48 48" fill="none" stroke="#00183C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5l5.5 12 13 1.5-9.7 8.8 2.7 12.9L24 33l-11.5 7.2 2.7-12.9L5.5 18.5l13-1.5z"/></svg></div><span>Estrela</span></div><div><div class="pi"><svg viewBox="0 0 48 48" fill="none" stroke="#00183C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><path d="M24 12v12l8 5"/></svg></div><span>Tempo</span></div><div><div class="pi"><svg viewBox="0 0 48 48" fill="none" stroke="#00183C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h24v16H16l-6 6v-6H6zM34 18h8v18h-4v6l-6-6H20v-6"/></svg></div><span>Conversa</span></div><div><div class="pi"><svg viewBox="0 0 48 48" fill="none" stroke="#00183C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18L24 6l20 12zM8 18v18M18 18v18M30 18v18M40 18v18M4 40h40"/></svg></div><span>Instituição</span></div></div>
+    <div class="icgrid reveal"><div><div class="pi"><svg viewBox="0 0 48 48" fill="none" stroke="#00183C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6a12 12 0 0 0-7 21.8V33h14v-5.2A12 12 0 0 0 24 6zM18 38h12M20 42h8"/></svg></div><span>Ideia</span></div><div><div class="pi"><svg viewBox="0 0 48 48" fill="none" stroke="#00183C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h14a4 4 0 0 1 4 4v26a3 3 0 0 0-3-3H6zM42 10H28a4 4 0 0 0-4 4v26a3 3 0 0 1 3-3h15z"/></svg></div><span>Livro</span></div><div><div class="pi"><svg viewBox="0 0 48 48" fill="none" stroke="#00183C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="21" cy="21" r="13"/><path d="M31 31l12 12"/></svg></div><span>Busca</span></div><div><div class="pi"><svg viewBox="0 0 48 48" fill="none" stroke="#00183C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l20-9 20 9-20 9zM12 22v10c0 3 6 6 12 6s12-3 12-6V22M44 18v12"/></svg></div><span>Formação</span></div><div><div class="pi"><svg viewBox="0 0 48 48" fill="none" stroke="#00183C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4c7 5 9 13 7 24H17C15 17 17 9 24 4zM17 28l-6 8 7-2M31 28l6 8-7-2M24 32v10"/><circle cx="24" cy="17" r="3"/></svg></div><span>Foguete</span></div><div><div class="pi"><svg viewBox="0 0 48 48" fill="none" stroke="#00183C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="10" width="30" height="22" rx="2"/><path d="M4 38h40"/></svg></div><span>Notebook</span></div></div>
     <p class="reveal" style="margin-top:12px;font-size:13px;color:var(--c-soft)">Ícones redesenhados como referência de estilo. A biblioteca oficial (50 ícones) está na seção “Ícones” do manual.</p>
   </div>
 </section>
@@ -763,13 +755,6 @@ html,body{overflow-x:clip}
       <div class="card"><div class="idx">01</div><h3>Próxima</h3><p>Fala com executivos e profissionais em transição como parceira: sem jargão desnecessário, sempre com contexto de negócio.</p></div>
       <div class="card"><div class="idx">02</div><h3>Global</h3><p>Traz o mundo para a conversa: imersões internacionais, Global MBAs, ecossistemas de inovação.</p></div>
       <div class="card is-dark"><div class="idx">03</div><h3>Orientada ao futuro</h3><p>Linguagem de quem aprende continuamente (Lifelong Learning) e prepara lideranças “à prova de futuro”.</p></div>
-    </div>
-
-    <h3 class="sub reveal">Exemplos do site</h3>
-    <div class="voice-ex reveal">
-      <div class="vx" style="background:#0080ED;color:#fff"><span class="lb" style="color:#fff;opacity:.8">Título de banner</span><p style="font-size:26px">MBAs Globais FIAP &amp; StartSe: Liderança, IA e Inovação Global.</p></div>
-      <div class="vx" style="background:#00183C;color:#fff"><span class="lb" style="color:#A9C0DA">Apoio</span><p style="font-weight:500;font-size:22px">Programas de impacto que preparam lideranças à prova de futuro, capazes de levar negócios muito além de suas fronteiras.</p></div>
-      <div class="vx" style="background:#fff;color:#00183C;border:1px solid var(--line)"><span class="lb" style="color:#0080ED">Seção</span><p style="font-size:26px">O que importa AGORA</p></div>
     </div>
 
     <h3 class="sub reveal">Escreva assim · evite</h3>

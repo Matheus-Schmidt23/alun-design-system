@@ -334,7 +334,7 @@ h3.sub{font-family:var(--display);font-size:13px;font-weight:700;text-transform:
 /* ---------- tokens / IA ---------- */
 .code-card{background:#0d0a14;border-radius:var(--r-card);padding:0;overflow:hidden;margin-top:20px}
 .code-card .bar{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.08);font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c-soft)}
-.code-card pre{margin:0;padding:22px 24px;overflow:auto;max-height:430px;font-family:var(--mono);font-size:12.5px;line-height:1.65;color:#d8d2e6}
+.code-card pre{margin:0;padding:22px 24px;overflow:auto;max-height:300px;font-family:var(--mono);font-size:12.5px;line-height:1.65;color:#d8d2e6}
 .code-card pre .k{color:#a9c8ff}.code-card pre .v{color:#ffcf87}.code-card pre .c{color:#7d7691}
 textarea#mdOut{width:100%;min-height:340px;margin-top:16px;padding:20px 22px;border-radius:var(--r-card);border:1px solid rgba(255,255,255,.12);background:#0d0a14;color:#d8d2e6;font-family:var(--mono);font-size:12.5px;line-height:1.6;resize:vertical;display:none}
 
@@ -427,6 +427,25 @@ html,body{overflow-x:clip}
 .section.dark .comp-tabs button[aria-selected="true"],.section.black .comp-tabs button[aria-selected="true"]{background:#fff;color:#000}
 @media print{.comp.is-hidden{display:block}.comp-tabs{display:none}.pieces{flex-wrap:wrap;overflow:visible}.pc-nav{display:none !important}}
 
+/* ---- compactação geral (desktop/tablet): guias mais curtos, mesma informação ---- */
+@media (min-width:761px){
+  .section{padding:60px 0}
+  h2.title{font-size:clamp(32px,4vw,52px);margin-bottom:16px}
+  .lead{font-size:17px}
+  h3.sub{margin:34px 0 14px}
+  .card{padding:22px}
+  .sw{min-height:148px;padding:14px 16px}
+  .rule{padding:14px 16px}
+  .ctr-table,.ctr-table tbody{display:block}
+  .ctr-table tbody{display:grid;grid-template-columns:1fr 1fr;gap:0 36px}
+  .ctr-table tr{display:grid;grid-template-columns:104px 1fr auto;align-items:center;gap:12px;padding:7px 0;border-top:1px solid var(--line)}
+  .ctr-table tr:nth-child(-n+2){border-top:none}
+  .ctr-table td{border:none;padding:0;width:auto !important}
+  .ctr-pair{width:104px;height:34px;font-size:12.5px;border-radius:8px}
+  .dl-prev{height:80px}.dl-prev img{max-height:44px}.dl-prev.sym img{max-height:54px}
+  .dl-card{padding:10px;gap:10px}
+}
+
 
   nav.top a{font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:11px}
   nav.top a.nav-home{border-radius:0}
@@ -472,7 +491,7 @@ html,body{overflow-x:clip}
   .min-tab{display:flex;gap:12px}.min-tab div{flex:1;border:1px solid rgba(255,255,255,.25);padding:14px 16px}.min-tab b{display:block;font-family:var(--display);font-size:26px;color:#ED145B;font-weight:600;letter-spacing:-.02em}.min-tab span{font-size:12px;color:#ACC1CC}
   .ftxt{margin:6px 0 10px;line-height:1.1}
   /* hero */
-  .hero{position:relative;overflow:hidden;background:radial-gradient(70% 90% at 92% 55%,rgba(237,20,91,.30),transparent 68%),#000;color:#fff;min-height:min(calc(100svh - 49px),860px);display:flex}
+  .hero{position:relative;overflow:hidden;background:radial-gradient(70% 90% at 92% 55%,rgba(237,20,91,.30),transparent 68%),#000;color:#fff;min-height:min(calc(100svh - 49px),640px);display:flex}
   .hero-pt{position:absolute;inset:0;width:100%;height:100%}
   .hero-in{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;padding-top:34px;padding-bottom:96px;width:100%}
   .h-meta{display:flex;justify-content:space-between;gap:16px;font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#ACC1CC}
@@ -561,13 +580,6 @@ html,body{overflow-x:clip}
       <div class="card is-dark"><div class="idx">04</div><h3>Diferencia ou acompanha?</h3><p>Marca posição ou apenas segue o que o mercado já faz?</p></div>
     </div>
 
-    <h3 class="sub reveal">Palavras da marca</h3>
-    <div class="attr reveal" style="margin-top:0"><span>Tecnologia</span><span>Inovação</span><span>Futuro</span><span>Impacto</span><span>Transformação</span><span>Comunidade</span><span>Prática</span><span>Hands-on</span><span>Ecossistema</span><span>Evolução</span><span>AI</span><span>Criação</span><span>Inteligência</span></div>
-
-    <div class="quote-bar reveal">
-      <div class="qm">“</div>
-      <div><p>Let’s rock the future.</p><small>Assinatura institucional e de graduação</small></div>
-    </div>
     <p class="reveal" style="margin-top:14px;font-size:13.5px">A FIAP integra o ecossistema do Grupo Alun, ao lado de Alura, PM3 e StartSe. Produtos e linhas: Graduação, Graduação ON, MBA, Pós Tech, Shift, FIAP School, FIAP Empresas, FIAP Next, Nano Courses e o Colégio Módulo.</p>
   </div>
 </section>
@@ -615,14 +627,6 @@ html,body{overflow-x:clip}
     </div>
     <p class="reveal" style="margin-top:14px;font-size:13.5px">As cores do grupo seguem o guia da marca Alun — veja a plataforma da Alun. Os nomes de algumas cores do FIAP School e do Módulo não constam no arquivo original; os descritivos acima são orientativos.</p>
 
-    <h3 class="sub reveal">Equilíbrio de uso <span class="chip-prop">leitura do site</span></h3>
-    <div class="proportion reveal">
-      <div style="flex-grow:62;background:#000;color:#fff">Preto · dominante</div>
-      <div style="flex-grow:18;background:#ED145B;color:#fff">Magenta · destaque</div>
-      <div style="flex-grow:12;background:#ACC1CC;color:#000">Cinzas</div>
-      <div style="flex-grow:8;background:#fff;color:#000;border:1px solid #ddd">Branco</div>
-    </div>
-    <p class="reveal" style="margin-top:14px;font-size:14px">Fundo preto e magenta em destaque — no site, peças e campanhas — com cinzas azulados para apoio. A cor da identidade de cada produto (título e frase de descrição) <b>varia por ID</b>: não precisa ser sempre cinza e branco.</p>
 
     <h3 class="sub reveal">Contraste e acessibilidade <span class="chip-prop">calculado</span></h3>
     <div class="card reveal" style="padding:10px 18px"><table class="ctr-table" id="ctrTable"></table></div>
@@ -661,21 +665,13 @@ html,body{overflow-x:clip}
     <div class="card reveal" style="padding:10px 28px">
       <div class="scale">
         <div class="scale-row"><span class="tg">Display L</span><span style="font-family:'Montserrat',sans-serif;font-weight:500;font-size:57px;line-height:64px;letter-spacing:-0.25px">A melhor faculdade</span><span class="sp">Gotham · 57/64 · -0.25</span></div>
-        <div class="scale-row"><span class="tg">Display M</span><span style="font-family:'Montserrat',sans-serif;font-weight:500;font-size:45px;line-height:52px;letter-spacing:0px">Tech Intensive</span><span class="sp">Gotham · 45/52 · 0</span></div>
-        <div class="scale-row"><span class="tg">Display S</span><span style="font-family:'Montserrat',sans-serif;font-weight:500;font-size:36px;line-height:44px;letter-spacing:0px">Crie projetos reais</span><span class="sp">Gotham · 36/44 · 0</span></div>
-        <div class="scale-row"><span class="tg">Headline L</span><span style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:32px;line-height:40px;letter-spacing:0px">O futuro como você imagina</span><span class="sp">Gotham · 32/40 · 0</span></div>
         <div class="scale-row"><span class="tg">Headline M</span><span style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:28px;line-height:36px;letter-spacing:0px">Graduações em Dev, IA e Data</span><span class="sp">Gotham · 28/36 · 0</span></div>
-        <div class="scale-row"><span class="tg">Headline S</span><span style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:24px;line-height:32px;letter-spacing:0px">Aprender fazendo, com desafios reais</span><span class="sp">Gotham · 24/32 · 0</span></div>
-        <div class="scale-row"><span class="tg">Title L</span><span style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:22px;line-height:28px;letter-spacing:0px">Pós Tech e MBAs Tech</span><span class="sp">Gotham Book · 22/28 · 0</span></div>
         <div class="scale-row"><span class="tg">Title M</span><span style="font-family:'Roboto',sans-serif;font-weight:500;font-size:16px;line-height:24px;letter-spacing:0.15px">Título de seção</span><span class="sp">Roboto Medium · 16/24 · +0.15</span></div>
-        <div class="scale-row"><span class="tg">Title S</span><span style="font-family:'Roboto',sans-serif;font-weight:500;font-size:14px;line-height:20px;letter-spacing:0.1px">Título pequeno</span><span class="sp">Roboto Medium · 14/20 · +0.1</span></div>
         <div class="scale-row"><span class="tg">Label M</span><span style="font-family:'Roboto',sans-serif;font-weight:500;font-size:12px;line-height:16px;letter-spacing:0.5px">ROTULO DE INTERFACE</span><span class="sp">Roboto Medium · 12/16 · +0.5</span></div>
         <div class="scale-row"><span class="tg">Body L</span><span style="font-family:'Roboto',sans-serif;font-weight:400;font-size:16px;line-height:24px;letter-spacing:0.5px">Domine as tecnologias mais avançadas e crie projetos reais com empresas globais.</span><span class="sp">Roboto · 16/24 · +0.5</span></div>
         <div class="scale-row"><span class="tg">Body M</span><span style="font-family:'Roboto',sans-serif;font-weight:400;font-size:14px;line-height:20px;letter-spacing:0.25px">Texto corrido de apoio em cards e páginas.</span><span class="sp">Roboto · 14/20 · +0.25</span></div>
-        <div class="scale-row"><span class="tg">Body S</span><span style="font-family:'Roboto',sans-serif;font-weight:400;font-size:12px;line-height:16px;letter-spacing:0.4px">Legendas, notas e metadados.</span><span class="sp">Roboto · 12/16 · +0.4</span></div>
       </div>
     </div>
-    <p class="reveal" style="margin-top:12px;font-size:13.5px">Nomes e valores seguem o arquivo Figma (Display, Headline, Title, Label e Body em Large, Medium e Small; tamanho/altura de linha · espaçamento entre letras em px).</p>
   </div>
 </section>
 
@@ -702,12 +698,6 @@ html,body{overflow-x:clip}
     <h2 class="title reveal">Escuro, nítido, <span class="c2">cheio de futuro</span></h2>
     <p class="lead reveal">As peças FIAP vivem sobre fundos escuros com iluminação dramática — feixes de luz, partículas e gradientes — e prova social em destaque. O Design System 2.0 não fixa um guia de fotografia; reúne bibliotecas de imagens de cursos, desafios (<i>Challenges</i>), parceiros e eventos.</p>
     
-    <div class="tex-grid reveal" style="margin-top:36px">
-      <div class="tex"><div class="fill" style="background:radial-gradient(circle at 70% 20%,rgba(237,20,91,.65),transparent 55%),radial-gradient(circle at 10% 90%,rgba(237,20,91,.28),transparent 50%),#050506"></div><div class="cap"><b>bgGradient</b>Preto com brilho magenta</div></div>
-      <div class="tex"><canvas data-gfx="particles" data-seed="14"></canvas><div class="cap"><b>Partículas</b>Fio luminoso</div></div>
-      <div class="tex"><div class="fill" style="background:linear-gradient(180deg,#000 0%,#14191C 45%,#75838B 140%)"></div><div class="cap"><b>Cinza azulado</b>Neutro de apoio</div></div>
-      <div class="tex"><div class="fill" style="background:linear-gradient(135deg,#000,#ED145B)"></div><div class="cap"><b>Degradê de marca</b>Preto → Magenta</div></div>
-    </div>
 
     <h3 class="sub reveal">Prova social</h3>
     <div class="grid g3 reveal">
@@ -831,19 +821,6 @@ html,body{overflow-x:clip}
     <h2 class="title reveal">Objetivo, <span class="c2">inteligente, humano</span></h2>
     <p class="lead reveal">É a linguagem única que expressa a personalidade da FIAP — nosso jeito particular e reconhecível de falar. Mais do que oferecer cursos, queremos conversar abertamente com alunos, alunas e <i>prospects</i> para entender seus sonhos e objetivos. Juntos, vamos ajudar a construir o futuro de cada pessoa.</p>
     
-    <div class="grid g2 reveal" style="margin-top:36px">
-      <div class="card"><div class="label-k">Como a marca fala</div><ul class="bul"><li>Frases curtas, objetivas e rítmicas</li><li>Verbos de ação</li><li>Clareza</li><li>Inteligência</li><li>Conteúdo para impacto real</li></ul></div>
-      <div class="card is-dark" style="background:#000"><div class="label-k">Como a marca não fala</div><ul class="bul inv"><li>Pontos de exclamação</li><li>Varejo / tom comercial</li><li>Informalidade forçada</li><li>Mensagens genéricas</li><li>Clichês e jargões técnicos sem contexto</li></ul></div>
-    </div>
-
-    <h3 class="sub reveal">Linguagem e estilo</h3>
-    <div class="grid g3 reveal">
-      <div class="card"><div class="idx">01</div><h3>Objetivo, coloquial e inteligente</h3><p>Direto ao ponto, sem pedantismo.</p></div>
-      <div class="card"><div class="idx">02</div><h3>Inspirador, sem motivacional</h3><p>Inspira sem ser motivacional ao extremo.</p></div>
-      <div class="card"><div class="idx">03</div><h3>Tech, sem clichês</h3><p>Fala de tecnologia com propriedade, sem lugar-comum.</p></div>
-      <div class="card"><div class="idx">04</div><h3>Mais humano que vendedor</h3><p>Conversa; não empurra produto.</p></div>
-      <div class="card is-dark"><div class="idx">05</div><h3>Colaborativo e inclusivo</h3><p>Fala com — e por — a comunidade.</p></div>
-    </div>
 
     <h3 class="sub reveal">Falar assim · não falar assim</h3>
     <div class="dodont reveal">

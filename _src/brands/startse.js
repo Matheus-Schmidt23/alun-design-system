@@ -81,11 +81,6 @@ module.exports = (H) => {
     id: 'essencia', num: '01', label: 'Bem-vindo ao nosso universo visual', title: ['Mais que um logo,', 'um sistema'],
     lead: 'A identidade StartSe é muito mais que um logo: é um sistema visual composto por diversos elementos — tipografia, cores e iconografia — que se conectam e se combinam para criar uma estética única e diferenciada. Não é só um logo: é um resumo da nossa história e do nosso propósito.',
     body: `
-    <div class="grid g3 reveal" style="margin-top:40px">
-      ${card('Próxima', 'A marca StartSe é próxima: uma paleta que vai do sóbrio azul marinho ao verde vibrante, com cores neutras para o público executivo.', { idx: '01' })}
-      ${card('Diversa', 'Diversidade de formatos e públicos: do primeiro passo na carreira à liderança — em programas, imersões, eventos, conteúdo e consultoria.', { idx: '02' })}
-      ${card('Adaptável', 'Um sistema modular que se adapta de logo completo a avatar, de digital a impresso, de produto a evento.', { idx: '03', dark: true })}
-    </div>
 
     ${sub('O significado do logo')}
     <div class="grid g3 reveal">
@@ -149,18 +144,7 @@ module.exports = (H) => {
       c('Cinza médio', CM, 'Texto — corpo e legendas', { sm: true, cmyk: '0 0 0 60', pantone: 'Cool Grey 8C' }),
       c('Verde', VD, 'Detalhes — gráficos e notificações; StartSe AI', { sm: true, cmyk: '75 0 42 0', pantone: '3262 C' })
     ])}
-    <p class="reveal" style="margin-top:14px;font-size:13.5px">Valores RGB do manual (azul claro 0·128·237; azul marinho 0·24·60; cinza claro 209·217·219; cinza médio 128·131·132; verde 0·191·184). O PDF exibe o azul claro um pouco mais escuro por conversão de CMYK — para telas, use o RGB.</p>
 
-    ${sub('Hierarquia cromática')}
-    <div class="grid g2 reveal">
-      <div class="card"><h3 style="font-size:17px">Digital + Pantone</h3>${bars([[AC, 100, 'Azul claro'], [AM, 93, 'Marinho'], [PR, 57, 'Preto'], ['#fff', 57, 'Branco', 1], [CM, 46, 'Cinza médio'], [CC, 37, 'Cinza claro'], [VD, 16, 'Verde']])}<p style="margin-top:12px;font-size:13px">Espaços cromáticos amplos: os tons proprietários de azul claro e azul marinho dividem o protagonismo.</p></div>
-      <div class="card"><h3 style="font-size:17px">Impresso CMYK</h3>${bars([[AM, 100, 'Marinho'], [PR, 73, 'Preto'], ['#fff', 73, 'Branco', 1], [CC, 57, 'Cinza claro'], [AC, 37, 'Azul claro'], [CM, 33, 'Cinza médio'], [VD, 16, 'Verde']])}<p style="margin-top:12px;font-size:13px">O azul claro não alcança 100% de fidelidade em CMYK: seu protagonismo é revisto e os tons secundários se aproximam do marinho.</p></div>
-    </div>
-    <p class="reveal" style="margin-top:14px;font-size:14px">Os cinzas servem como tons neutros — <b>médio para textos</b>, <b>claro para fundos</b>. O verde entra só em detalhes (gráficos, notificações) — exceto no braço AI (Tech Academy, @startse.ai) e, no oposto, preto e branco predominam em programas executivos impressos e na StartSe University (@startseuniversity_).</p>
-
-    ${sub('Escala de interface', 'derivada do site')}
-    ${ramp([['001c3b', '#001c3b', 1], ['003060', '#003060', 1], ['004787', '#004787', 1], ['005eb1', '#005eb1', 1], ['0077dd', '#0077dd', 1], ['2f91ff', '#2f91ff', 0], ['74adff', '#74adff', 0], ['a7c8ff', '#a7c8ff', 0], ['d5e3ff', '#d5e3ff', 0], ['ebf1ff', '#ebf1ff', 0]], 10)}
-    <p class="reveal" style="margin-top:12px;font-size:13px;color:var(--muted)">Rampa de azuis usada nas interfaces de startse.com. O manual define só as cores principais; a rampa serve de apoio a estados e fundos de UI.</p>
 
     ${sub('Contraste e acessibilidade', 'calculado')}
     <div class="card reveal" style="padding:10px 18px"><table class="ctr-table" id="ctrTable"></table></div>
@@ -184,24 +168,13 @@ module.exports = (H) => {
         <div class="meta">Corpo de texto em cinza médio. Fallback: Calibri. Ambas as famílias têm download livre.</div></div>
     </div>
 
-    ${sub('Aplicações cromáticas')}
-    <div class="tcol reveal">
-      <div style="background:#fff"><span style="color:${AC}">Barlow</span><em style="color:${CM}">Plex Sans</em></div>
-      <div style="background:${CC}"><span style="color:${AC}">Barlow</span><em style="color:${CM}">Plex Sans</em></div>
-      <div style="background:${AC}"><span style="color:#fff">Barlow</span><em style="color:#fff">Plex Sans</em></div>
-      <div style="background:${AM}"><span style="color:${AC}">Barlow<sup>*</sup></span><em style="color:#fff">Plex Sans</em></div>
-      <div style="background:#000"><span style="color:#fff">Barlow</span><em style="color:#fff">Plex Sans</em></div>
-    </div>
-    <p class="reveal" style="margin-top:12px;font-size:13.5px"><sup>*</sup> No fundo azul marinho, a Barlow também pode ser aplicada em branco. Respeite as combinações: garantem máxima legibilidade e aproveitamento das formas de cada família. A frequência de uso de cada cor de fundo segue a hierarquia cromática.</p>
 
     ${sub('Hierarquia tipográfica')}
     <div class="card reveal" style="padding:10px 28px">
       <div class="scale">
         <div class="scale-row"><span class="tg">Headline</span><span style="font-family:${BW};font-weight:500;font-size:44px;line-height:1.05;color:${AM}">Apple lança o novo Watch Series 5 em São Francisco —</span><span class="sp">Barlow · 58,2 pt</span></div>
         <div class="scale-row"><span class="tg">Corpo L</span><span style="font-family:${PX};font-size:18px;line-height:1.5;color:${CM}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span><span class="sp">IBM Plex Sans · 18 pt</span></div>
-        <div class="scale-row"><span class="tg">Retranca</span><span style="font-family:${PX};font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:${AC}">Tecnologia</span><span class="sp">IBM Plex Sans · 14,2 pt</span></div>
         <div class="scale-row"><span class="tg">Título</span><span style="font-family:${BW};font-weight:600;font-size:22px;text-transform:uppercase;color:${AM}">O novo Apple Watch Series 5 —</span><span class="sp">Barlow · 23 pt</span></div>
-        <div class="scale-row"><span class="tg">Subtítulo</span><span style="font-family:${BW};font-weight:600;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:${AM}">Design e funcionalidades</span><span class="sp">Barlow · 14,2 pt</span></div>
         <div class="scale-row"><span class="tg">Corpo</span><span style="font-family:${PX};font-size:14px;line-height:1.5;color:${CM}">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span><span class="sp">IBM Plex Sans · 14,2 pt</span></div>
       </div>
     </div>
@@ -241,7 +214,7 @@ module.exports = (H) => {
 
     ${sub('Ícones')}
     <p class="reveal" style="max-width:68ch">Família de ícones de <b style="color:#fff">traço fino e contínuo</b>, em azul marinho, com cantos arredondados — da ideia ao troféu. O manual traz 50 ícones de negócios, educação, tecnologia e IA.</p>
-    <div class="icgrid reveal">${icons.map(([n, svg]) => `<div><div class="pi">${svg}</div><span>${n}</span></div>`).join('')}</div>
+    <div class="icgrid reveal">${icons.slice(0, 6).map(([n, svg]) => `<div><div class="pi">${svg}</div><span>${n}</span></div>`).join('')}</div>
     <p class="reveal" style="margin-top:12px;font-size:13px;color:var(--c-soft)">Ícones redesenhados como referência de estilo. A biblioteca oficial (50 ícones) está na seção “Ícones” do manual.</p>`
   });
 
@@ -345,13 +318,6 @@ module.exports = (H) => {
       ${card('Orientada ao futuro', 'Linguagem de quem aprende continuamente (Lifelong Learning) e prepara lideranças “à prova de futuro”.', { idx: '03', dark: true })}
     </div>
 
-    ${sub('Exemplos do site')}
-    <div class="voice-ex reveal">
-      <div class="vx" style="background:${AC};color:#fff"><span class="lb" style="color:#fff;opacity:.8">Título de banner</span><p style="font-size:26px">MBAs Globais FIAP &amp; StartSe: Liderança, IA e Inovação Global.</p></div>
-      <div class="vx" style="background:${AM};color:#fff"><span class="lb" style="color:#A9C0DA">Apoio</span><p style="font-weight:500;font-size:22px">Programas de impacto que preparam lideranças à prova de futuro, capazes de levar negócios muito além de suas fronteiras.</p></div>
-      <div class="vx" style="background:#fff;color:${AM};border:1px solid var(--line)"><span class="lb" style="color:${AC}">Seção</span><p style="font-size:26px">O que importa AGORA</p></div>
-    </div>
-
     ${sub('Escreva assim · evite')}
     ${dodont([
       'Títulos claros, com o benefício ou o tema logo no início',
@@ -442,7 +408,7 @@ module.exports = (H) => {
   .nav-demo{display:flex;flex-wrap:wrap;gap:6px 22px;padding:16px 22px;background:#fff;border:1px solid var(--line);border-radius:10px}.nav-demo span{font-family:var(--display);font-weight:500;font-size:14px;color:#1F2A33}
   .chipo{display:inline-block;border-radius:999px;background:#E6ECEE;color:#1F2A33;font-family:var(--display);font-weight:600;font-size:13px;padding:10px 18px}
   .banner{position:relative;overflow:hidden;border-radius:var(--r-xl);background:linear-gradient(120deg,#0b2c5a,${AM});color:#fff;padding:36px 40px}.banner .bdots{position:absolute;right:0;top:0;bottom:0;display:flex;align-items:center}.banner > div:last-child{position:relative;max-width:620px}.banner h4{font-size:28px;line-height:1.1;margin:0 0 10px;font-weight:700}.banner p{color:#d1d9db;font-size:14.5px;margin:0 0 18px}
-  .hero{position:relative;overflow:hidden;background:${AC};color:#fff;min-height:min(calc(100svh - 49px),800px);display:flex}
+  .hero{position:relative;overflow:hidden;background:${AC};color:#fff;min-height:min(calc(100svh - 49px),620px);display:flex}
   .hero-dots{position:absolute;right:-7%;top:6%;bottom:6%;width:min(44%,600px);display:flex;align-items:center}.hero-dots svg{width:100%;height:auto}
   .hero-in{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;padding-top:34px;padding-bottom:44px;width:100%}
   .h-top{display:flex;justify-content:space-between;font-family:var(--body);font-size:14px;color:#fff;opacity:.9}

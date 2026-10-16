@@ -334,7 +334,7 @@ h3.sub{font-family:var(--display);font-size:13px;font-weight:700;text-transform:
 /* ---------- tokens / IA ---------- */
 .code-card{background:#0d0a14;border-radius:var(--r-card);padding:0;overflow:hidden;margin-top:20px}
 .code-card .bar{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.08);font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c-soft)}
-.code-card pre{margin:0;padding:22px 24px;overflow:auto;max-height:430px;font-family:var(--mono);font-size:12.5px;line-height:1.65;color:#d8d2e6}
+.code-card pre{margin:0;padding:22px 24px;overflow:auto;max-height:300px;font-family:var(--mono);font-size:12.5px;line-height:1.65;color:#d8d2e6}
 .code-card pre .k{color:#a9c8ff}.code-card pre .v{color:#ffcf87}.code-card pre .c{color:#7d7691}
 textarea#mdOut{width:100%;min-height:340px;margin-top:16px;padding:20px 22px;border-radius:var(--r-card);border:1px solid rgba(255,255,255,.12);background:#0d0a14;color:#d8d2e6;font-family:var(--mono);font-size:12.5px;line-height:1.6;resize:vertical;display:none}
 
@@ -427,6 +427,25 @@ html,body{overflow-x:clip}
 .section.dark .comp-tabs button[aria-selected="true"],.section.black .comp-tabs button[aria-selected="true"]{background:#fff;color:#000}
 @media print{.comp.is-hidden{display:block}.comp-tabs{display:none}.pieces{flex-wrap:wrap;overflow:visible}.pc-nav{display:none !important}}
 
+/* ---- compactação geral (desktop/tablet): guias mais curtos, mesma informação ---- */
+@media (min-width:761px){
+  .section{padding:60px 0}
+  h2.title{font-size:clamp(32px,4vw,52px);margin-bottom:16px}
+  .lead{font-size:17px}
+  h3.sub{margin:34px 0 14px}
+  .card{padding:22px}
+  .sw{min-height:148px;padding:14px 16px}
+  .rule{padding:14px 16px}
+  .ctr-table,.ctr-table tbody{display:block}
+  .ctr-table tbody{display:grid;grid-template-columns:1fr 1fr;gap:0 36px}
+  .ctr-table tr{display:grid;grid-template-columns:104px 1fr auto;align-items:center;gap:12px;padding:7px 0;border-top:1px solid var(--line)}
+  .ctr-table tr:nth-child(-n+2){border-top:none}
+  .ctr-table td{border:none;padding:0;width:auto !important}
+  .ctr-pair{width:104px;height:34px;font-size:12.5px;border-radius:8px}
+  .dl-prev{height:80px}.dl-prev img{max-height:44px}.dl-prev.sym img{max-height:54px}
+  .dl-card{padding:10px;gap:10px}
+}
+
 
   nav.top a{font-weight:500}
   nav.top a.nav-home{background:#fff;color:#0429BC}
@@ -458,7 +477,7 @@ html,body{overflow-x:clip}
   .btn-sm{padding:10px 16px;font-size:13px}
   .alert{border-radius:6px}
   /* hero */
-  .hero{position:relative;overflow:hidden;background:#0C0C0E;color:#fff;min-height:min(calc(100svh - 49px),820px);display:flex}
+  .hero{position:relative;overflow:hidden;background:#0C0C0E;color:#fff;min-height:min(calc(100svh - 49px),640px);display:flex}
   .hero-pat{position:absolute;right:0;top:0;bottom:0;width:62%;height:100%;opacity:.9;-webkit-mask-image:linear-gradient(90deg,transparent,#000 55%);mask-image:linear-gradient(90deg,transparent,#000 55%)}
   .orb{position:absolute;right:-9%;top:50%;width:min(40vw,560px);aspect-ratio:1/1;transform:translateY(-50%);border-radius:50%;background:radial-gradient(circle at 30% 28%,#7A9FF0 0,#1F53E5 36%,#0429BC 66%,#010C53 100%);opacity:.9}
   .hero-in{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;padding-top:34px;padding-bottom:40px;width:100%}
@@ -526,8 +545,6 @@ html,body{overflow-x:clip}
       <div class="card is-dark" style="background:#0429BC"><div class="label-k" style="color:#D1DEF9">Sonho</div><h3 style="font-weight:300;font-size:26px;line-height:1.2">Alavancar o protagonismo dev em um mundo onde a tecnologia é a base de todo o mercado e de todas as carreiras.</h3></div>
     </div>
 
-    <h3 class="sub reveal">Posicionamento</h3>
-    <div class="card reveal" style="padding:32px 36px"><p style="font-size:17px;max-width:90ch;margin:0">Para pessoas que enxergam a tecnologia como o principal caminho de evolução profissional, do primeiro passo à liderança técnica, a Alura é o ecossistema de aprendizagem tech mais conectado ao presente e ao próximo movimento do mercado. Diferente de escolas tradicionais ou plataformas genéricas, combina <b>profundidade técnica, direção clara e aplicação prática</b> com a força de uma comunidade ativa e a autoridade de <i>founders</i> que vivem a transformação tecnológica em tempo real.</p></div>
 
     <h3 class="sub reveal">Valores e personalidade</h3>
     <div class="grid g2 reveal">
@@ -543,11 +560,6 @@ html,body{overflow-x:clip}
       <div class="card"><div class="idx">4</div><h3>Singularidade</h3><p>Transcender o ordinário: romper com clichês e padrões previsíveis para oferecer experiências que inspiram e empoderam.</p></div>
       <div class="card"><div class="idx">5</div><h3>Excelência nos detalhes</h3><p>Rigor da concepção à implementação — experiências esteticamente agradáveis, funcionais, acessíveis e emocionalmente impactantes.</p></div>
       <div class="card is-dark"><div class="idx">6</div><h3>Agente de transformação</h3><p>Ir além da apresentação de informação: criar experiências que provoquem mudanças reais em como as pessoas aprendem e se desenvolvem.</p></div>
-    </div>
-
-    <div class="quote-bar reveal" style="background:#0C0C0E">
-      <div class="qm">“</div>
-      <div><p>Nowness não é apenas tempo. É posicionamento.</p><small>Princípio de comunicação · Brand Guidelines V2.0</small></div>
     </div>
   </div>
 </section>
@@ -578,25 +590,14 @@ html,body{overflow-x:clip}
     
     <h3 class="sub reveal">Cores principais</h3>
     <div class="sw-grid reveal" ><div class="sw wide" role="button" tabindex="0" data-hex="#0429BC" style="background:#0429BC;color:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">Tech Blue</div><div class="role">Cor principal — reconhecimento, botões, assinatura</div></div><div class="codes"><b>HEX</b>#0429BC &nbsp; <b>RGB</b>4 41 188<br><b>CMYK</b>100 69 0 4 &nbsp; <b>PANTONE</b>Pantone 293 C</div></div><div class="sw" role="button" tabindex="0" data-hex="#011676" style="background:#011676;color:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">Deep Blue</div><div class="role">Azul profundo — seções institucionais</div></div><div class="codes"><b>HEX</b>#011676 &nbsp; <b>RGB</b>1 22 118<br><b>PANTONE</b>Pantone Reflex Blue C</div></div><div class="sw" role="button" tabindex="0" data-hex="#010C53" style="background:#010C53;color:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">Blue Universe</div><div class="role">Azul mais profundo — fundos e gradientes</div></div><div class="codes"><b>HEX</b>#010C53 &nbsp; <b>RGB</b>1 12 83<br><b>CMYK</b>100 89 0 0</div></div><div class="sw" role="button" tabindex="0" data-hex="#1F53E5" style="background:#1F53E5;color:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">Dev Blue</div><div class="role">Azul vibrante — hover, estados e destaques</div></div><div class="codes"><b>HEX</b>#1F53E5 &nbsp; <b>RGB</b>31 83 229</div></div><div class="sw" role="button" tabindex="0" data-hex="#0C0C0E" style="background:#0C0C0E;color:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">New Black</div><div class="role">Preto da marca — interface escura, texto</div></div><div class="codes"><b>HEX</b>#0C0C0E &nbsp; <b>RGB</b>12 12 14</div></div><div class="sw light bordered" role="button" tabindex="0" data-hex="#F4F5F6" style="background:#F4F5F6;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">White Snow</div><div class="role">Branco frio — superfícies e respiro</div></div><div class="codes"><b>HEX</b>#F4F5F6 &nbsp; <b>RGB</b>244 245 246</div></div></div>
-    <h3 class="sub reveal">Metálicos <span class="chip-prop">somente impressão</span></h3>
-    <div class="sw-grid reveal">
-      <div class="sw sm" style="background:linear-gradient(135deg,#dfe2e8,#aab0bb 50%,#e9ecf1);color:#0C0C0E;cursor:default"><div><div class="nm">Cold Silver</div><div class="role">Tinta especial</div></div><div class="codes"><b>PANTONE</b>Pantone Silver 10077 C</div></div><div class="sw sm" style="background:linear-gradient(135deg,#c9ccd3,#868b96 50%,#d7dae0);color:#0C0C0E;cursor:default"><div><div class="nm">Tech Silver</div><div class="role">Tinta especial</div></div><div class="codes"><b>PANTONE</b>Pantone 10388 C</div></div><div class="sw sm" style="background:linear-gradient(135deg,#7a9ff0,#0d3ee3 55%,#7a9ff0);color:#fff;cursor:default"><div><div class="nm">Blue Metalic</div><div class="role">Tinta especial</div></div><div class="codes"><b>PANTONE</b>Pantone 10260 C</div></div><div class="sw sm" style="background:linear-gradient(135deg,#5f8bec,#021e94 55%,#5f8bec);color:#fff;cursor:default"><div><div class="nm">Dev Metalic</div><div class="role">Tinta especial</div></div><div class="codes"><b>PANTONE</b>Pantone 10272 C</div></div>
-    </div>
-    <p class="reveal" style="margin-top:12px;font-size:13px;color:var(--muted)">O guia especifica os metálicos apenas por Pantone. A prévia acima é uma simulação em CSS, sem valor de cor oficial.</p>
-
     <h3 class="sub reveal">Escala de azuis (UI)</h3>
     <div class="ramp reveal" style="--n:17"><div data-hex="#D1DEF9" style="background:#D1DEF9;color:#0D0D0D"><b>50</b>#D1DEF9</div><div data-hex="#B5CBF6" style="background:#B5CBF6;color:#0D0D0D"><b>100</b>#B5CBF6</div><div data-hex="#9AB7F3" style="background:#9AB7F3;color:#0D0D0D"><b>200</b>#9AB7F3</div><div data-hex="#7A9FF0" style="background:#7A9FF0;color:#0D0D0D"><b>300</b>#7A9FF0</div><div data-hex="#5F8BEC" style="background:#5F8BEC;color:#0D0D0D"><b>400</b>#5F8BEC</div><div data-hex="#4878EA" style="background:#4878EA;color:#0D0D0D"><b>500</b>#4878EA</div><div data-hex="#3165E7" style="background:#3165E7;color:#FFFFFF"><b>600</b>#3165E7</div><div data-hex="#1F53E5" style="background:#1F53E5;color:#FFFFFF"><b>700</b>#1F53E5</div><div data-hex="#0D3EE3" style="background:#0D3EE3;color:#FFFFFF"><b>800</b>#0D3EE3</div><div data-hex="#052FD3" style="background:#052FD3;color:#FFFFFF"><b>900</b>#052FD3</div><div data-hex="#0429BC" style="background:#0429BC;color:#FFFFFF"><b>1000</b>#0429BC</div><div data-hex="#0323A6" style="background:#0323A6;color:#FFFFFF"><b>1100</b>#0323A6</div><div data-hex="#021E94" style="background:#021E94;color:#FFFFFF"><b>1200</b>#021E94</div><div data-hex="#021982" style="background:#021982;color:#FFFFFF"><b>1300</b>#021982</div><div data-hex="#011676" style="background:#011676;color:#FFFFFF"><b>1400</b>#011676</div><div data-hex="#011164" style="background:#011164;color:#FFFFFF"><b>1500</b>#011164</div><div data-hex="#010C53" style="background:#010C53;color:#FFFFFF"><b>1600</b>#010C53</div></div>
     <p class="reveal" style="margin-top:12px;font-size:13.5px">Os azuis complementares ampliam a profundidade do sistema: criam variações, reforçam estados e apoiam a navegação. <b>Tech Blue = 1000</b> · Dev Blue = 700 · Deep Blue = 1400 · Blue Universe = 1600.</p>
-
-    <h3 class="sub reveal">Neutros de interface</h3>
-    <div class="ramp reveal" style="--n:13"><div data-hex="#F4F5F6" style="background:#F4F5F6;color:#0D0D0D"><b>F4F5F6</b>#F4F5F6</div><div data-hex="#DEDFE3" style="background:#DEDFE3;color:#0D0D0D"><b>DEDFE3</b>#DEDFE3</div><div data-hex="#CDCFD5" style="background:#CDCFD5;color:#0D0D0D"><b>CDCFD5</b>#CDCFD5</div><div data-hex="#BDBFC7" style="background:#BDBFC7;color:#0D0D0D"><b>BDBFC7</b>#BDBFC7</div><div data-hex="#A7A9B4" style="background:#A7A9B4;color:#0D0D0D"><b>A7A9B4</b>#A7A9B4</div><div data-hex="#868998" style="background:#868998;color:#0D0D0D"><b>868998</b>#868998</div><div data-hex="#6C707F" style="background:#6C707F;color:#FFFFFF"><b>6C707F</b>#6C707F</div><div data-hex="#545763" style="background:#545763;color:#FFFFFF"><b>545763</b>#545763</div><div data-hex="#42444D" style="background:#42444D;color:#FFFFFF"><b>42444D</b>#42444D</div><div data-hex="#2F3037" style="background:#2F3037;color:#FFFFFF"><b>2F3037</b>#2F3037</div><div data-hex="#1C1D21" style="background:#1C1D21;color:#FFFFFF"><b>1C1D21</b>#1C1D21</div><div data-hex="#131316" style="background:#131316;color:#FFFFFF"><b>131316</b>#131316</div><div data-hex="#0C0C0E" style="background:#0C0C0E;color:#FFFFFF"><b>0C0C0E</b>#0C0C0E</div></div>
 
     <h3 class="sub reveal">Cores de acento — growth <span class="chip-prop">uso controlado</span></h3>
     <div class="sw-grid reveal" ><div class="sw" role="button" tabindex="0" data-hex="#5D3BC4" style="background:#5D3BC4;color:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">Purple Tech</div><div class="role">Campanhas e peças de performance</div></div><div class="codes"><b>HEX</b>#5D3BC4 &nbsp; <b>RGB</b>93 59 196</div></div><div class="sw light" role="button" tabindex="0" data-hex="#67FE85" style="background:#67FE85;color:#0C0C0E"><span class="hint">copiar HEX</span><div><div class="nm">Green Dev</div><div class="role">Campanhas e peças de performance</div></div><div class="codes"><b>HEX</b>#67FE85 &nbsp; <b>RGB</b>103 254 133</div></div><div class="sw" role="button" tabindex="0" data-hex="#E6193B" style="background:#E6193B;color:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">Tech Red</div><div class="role">Campanhas e peças de performance</div></div><div class="codes"><b>HEX</b>#E6193B &nbsp; <b>RGB</b>230 25 59</div></div><div class="sw light" role="button" tabindex="0" data-hex="#FC5D03" style="background:#FC5D03;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">Orange Dev</div><div class="role">Campanhas e peças de performance</div></div><div class="codes"><b>HEX</b>#FC5D03 &nbsp; <b>RGB</b>252 93 3</div></div></div>
     <p class="reveal" style="margin-top:12px;font-size:13.5px">As <b>Growth Accent Colors</b> ampliam a flexibilidade em campanhas de aquisição e conversão, mas funcionam como <b>acentos, não como base</b>: a identidade segue reconhecível por tipografia, grid, tom de voz, componentes, logotipo e cores institucionais.</p>
 
-    <h3 class="sub reveal">Cores funcionais de interface</h3>
-    <div class="sw-grid reveal" ><div class="sw light sm" role="button" tabindex="0" data-hex="#0675F9" style="background:#0675F9;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">Information</div><div class="role">Orientação, contexto, feedback neutro</div></div><div class="codes"><b>HEX</b>#0675F9 &nbsp; <b>RGB</b>6 117 249</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#06F936" style="background:#06F936;color:#0C0C0E"><span class="hint">copiar HEX</span><div><div class="nm">Success</div><div class="role">Confirmação, progresso — tons de 100 a 1000</div></div><div class="codes"><b>HEX</b>#06F936 &nbsp; <b>RGB</b>6 249 54</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#F95E06" style="background:#F95E06;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">Warning</div><div class="role">Atenção — o amarelo #F9D006 pode ser alternativa</div></div><div class="codes"><b>HEX</b>#F95E06 &nbsp; <b>RGB</b>249 94 6</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#F8062F" style="background:#F8062F;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">Error</div><div class="role">Falhas e ações que exigem correção imediata</div></div><div class="codes"><b>HEX</b>#F8062F &nbsp; <b>RGB</b>248 6 47</div></div></div>
 
     <h3 class="sub reveal">Gradientes</h3>
     <div class="grid g3 reveal">
@@ -604,7 +605,6 @@ html,body{overflow-x:clip}
       <div class="grad" style="background:radial-gradient(circle at 80% 20%,#5D3BC4 0,transparent 48%),radial-gradient(circle at 15% 80%,#1F53E5 0,transparent 55%),radial-gradient(circle at 60% 70%,#0429BC 0,transparent 50%),#0C0C0E"><span>Malha azul + roxo</span></div>
       <div class="grad" style="background:linear-gradient(180deg,#0C0C0E 0%,#011164 45%,#0429BC 100%)"><span>Degradê vertical</span></div>
     </div>
-    <p class="reveal" style="margin-top:12px;font-size:13.5px">Os gradientes representam a fluidez do aprendizado. No guia, são criados no Illustrator: retângulos nas cores primárias, rasterizados em um único objeto e transformados com <i>gradient mesh</i>. As malhas acima são aproximações em CSS.</p>
 
     <h3 class="sub reveal">Contraste e acessibilidade <span class="chip-prop">calculado</span></h3>
     <div class="card reveal" style="padding:10px 18px"><table class="ctr-table" id="ctrTable"></table></div>
@@ -638,26 +638,12 @@ html,body{overflow-x:clip}
     <p class="reveal" style="max-width:68ch">A escala é <b>progressiva</b>: tamanhos menores crescem em intervalos curtos; maiores, em intervalos amplos — a cada quatro níveis o incremento aumenta 2&nbsp;px (20→24→28→32→36 · 36→42→48→54→60 · 60→68→76→84→92). Todos os <i>line-heights</i> são múltiplos de 4&nbsp;px.</p>
     <div class="card reveal" style="padding:10px 28px">
       <div class="scale">
-        <div class="scale-row"><span class="tg">Display 07</span><span style="font-family:'Encode Sans',sans-serif;font-weight:300;font-size:64px;line-height:1.05;letter-spacing:-.02em">Alura</span><span class="sp">Encode Sans Light 194/224</span></div>
-        <div class="scale-row"><span class="tg">Display 04</span><span style="font-family:'Encode Sans',sans-serif;font-weight:300;font-size:64px;line-height:1.05;letter-spacing:-.02em">Nowness</span><span class="sp">Encode Sans Light 102/132</span></div>
         <div class="scale-row"><span class="tg">Display 01</span><span style="font-family:'Encode Sans',sans-serif;font-weight:400;font-size:64px;line-height:1.05;letter-spacing:-.02em">Aprenda tech</span><span class="sp">Encode Sans Regular 68/86</span></div>
-        <div class="scale-row"><span class="tg">Heading 07</span><span style="font-family:'Encode Sans',sans-serif;font-weight:400;font-size:60px;line-height:1.2666666666666666;letter-spacing:-.02em">Profundidade técnica</span><span class="sp">Encode Sans Regular 60/76</span></div>
         <div class="scale-row"><span class="tg">Heading 04</span><span style="font-family:'Encode Sans',sans-serif;font-weight:400;font-size:42px;line-height:1.3333333333333333;letter-spacing:-.02em">Direção clara e aplicação prática</span><span class="sp">Encode Sans Regular 42/56</span></div>
         <div class="scale-row"><span class="tg">Heading 02</span><span style="font-family:'Encode Sans',sans-serif;font-weight:500;font-size:28px;line-height:1.4285714285714286;letter-spacing:0">Comunidade ativa e impactante</span><span class="sp">Encode Sans Medium 28/40</span></div>
-        <div class="scale-row"><span class="tg">Heading 01</span><span style="font-family:'Encode Sans',sans-serif;font-weight:500;font-size:20px;line-height:1.4;letter-spacing:0">Dev em T: amplitude e profundidade</span><span class="sp">Encode Sans Medium 20/28</span></div>
-        <div class="scale-row"><span class="tg">Body 06</span><span style="font-family:'Roboto Flex',sans-serif;font-weight:400;font-size:20px;line-height:1.4;letter-spacing:0">Conteúdo que acompanha a velocidade da tecnologia.</span><span class="sp">Roboto Flex Regular 20/28</span></div>
         <div class="scale-row"><span class="tg">Body 04</span><span style="font-family:'Roboto Flex',sans-serif;font-weight:400;font-size:16px;line-height:1.5;letter-spacing:0">Organizamos pensamento, oferecemos direção e ajudamos a decidir com clareza.</span><span class="sp">Roboto Flex Regular 16/24</span></div>
         <div class="scale-row"><span class="tg">Body 03</span><span style="font-family:'Roboto Flex',sans-serif;font-weight:500;font-size:14px;line-height:1.4285714285714286;letter-spacing:0">Texto de apoio e rótulos de interface</span><span class="sp">Roboto Flex Medium 14/20</span></div>
-        <div class="scale-row"><span class="tg">Body 01</span><span style="font-family:'Roboto Flex',sans-serif;font-weight:400;font-size:10px;line-height:1.6;letter-spacing:0">Legendas e metadados</span><span class="sp">Roboto Flex Regular 10/16</span></div>
       </div>
-    </div>
-    <p class="reveal" style="margin-top:12px;font-size:13.5px">Cada estilo existe em duas versões: <b>Light</b> (texto escuro sobre fundo claro) e <b>Dark</b> (texto claro sobre fundo escuro, com um peso a menos — por exemplo, Regular → Light). Display 01–07 · Heading 01–07 · Body 01–06. Todos já estão como <i>text styles</i> nos arquivos Figma.</p>
-
-    <h3 class="sub reveal">Ritmo vertical</h3>
-    <div class="grid g3 reveal">
-      <div class="card"><h3>Linhas de 4 px</h3><p>O espaçamento e os <i>line-heights</i> seguem incrementos fixos de 4 px, alinhando o fluxo dos parágrafos à malha do grid.</p></div>
-      <div class="card"><h3>Exemplo</h3><p>Texto de 61 px (aderente à escala) com line-height de 64 px — divisível por 4, encaixa em linhas e gutters de 4 px.</p></div>
-      <div class="card is-dark"><h3>Em todos os meios</h3><p>A regra vale em desktop e mobile, em UI e em peças — facilita responsividade, componentes e legibilidade.</p></div>
     </div>
   </div>
 </section>
@@ -668,11 +654,6 @@ html,body{overflow-x:clip}
     <h2 class="title reveal">Lógica <span class="c2">construída</span></h2>
     <p class="lead reveal">A linguagem visual da Alura parte de uma <b style="color:#fff">lógica de construção, nunca de ornamentação</b>: proporção, ritmo, escala, repetição e variação como fundamentos; formas que parecem ter uma regra interna — um algoritmo, uma malha, um fluxo de dados. Nada deve parecer aleatório, nem excessivo: o minimalismo é o critério de edição.</p>
     
-    <div class="grid g3 reveal" style="margin-top:36px">
-      <div class="card is-dark" style="background:#131316;border:1px solid #2F3037"><div class="label-k">Matemática</div><h3>Estrutura invisível</h3><p>Grids, módulos, sequências, progressões, simetrias e deformações controladas organizam a percepção — sem fórmulas literais.</p></div>
-      <div class="card is-dark" style="background:#131316;border:1px solid #2F3037"><div class="label-k">Proceduralidade</div><h3>Sistemas que evoluem</h3><p>Uma regra simples gera variações complexas: entrada, transformação e saída. A marca parece viva e adaptável, nunca caótica.</p></div>
-      <div class="card is-dark" style="background:#131316;border:1px solid #2F3037"><div class="label-k">Minimalismo</div><h3>Precisão, não falta</h3><p>Cada elemento existe por uma razão; o espaço negativo cria foco, tensão ou respiro. Complexidade vira inteligível.</p></div>
-    </div>
 
     <h3 class="sub reveal">Grid modular</h3>
     <div class="two reveal">
@@ -689,9 +670,6 @@ html,body{overflow-x:clip}
 
     <h3 class="sub reveal">Patterns procedurais</h3>
     <p class="reveal" style="max-width:70ch">Patterns são expressões visuais da essência técnica e dinâmica: nascem de regras claras, mas permitem variações. <b style="color:#fff">Opacidade randômica entre 15 e 85%</b>; quando houver cor, sempre as <b style="color:#fff">Brand Colors</b> — nunca cores complementares ou fora do guia. Podem ser criados com o plugin Generista (Figma) ou no Cavalry.</p>
-    <div class="pat-box reveal">
-      <canvas id="patDemo" data-gfx="quads" data-seed="21" data-mode="quads"></canvas>
-    </div>
 
     <h3 class="sub reveal">O círculo</h3>
     <div class="two reveal" style="align-items:center">
@@ -723,15 +701,6 @@ html,body{overflow-x:clip}
       <div class="card"><div class="label-k">Luz</div><p>Natural, com sombras marcadas ou suaves; luz de janela para atmosferas calorosas; indireta em ambientes fechados.</p></div>
       <div class="card"><div class="label-k">Diversidade</div><p>Gênero, cor, idade, estilo, corpo e contexto social — múltiplas realidades do Brasil conectado à tecnologia.</p></div>
     </div>
-
-    <h3 class="sub reveal">Tratamentos de imagem <span class="chip-prop">referências de tom</span></h3>
-    <div class="tex-grid reveal">
-      <div class="tex"><div class="fill" style="background:radial-gradient(circle at 30% 30%,#e8c9a3,#8a6a4a 55%,#3b2c20)"></div><div class="cap"><b>Documental</b>Luz natural, tons terrosos</div></div>
-      <div class="tex"><div class="fill" style="background:radial-gradient(circle at 50% 35%,#8a8a8a 0,#444444 55%,#1b1b1b)"></div><div class="cap"><b>Autoral</b>P&amp;B, fundo #444444, luz suave</div></div>
-      <div class="tex"><div class="fill" style="background:radial-gradient(circle at 70% 25%,#7A9FF0,#0429BC 50%,#010C53)"></div><div class="cap"><b>High-end</b>Topo de funil, aspiracional</div></div>
-      <div class="tex"><div class="fill" style="background:linear-gradient(135deg,#f0ede6,#c9c3b6)"></div><div class="cap"><b>Performance</b>Realista, estilo “não produzido”</div></div>
-    </div>
-    <p class="reveal" style="margin-top:12px;font-size:13px;color:var(--muted)">Blocos de cor ilustram o tom de cada tratamento — não são fotografias. As imagens oficiais estão no acervo da marca.</p>
   </div>
 </section>
 
@@ -833,13 +802,6 @@ html,body{overflow-x:clip}
       <div class="card is-dark"><div class="idx">06</div><h3>Atual</h3><p>Contextualizamos tendências com atenção ao que já está reconfigurando o mercado — o <i>nowness</i>.</p></div>
     </div>
     <p class="reveal" style="margin-top:14px;font-size:13.5px">Nenhum texto precisa expressar todos os eixos, mas todos devem respeitá-los.</p>
-
-    <h3 class="sub reveal">O tom na prática</h3>
-    <div class="voice-ex reveal">
-      <div class="vx" style="background:#0C0C0E;color:#fff"><span class="lb" style="color:#A7A9B4">Institucional</span><p style="font-weight:300;font-size:28px">Sua profissão caminha para uma redefinição profunda.</p></div>
-      <div class="vx" style="background:#0429BC;color:#fff"><span class="lb" style="color:#D1DEF9">Conteúdo</span><p style="font-weight:300;font-size:28px">Inteligência Artificial em movimento: a revolução da mobilidade urbana.</p></div>
-      <div class="vx" style="background:#D1DEF9;color:#010C53"><span class="lb">Direção</span><p style="font-weight:400;font-size:28px">Próximos passos claros, antes que a oportunidade passe.</p></div>
-    </div>
 
     <h3 class="sub reveal">Alinhado ou não?</h3>
     <div class="dodont reveal"><div class="do"><h4>Está alinhado</h4><ul><li>Organiza pensamento</li><li>Indica próximos passos</li><li>Respeita a inteligência do leitor</li><li>Sustenta profundidade com clareza</li><li>Alterna frases curtas, que dão direção, com explicações que aprofundam o raciocínio</li></ul></div><div class="dont"><h4>Não está alinhado</h4><ul><li>Usa medo</li><li>Promete transformação mágica</li><li>Exagera tendências</li><li>Centraliza o mérito na marca</li><li>Excesso de adjetivos, frases infladas e promessas absolutas</li></ul></div></div>

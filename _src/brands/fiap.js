@@ -91,13 +91,6 @@ module.exports = (H) => {
       ${card('Diferencia ou acompanha?', 'Marca posição ou apenas segue o que o mercado já faz?', { idx: '04', dark: true })}
     </div>
 
-    ${sub('Palavras da marca')}
-    <div class="attr reveal" style="margin-top:0"><span>Tecnologia</span><span>Inovação</span><span>Futuro</span><span>Impacto</span><span>Transformação</span><span>Comunidade</span><span>Prática</span><span>Hands-on</span><span>Ecossistema</span><span>Evolução</span><span>AI</span><span>Criação</span><span>Inteligência</span></div>
-
-    <div class="quote-bar reveal">
-      <div class="qm">“</div>
-      <div><p>Let’s rock the future.</p><small>Assinatura institucional e de graduação</small></div>
-    </div>
     <p class="reveal" style="margin-top:14px;font-size:13.5px">A FIAP integra o ecossistema do Grupo Alun, ao lado de Alura, PM3 e StartSe. Produtos e linhas: Graduação, Graduação ON, MBA, Pós Tech, Shift, FIAP School, FIAP Empresas, FIAP Next, Nano Courses e o Colégio Módulo.</p>`
   });
 
@@ -158,14 +151,6 @@ module.exports = (H) => {
     </div>
     <p class="reveal" style="margin-top:14px;font-size:13.5px">As cores do grupo seguem o guia da marca Alun — veja a plataforma da Alun. Os nomes de algumas cores do FIAP School e do Módulo não constam no arquivo original; os descritivos acima são orientativos.</p>
 
-    ${sub('Equilíbrio de uso', 'leitura do site')}
-    <div class="proportion reveal">
-      <div style="flex-grow:62;background:#000;color:#fff">Preto · dominante</div>
-      <div style="flex-grow:18;background:${MG};color:#fff">Magenta · destaque</div>
-      <div style="flex-grow:12;background:${UL};color:#000">Cinzas</div>
-      <div style="flex-grow:8;background:#fff;color:#000;border:1px solid #ddd">Branco</div>
-    </div>
-    <p class="reveal" style="margin-top:14px;font-size:14px">Fundo preto e magenta em destaque — no site, peças e campanhas — com cinzas azulados para apoio. A cor da identidade de cada produto (título e frase de descrição) <b>varia por ID</b>: não precisa ser sempre cinza e branco.</p>
 
     ${sub('Contraste e acessibilidade', 'calculado')}
     <div class="card reveal" style="padding:10px 18px"><table class="ctr-table" id="ctrTable"></table></div>
@@ -204,21 +189,13 @@ module.exports = (H) => {
     <div class="card reveal" style="padding:10px 28px">
       <div class="scale">
         ${row('Display L', G, 500, 57, 64, -0.25, 'A melhor faculdade', 'Gotham')}
-        ${row('Display M', G, 500, 45, 52, 0, 'Tech Intensive', 'Gotham')}
-        ${row('Display S', G, 500, 36, 44, 0, 'Crie projetos reais', 'Gotham')}
-        ${row('Headline L', G, 400, 32, 40, 0, 'O futuro como você imagina', 'Gotham')}
         ${row('Headline M', G, 400, 28, 36, 0, 'Graduações em Dev, IA e Data', 'Gotham')}
-        ${row('Headline S', G, 400, 24, 32, 0, 'Aprender fazendo, com desafios reais', 'Gotham')}
-        ${row('Title L', G, 400, 22, 28, 0, 'Pós Tech e MBAs Tech', 'Gotham Book')}
         ${row('Title M', Rr, 500, 16, 24, 0.15, 'Título de seção', 'Roboto Medium')}
-        ${row('Title S', Rr, 500, 14, 20, 0.1, 'Título pequeno', 'Roboto Medium')}
         ${row('Label M', Rr, 500, 12, 16, 0.5, 'ROTULO DE INTERFACE', 'Roboto Medium')}
         ${row('Body L', Rr, 400, 16, 24, 0.5, 'Domine as tecnologias mais avançadas e crie projetos reais com empresas globais.', 'Roboto')}
         ${row('Body M', Rr, 400, 14, 20, 0.25, 'Texto corrido de apoio em cards e páginas.', 'Roboto')}
-        ${row('Body S', Rr, 400, 12, 16, 0.4, 'Legendas, notas e metadados.', 'Roboto')}
       </div>
-    </div>
-    <p class="reveal" style="margin-top:12px;font-size:13.5px">Nomes e valores seguem o arquivo Figma (Display, Headline, Title, Label e Body em Large, Medium e Small; tamanho/altura de linha · espaçamento entre letras em px).</p>`
+    </div>`
   });
 
   // ---------------- 05 GRAFISMO & GRID ----------------
@@ -243,12 +220,6 @@ module.exports = (H) => {
     id: 'imagem', num: '06', label: 'Fundos, selos & imagem', title: ['Escuro, nítido,', 'cheio de futuro'],
     lead: 'As peças FIAP vivem sobre fundos escuros com iluminação dramática — feixes de luz, partículas e gradientes — e prova social em destaque. O Design System 2.0 não fixa um guia de fotografia; reúne bibliotecas de imagens de cursos, desafios (<i>Challenges</i>), parceiros e eventos.',
     body: `
-    <div class="tex-grid reveal" style="margin-top:36px">
-      <div class="tex"><div class="fill" style="background:radial-gradient(circle at 70% 20%,rgba(237,20,91,.65),transparent 55%),radial-gradient(circle at 10% 90%,rgba(237,20,91,.28),transparent 50%),#050506"></div><div class="cap"><b>bgGradient</b>Preto com brilho magenta</div></div>
-      <div class="tex"><canvas data-gfx="particles" data-seed="14"></canvas><div class="cap"><b>Partículas</b>Fio luminoso</div></div>
-      <div class="tex"><div class="fill" style="background:linear-gradient(180deg,#000 0%,#14191C 45%,#75838B 140%)"></div><div class="cap"><b>Cinza azulado</b>Neutro de apoio</div></div>
-      <div class="tex"><div class="fill" style="background:linear-gradient(135deg,#000,#ED145B)"></div><div class="cap"><b>Degradê de marca</b>Preto → Magenta</div></div>
-    </div>
 
     ${sub('Prova social')}
     <div class="grid g3 reveal">
@@ -366,19 +337,6 @@ module.exports = (H) => {
     id: 'voz', num: '09', label: 'Tom de voz', title: ['Objetivo,', 'inteligente, humano'],
     lead: 'É a linguagem única que expressa a personalidade da FIAP — nosso jeito particular e reconhecível de falar. Mais do que oferecer cursos, queremos conversar abertamente com alunos, alunas e <i>prospects</i> para entender seus sonhos e objetivos. Juntos, vamos ajudar a construir o futuro de cada pessoa.',
     body: `
-    <div class="grid g2 reveal" style="margin-top:36px">
-      <div class="card"><div class="label-k">Como a marca fala</div><ul class="bul"><li>Frases curtas, objetivas e rítmicas</li><li>Verbos de ação</li><li>Clareza</li><li>Inteligência</li><li>Conteúdo para impacto real</li></ul></div>
-      <div class="card is-dark" style="background:#000"><div class="label-k">Como a marca não fala</div><ul class="bul inv"><li>Pontos de exclamação</li><li>Varejo / tom comercial</li><li>Informalidade forçada</li><li>Mensagens genéricas</li><li>Clichês e jargões técnicos sem contexto</li></ul></div>
-    </div>
-
-    ${sub('Linguagem e estilo')}
-    <div class="grid g3 reveal">
-      ${card('Objetivo, coloquial e inteligente', 'Direto ao ponto, sem pedantismo.', { idx: '01' })}
-      ${card('Inspirador, sem motivacional', 'Inspira sem ser motivacional ao extremo.', { idx: '02' })}
-      ${card('Tech, sem clichês', 'Fala de tecnologia com propriedade, sem lugar-comum.', { idx: '03' })}
-      ${card('Mais humano que vendedor', 'Conversa; não empurra produto.', { idx: '04' })}
-      ${card('Colaborativo e inclusivo', 'Fala com — e por — a comunidade.', { idx: '05', dark: true })}
-    </div>
 
     ${sub('Falar assim · não falar assim')}
     <div class="dodont reveal">
@@ -470,7 +428,7 @@ module.exports = (H) => {
   .min-tab{display:flex;gap:12px}.min-tab div{flex:1;border:1px solid rgba(255,255,255,.25);padding:14px 16px}.min-tab b{display:block;font-family:var(--display);font-size:26px;color:${MG};font-weight:600;letter-spacing:-.02em}.min-tab span{font-size:12px;color:${UL}}
   .ftxt{margin:6px 0 10px;line-height:1.1}
   /* hero */
-  .hero{position:relative;overflow:hidden;background:radial-gradient(70% 90% at 92% 55%,rgba(237,20,91,.30),transparent 68%),#000;color:#fff;min-height:min(calc(100svh - 49px),860px);display:flex}
+  .hero{position:relative;overflow:hidden;background:radial-gradient(70% 90% at 92% 55%,rgba(237,20,91,.30),transparent 68%),#000;color:#fff;min-height:min(calc(100svh - 49px),640px);display:flex}
   .hero-pt{position:absolute;inset:0;width:100%;height:100%}
   .hero-in{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;padding-top:34px;padding-bottom:96px;width:100%}
   .h-meta{display:flex;justify-content:space-between;gap:16px;font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:${UL}}

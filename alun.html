@@ -334,7 +334,7 @@ h3.sub{font-family:var(--display);font-size:13px;font-weight:700;text-transform:
 /* ---------- tokens / IA ---------- */
 .code-card{background:#0d0a14;border-radius:var(--r-card);padding:0;overflow:hidden;margin-top:20px}
 .code-card .bar{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.08);font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c-soft)}
-.code-card pre{margin:0;padding:22px 24px;overflow:auto;max-height:430px;font-family:var(--mono);font-size:12.5px;line-height:1.65;color:#d8d2e6}
+.code-card pre{margin:0;padding:22px 24px;overflow:auto;max-height:300px;font-family:var(--mono);font-size:12.5px;line-height:1.65;color:#d8d2e6}
 .code-card pre .k{color:#a9c8ff}.code-card pre .v{color:#ffcf87}.code-card pre .c{color:#7d7691}
 textarea#mdOut{width:100%;min-height:340px;margin-top:16px;padding:20px 22px;border-radius:var(--r-card);border:1px solid rgba(255,255,255,.12);background:#0d0a14;color:#d8d2e6;font-family:var(--mono);font-size:12.5px;line-height:1.6;resize:vertical;display:none}
 
@@ -427,6 +427,25 @@ html,body{overflow-x:clip}
 .section.dark .comp-tabs button[aria-selected="true"],.section.black .comp-tabs button[aria-selected="true"]{background:#fff;color:#000}
 @media print{.comp.is-hidden{display:block}.comp-tabs{display:none}.pieces{flex-wrap:wrap;overflow:visible}.pc-nav{display:none !important}}
 
+/* ---- compactação geral (desktop/tablet): guias mais curtos, mesma informação ---- */
+@media (min-width:761px){
+  .section{padding:60px 0}
+  h2.title{font-size:clamp(32px,4vw,52px);margin-bottom:16px}
+  .lead{font-size:17px}
+  h3.sub{margin:34px 0 14px}
+  .card{padding:22px}
+  .sw{min-height:148px;padding:14px 16px}
+  .rule{padding:14px 16px}
+  .ctr-table,.ctr-table tbody{display:block}
+  .ctr-table tbody{display:grid;grid-template-columns:1fr 1fr;gap:0 36px}
+  .ctr-table tr{display:grid;grid-template-columns:104px 1fr auto;align-items:center;gap:12px;padding:7px 0;border-top:1px solid var(--line)}
+  .ctr-table tr:nth-child(-n+2){border-top:none}
+  .ctr-table td{border:none;padding:0;width:auto !important}
+  .ctr-pair{width:104px;height:34px;font-size:12.5px;border-radius:8px}
+  .dl-prev{height:80px}.dl-prev img{max-height:44px}.dl-prev.sym img{max-height:54px}
+  .dl-card{padding:10px;gap:10px}
+}
+
 
   /* Alun: blocos retos, rótulos em mono, sem sombras */
   .btn,.kicker,.kicker .num,.tag,.chip-prop,.dl-lb,.dl-seg button,.dl-meta b,.logo-tile small,.wrong span,.ctr-pair,.ctr-badge,.field label,.c-kicker,.pc-wrap .pc-cap b,.dd h4,.fam .label,.vx .lb,.code-card .bar,.toast,.proportion div,.sw .hint,.quote-bar small,.attr span,.type-demo .k,.dodont h4,.tok h4,.c-quote .who{font-weight:500}
@@ -498,11 +517,11 @@ html,body{overflow-x:clip}
   .strat .st:nth-child(3) p{font-weight:400}
   .black .wrong > div{background:#fff}
   /* hero em grid 4×4 */
-  .hero{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto clamp(190px,21vw,290px);background:#000}
+  .hero{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto clamp(150px,15vw,210px);background:#000}
   .hb{position:relative;overflow:hidden;padding:26px;display:flex;flex-direction:column;justify-content:space-between}
   .hb .lab,.lab{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
   .hb .lab.dim{opacity:.6}
-  .h-main{grid-column:1/4;grid-row:1/3;background:#000;color:#fff;padding:32px 36px;min-height:clamp(420px,56vh,600px)}
+  .h-main{grid-column:1/4;grid-row:1/3;background:#000;color:#fff;padding:32px 36px;min-height:clamp(300px,40vh,420px)}
   .h-top{display:flex;justify-content:space-between;gap:12px;color:#D1CDCD}
   .h-main h1{font-weight:300;font-size:clamp(38px,4.7vw,80px);line-height:.96;letter-spacing:-.03em;color:#fff;margin:0 0 20px;max-width:14ch}
   .h-main h1 em{font-style:italic;color:#ED1360}
@@ -515,7 +534,7 @@ html,body{overflow-x:clip}
   .h-mos canvas{position:absolute;left:0;right:0;bottom:0;top:auto;width:100%;height:38%}
   /* mosaico interativo */
   .mos-box{position:relative}
-  .mos-box canvas{width:100%;aspect-ratio:1/1;background:#000;display:block;border:1px solid #333}
+  .mos-box canvas{width:100%;aspect-ratio:16/10;background:#000;display:block;border:1px solid #333}
   .mos-ctl{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:14px}
   /* grid 4×4 */
   .grid4{display:flex;justify-content:center}
@@ -631,24 +650,11 @@ html,body{overflow-x:clip}
 
     <h3 class="sub reveal">Três direcionadores</h3>
     <div class="grid g3 reveal">
-      <div class="card"><div class="idx">01</div><h3>Fazer junto — um mundo de conexão</h3><p>Ser completa, integrando todas as possibilidades para expandir alcances e horizontes. Conectar-se e ser conector de oportunidades. Criar forte senso de pertencimento.</p><div class="mini-attr"><span>Conectora</span><span>High touch</span><span>Diversa</span><span>Parceira</span><span>Expansiva</span></div></div>
-      <div class="card"><div class="idx">02</div><h3>Fazer diferente — um mundo de inovação</h3><p>Viver o mundo pensando sempre em novas técnicas, tecnologias e metodologias. Alimentar-se do talento, da dedicação e da paixão genuína. A veia tech e a vontade de mudar o mundo.</p><div class="mini-attr"><span>Apaixonada</span><span>High tech</span><span>Criativa</span><span>Disruptiva</span><span>Inteligente</span></div></div>
-      <div class="card"><div class="idx">03</div><h3>Fazer a diferença — evolução para o mundo</h3><p>Ser agente impulsionador capaz de conquistar e manter uma comunidade forte, que une potências para promover mudanças reais em pessoas, empresas e no mundo.</p><div class="mini-attr"><span>Protagonista</span><span>Potente</span><span>Engajadora</span></div></div>
+      <div class="card"><div class="idx">01</div><h3>Fazer junto — um mundo de conexão</h3><p>Ser completa, integrando todas as possibilidades para expandir alcances e horizontes. Conectar-se e ser conector de oportunidades. Criar forte senso de pertencimento.</p></div>
+      <div class="card"><div class="idx">02</div><h3>Fazer diferente — um mundo de inovação</h3><p>Viver o mundo pensando sempre em novas técnicas, tecnologias e metodologias. Alimentar-se do talento, da dedicação e da paixão genuína. A veia tech e a vontade de mudar o mundo.</p></div>
+      <div class="card"><div class="idx">03</div><h3>Fazer a diferença — evolução para o mundo</h3><p>Ser agente impulsionador capaz de conquistar e manter uma comunidade forte, que une potências para promover mudanças reais em pessoas, empresas e no mundo.</p></div>
     </div>
 
-    <h3 class="sub reveal">O grupo</h3>
-    <div class="grid g4 reveal" id="grupo-cards">
-      <div class="card"><h3>Alura</h3><p>Plataforma de cursos online para quem vive de tecnologia.</p></div>
-      <div class="card"><h3>FIAP</h3><p>Faculdade, MBAs e pós-graduação tech com nota máxima no MEC.</p></div>
-      <div class="card"><h3>PM3</h3><p>Formações e comunidade em produtos digitais.</p></div>
-      <div class="card"><h3>StartSe</h3><p>Escola internacional de negócios, inovação e IA.</p></div>
-    </div>
-    <p class="reveal" style="margin-top:14px;font-size:13.5px">Cada marca tem a sua própria identidade e o seu guia nesta plataforma. A marca Alun fala em nome do ecossistema e de todos os seus públicos.</p>
-
-    <div class="quote-bar reveal">
-      <div class="qm">“</div>
-      <div><p>Superpoderes tech para superconquistas humanas.</p><small>Tagline · Brandbook Alun 2025</small></div>
-    </div>
   </div>
 </section>
 
@@ -682,21 +688,10 @@ html,body{overflow-x:clip}
     <div class="sw-grid reveal" ><div class="sw wide light" role="button" tabindex="0" data-hex="#ED1360" style="background:#ED1360;color:#000"><span class="hint">copiar HEX</span><div><div class="nm">Magenta On</div><div class="role">Energia — blocos de ação, grafismo, módulos</div></div><div class="codes"><b>HEX</b>#ED1360 &nbsp; <b>RGB</b>237 19 96</div></div><div class="sw wide" role="button" tabindex="0" data-hex="#600724" style="background:#600724;color:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">Magenta Off</div><div class="role">Sombra do magenta — blocos profundos, fundos</div></div><div class="codes"><b>HEX</b>#600724 &nbsp; <b>RGB</b>96 7 36</div></div><div class="sw wide light" role="button" tabindex="0" data-hex="#FF9413" style="background:#FF9413;color:#000"><span class="hint">copiar HEX</span><div><div class="nm">Odisseia On</div><div class="role">Laranja — destaque, links e CTAs em fundo preto</div></div><div class="codes"><b>HEX</b>#FF9413 &nbsp; <b>RGB</b>255 148 19</div></div><div class="sw wide" role="button" tabindex="0" data-hex="#994800" style="background:#994800;color:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">Odisseia Off</div><div class="role">Sombra do laranja — blocos terrosos</div></div><div class="codes"><b>HEX</b>#994800 &nbsp; <b>RGB</b>153 72 0</div></div></div>
     <p class="reveal" style="margin-top:16px;font-size:13.5px">Valores HEX/RGB medidos nas páginas de paleta do Brandbook 2025 e conferidos com o Design System da FIAP e com o site. <b>Atenção:</b> os campos CMYK e Pantone do PDF original repetem um código de exemplo (B0F867) — confirme com o time de marca antes de produzir material impresso.</p>
 
-    <h3 class="sub reveal">Proporção de uso <span class="chip-prop">leitura do brandbook</span></h3>
-    <div class="proportion reveal">
-      <div style="flex-grow:26;background:#000;color:#fff">Preto · ~26%</div>
-      <div style="flex-grow:19;background:#ED1360;color:#000">Magenta On · ~19%</div>
-      <div style="flex-grow:17;background:#600724;color:#fff">Magenta Off · ~17%</div>
-      <div style="flex-grow:12;background:#D1CDCD;color:#000">Placa Mãe · ~12%</div>
-      <div style="flex-grow:8;background:#FF9413;color:#000">On · ~8%</div>
-      <div style="flex-grow:7;background:#994800;color:#fff">Off · ~7%</div>
-      <div style="flex-grow:11;background:linear-gradient(90deg,#fff 50%,#333131 50%);color:#000;font-size:10.5px">B + C · ~11%</div>
-    </div>
-    <p class="reveal" style="margin-top:16px;font-size:14px">Preto e Magenta dominam; Placa Mãe, Branco e Cinza dão respiro; Odisseia entra em doses menores, como acento. Cada peça é montada em <b>blocos de cor chapada</b> — sem gradientes.</p>
 
     <h3 class="sub reveal">Contraste e acessibilidade <span class="chip-prop">calculado</span></h3>
     <div class="card reveal" style="padding:10px 18px"><table class="ctr-table" id="ctrTable"></table></div>
-    <p class="reveal" style="margin-top:14px;font-size:13.5px">Razões calculadas pela fórmula WCAG 2.x (texto normal exige 4,5:1; texto grande, 3:1). O brandbook declara prioridade de contraste forte entre as cores da comunicação. <b>Branco sobre Magenta On só funciona em texto grande</b> — para texto menor use Preto.</p>
+    <p class="reveal" style="margin-top:14px;font-size:13.5px">WCAG 2.x: texto normal exige 4,5:1; grande, 3:1. <b>Branco sobre Magenta On só funciona em texto grande</b> — para texto menor use Preto.</p>
   </div>
 </section>
 
@@ -739,18 +734,6 @@ html,body{overflow-x:clip}
           <li><div><b>Apoio</b> — FK Grotesk Regular, pequeno, alinhado a um módulo do grid.</div></li>
           <li><div><b>CTA</b> — FK Grotesk Mono, caixa alta, com seta → em Odisseia On (fundo preto).</div></li>
         </ol>
-      </div>
-    </div>
-
-    <h3 class="sub reveal">Escala tipográfica — web <span class="chip-prop">derivada do site</span></h3>
-    <div class="card reveal" style="padding:10px 28px">
-      <div class="scale">
-        <div class="scale-row"><span class="tg">Display</span><span style="font-family:var(--display);font-weight:300;font-size:64px;line-height:.95;letter-spacing:-.03em">Superpoderes tech</span><span class="sp">Flecha · 64–120 px · LH .95 · −3%</span></div>
-        <div class="scale-row"><span class="tg">H2</span><span style="font-family:var(--display);font-weight:300;font-size:48px;line-height:1;letter-spacing:-.02em">O maior ecossistema</span><span class="sp">Flecha L · 48/48 · site</span></div>
-        <div class="scale-row"><span class="tg">Lead</span><span style="font-family:var(--display);font-weight:400;font-size:20px;line-height:1.6">Unimos Alura, FIAP, PM3 e StartSe numa jornada completa.</span><span class="sp">Flecha M · 20/32 · site</span></div>
-        <div class="scale-row"><span class="tg">Corpo</span><span style="font-size:16px;line-height:1.5">Acreditamos na força transformadora da educação contínua e da conexão com a comunidade.</span><span class="sp">FK Grotesk 400 · 16/24 · site</span></div>
-        <div class="scale-row"><span class="tg">CTA</span><span style="font-family:var(--body);font-size:24px;line-height:1.3;color:#d96f00">Conheça a tese →</span><span class="sp">FK Grotesk · 24/32 · Odisseia On</span></div>
-        <div class="scale-row"><span class="tg">Rótulo</span><span class="M" style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:#000;color:#fff;padding:5px 9px;display:inline-block;width:max-content">Linguagem visual</span><span class="sp">FK Grotesk Mono · 11–13 · caixa alta</span></div>
       </div>
     </div>
   </div>
@@ -804,19 +787,11 @@ html,body{overflow-x:clip}
     </div>
     <p class="reveal" style="margin-top:14px;font-size:13.5px">Palavras-chave e <i>prompts</i> de referência para produção fotográfica ou geração por IA estão reunidos no fim do guia, em Tokens &amp; IA.</p>
 
-    <h3 class="sub reveal">Fotografia → módulos</h3>
-    <div class="tex-grid reveal">
-      <div class="tex"><canvas data-gfx="mosaic" data-seed="11" data-variant="full" data-mask="ellipse" data-cell="9"></canvas><div class="cap"><b>Magenta + laranja</b>Versão padrão</div></div>
-      <div class="tex"><canvas data-gfx="mosaic" data-seed="21" data-variant="mono" data-mask="ellipse" data-cell="9"></canvas><div class="cap"><b>Só magenta</b>Versão sóbria</div></div>
-      <div class="tex wide"><canvas data-gfx="mosaic" data-seed="5" data-variant="full" data-mask="diag" data-cell="12"></canvas><div class="cap"><b>Faixa de módulos</b>Transição bloco ↔ imagem</div></div>
-    </div>
-
     <h3 class="sub reveal">Pictogramas</h3>
     <p class="reveal" style="max-width:68ch">A base construtiva é uma malha de <b>15 × 15 unidades</b>; a espessura mínima do traço é de 1 unidade. Personalidade derivada da marca, ligada a retas e curvas — didática e essencial.</p>
     <div class="picto reveal">
-      <div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M8 4H4v16h4M16 4h4v16h-4"/></svg></div><span>Programação</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="4" y="10" width="16" height="11"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg></div><span>Segurança</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><rect x="10" y="10" width="4" height="4"/></svg></div><span>Configurações</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M4 6h12v14H4zM16 9h4v11h-4M7 10h6M7 14h6"/></svg></div><span>Biblioteca</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M7 3h10v9a5 5 0 0 1-10 0zM12 12v5M8 21h8"/></svg></div><span>Criatividade</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M4 8h16v8l-3 3-3-3h-4l-3 3-3-3zM8 11v3M6.5 12.5h3M16 12.5h1"/></svg></div><span>Games</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M12 18v.01"/></svg></div><span>Mobile</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M6 3h8l4 4v14H6zM14 3v4h4"/></svg></div><span>Arquivos</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="9" r="3"/><path d="M2 20c0-4 3-6 6-6M22 20c0-4-3-6-6-6M9 20c0-3 1.5-5 3-5s3 2 3 5"/></svg></div><span>Comunidade</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M5 15l7-8 7 8"/></svg></div><span>Cima</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M5 9l7 8 7-8"/></svg></div><span>Baixo</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M9 5l8 7-8 7"/></svg></div><span>Direita</span></div>
+      <div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M8 4H4v16h4M16 4h4v16h-4"/></svg></div><span>Programação</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="4" y="10" width="16" height="11"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg></div><span>Segurança</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><rect x="10" y="10" width="4" height="4"/></svg></div><span>Configurações</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M4 6h12v14H4zM16 9h4v11h-4M7 10h6M7 14h6"/></svg></div><span>Biblioteca</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M7 3h10v9a5 5 0 0 1-10 0zM12 12v5M8 21h8"/></svg></div><span>Criatividade</span></div><div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M4 8h16v8l-3 3-3-3h-4l-3 3-3-3zM8 11v3M6.5 12.5h3M16 12.5h1"/></svg></div><span>Games</span></div>
     </div>
-    <p class="reveal" style="margin-top:12px;font-size:13px;color:var(--muted)">Pictogramas redesenhados como referência de estilo (traço quadrado, ângulos retos). Os arquivos oficiais estão no brandbook e na biblioteca de ícones da Alun.</p>
   </div>
 </section>
 
@@ -923,13 +898,6 @@ html,body{overflow-x:clip}
       <div class="card is-dark" style="background:#600724"><div class="label-k" style="color:#D1CDCD">Potência humana</div><h3 style="font-weight:300;font-size:28px">Do individual ao coletivo.</h3><p style="color:#D1CDCD">O aluno é o centro. Somos agentes de impulso e mudança. Unimos potências para ir além.</p></div>
     </div>
 
-    <h3 class="sub reveal">O tom na prática</h3>
-    <div class="voice-ex reveal">
-      <div class="vx" style="background:#000;color:#fff"><span class="lb M" style="color:#D1CDCD">Institucional</span><p style="font-weight:300;font-size:28px">Uma ideia tech leva à outra.</p></div>
-      <div class="vx" style="background:#ED1360;color:#000"><span class="lb M">B2C · aluno</span><p style="font-weight:300;font-size:28px">Não sonhe com o futuro. Venha criá-lo.</p></div>
-      <div class="vx" style="background:#FF9413;color:#000"><span class="lb M">B2B</span><p style="font-weight:300;font-size:28px">Educação tech é estratégia de negócio.</p></div>
-    </div>
-
     <h3 class="sub reveal">Um tom, sete públicos</h3>
     <div class="aud reveal">
       <div><b>Público interno</b><span>Humana e colaborativa. “Somos Alun. Em nossa veia tech pulsa criatividade.”</span></div>
@@ -940,9 +908,6 @@ html,body{overflow-x:clip}
       <div><b>Sociedade</b><span>Impacto e desenvolvimento. “Alun, uma força em movimento.”</span></div>
       <div><b>Institucional / Press</b><span>Dados, autoridade e consistência. “O conhecimento pulsa onde há conexão.”</span></div>
     </div>
-
-    <h3 class="sub reveal">Palavras-chave</h3>
-    <div class="attr reveal" style="margin-top:0"><span>Veia tech</span><span>Futuros desejados</span><span>Inovação</span><span>Experiência</span><span>Pulsar</span><span>Paixão</span><span>Força</span><span>Transformação</span><span>Resultados</span><span>Gera valor</span><span>Rede</span><span>Conexões</span><span>Move</span><span>Comunidade</span><span>Olhares curiosos</span><span>Sede de aprender</span><span>Criar o novo</span><span>Ecossistema robusto</span><span>Impacto social</span><span>Despertar</span><span>Compartilhar</span><span>Aprendizado contínuo</span></div>
   </div>
 </section>
 
@@ -959,7 +924,7 @@ html,body{overflow-x:clip}
       <div class="card"><h3>2 · Adaptação constante</h3><p>A adaptação tornou-se fundamental até em mercados não caóticos.</p></div>
       <div class="card"><h3>3 · Complexidade e atenção</h3><p>Mais complexidade na execução e na disputa incessante pela atenção.</p></div>
     </div>
-    <p style="max-width:70ch;margin-top:22px">O resultado: empresas pressionadas a evoluir e a treinar seus times em meio a uma overdose de trilhas e conteúdos dispersos. Alun Business nasce como <b>evolução natural do ecossistema</b> — a integração de marcas líderes em educação corporativa numa solução única, full stack, em tecnologia e negócios.</p>
+    <h3 class="sub reveal">Evolução natural do ecossistema</h3>
     <div class="grid g4" style="margin-top:20px">
       <div class="card biz-ecocard"><div class="biz-ecologo"><span class="lg" style="height:100%"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 107 32" fill="none" role="img" aria-label="Alura"><g fill="#0429BC"><path d="M21.73,32L15.4,5.66c-.2-.8-.46-1.31-.8-1.57-.34-.26-.9-.39-1.73-.39s-1.4.13-1.73.39c-.33.26-.6.77-.8,1.57l-6.33,26.34H0L6.56,4.72c.36-1.41,1.13-2.56,2.29-3.42C10,.44,11.36,0,12.87,0s2.87.44,4.03,1.3c1.16.86,1.92,2.01,2.29,3.43l6.56,27.27h-4.01,0Z"/><path d="M34.23,0h-3.89v32h3.89V0Z"/><path d="M47.92,32c-2.58,0-4.6-.7-5.99-2.08-1.39-1.38-2.09-3.39-2.09-5.96v-15.11h3.89v14.72c0,1.35.1,2.31.31,2.94.23.69.66,1.18,1.29,1.44.58.24,1.47.36,2.72.36h9.38V8.84h3.89v23.16h-13.41Z"/><path d="M66.95,32v-15.11c0-2.57.75-4.57,2.22-5.95,1.48-1.39,3.6-2.09,6.31-2.09h4.39v3.7h-4.7c-1.24,0-2.13.12-2.72.36-.63.26-1.07.75-1.29,1.44-.21.63-.31,1.59-.31,2.94v14.72h-3.9Z"/><path d="M91.16,32c-1.03,0-1.98-.26-2.84-.77-.86-.51-1.56-1.2-2.07-2.06-.51-.85-.77-1.8-.77-2.82,0-1.16.34-2.23,1-3.2.67-.97,1.55-1.66,2.63-2.08l13.91-5.31-.03-.28c-.05-.47-.12-.84-.22-1.14-.22-.69-.66-1.18-1.29-1.44-.58-.24-1.47-.36-2.72-.36h-12.83v-3.7h12.52c2.71,0,4.82.7,6.3,2.09,1.47,1.38,2.22,3.38,2.22,5.95v10.52c0,1.27-.44,2.33-1.34,3.24-.9.91-1.97,1.35-3.27,1.35h-11.2ZM90.54,24.68c-.5.18-.81.38-.96.64-.14.24-.2.6-.2,1.15,0,.73.12,1.2.37,1.45.25.25.7.37,1.41.37h11.2c.13,0,.32-.04.5-.22.14-.14.22-.31.22-.5v-7.7l-12.54,4.8Z"/></g></svg></span></div><p>Profundidade técnica e escala.</p></div>
       <div class="card biz-ecocard"><div class="biz-ecologo"><span class="lg" style="height:100%"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 28" fill="none" role="img" aria-label="FIAP"><g fill="#ED145B"><path d="M30.906.205h-2.68v27.301h2.68zM17.667 12.929H7.344v2.537h10.323z"/><path d="M0 27.506h2.671V2.742h20.421V.205H0zM89.786.1H73.742v27.3h2.68V2.636h13.22c4.808 0 7.675 2.264 7.675 6.062v.076c0 3.692-3.177 6.176-7.9 6.176H82.85v2.537h6.452c7.388 0 10.693-4.436 10.693-8.827v-.076C99.996 3.191 96.276.1 89.794.1zM53.631 0h-2.286L34.53 27.491h2.876l15.047-24.3 7.743 12.48h3.064zM62.813 19.872l4.739 7.62h2.988l-4.686-7.62z"/></g></svg></span></div><p>Formação executiva, MBA, graduação e Pós-Tech.</p></div>

@@ -85,24 +85,11 @@ module.exports = (H) => {
 
     ${sub('Três direcionadores')}
     <div class="grid g3 reveal">
-      <div class="card"><div class="idx">01</div><h3>Fazer junto — um mundo de conexão</h3><p>Ser completa, integrando todas as possibilidades para expandir alcances e horizontes. Conectar-se e ser conector de oportunidades. Criar forte senso de pertencimento.</p><div class="mini-attr"><span>Conectora</span><span>High touch</span><span>Diversa</span><span>Parceira</span><span>Expansiva</span></div></div>
-      <div class="card"><div class="idx">02</div><h3>Fazer diferente — um mundo de inovação</h3><p>Viver o mundo pensando sempre em novas técnicas, tecnologias e metodologias. Alimentar-se do talento, da dedicação e da paixão genuína. A veia tech e a vontade de mudar o mundo.</p><div class="mini-attr"><span>Apaixonada</span><span>High tech</span><span>Criativa</span><span>Disruptiva</span><span>Inteligente</span></div></div>
-      <div class="card"><div class="idx">03</div><h3>Fazer a diferença — evolução para o mundo</h3><p>Ser agente impulsionador capaz de conquistar e manter uma comunidade forte, que une potências para promover mudanças reais em pessoas, empresas e no mundo.</p><div class="mini-attr"><span>Protagonista</span><span>Potente</span><span>Engajadora</span></div></div>
+      <div class="card"><div class="idx">01</div><h3>Fazer junto — um mundo de conexão</h3><p>Ser completa, integrando todas as possibilidades para expandir alcances e horizontes. Conectar-se e ser conector de oportunidades. Criar forte senso de pertencimento.</p></div>
+      <div class="card"><div class="idx">02</div><h3>Fazer diferente — um mundo de inovação</h3><p>Viver o mundo pensando sempre em novas técnicas, tecnologias e metodologias. Alimentar-se do talento, da dedicação e da paixão genuína. A veia tech e a vontade de mudar o mundo.</p></div>
+      <div class="card"><div class="idx">03</div><h3>Fazer a diferença — evolução para o mundo</h3><p>Ser agente impulsionador capaz de conquistar e manter uma comunidade forte, que une potências para promover mudanças reais em pessoas, empresas e no mundo.</p></div>
     </div>
-
-    ${sub('O grupo')}
-    <div class="grid g4 reveal" id="grupo-cards">
-      <div class="card"><h3>Alura</h3><p>Plataforma de cursos online para quem vive de tecnologia.</p></div>
-      <div class="card"><h3>FIAP</h3><p>Faculdade, MBAs e pós-graduação tech com nota máxima no MEC.</p></div>
-      <div class="card"><h3>PM3</h3><p>Formações e comunidade em produtos digitais.</p></div>
-      <div class="card"><h3>StartSe</h3><p>Escola internacional de negócios, inovação e IA.</p></div>
-    </div>
-    <p class="reveal" style="margin-top:14px;font-size:13.5px">Cada marca tem a sua própria identidade e o seu guia nesta plataforma. A marca Alun fala em nome do ecossistema e de todos os seus públicos.</p>
-
-    <div class="quote-bar reveal">
-      <div class="qm">“</div>
-      <div><p>Superpoderes tech para superconquistas humanas.</p><small>Tagline · Brandbook Alun 2025</small></div>
-    </div>`
+`
   });
 
   // ---------------- 02 LOGO ----------------
@@ -144,21 +131,10 @@ module.exports = (H) => {
     ])}
     <p class="reveal" style="margin-top:16px;font-size:13.5px">Valores HEX/RGB medidos nas páginas de paleta do Brandbook 2025 e conferidos com o Design System da FIAP e com o site. <b>Atenção:</b> os campos CMYK e Pantone do PDF original repetem um código de exemplo (B0F867) — confirme com o time de marca antes de produzir material impresso.</p>
 
-    ${sub('Proporção de uso', 'leitura do brandbook')}
-    <div class="proportion reveal">
-      <div style="flex-grow:26;background:#000;color:#fff">Preto · ~26%</div>
-      <div style="flex-grow:19;background:${MON};color:#000">Magenta On · ~19%</div>
-      <div style="flex-grow:17;background:${MOFF};color:#fff">Magenta Off · ~17%</div>
-      <div style="flex-grow:12;background:${PM};color:#000">Placa Mãe · ~12%</div>
-      <div style="flex-grow:8;background:${OON};color:#000">On · ~8%</div>
-      <div style="flex-grow:7;background:${OOFF};color:#fff">Off · ~7%</div>
-      <div style="flex-grow:11;background:linear-gradient(90deg,#fff 50%,${CZ} 50%);color:#000;font-size:10.5px">B + C · ~11%</div>
-    </div>
-    <p class="reveal" style="margin-top:16px;font-size:14px">Preto e Magenta dominam; Placa Mãe, Branco e Cinza dão respiro; Odisseia entra em doses menores, como acento. Cada peça é montada em <b>blocos de cor chapada</b> — sem gradientes.</p>
 
     ${sub('Contraste e acessibilidade', 'calculado')}
     <div class="card reveal" style="padding:10px 18px"><table class="ctr-table" id="ctrTable"></table></div>
-    <p class="reveal" style="margin-top:14px;font-size:13.5px">Razões calculadas pela fórmula WCAG 2.x (texto normal exige 4,5:1; texto grande, 3:1). O brandbook declara prioridade de contraste forte entre as cores da comunicação. <b>Branco sobre Magenta On só funciona em texto grande</b> — para texto menor use Preto.</p>`
+    <p class="reveal" style="margin-top:14px;font-size:13.5px">WCAG 2.x: texto normal exige 4,5:1; grande, 3:1. <b>Branco sobre Magenta On só funciona em texto grande</b> — para texto menor use Preto.</p>`
   });
 
   // ---------------- 04 TIPOGRAFIA ----------------
@@ -199,18 +175,6 @@ module.exports = (H) => {
           <li><div><b>Apoio</b> — FK Grotesk Regular, pequeno, alinhado a um módulo do grid.</div></li>
           <li><div><b>CTA</b> — FK Grotesk Mono, caixa alta, com seta → em Odisseia On (fundo preto).</div></li>
         </ol>
-      </div>
-    </div>
-
-    ${sub('Escala tipográfica — web', 'derivada do site')}
-    <div class="card reveal" style="padding:10px 28px">
-      <div class="scale">
-        <div class="scale-row"><span class="tg">Display</span><span style="font-family:var(--display);font-weight:300;font-size:64px;line-height:.95;letter-spacing:-.03em">Superpoderes tech</span><span class="sp">Flecha · 64–120 px · LH .95 · −3%</span></div>
-        <div class="scale-row"><span class="tg">H2</span><span style="font-family:var(--display);font-weight:300;font-size:48px;line-height:1;letter-spacing:-.02em">O maior ecossistema</span><span class="sp">Flecha L · 48/48 · site</span></div>
-        <div class="scale-row"><span class="tg">Lead</span><span style="font-family:var(--display);font-weight:400;font-size:20px;line-height:1.6">Unimos Alura, FIAP, PM3 e StartSe numa jornada completa.</span><span class="sp">Flecha M · 20/32 · site</span></div>
-        <div class="scale-row"><span class="tg">Corpo</span><span style="font-size:16px;line-height:1.5">Acreditamos na força transformadora da educação contínua e da conexão com a comunidade.</span><span class="sp">FK Grotesk 400 · 16/24 · site</span></div>
-        <div class="scale-row"><span class="tg">CTA</span><span style="font-family:var(--body);font-size:24px;line-height:1.3;color:#d96f00">Conheça a tese →</span><span class="sp">FK Grotesk · 24/32 · Odisseia On</span></div>
-        <div class="scale-row"><span class="tg">Rótulo</span><span class="M" style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:#000;color:#fff;padding:5px 9px;display:inline-block;width:max-content">Linguagem visual</span><span class="sp">FK Grotesk Mono · 11–13 · caixa alta</span></div>
       </div>
     </div>`
   });
@@ -275,19 +239,11 @@ module.exports = (H) => {
     </div>
     <p class="reveal" style="margin-top:14px;font-size:13.5px">Palavras-chave e <i>prompts</i> de referência para produção fotográfica ou geração por IA estão reunidos no fim do guia, em Tokens &amp; IA.</p>
 
-    ${sub('Fotografia → módulos')}
-    <div class="tex-grid reveal">
-      <div class="tex"><canvas data-gfx="mosaic" data-seed="11" data-variant="full" data-mask="ellipse" data-cell="9"></canvas><div class="cap"><b>Magenta + laranja</b>Versão padrão</div></div>
-      <div class="tex"><canvas data-gfx="mosaic" data-seed="21" data-variant="mono" data-mask="ellipse" data-cell="9"></canvas><div class="cap"><b>Só magenta</b>Versão sóbria</div></div>
-      <div class="tex wide"><canvas data-gfx="mosaic" data-seed="5" data-variant="full" data-mask="diag" data-cell="12"></canvas><div class="cap"><b>Faixa de módulos</b>Transição bloco ↔ imagem</div></div>
-    </div>
-
     ${sub('Pictogramas')}
     <p class="reveal" style="max-width:68ch">A base construtiva é uma malha de <b>15 × 15 unidades</b>; a espessura mínima do traço é de 1 unidade. Personalidade derivada da marca, ligada a retas e curvas — didática e essencial.</p>
     <div class="picto reveal">
-      ${icons.map(([n, svg]) => `<div><div class="pi">${svg}</div><span>${n}</span></div>`).join('')}
-    </div>
-    <p class="reveal" style="margin-top:12px;font-size:13px;color:var(--muted)">Pictogramas redesenhados como referência de estilo (traço quadrado, ângulos retos). Os arquivos oficiais estão no brandbook e na biblioteca de ícones da Alun.</p>`
+      ${icons.slice(0, 6).map(([n, svg]) => `<div><div class="pi">${svg}</div><span>${n}</span></div>`).join('')}
+    </div>`
   });
 
   // ---------------- 07 COMPONENTES ----------------
@@ -390,13 +346,6 @@ module.exports = (H) => {
       <div class="card is-dark" style="background:${MOFF}"><div class="label-k" style="color:${PM}">Potência humana</div><h3 style="font-weight:300;font-size:28px">Do individual ao coletivo.</h3><p style="color:${PM}">O aluno é o centro. Somos agentes de impulso e mudança. Unimos potências para ir além.</p></div>
     </div>
 
-    ${sub('O tom na prática')}
-    <div class="voice-ex reveal">
-      <div class="vx" style="background:#000;color:#fff"><span class="lb M" style="color:${PM}">Institucional</span><p style="font-weight:300;font-size:28px">Uma ideia tech leva à outra.</p></div>
-      <div class="vx" style="background:${MON};color:#000"><span class="lb M">B2C · aluno</span><p style="font-weight:300;font-size:28px">Não sonhe com o futuro. Venha criá-lo.</p></div>
-      <div class="vx" style="background:${OON};color:#000"><span class="lb M">B2B</span><p style="font-weight:300;font-size:28px">Educação tech é estratégia de negócio.</p></div>
-    </div>
-
     ${sub('Um tom, sete públicos')}
     <div class="aud reveal">
       <div><b>Público interno</b><span>Humana e colaborativa. “Somos Alun. Em nossa veia tech pulsa criatividade.”</span></div>
@@ -406,10 +355,7 @@ module.exports = (H) => {
       <div><b>Investidores</b><span>Clareza e visão de longo prazo. “Grupo Alun: pulso humano, impulso tech.”</span></div>
       <div><b>Sociedade</b><span>Impacto e desenvolvimento. “Alun, uma força em movimento.”</span></div>
       <div><b>Institucional / Press</b><span>Dados, autoridade e consistência. “O conhecimento pulsa onde há conexão.”</span></div>
-    </div>
-
-    ${sub('Palavras-chave')}
-    <div class="attr reveal" style="margin-top:0"><span>Veia tech</span><span>Futuros desejados</span><span>Inovação</span><span>Experiência</span><span>Pulsar</span><span>Paixão</span><span>Força</span><span>Transformação</span><span>Resultados</span><span>Gera valor</span><span>Rede</span><span>Conexões</span><span>Move</span><span>Comunidade</span><span>Olhares curiosos</span><span>Sede de aprender</span><span>Criar o novo</span><span>Ecossistema robusto</span><span>Impacto social</span><span>Despertar</span><span>Compartilhar</span><span>Aprendizado contínuo</span></div>`
+    </div>`
   });
 
   // ---------------- 10 ALUN BUSINESS ----------------
@@ -526,11 +472,11 @@ module.exports = (H) => {
   .strat .st:nth-child(3) p{font-weight:400}
   .black .wrong > div{background:#fff}
   /* hero em grid 4×4 */
-  .hero{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto clamp(190px,21vw,290px);background:#000}
+  .hero{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto clamp(150px,15vw,210px);background:#000}
   .hb{position:relative;overflow:hidden;padding:26px;display:flex;flex-direction:column;justify-content:space-between}
   .hb .lab,.lab{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
   .hb .lab.dim{opacity:.6}
-  .h-main{grid-column:1/4;grid-row:1/3;background:#000;color:#fff;padding:32px 36px;min-height:clamp(420px,56vh,600px)}
+  .h-main{grid-column:1/4;grid-row:1/3;background:#000;color:#fff;padding:32px 36px;min-height:clamp(300px,40vh,420px)}
   .h-top{display:flex;justify-content:space-between;gap:12px;color:${PM}}
   .h-main h1{font-weight:300;font-size:clamp(38px,4.7vw,80px);line-height:.96;letter-spacing:-.03em;color:#fff;margin:0 0 20px;max-width:14ch}
   .h-main h1 em{font-style:italic;color:${MON}}
@@ -543,7 +489,7 @@ module.exports = (H) => {
   .h-mos canvas{position:absolute;left:0;right:0;bottom:0;top:auto;width:100%;height:38%}
   /* mosaico interativo */
   .mos-box{position:relative}
-  .mos-box canvas{width:100%;aspect-ratio:1/1;background:#000;display:block;border:1px solid #333}
+  .mos-box canvas{width:100%;aspect-ratio:16/10;background:#000;display:block;border:1px solid #333}
   .mos-ctl{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:14px}
   /* grid 4×4 */
   .grid4{display:flex;justify-content:center}

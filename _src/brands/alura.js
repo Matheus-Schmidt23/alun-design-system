@@ -79,8 +79,6 @@ module.exports = (H) => {
       <div class="card is-dark" style="background:${TB}"><div class="label-k" style="color:#D1DEF9">Sonho</div><h3 style="font-weight:300;font-size:26px;line-height:1.2">Alavancar o protagonismo dev em um mundo onde a tecnologia é a base de todo o mercado e de todas as carreiras.</h3></div>
     </div>
 
-    ${sub('Posicionamento')}
-    <div class="card reveal" style="padding:32px 36px"><p style="font-size:17px;max-width:90ch;margin:0">Para pessoas que enxergam a tecnologia como o principal caminho de evolução profissional, do primeiro passo à liderança técnica, a Alura é o ecossistema de aprendizagem tech mais conectado ao presente e ao próximo movimento do mercado. Diferente de escolas tradicionais ou plataformas genéricas, combina <b>profundidade técnica, direção clara e aplicação prática</b> com a força de uma comunidade ativa e a autoridade de <i>founders</i> que vivem a transformação tecnológica em tempo real.</p></div>
 
     ${sub('Valores e personalidade')}
     <div class="grid g2 reveal">
@@ -96,11 +94,6 @@ module.exports = (H) => {
       ${card('Singularidade', 'Transcender o ordinário: romper com clichês e padrões previsíveis para oferecer experiências que inspiram e empoderam.', { idx: '4' })}
       ${card('Excelência nos detalhes', 'Rigor da concepção à implementação — experiências esteticamente agradáveis, funcionais, acessíveis e emocionalmente impactantes.', { idx: '5' })}
       ${card('Agente de transformação', 'Ir além da apresentação de informação: criar experiências que provoquem mudanças reais em como as pessoas aprendem e se desenvolvem.', { idx: '6', dark: true })}
-    </div>
-
-    <div class="quote-bar reveal" style="background:${NB}">
-      <div class="qm">“</div>
-      <div><p>Nowness não é apenas tempo. É posicionamento.</p><small>Princípio de comunicação · Brand Guidelines V2.0</small></div>
     </div>`
   });
 
@@ -139,18 +132,9 @@ module.exports = (H) => {
       c('New Black', NB, 'Preto da marca — interface escura, texto'),
       c('White Snow', WS, 'Branco frio — superfícies e respiro', { light: true, bordered: true })
     ])}
-    ${sub('Metálicos', 'somente impressão')}
-    <div class="sw-grid reveal">
-      ${[['Cold Silver', 'Pantone Silver 10077 C', 'linear-gradient(135deg,#dfe2e8,#aab0bb 50%,#e9ecf1)'], ['Tech Silver', 'Pantone 10388 C', 'linear-gradient(135deg,#c9ccd3,#868b96 50%,#d7dae0)'], ['Blue Metalic', 'Pantone 10260 C', 'linear-gradient(135deg,#7a9ff0,#0d3ee3 55%,#7a9ff0)'], ['Dev Metalic', 'Pantone 10272 C', 'linear-gradient(135deg,#5f8bec,#021e94 55%,#5f8bec)']].map(([n, p, g]) => `<div class="sw sm" style="background:${g};color:${/Silver/.test(n) ? '#0C0C0E' : '#fff'};cursor:default"><div><div class="nm">${n}</div><div class="role">Tinta especial</div></div><div class="codes"><b>PANTONE</b>${p}</div></div>`).join('')}
-    </div>
-    <p class="reveal" style="margin-top:12px;font-size:13px;color:var(--muted)">O guia especifica os metálicos apenas por Pantone. A prévia acima é uma simulação em CSS, sem valor de cor oficial.</p>
-
     ${sub('Escala de azuis (UI)')}
     ${ramp(blueRamp.map(([n, h], i) => [n, h, i >= 5]), 17)}
     <p class="reveal" style="margin-top:12px;font-size:13.5px">Os azuis complementares ampliam a profundidade do sistema: criam variações, reforçam estados e apoiam a navegação. <b>Tech Blue = 1000</b> · Dev Blue = 700 · Deep Blue = 1400 · Blue Universe = 1600.</p>
-
-    ${sub('Neutros de interface')}
-    ${ramp(neutral.map(([h, d]) => [h.slice(1), h, d]), 13)}
 
     ${sub('Cores de acento — growth', 'uso controlado')}
     ${swGrid([
@@ -161,13 +145,6 @@ module.exports = (H) => {
     ])}
     <p class="reveal" style="margin-top:12px;font-size:13.5px">As <b>Growth Accent Colors</b> ampliam a flexibilidade em campanhas de aquisição e conversão, mas funcionam como <b>acentos, não como base</b>: a identidade segue reconhecível por tipografia, grid, tom de voz, componentes, logotipo e cores institucionais.</p>
 
-    ${sub('Cores funcionais de interface')}
-    ${swGrid([
-      c('Information', '#0675F9', 'Orientação, contexto, feedback neutro', { sm: true }),
-      c('Success', '#06F936', 'Confirmação, progresso — tons de 100 a 1000', { sm: true, light: true, style: 'color:#0C0C0E' }),
-      c('Warning', '#F95E06', 'Atenção — o amarelo #F9D006 pode ser alternativa', { sm: true }),
-      c('Error', '#F8062F', 'Falhas e ações que exigem correção imediata', { sm: true })
-    ])}
 
     ${sub('Gradientes')}
     <div class="grid g3 reveal">
@@ -175,7 +152,6 @@ module.exports = (H) => {
       <div class="grad" style="background:radial-gradient(circle at 80% 20%,#5D3BC4 0,transparent 48%),radial-gradient(circle at 15% 80%,#1F53E5 0,transparent 55%),radial-gradient(circle at 60% 70%,#0429BC 0,transparent 50%),#0C0C0E"><span>Malha azul + roxo</span></div>
       <div class="grad" style="background:linear-gradient(180deg,#0C0C0E 0%,#011164 45%,#0429BC 100%)"><span>Degradê vertical</span></div>
     </div>
-    <p class="reveal" style="margin-top:12px;font-size:13.5px">Os gradientes representam a fluidez do aprendizado. No guia, são criados no Illustrator: retângulos nas cores primárias, rasterizados em um único objeto e transformados com <i>gradient mesh</i>. As malhas acima são aproximações em CSS.</p>
 
     ${sub('Contraste e acessibilidade', 'calculado')}
     <div class="card reveal" style="padding:10px 18px"><table class="ctr-table" id="ctrTable"></table></div>
@@ -209,26 +185,12 @@ module.exports = (H) => {
     <p class="reveal" style="max-width:68ch">A escala é <b>progressiva</b>: tamanhos menores crescem em intervalos curtos; maiores, em intervalos amplos — a cada quatro níveis o incremento aumenta 2&nbsp;px (20→24→28→32→36 · 36→42→48→54→60 · 60→68→76→84→92). Todos os <i>line-heights</i> são múltiplos de 4&nbsp;px.</p>
     <div class="card reveal" style="padding:10px 28px">
       <div class="scale">
-        ${specRow('Display 07', E, 300, 194, 224, 'Alura', 'Encode Sans Light')}
-        ${specRow('Display 04', E, 300, 102, 132, 'Nowness', 'Encode Sans Light')}
         ${specRow('Display 01', E, 400, 68, 86, 'Aprenda tech', 'Encode Sans Regular')}
-        ${specRow('Heading 07', E, 400, 60, 76, 'Profundidade técnica', 'Encode Sans Regular')}
         ${specRow('Heading 04', E, 400, 42, 56, 'Direção clara e aplicação prática', 'Encode Sans Regular')}
         ${specRow('Heading 02', E, 500, 28, 40, 'Comunidade ativa e impactante', 'Encode Sans Medium')}
-        ${specRow('Heading 01', E, 500, 20, 28, 'Dev em T: amplitude e profundidade', 'Encode Sans Medium')}
-        ${specRow('Body 06', R, 400, 20, 28, 'Conteúdo que acompanha a velocidade da tecnologia.', 'Roboto Flex Regular')}
         ${specRow('Body 04', R, 400, 16, 24, 'Organizamos pensamento, oferecemos direção e ajudamos a decidir com clareza.', 'Roboto Flex Regular')}
         ${specRow('Body 03', R, 500, 14, 20, 'Texto de apoio e rótulos de interface', 'Roboto Flex Medium')}
-        ${specRow('Body 01', R, 400, 10, 16, 'Legendas e metadados', 'Roboto Flex Regular')}
       </div>
-    </div>
-    <p class="reveal" style="margin-top:12px;font-size:13.5px">Cada estilo existe em duas versões: <b>Light</b> (texto escuro sobre fundo claro) e <b>Dark</b> (texto claro sobre fundo escuro, com um peso a menos — por exemplo, Regular → Light). Display 01–07 · Heading 01–07 · Body 01–06. Todos já estão como <i>text styles</i> nos arquivos Figma.</p>
-
-    ${sub('Ritmo vertical')}
-    <div class="grid g3 reveal">
-      ${card('Linhas de 4 px', 'O espaçamento e os <i>line-heights</i> seguem incrementos fixos de 4 px, alinhando o fluxo dos parágrafos à malha do grid.')}
-      ${card('Exemplo', 'Texto de 61 px (aderente à escala) com line-height de 64 px — divisível por 4, encaixa em linhas e gutters de 4 px.')}
-      ${card('Em todos os meios', 'A regra vale em desktop e mobile, em UI e em peças — facilita responsividade, componentes e legibilidade.', { dark: true })}
     </div>`
   });
 
@@ -237,11 +199,6 @@ module.exports = (H) => {
     id: 'grid', num: '05', label: 'Grid, patterns & círculo', cls: 'black', title: ['Lógica', 'construída'],
     lead: 'A linguagem visual da Alura parte de uma <b style="color:#fff">lógica de construção, nunca de ornamentação</b>: proporção, ritmo, escala, repetição e variação como fundamentos; formas que parecem ter uma regra interna — um algoritmo, uma malha, um fluxo de dados. Nada deve parecer aleatório, nem excessivo: o minimalismo é o critério de edição.',
     body: `
-    <div class="grid g3 reveal" style="margin-top:36px">
-      <div class="card is-dark" style="background:#131316;border:1px solid #2F3037"><div class="label-k">Matemática</div><h3>Estrutura invisível</h3><p>Grids, módulos, sequências, progressões, simetrias e deformações controladas organizam a percepção — sem fórmulas literais.</p></div>
-      <div class="card is-dark" style="background:#131316;border:1px solid #2F3037"><div class="label-k">Proceduralidade</div><h3>Sistemas que evoluem</h3><p>Uma regra simples gera variações complexas: entrada, transformação e saída. A marca parece viva e adaptável, nunca caótica.</p></div>
-      <div class="card is-dark" style="background:#131316;border:1px solid #2F3037"><div class="label-k">Minimalismo</div><h3>Precisão, não falta</h3><p>Cada elemento existe por uma razão; o espaço negativo cria foco, tensão ou respiro. Complexidade vira inteligível.</p></div>
-    </div>
 
     ${sub('Grid modular')}
     <div class="two reveal">
@@ -258,9 +215,6 @@ module.exports = (H) => {
 
     ${sub('Patterns procedurais')}
     <p class="reveal" style="max-width:70ch">Patterns são expressões visuais da essência técnica e dinâmica: nascem de regras claras, mas permitem variações. <b style="color:#fff">Opacidade randômica entre 15 e 85%</b>; quando houver cor, sempre as <b style="color:#fff">Brand Colors</b> — nunca cores complementares ou fora do guia. Podem ser criados com o plugin Generista (Figma) ou no Cavalry.</p>
-    <div class="pat-box reveal">
-      <canvas id="patDemo" data-gfx="quads" data-seed="21" data-mode="quads"></canvas>
-    </div>
 
     ${sub('O círculo')}
     <div class="two reveal" style="align-items:center">
@@ -289,16 +243,7 @@ module.exports = (H) => {
       <div class="card"><div class="label-k">Paleta e tom</div><p>Tons terrosos, verdes, beges e neutros. Cores da paleta, principalmente as primárias, nos <i>props</i>. Sem filtros.</p></div>
       <div class="card"><div class="label-k">Luz</div><p>Natural, com sombras marcadas ou suaves; luz de janela para atmosferas calorosas; indireta em ambientes fechados.</p></div>
       <div class="card"><div class="label-k">Diversidade</div><p>Gênero, cor, idade, estilo, corpo e contexto social — múltiplas realidades do Brasil conectado à tecnologia.</p></div>
-    </div>
-
-    ${sub('Tratamentos de imagem', 'referências de tom')}
-    <div class="tex-grid reveal">
-      <div class="tex"><div class="fill" style="background:radial-gradient(circle at 30% 30%,#e8c9a3,#8a6a4a 55%,#3b2c20)"></div><div class="cap"><b>Documental</b>Luz natural, tons terrosos</div></div>
-      <div class="tex"><div class="fill" style="background:radial-gradient(circle at 50% 35%,#8a8a8a 0,#444444 55%,#1b1b1b)"></div><div class="cap"><b>Autoral</b>P&amp;B, fundo #444444, luz suave</div></div>
-      <div class="tex"><div class="fill" style="background:radial-gradient(circle at 70% 25%,#7A9FF0,#0429BC 50%,#010C53)"></div><div class="cap"><b>High-end</b>Topo de funil, aspiracional</div></div>
-      <div class="tex"><div class="fill" style="background:linear-gradient(135deg,#f0ede6,#c9c3b6)"></div><div class="cap"><b>Performance</b>Realista, estilo “não produzido”</div></div>
-    </div>
-    <p class="reveal" style="margin-top:12px;font-size:13px;color:var(--muted)">Blocos de cor ilustram o tom de cada tratamento — não são fotografias. As imagens oficiais estão no acervo da marca.</p>`
+    </div>`
   });
 
   // ---------------- 07 COMPONENTES ----------------
@@ -395,13 +340,6 @@ module.exports = (H) => {
     </div>
     <p class="reveal" style="margin-top:14px;font-size:13.5px">Nenhum texto precisa expressar todos os eixos, mas todos devem respeitá-los.</p>
 
-    ${sub('O tom na prática')}
-    <div class="voice-ex reveal">
-      <div class="vx" style="background:${NB};color:#fff"><span class="lb" style="color:#A7A9B4">Institucional</span><p style="font-weight:300;font-size:28px">Sua profissão caminha para uma redefinição profunda.</p></div>
-      <div class="vx" style="background:${TB};color:#fff"><span class="lb" style="color:#D1DEF9">Conteúdo</span><p style="font-weight:300;font-size:28px">Inteligência Artificial em movimento: a revolução da mobilidade urbana.</p></div>
-      <div class="vx" style="background:#D1DEF9;color:${BU}"><span class="lb">Direção</span><p style="font-weight:400;font-size:28px">Próximos passos claros, antes que a oportunidade passe.</p></div>
-    </div>
-
     ${sub('Alinhado ou não?')}
     ${dodont([
       'Organiza pensamento',
@@ -487,7 +425,7 @@ module.exports = (H) => {
   .btn-sm{padding:10px 16px;font-size:13px}
   .alert{border-radius:6px}
   /* hero */
-  .hero{position:relative;overflow:hidden;background:${NB};color:#fff;min-height:min(calc(100svh - 49px),820px);display:flex}
+  .hero{position:relative;overflow:hidden;background:${NB};color:#fff;min-height:min(calc(100svh - 49px),640px);display:flex}
   .hero-pat{position:absolute;right:0;top:0;bottom:0;width:62%;height:100%;opacity:.9;-webkit-mask-image:linear-gradient(90deg,transparent,#000 55%);mask-image:linear-gradient(90deg,transparent,#000 55%)}
   .orb{position:absolute;right:-9%;top:50%;width:min(40vw,560px);aspect-ratio:1/1;transform:translateY(-50%);border-radius:50%;background:radial-gradient(circle at 30% 28%,#7A9FF0 0,#1F53E5 36%,#0429BC 66%,#010C53 100%);opacity:.9}
   .hero-in{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;padding-top:34px;padding-bottom:40px;width:100%}
