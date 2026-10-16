@@ -21,45 +21,6 @@ module.exports = (H, B) => {
   const lock = (hex, h, extra = '') => `<span class="biz-lock" style="--h:${h};color:${hex};${extra}">${lg(B, 'logo', hex, 'height:var(--h)')}<span class="biz-word">BUSINESS</span></span>`;
   const lockTile = (bg, fg, label, cls = '', lab = fg) => `<div class="biz-tile ${cls}" style="background:${bg};color:${fg}">${lock(fg, 'clamp(20px,2.6vw,34px)')}<small style="color:${lab}">${label}</small></div>`;
 
-  // retrato "pixelator": grade de módulos sobre listras de areia, gerada no build (sem fotografia real)
-  function pixelPortrait() {
-    const C = 34, R = 40, S = 10;
-    const hash = (x, y) => { const n = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453; return n - Math.floor(n); };
-    const paths = { [P.preto]: '', [P.grafite]: '', [P.marinho]: '', [P.azul]: '', [P.cinza]: '' };
-    for (let y = 0; y < R; y++) for (let x = 0; x < C; x++) {
-      const u = (x + .5) / C * 2 - 1, v = (y + .5) / R * 2 - 1;
-      const head = (u / .44) ** 2 + ((v + .22) / .52) ** 2 <= 1;
-      const hair = ((u / .5) ** 2 + ((v + .3) / .6) ** 2 <= 1) && !head ? true : (head && v < -.52);
-      const body = ((u / 1.0) ** 2 + ((v - 1.02) / .62) ** 2 <= 1) && v > .42;
-      const neck = Math.abs(u) < .16 && v > .3 && v < .5;
-      let col = null;
-      if (hair) col = P.preto;
-      else if (head) {
-        const eye = Math.abs(Math.abs(u) - .17) < .06 && Math.abs(v + .26) < .035;
-        const mouth = Math.abs(u) < .13 && Math.abs(v - .02) < .028;
-        const t = .55 - u * .55 - (v + .22) * .3 + (hash(x, y) - .5) * .28;
-        col = (eye || mouth) ? P.preto : t > .68 ? P.cinza : t > .42 ? P.azul : P.marinho;
-      } else if (neck) col = P.marinho;
-      else if (body) col = (hash(x, y) > .8) ? P.preto : P.grafite;
-      if (col) paths[col] += `M${x * S} ${y * S}h${S - 1}v${S - 1}h-${S - 1}z`;
-    }
-    let stripes = '';
-    for (let x = 0; x < C; x += 2) stripes += `M${x * S} 0h${S}v${R * S}h-${S}z`;
-    return `<svg class="biz-portrait" viewBox="0 0 ${C * S} ${R * S}" role="img" aria-label="Exemplo de retrato em pixelator" shape-rendering="crispEdges"><rect width="${C * S}" height="${R * S}" fill="#fff"/><path d="${stripes}" fill="${P.areia}"/>${Object.entries(paths).map(([c, d]) => `<path d="${d}" fill="${c}"/>`).join('')}</svg>`;
-  }
-
-  // 8 módulos do pixelator (combinações de cor da paleta)
-  const mods = [
-    `<div class="pxm" style="background:linear-gradient(90deg,#fff 50%,${P.areia} 50%);outline:1px solid var(--line);outline-offset:-1px"></div>`,
-    `<div class="pxm" style="background:${P.cinza}"><i style="background:${P.ouro};width:16%;height:32%"></i></div>`,
-    `<div class="pxm" style="background:${P.cinza}"><i style="background:${P.azul};width:32%;height:64%"></i></div>`,
-    `<div class="pxm" style="background:${P.azul}"><i style="background:${P.cinza};width:32%;height:64%"></i></div>`,
-    `<div class="pxm" style="background:${P.marinho}"><i style="background:${P.azul};width:68%;height:68%;border-radius:22%"></i><i style="background:${P.marinho};width:30%;height:30%"></i></div>`,
-    `<div class="pxm" style="background:${P.grafite}"><i style="background:${P.preto};width:30%;height:64%;left:12%;border-radius:40% 0 0 40%"></i><i style="background:${P.preto};width:30%;height:64%;left:58%;border-radius:0 40% 40% 0"></i></div>`,
-    `<div class="pxm" style="background:${P.preto}"><i style="background:#6b7280;width:16%;height:34%"></i></div>`,
-    `<div class="pxm" style="background:${P.preto}"></div>`
-  ].join('');
-
   // card com o logo oficial da marca (cor da própria marca), no lugar do nome em texto
   const ecoCard = (b, hex, txt) => `<div class="card biz-ecocard"><div class="biz-ecologo">${lg(b, 'logo', hex, 'height:100%')}</div><p>${txt}</p></div>`;
 
@@ -135,17 +96,6 @@ module.exports = (H, B) => {
       ${pair('#FFFFFF', P.ouro, 'Branco sobre ouro — só logo/ilustração')}
     </div>`);
 
-  // ---------- 4. Imagem & pixelator ----------
-  const pImg = panel('Imagem', 'fotografia + pixelator', `
-    <div class="two">
-      <div class="card"><h3>Fotografia</h3><p>Retratos de profissionais reais, em plano médio e <i>close</i>: luz natural suave, olhar fora da câmera, expressão serena ou sorriso discreto, fundo de escritório ou sala desfocado, tons neutros e quentes. As imagens aparecem escalonadas, em blocos que se encaixam em diagonal, sobre fundo branco.</p></div>
-      <div class="card"><h3>Pixelator</h3><p>A foto é convertida numa grade de módulos com as cores da paleta (preto, grafite, cinza claro, areia, azuis e ouro) sobre listras verticais de areia. É a ponte entre o grafismo modular da Alun e o universo corporativo — use em peças de destaque, uma vez por peça.</p></div>
-    </div>
-    <div class="biz-px">
-      <div class="biz-pxfig">${pixelPortrait()}<small>Exemplo gerado (não é fotografia real)</small></div>
-      <div><h3 class="sub" style="margin-top:0">Os 8 módulos de base</h3><div class="pxrow">${mods}</div><p class="cap" style="margin-top:12px">Combinações de cor e forma usadas como “células” do pixelator: blocos lisos, barras e um anel/colchete que se repetem na grade.</p></div>
-    </div>`);
-
   // ---------- 7. Arquitetura & aplicações ----------
   const eco = [alura, fiap, pm3, startse].map(b => `<span class="biz-eco">${lg(b, 'logo', '#fff', 'height:clamp(22px,2.8vw,34px)')}</span>`).join('');
   const pArq = panel('Arquitetura', 'marca-mãe', `
@@ -155,11 +105,11 @@ module.exports = (H, B) => {
     </div>
     <p class="cap">Alun Business é a marca-mãe; Alura, FIAP, PM3 e StartSe aparecem como marcas do ecossistema, abaixo da assinatura.</p>`);
 
-  const body = [pPos, pLogo, pCores, pImg, pArq].join('\n');
+  const body = [pPos, pLogo, pCores, pArq].join('\n');
 
   const html = sec({
     id: 'business', num: '10', label: 'Alun Business', title: ['Marca', 'do ecossistema'],
-    lead: 'Alun Business é a marca que consolida Alura, FIAP, PM3 e StartSe numa solução única, full stack, em tecnologia e negócios. Aqui: posicionamento, logo, cores, imagem e arquitetura.',
+    lead: 'Alun Business é a marca que consolida Alura, FIAP, PM3 e StartSe numa solução única, full stack, em tecnologia e negócios. Aqui: posicionamento, logo, cores e arquitetura.',
     body
   });
 
@@ -183,13 +133,6 @@ module.exports = (H, B) => {
   .biz-pair > span{width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:600;font-size:18px;flex:none}
   .biz-pair b{display:block;font-family:var(--mono);font-size:14px}
   .biz-pair small{display:block;font-size:12.5px;color:var(--muted);line-height:1.3}
-  .biz-px{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px;align-items:center;margin-top:28px}
-  .biz-pxfig{max-width:360px}.biz-pxfig small{display:block;margin-top:8px;font-size:12px;color:var(--muted)}
-  .biz-portrait{display:block;width:100%;height:auto;border:1px solid var(--line)}
-  .pxrow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-  .pxm{position:relative;aspect-ratio:1/1;overflow:hidden;display:flex;align-items:center;justify-content:center}
-  .pxm i{position:absolute;display:block}
-  .pxm i:first-child{top:50%;left:50%;transform:translate(-50%,-50%)}
   .two > .biz-phase{align-self:stretch;margin:0}
   .biz-phase ul,.biz-list{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:9px}
   .biz-phase li,.biz-list li{font-size:14.5px;line-height:1.45;padding-left:16px;position:relative}
@@ -200,7 +143,7 @@ module.exports = (H, B) => {
   .biz-eco{display:inline-flex;align-items:center}
   .biz-ecologo{height:34px;display:flex;align-items:center;margin-bottom:14px}
   .biz-ecologo .lg{height:100%;max-width:100%}
-  @media screen and (max-width:760px){.biz-px{grid-template-columns:1fr}.biz-pxfig{max-width:none}.pxrow{grid-template-columns:repeat(4,1fr)}}
+  
   `;
 
   const md = `
@@ -209,7 +152,6 @@ module.exports = (H, B) => {
 - Dores de mercado: fragmentação; pressão competitiva por dados e tecnologia; adaptação constante; complexidade de execução e disputa por atenção. Resultado: empresas precisam treinar colaboradores em meio a excesso de trilhas e dispersão de conteúdo.
 - Logo: wordmark ALUN + "BUSINESS" em caixa-alta neutra (estilo Helvetica). A altura de ALUN é a unidade Y; BUSINESS ≈ 0,57 Y, centrado na vertical, respiro ≈ 0,55 Y. Reserva: 1 Y em todos os lados. Escala mínima (altura de ALUN): 25 px digital · 10 mm impresso. Versões: branco sobre preto, preto sobre branco/cinza claro, branco sobre azul marinho/grafite/ouro (sobre ouro o contraste é baixo: prefira preto).
 - Cores (HEX do PDF; nomes sugeridos): Preto ${P.preto} · Grafite ${P.grafite} · Cinza claro ${P.cinza} · Branco ${P.branco} · Areia ${P.areia} · Ouro ${P.ouro} · Azul vivo ${P.azul} · Azul marinho ${P.marinho} · Gradiente areia → ouro.
-- Imagem: retratos de profissionais reais, luz natural suave, olhar fora da câmera, sorriso discreto, fundo desfocado de escritório; blocos escalonados sobre branco. Pixelator: foto convertida em grade de módulos nas cores da paleta sobre listras verticais de areia; 8 módulos de base.
 - Arquitetura: Alun Business como marca-mãe, com Alura, FIAP, PM3 e StartSe como marcas do ecossistema.
 `;
 
