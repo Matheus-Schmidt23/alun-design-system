@@ -241,11 +241,7 @@ module.exports = (H) => {
     id: 'grafismo', num: '05', label: 'Grafismo, grid & formatos', cls: 'black', title: ['O F', 'em movimento'],
     lead: 'O grafismo-assinatura é o <b style="color:#fff">F</b> do logo, em Magenta, repetido e recortado sobre fundo preto. O layout parte de breakpoints em <i>dp</i>.',
     body: `
-    <div class="two reveal" style="margin-top:40px;align-items:stretch">
-      <div class="gfx-card"><canvas data-gfx="fgrafismo" data-seed="5"></canvas><div class="cap"><b>Grafismo F</b>Três F repetidos sobre fundo escuro</div></div>
-      <div class="gfx-card"><canvas data-gfx="particles" data-seed="9"></canvas><div class="cap"><b>Partículas</b>Fio luminoso magenta — hero e campanhas</div></div>
-    </div>
-    <div class="rules reveal" style="margin-top:20px;grid-template-columns:repeat(3,1fr)">
+    <div class="rules reveal" style="margin-top:40px;grid-template-columns:repeat(3,1fr)">
       ${rule(1, 'Sempre em Magenta', 'O grafismo F usa a cor da marca sobre preto (ou preto sobre Magenta). Nunca recolorir com cores de outros produtos.')}
       ${rule(2, 'Recorte e escala', 'O F pode sangrar nas bordas e variar de escala, mantendo sua proporção. Nunca distorcer, espelhar ou rotacionar.')}
       ${rule(3, 'Fundo em gradiente', 'Preto com leve brilho magenta (“bgGradient”) dá profundidade às peças e aos slides do guia.')}
