@@ -148,6 +148,10 @@ if (fs.existsSync(pm3Src)) {
   };
   ['<b>Ondas de dados</b>', '<b>Montanhas de dados</b>', '<b>Linhas de dados</b>', '<b>Barras de dados</b>'].forEach(dropLineWith);
   dropLineWith('As texturas de <b style="color:#fff">dados</b>');
+  dropLineWith('<b>Gradiente Blaze</b>');   // fecha em 4 amostras (grade de 4 colunas, sem sobra)
+  // fotos em 4 colunas (a grade original era de 5) — mesma largura da linha de cima
+  const pm3Css = '@media (min-width:981px){.photo-grid{grid-template-columns:repeat(4,1fr)}.photo-grid .ph:nth-child(5n){border-radius:var(--r-card)}.photo-grid .ph:nth-child(4n){border-radius:var(--r-card) var(--r-xl) var(--r-card) var(--r-card)}}';
+  html = html.replace('</style>', pm3Css + '\n</style>');
   const pg = html.indexOf('<div class="photo-grid reveal">');
   if (pg >= 0) {
     // remove a última foto da grade (a 5ª)
