@@ -138,7 +138,7 @@ module.exports = (H) => {
   const c = (name, hex, role, o = {}) => Object.assign({ name, hex, role, rgb: rgb(hex), wide: false }, o);
   const s3 = sec({
     id: 'cores', num: '03', label: 'Cores', cls: 'alt', title: ['Magenta,', 'preto e luz'],
-    lead: 'A paleta institucional é enxuta: Magenta, preto e branco, com cinzas azulados de apoio. Cada produto tem a sua paleta própria (FIAP School, Módulo, Next) e há uma paleta para peças do grupo. Clique em qualquer cor para copiar o HEX.',
+    lead: 'A paleta institucional é enxuta: Magenta, preto e branco, com cinzas azulados de apoio. Os produtos têm paletas próprias, nas abas abaixo. Clique em uma cor para copiar o HEX.',
     body: `
     ${sub('Produtos FIAP — institucional, graduação, MBA, Shift, FIAP ON')}
     ${swGrid([
@@ -152,19 +152,23 @@ module.exports = (H) => {
       c('Cool Gray 3 C', '#C8C8C6', 'Impressos — neutro', { light: true, sm: true, pantone: 'Cool Gray 3 C' }),
       c('Cinza textura', '#C6C4C3', 'Impressos — textura (27 22 22 0)', { light: true, sm: true, pantone: 'Metallic 10102 C' })
     ])}
-    ${sub('FIAP School')}
+    <div class="comp reveal"><div class="ct"><h3>FIAP School</h3><span>paleta do produto</span></div>
     ${swGrid([
       c('#7DE1D3', '#7DE1D3', 'Verde-água', { sm: true, light: true }), c('#29F4D5', '#29F4D5', 'Turquesa vibrante', { sm: true, light: true }), c('#22DBC0', '#22DBC0', 'Turquesa', { sm: true, light: true }), c('#B7FF00', '#B7FF00', 'Lima', { sm: true, light: true }),
       c('#6DC8BF', '#6DC8BF', 'Verde-água médio', { sm: true, light: true }), c('#A0D4CD', '#A0D4CD', 'Verde-água claro', { sm: true, light: true }), c('#D2DE26', '#D2DE26', 'Verde-limão', { sm: true, light: true }), c('Magenta', MG, 'Compartilhada com a marca FIAP', { sm: true })
     ])}
-    ${sub('Colégio Módulo')}
+    </div>
+    <div class="comp reveal"><div class="ct"><h3>Colégio Módulo</h3><span>paleta do produto</span></div>
     ${swGrid([
       c('#5A008C', '#5A008C', 'Roxo profundo', { sm: true }), c('#851BFA', '#851BFA', 'Roxo vibrante', { sm: true }), c('#8E7ED5', '#8E7ED5', 'Lavanda', { sm: true }), c('#25DBEF', '#25DBEF', 'Ciano', { sm: true, light: true }), c('#FFFD39', '#FFFD39', 'Amarelo', { sm: true, light: true })
     ])}
-    ${sub('Evento NEXT FIAP')}
+    </div>
+    <div class="comp reveal"><div class="ct"><h3>Evento NEXT</h3><span>paleta do evento</span></div>
     ${swGrid([c('#FCEA10', '#FCEA10', 'Amarelo', { sm: true, light: true }), c('#67C3CF', '#67C3CF', 'Azul-turquesa', { sm: true, light: true }), c('Dark', BK, 'Base', { sm: true }), c('White', WH, 'Base', { sm: true, light: true, bordered: true })])}
-    ${sub('Peças do grupo Alun')}
+    </div>
+    <div class="comp reveal"><div class="ct"><h3>Peças do grupo Alun</h3><span>paleta compartilhada</span></div>
     ${swGrid([c('#FF9414', '#FF9414', 'Odisseia On', { sm: true, light: true }), c('#ED1460', '#ED1460', 'Magenta On', { sm: true }), c('#610725', '#610725', 'Magenta Off', { sm: true }), c('#D1CDCD', '#D1CDCD', 'Placa Mãe', { sm: true, light: true }), c('#333333', '#333333', 'Cinza', { sm: true }), c('#9A4800', '#9A4800', 'Odisseia Off', { sm: true })])}
+    </div>
     <p class="reveal" style="margin-top:14px;font-size:13.5px">As cores do grupo seguem o guia da marca Alun — veja a plataforma da Alun. Os nomes de algumas cores do FIAP School e do Módulo não constam no arquivo original; os descritivos acima são orientativos.</p>
 
     ${sub('Equilíbrio de uso', 'leitura do site')}
@@ -235,25 +239,20 @@ module.exports = (H) => {
   const fmt = [['Feed quadrado', 1080, 1080], ['Feed retrato', 1080, 1350], ['Stories', 1080, 1920], ['Facebook / link', 1200, 628], ['E-book (capa)', 1600, 2400], ['Header HubSpot', 600, 365]];
   const s5 = sec({
     id: 'grafismo', num: '05', label: 'Grafismo, grid & formatos', cls: 'black', title: ['O F', 'em movimento'],
-    lead: 'O grafismo-assinatura é o <b style="color:#fff">F</b> do logo, em Magenta, repetido e recortado — sobre fundos pretos com gradientes e partículas luminosas. O sistema de layout parte de breakpoints em <i>dp</i> e de formatos padronizados para cada canal.',
+    lead: 'O grafismo-assinatura é o <b style="color:#fff">F</b> do logo, em Magenta, repetido e recortado sobre fundo preto. O layout parte de breakpoints em <i>dp</i>.',
     body: `
     <div class="two reveal" style="margin-top:40px;align-items:stretch">
       <div class="gfx-card"><canvas data-gfx="fgrafismo" data-seed="5"></canvas><div class="cap"><b>Grafismo F</b>Três F repetidos sobre fundo escuro</div></div>
       <div class="gfx-card"><canvas data-gfx="particles" data-seed="9"></canvas><div class="cap"><b>Partículas</b>Fio luminoso magenta — hero e campanhas</div></div>
     </div>
-    <div class="rules reveal" style="margin-top:20px;grid-template-columns:repeat(2,1fr)">
+    <div class="rules reveal" style="margin-top:20px;grid-template-columns:repeat(3,1fr)">
       ${rule(1, 'Sempre em Magenta', 'O grafismo F usa a cor da marca sobre preto (ou preto sobre Magenta). Nunca recolorir com cores de outros produtos.')}
       ${rule(2, 'Recorte e escala', 'O F pode sangrar nas bordas e variar de escala, mantendo sua proporção. Nunca distorcer, espelhar ou rotacionar.')}
       ${rule(3, 'Fundo em gradiente', 'Preto com leve brilho magenta (“bgGradient”) dá profundidade às peças e aos slides do guia.')}
-      ${rule(4, 'Há exemplos de “não aplicar”', 'O arquivo traz usos incorretos do grafismo F — consulte-os antes de criar variações novas.', true)}
     </div>
 
     ${sub('Breakpoints de layout')}
-    <div class="bpviz reveal">${bp.map(([n, r, w]) => `<div style="width:${w}%"><b>${n}</b><span>${r}</span></div>`).join('')}</div>
-    <p class="reveal" style="margin-top:12px;font-size:13.5px">Guia de tamanhos de layout web: Extra Small (0–599 dp), Small (600–904 dp), Medium (905–1239 dp), Medium (1240–1439 dp) e Large (1440+ dp), como no arquivo original.</p>
-
-    ${sub('Formatos de peças')}
-    <div class="fmtviz reveal">${fmt.map(([n, w, h]) => { const k = 90 / Math.max(w, h); return `<div><i style="width:${Math.round(w * k)}px;height:${Math.round(h * k)}px"></i><b>${n}</b><span>${w} × ${h} px</span></div>`; }).join('')}</div>`
+    <div class="bpviz reveal">${bp.map(([n, r, w]) => `<div style="width:${w}%"><b>${n}</b><span>${r}</span></div>`).join('')}</div>`
   });
 
   // ---------------- 06 IMAGEM / FUNDOS ----------------
@@ -340,7 +339,7 @@ module.exports = (H) => {
     body: `
     <div class="pieces" style="margin-top:44px">
       <div class="pc-wrap p-feed reveal"><div class="piece sq" style="background:#000">
-        <canvas data-gfx="particles" data-seed="30"></canvas>
+        <div class="a" style="inset:0;background:radial-gradient(70% 80% at 85% 25%,rgba(237,20,91,.32),transparent 70%)"></div>
         <span class="a T" style="left:calc(64*var(--u));top:calc(64*var(--u));font-size:calc(26*var(--u));letter-spacing:.14em;color:${UL};font-weight:500">TECH INTENSIVE</span>
         <span class="a T" style="left:calc(64*var(--u));bottom:calc(210*var(--u));right:calc(64*var(--u));font-size:calc(120*var(--u));line-height:.95;color:#fff;font-weight:500;text-transform:uppercase">A melhor<br>faculdade<br><span style="color:${MG}">tech</span> do Brasil</span>
         <div class="a" style="left:0;right:0;bottom:0;height:calc(130*var(--u));background:${MG}"></div>
@@ -349,7 +348,7 @@ module.exports = (H) => {
       </div><div class="pc-cap"><b>Feed</b><span>1080 × 1080</span></div></div>
 
       <div class="pc-wrap p-story reveal"><div class="piece st" style="background:#000">
-        <canvas data-gfx="fgrafismo" data-seed="8"></canvas>
+        <div class="a" style="inset:0;background:radial-gradient(90% 55% at 50% 100%,rgba(237,20,91,.38),transparent 72%)"></div>
         <span class="a T" style="left:calc(70*var(--u));top:calc(200*var(--u));right:calc(70*var(--u));font-size:calc(116*var(--u));line-height:1;color:#fff;font-weight:500;text-transform:uppercase">O futuro está <span style="color:${MG}">te contratando</span></span>
         <span class="a R" style="left:calc(70*var(--u));right:calc(70*var(--u));bottom:calc(420*var(--u));font-size:calc(46*var(--u));line-height:1.3;color:${UL}">Estude na faculdade que mais conecta talento e mercado.</span>
         <div class="a" style="left:calc(70*var(--u));bottom:calc(240*var(--u));padding:calc(30*var(--u)) calc(50*var(--u));background:${MG};color:#fff;font-family:var(--display);font-weight:600;font-size:calc(38*var(--u));letter-spacing:.08em">INSCREVA-SE</div>
@@ -364,7 +363,7 @@ module.exports = (H) => {
       </div><div class="pc-cap"><b>Capa de e-book</b><span>1600 × 2400</span></div></div>
 
       <div class="pc-wrap p-slide reveal"><div class="piece wd" style="background:#000">
-        <canvas data-gfx="particles" data-seed="41"></canvas>
+        <div class="a" style="inset:0;background:radial-gradient(60% 100% at 95% 55%,rgba(237,20,91,.32),transparent 70%)"></div>
         <span class="a T" style="left:calc(110*var(--u));top:calc(96*var(--u));font-size:calc(30*var(--u));letter-spacing:.14em;color:${UL};font-weight:500">FIAP · GRADUAÇÃO ON</span>
         <span class="a T" style="left:calc(110*var(--u));top:calc(260*var(--u));width:58%;font-size:calc(130*var(--u));line-height:.98;color:#fff;font-weight:500;text-transform:uppercase">Crie projetos reais com <span style="color:${MG}">empresas globais</span></span>
         <div class="a" style="left:0;bottom:0;width:100%;height:calc(14*var(--u));background:${MG}"></div>
@@ -559,9 +558,9 @@ module.exports = (H) => {
       var g=ctx.createLinearGradient(0,0,w,h);g.addColorStop(0,'#050506');g.addColorStop(1,'#2a0612');ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
       var F=new Path2D('M0 27.506h2.671V2.742h20.421V.205H0zM17.667 12.929H7.344v2.537h10.323z');
       var base=Math.min(w,h)*.26;
-      for(var k=0;k<14;k++){
+      for(var k=0;k<5;k++){
         var sc=(base/28)*(.35+r()*1.5),x=(r()*1.1-.05)*w,y=(r()*1.1-.05)*h;
-        ctx.save();ctx.translate(x,y);ctx.scale(sc,sc);ctx.globalAlpha=.25+r()*.75;ctx.fillStyle=r()<.8?'#ED145B':'#fff';ctx.fill(F);ctx.restore();
+        ctx.save();ctx.translate(x,y);ctx.scale(sc,sc);ctx.globalAlpha=.35+r()*.5;ctx.fillStyle=r()<.92?'#ED145B':'#fff';ctx.fill(F);ctx.restore();
       }
       var sc2=(Math.min(w,h)*.34)/28;ctx.globalAlpha=1;
       for(var i=0;i<3;i++){ctx.save();ctx.translate(w*.1+i*(24*sc2*.9),h*.16);ctx.scale(sc2,sc2);ctx.fillStyle='#ED145B';ctx.fill(F);ctx.restore();}

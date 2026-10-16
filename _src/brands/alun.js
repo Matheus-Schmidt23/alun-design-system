@@ -235,11 +235,7 @@ module.exports = (H) => {
     body: `
     <div class="two reveal" style="margin-top:40px;align-items:start">
       <div class="mos-box">
-        <canvas id="mosDemo" data-gfx="mosaic" data-seed="3" data-variant="full" data-mask="ellipse"></canvas>
-        <div class="mos-ctl">
-          <button class="btn btn-accent btn-sm" id="mosNew" type="button">Nova variação</button>
-          <div class="dl-seg" id="mosVar" role="group" aria-label="Paleta do grafismo"><button type="button" data-v="full" class="on">Magenta + laranja</button><button type="button" data-v="mono">Só magenta</button></div>
-        </div>
+        <canvas data-gfx="mosaic" data-seed="3" data-variant="full" data-mask="ellipse"></canvas>
       </div>
       <div class="rules">
         ${rule(1, 'Módulo 4×2', 'A unidade é um módulo de 4 × 2 células derivado das formas do símbolo: anéis, colchetes, barras e blocos chapados.')}
@@ -640,12 +636,6 @@ module.exports = (H) => {
       }}
     }
     window.GFX={mosaic:function(cv){mosaic(cv);}};
-    window.addEventListener('load',function(){
-      var d=document.getElementById('mosDemo'),nb=document.getElementById('mosNew'),seg=document.getElementById('mosVar');
-      if(!d)return;var seed=+d.dataset.seed;
-      nb&&nb.addEventListener('click',function(){seed=Math.floor(Math.random()*9000)+10;d.dataset.seed=seed;mosaic(d);});
-      seg&&seg.addEventListener('click',function(e){var b=e.target.closest('button[data-v]');if(!b)return;d.dataset.variant=b.dataset.v;[].forEach.call(seg.querySelectorAll('button'),function(x){x.classList.toggle('on',x===b)});mosaic(d);});
-    });
   })();
   `;
 

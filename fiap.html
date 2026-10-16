@@ -297,17 +297,11 @@ h3.sub{font-family:var(--display);font-size:13px;font-weight:700;text-transform:
 .alert.ok{background:#e0f5e6;color:#14602a}.alert.ok i{background:#2c9a4b}
 
 /* ---------- peças (mockups em unidade 1080) ---------- */
-/* peças: faixa única, todas na mesma altura, rolagem horizontal */
-.pieces-wrap{position:relative}
-.pieces{--h:400px;display:flex;gap:26px;align-items:flex-end;overflow-x:auto;scroll-snap-type:x proximity;padding:8px 4px 22px;scrollbar-width:thin;scrollbar-color:var(--c-soft) transparent}
-.pieces > .pc-wrap{flex:none;scroll-snap-align:start;width:calc(var(--h) * var(--ar,1))}
-.pc-nav{position:absolute;top:calc(50% - 40px);width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:#000;font-size:20px;line-height:1;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.35);display:none;align-items:center;justify-content:center;z-index:3}
-.pc-nav.prev{left:-10px}.pc-nav.next{right:-10px}
-.pieces-wrap.can-scroll .pc-nav{display:flex}
-.pc-nav[disabled]{visibility:hidden}
-.pieces-hint{font-size:12.5px;color:var(--muted);margin-top:4px}
+/* peças: todas visíveis, sem rolagem — largura proporcional ao formato = mesma altura em todas */
+.pieces{display:flex;gap:24px;align-items:flex-end}
+.pieces > .pc-wrap{flex:var(--ar,1) 1 0;min-width:0}
 .pc-wrap{display:flex;flex-direction:column;gap:12px}
-.pc-wrap .pc-cap{font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;gap:10px}
+.pc-wrap .pc-cap{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:2px}
 .pc-wrap .pc-cap b{font-family:var(--display);color:var(--ink);font-size:13.5px}
 .piece{container-type:inline-size;position:relative;overflow:hidden;background:#000;box-shadow:var(--shadow-lg);border-radius:var(--r-piece,14px);--u:calc(100cqw / 1080)}
 .piece *{box-sizing:border-box}
@@ -358,7 +352,9 @@ footer a{color:#fff}
   .sw-grid{grid-template-columns:1fr 1fr}
   .tex-grid{grid-template-columns:1fr 1fr}
   .type-demo,.tok-grid,.dodont,.dd,.dd3,.two{grid-template-columns:1fr}
-  .pieces{--h:340px}
+  .pieces{display:grid;grid-template-columns:1fr 1fr;align-items:start}
+  .pieces > .pc-wrap{flex:none}
+  .pieces > .p-slide,.pieces > .p-slide2{grid-column:1/-1}
   .logo-grid{grid-template-columns:1fr 1fr}
   .wrong{grid-template-columns:1fr 1fr}
   .dl-grid{grid-template-columns:1fr 1fr}
@@ -372,8 +368,8 @@ footer a{color:#fff}
   .g2,.g3,.g4,.fam,.cc-grid,.voice-ex,.ph-rules,.sw-grid,.logo-grid,.wrong,.tex-grid,.dl-grid{grid-template-columns:1fr}
   .sw.wide,.tex.wide{grid-column:auto}
   .tex.tall{grid-row:auto;aspect-ratio:1/1}
-  .pieces{--h:300px}
-  .pc-nav{display:none !important}
+  .pieces{grid-template-columns:1fr}
+  .pieces > .pc-wrap:not(.p-slide):not(.p-slide2){max-width:340px;width:100%;margin:0 auto}
   .check{columns:1}
   .quote-bar{padding:30px 26px;flex-direction:column;gap:6px}
   .type-demo{padding:32px 26px}
@@ -613,19 +609,23 @@ html,body{overflow-x:clip}
   <div class="wrap">
     <div class="kicker reveal"><span class="num">03</span> Cores</div>
     <h2 class="title reveal">Magenta, <span class="c2">preto e luz</span></h2>
-    <p class="lead reveal">A paleta institucional é enxuta: Magenta, preto e branco, com cinzas azulados de apoio. Cada produto tem a sua paleta própria (FIAP School, Módulo, Next) e há uma paleta para peças do grupo. Clique em qualquer cor para copiar o HEX.</p>
+    <p class="lead reveal">A paleta institucional é enxuta: Magenta, preto e branco, com cinzas azulados de apoio. Os produtos têm paletas próprias, nas abas abaixo. Clique em uma cor para copiar o HEX.</p>
     
     <h3 class="sub reveal">Produtos FIAP — institucional, graduação, MBA, Shift, FIAP ON</h3>
     <div class="sw-grid reveal" ><div class="sw wide light" role="button" tabindex="0" data-hex="#ED145B" style="background:#ED145B;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">Magenta</div><div class="role">Cor da marca — logo, destaques, faixas, setas</div></div><div class="codes"><b>HEX</b>#ED145B &nbsp; <b>RGB</b>237 20 91<br><b>CMYK</b>0 100 22 0 &nbsp; <b>PANTONE</b>Rubine Red C</div></div><div class="sw" role="button" tabindex="0" data-hex="#000000" style="background:#000000;color:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">Dark</div><div class="role">Fundo dominante, blocos e texto</div></div><div class="codes"><b>HEX</b>#000000 &nbsp; <b>RGB</b>0 0 0<br><b>CMYK</b>100 100 100 100 &nbsp; <b>PANTONE</b>Black</div></div><div class="sw light bordered" role="button" tabindex="0" data-hex="#FFFFFF" style="background:#FFFFFF;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">White</div><div class="role">Respiro, texto sobre escuro</div></div><div class="codes"><b>HEX</b>#FFFFFF &nbsp; <b>RGB</b>255 255 255<br><b>PANTONE</b>White</div></div></div>
     <div class="sw-grid reveal" ><div class="sw light sm" role="button" tabindex="0" data-hex="#ACC1CC" style="background:#ACC1CC;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">Cinza claro</div><div class="role">Subtítulos e apoio em fundo escuro</div></div><div class="codes"><b>HEX</b>#ACC1CC &nbsp; <b>RGB</b>172 193 204</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#75838B" style="background:#75838B;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">Cinza escuro</div><div class="role">Slate gray — texto secundário, overlays</div></div><div class="codes"><b>HEX</b>#75838B &nbsp; <b>RGB</b>117 131 139</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#C8C8C6" style="background:#C8C8C6;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">Cool Gray 3 C</div><div class="role">Impressos — neutro</div></div><div class="codes"><b>HEX</b>#C8C8C6 &nbsp; <b>RGB</b>200 200 198<br><b>PANTONE</b>Cool Gray 3 C</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#C6C4C3" style="background:#C6C4C3;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">Cinza textura</div><div class="role">Impressos — textura (27 22 22 0)</div></div><div class="codes"><b>HEX</b>#C6C4C3 &nbsp; <b>RGB</b>198 196 195<br><b>PANTONE</b>Metallic 10102 C</div></div></div>
-    <h3 class="sub reveal">FIAP School</h3>
+    <div class="comp reveal"><div class="ct"><h3>FIAP School</h3><span>paleta do produto</span></div>
     <div class="sw-grid reveal" ><div class="sw light sm" role="button" tabindex="0" data-hex="#7DE1D3" style="background:#7DE1D3;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">#7DE1D3</div><div class="role">Verde-água</div></div><div class="codes"><b>HEX</b>#7DE1D3 &nbsp; <b>RGB</b>125 225 211</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#29F4D5" style="background:#29F4D5;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">#29F4D5</div><div class="role">Turquesa vibrante</div></div><div class="codes"><b>HEX</b>#29F4D5 &nbsp; <b>RGB</b>41 244 213</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#22DBC0" style="background:#22DBC0;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">#22DBC0</div><div class="role">Turquesa</div></div><div class="codes"><b>HEX</b>#22DBC0 &nbsp; <b>RGB</b>34 219 192</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#B7FF00" style="background:#B7FF00;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">#B7FF00</div><div class="role">Lima</div></div><div class="codes"><b>HEX</b>#B7FF00 &nbsp; <b>RGB</b>183 255 0</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#6DC8BF" style="background:#6DC8BF;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">#6DC8BF</div><div class="role">Verde-água médio</div></div><div class="codes"><b>HEX</b>#6DC8BF &nbsp; <b>RGB</b>109 200 191</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#A0D4CD" style="background:#A0D4CD;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">#A0D4CD</div><div class="role">Verde-água claro</div></div><div class="codes"><b>HEX</b>#A0D4CD &nbsp; <b>RGB</b>160 212 205</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#D2DE26" style="background:#D2DE26;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">#D2DE26</div><div class="role">Verde-limão</div></div><div class="codes"><b>HEX</b>#D2DE26 &nbsp; <b>RGB</b>210 222 38</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#ED145B" style="background:#ED145B;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">Magenta</div><div class="role">Compartilhada com a marca FIAP</div></div><div class="codes"><b>HEX</b>#ED145B &nbsp; <b>RGB</b>237 20 91</div></div></div>
-    <h3 class="sub reveal">Colégio Módulo</h3>
+    </div>
+    <div class="comp reveal"><div class="ct"><h3>Colégio Módulo</h3><span>paleta do produto</span></div>
     <div class="sw-grid reveal" ><div class="sw sm" role="button" tabindex="0" data-hex="#5A008C" style="background:#5A008C;color:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">#5A008C</div><div class="role">Roxo profundo</div></div><div class="codes"><b>HEX</b>#5A008C &nbsp; <b>RGB</b>90 0 140</div></div><div class="sw sm" role="button" tabindex="0" data-hex="#851BFA" style="background:#851BFA;color:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">#851BFA</div><div class="role">Roxo vibrante</div></div><div class="codes"><b>HEX</b>#851BFA &nbsp; <b>RGB</b>133 27 250</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#8E7ED5" style="background:#8E7ED5;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">#8E7ED5</div><div class="role">Lavanda</div></div><div class="codes"><b>HEX</b>#8E7ED5 &nbsp; <b>RGB</b>142 126 213</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#25DBEF" style="background:#25DBEF;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">#25DBEF</div><div class="role">Ciano</div></div><div class="codes"><b>HEX</b>#25DBEF &nbsp; <b>RGB</b>37 219 239</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#FFFD39" style="background:#FFFD39;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">#FFFD39</div><div class="role">Amarelo</div></div><div class="codes"><b>HEX</b>#FFFD39 &nbsp; <b>RGB</b>255 253 57</div></div></div>
-    <h3 class="sub reveal">Evento NEXT FIAP</h3>
+    </div>
+    <div class="comp reveal"><div class="ct"><h3>Evento NEXT</h3><span>paleta do evento</span></div>
     <div class="sw-grid reveal" ><div class="sw light sm" role="button" tabindex="0" data-hex="#FCEA10" style="background:#FCEA10;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">#FCEA10</div><div class="role">Amarelo</div></div><div class="codes"><b>HEX</b>#FCEA10 &nbsp; <b>RGB</b>252 234 16</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#67C3CF" style="background:#67C3CF;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">#67C3CF</div><div class="role">Azul-turquesa</div></div><div class="codes"><b>HEX</b>#67C3CF &nbsp; <b>RGB</b>103 195 207</div></div><div class="sw sm" role="button" tabindex="0" data-hex="#000000" style="background:#000000;color:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">Dark</div><div class="role">Base</div></div><div class="codes"><b>HEX</b>#000000 &nbsp; <b>RGB</b>0 0 0</div></div><div class="sw light bordered sm" role="button" tabindex="0" data-hex="#FFFFFF" style="background:#FFFFFF;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">White</div><div class="role">Base</div></div><div class="codes"><b>HEX</b>#FFFFFF &nbsp; <b>RGB</b>255 255 255</div></div></div>
-    <h3 class="sub reveal">Peças do grupo Alun</h3>
+    </div>
+    <div class="comp reveal"><div class="ct"><h3>Peças do grupo Alun</h3><span>paleta compartilhada</span></div>
     <div class="sw-grid reveal" ><div class="sw light sm" role="button" tabindex="0" data-hex="#FF9414" style="background:#FF9414;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">#FF9414</div><div class="role">Odisseia On</div></div><div class="codes"><b>HEX</b>#FF9414 &nbsp; <b>RGB</b>255 148 20</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#ED1460" style="background:#ED1460;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">#ED1460</div><div class="role">Magenta On</div></div><div class="codes"><b>HEX</b>#ED1460 &nbsp; <b>RGB</b>237 20 96</div></div><div class="sw sm" role="button" tabindex="0" data-hex="#610725" style="background:#610725;color:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">#610725</div><div class="role">Magenta Off</div></div><div class="codes"><b>HEX</b>#610725 &nbsp; <b>RGB</b>97 7 37</div></div><div class="sw light sm" role="button" tabindex="0" data-hex="#D1CDCD" style="background:#D1CDCD;color:#0D0D0D;"><span class="hint">copiar HEX</span><div><div class="nm">#D1CDCD</div><div class="role">Placa Mãe</div></div><div class="codes"><b>HEX</b>#D1CDCD &nbsp; <b>RGB</b>209 205 205</div></div><div class="sw sm" role="button" tabindex="0" data-hex="#333333" style="background:#333333;color:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">#333333</div><div class="role">Cinza</div></div><div class="codes"><b>HEX</b>#333333 &nbsp; <b>RGB</b>51 51 51</div></div><div class="sw sm" role="button" tabindex="0" data-hex="#9A4800" style="background:#9A4800;color:#FFFFFF;"><span class="hint">copiar HEX</span><div><div class="nm">#9A4800</div><div class="role">Odisseia Off</div></div><div class="codes"><b>HEX</b>#9A4800 &nbsp; <b>RGB</b>154 72 0</div></div></div>
+    </div>
     <p class="reveal" style="margin-top:14px;font-size:13.5px">As cores do grupo seguem o guia da marca Alun — veja a plataforma da Alun. Os nomes de algumas cores do FIAP School e do Módulo não constam no arquivo original; os descritivos acima são orientativos.</p>
 
     <h3 class="sub reveal">Equilíbrio de uso <span class="chip-prop">leitura do site</span></h3>
@@ -696,25 +696,20 @@ html,body{overflow-x:clip}
   <div class="wrap">
     <div class="kicker reveal"><span class="num">05</span> Grafismo, grid & formatos</div>
     <h2 class="title reveal">O F <span class="c2">em movimento</span></h2>
-    <p class="lead reveal">O grafismo-assinatura é o <b style="color:#fff">F</b> do logo, em Magenta, repetido e recortado — sobre fundos pretos com gradientes e partículas luminosas. O sistema de layout parte de breakpoints em <i>dp</i> e de formatos padronizados para cada canal.</p>
+    <p class="lead reveal">O grafismo-assinatura é o <b style="color:#fff">F</b> do logo, em Magenta, repetido e recortado sobre fundo preto. O layout parte de breakpoints em <i>dp</i>.</p>
     
     <div class="two reveal" style="margin-top:40px;align-items:stretch">
       <div class="gfx-card"><canvas data-gfx="fgrafismo" data-seed="5"></canvas><div class="cap"><b>Grafismo F</b>Três F repetidos sobre fundo escuro</div></div>
       <div class="gfx-card"><canvas data-gfx="particles" data-seed="9"></canvas><div class="cap"><b>Partículas</b>Fio luminoso magenta — hero e campanhas</div></div>
     </div>
-    <div class="rules reveal" style="margin-top:20px;grid-template-columns:repeat(2,1fr)">
+    <div class="rules reveal" style="margin-top:20px;grid-template-columns:repeat(3,1fr)">
       <div class="rule"><div class="n">1</div><div><h4>Sempre em Magenta</h4><p>O grafismo F usa a cor da marca sobre preto (ou preto sobre Magenta). Nunca recolorir com cores de outros produtos.</p></div></div>
       <div class="rule"><div class="n">2</div><div><h4>Recorte e escala</h4><p>O F pode sangrar nas bordas e variar de escala, mantendo sua proporção. Nunca distorcer, espelhar ou rotacionar.</p></div></div>
       <div class="rule"><div class="n">3</div><div><h4>Fundo em gradiente</h4><p>Preto com leve brilho magenta (“bgGradient”) dá profundidade às peças e aos slides do guia.</p></div></div>
-      <div class="rule hl"><div class="n">4</div><div><h4>Há exemplos de “não aplicar”</h4><p>O arquivo traz usos incorretos do grafismo F — consulte-os antes de criar variações novas.</p></div></div>
     </div>
 
     <h3 class="sub reveal">Breakpoints de layout</h3>
     <div class="bpviz reveal"><div style="width:18%"><b>Extra Small</b><span>0–599 dp</span></div><div style="width:30%"><b>Small</b><span>600–904 dp</span></div><div style="width:48%"><b>Medium</b><span>905–1239 dp</span></div><div style="width:66%"><b>Medium</b><span>1240–1439 dp</span></div><div style="width:86%"><b>Large</b><span>1440+ dp</span></div></div>
-    <p class="reveal" style="margin-top:12px;font-size:13.5px">Guia de tamanhos de layout web: Extra Small (0–599 dp), Small (600–904 dp), Medium (905–1239 dp), Medium (1240–1439 dp) e Large (1440+ dp), como no arquivo original.</p>
-
-    <h3 class="sub reveal">Formatos de peças</h3>
-    <div class="fmtviz reveal"><div><i style="width:90px;height:90px"></i><b>Feed quadrado</b><span>1080 × 1080 px</span></div><div><i style="width:72px;height:90px"></i><b>Feed retrato</b><span>1080 × 1350 px</span></div><div><i style="width:51px;height:90px"></i><b>Stories</b><span>1080 × 1920 px</span></div><div><i style="width:90px;height:47px"></i><b>Facebook / link</b><span>1200 × 628 px</span></div><div><i style="width:60px;height:90px"></i><b>E-book (capa)</b><span>1600 × 2400 px</span></div><div><i style="width:90px;height:55px"></i><b>Header HubSpot</b><span>600 × 365 px</span></div></div>
   </div>
 </section>
 
@@ -807,7 +802,7 @@ html,body{overflow-x:clip}
     
     <div class="pieces" style="margin-top:44px">
       <div class="pc-wrap p-feed reveal"><div class="piece sq" style="background:#000">
-        <canvas data-gfx="particles" data-seed="30"></canvas>
+        <div class="a" style="inset:0;background:radial-gradient(70% 80% at 85% 25%,rgba(237,20,91,.32),transparent 70%)"></div>
         <span class="a T" style="left:calc(64*var(--u));top:calc(64*var(--u));font-size:calc(26*var(--u));letter-spacing:.14em;color:#ACC1CC;font-weight:500">TECH INTENSIVE</span>
         <span class="a T" style="left:calc(64*var(--u));bottom:calc(210*var(--u));right:calc(64*var(--u));font-size:calc(120*var(--u));line-height:.95;color:#fff;font-weight:500;text-transform:uppercase">A melhor<br>faculdade<br><span style="color:#ED145B">tech</span> do Brasil</span>
         <div class="a" style="left:0;right:0;bottom:0;height:calc(130*var(--u));background:#ED145B"></div>
@@ -816,7 +811,7 @@ html,body{overflow-x:clip}
       </div><div class="pc-cap"><b>Feed</b><span>1080 × 1080</span></div></div>
 
       <div class="pc-wrap p-story reveal"><div class="piece st" style="background:#000">
-        <canvas data-gfx="fgrafismo" data-seed="8"></canvas>
+        <div class="a" style="inset:0;background:radial-gradient(90% 55% at 50% 100%,rgba(237,20,91,.38),transparent 72%)"></div>
         <span class="a T" style="left:calc(70*var(--u));top:calc(200*var(--u));right:calc(70*var(--u));font-size:calc(116*var(--u));line-height:1;color:#fff;font-weight:500;text-transform:uppercase">O futuro está <span style="color:#ED145B">te contratando</span></span>
         <span class="a R" style="left:calc(70*var(--u));right:calc(70*var(--u));bottom:calc(420*var(--u));font-size:calc(46*var(--u));line-height:1.3;color:#ACC1CC">Estude na faculdade que mais conecta talento e mercado.</span>
         <div class="a" style="left:calc(70*var(--u));bottom:calc(240*var(--u));padding:calc(30*var(--u)) calc(50*var(--u));background:#ED145B;color:#fff;font-family:var(--display);font-weight:600;font-size:calc(38*var(--u));letter-spacing:.08em">INSCREVA-SE</div>
@@ -831,7 +826,7 @@ html,body{overflow-x:clip}
       </div><div class="pc-cap"><b>Capa de e-book</b><span>1600 × 2400</span></div></div>
 
       <div class="pc-wrap p-slide reveal"><div class="piece wd" style="background:#000">
-        <canvas data-gfx="particles" data-seed="41"></canvas>
+        <div class="a" style="inset:0;background:radial-gradient(60% 100% at 95% 55%,rgba(237,20,91,.32),transparent 70%)"></div>
         <span class="a T" style="left:calc(110*var(--u));top:calc(96*var(--u));font-size:calc(30*var(--u));letter-spacing:.14em;color:#ACC1CC;font-weight:500">FIAP · GRADUAÇÃO ON</span>
         <span class="a T" style="left:calc(110*var(--u));top:calc(260*var(--u));width:58%;font-size:calc(130*var(--u));line-height:.98;color:#fff;font-weight:500;text-transform:uppercase">Crie projetos reais com <span style="color:#ED145B">empresas globais</span></span>
         <div class="a" style="left:0;bottom:0;width:100%;height:calc(14*var(--u));background:#ED145B"></div>
@@ -1040,9 +1035,9 @@ Design System FIAP 2.0 (Criação FIAP, arquivo Figma) · fiap.com.br
       var g=ctx.createLinearGradient(0,0,w,h);g.addColorStop(0,'#050506');g.addColorStop(1,'#2a0612');ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
       var F=new Path2D('M0 27.506h2.671V2.742h20.421V.205H0zM17.667 12.929H7.344v2.537h10.323z');
       var base=Math.min(w,h)*.26;
-      for(var k=0;k<14;k++){
+      for(var k=0;k<5;k++){
         var sc=(base/28)*(.35+r()*1.5),x=(r()*1.1-.05)*w,y=(r()*1.1-.05)*h;
-        ctx.save();ctx.translate(x,y);ctx.scale(sc,sc);ctx.globalAlpha=.25+r()*.75;ctx.fillStyle=r()<.8?'#ED145B':'#fff';ctx.fill(F);ctx.restore();
+        ctx.save();ctx.translate(x,y);ctx.scale(sc,sc);ctx.globalAlpha=.35+r()*.5;ctx.fillStyle=r()<.92?'#ED145B':'#fff';ctx.fill(F);ctx.restore();
       }
       var sc2=(Math.min(w,h)*.34)/28;ctx.globalAlpha=1;
       for(var i=0;i<3;i++){ctx.save();ctx.translate(w*.1+i*(24*sc2*.9),h*.16);ctx.scale(sc2,sc2);ctx.fillStyle='#ED145B';ctx.fill(F);ctx.restore();}
@@ -1140,7 +1135,7 @@ Design System FIAP 2.0 (Criação FIAP, arquivo Figma) · fiap.com.br
   });
 })();
 
-// ---- componentes em abas + peças em carrossel ----
+// ---- componentes em abas ----
 (function(){
   const $ = (s, r=document) => [...r.querySelectorAll(s)];
   $('.wrap').forEach(w => {
@@ -1154,13 +1149,6 @@ Design System FIAP 2.0 (Criação FIAP, arquivo Figma) · fiap.com.br
     });
     function sel(i){ comps.forEach((c, k) => { c.classList.toggle('is-hidden', k !== i); btns[k].setAttribute('aria-selected', k === i ? 'true' : 'false'); }); window.dispatchEvent(new Event('resize')); }
     w.insertBefore(bar, comps[0]); const tq = location.search.match(/[?&]tab=([0-9]+)/); sel(tq ? Math.min(+tq[1], comps.length - 1) : 0);
-  });
-  $('.pieces').forEach(p => {
-    const wrap = document.createElement('div'); wrap.className = 'pieces-wrap'; p.parentNode.insertBefore(wrap, p); wrap.appendChild(p);
-    const mk = (cls, t, dir) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'pc-nav ' + cls; b.setAttribute('aria-label', dir < 0 ? 'Anterior' : 'Próxima'); b.textContent = t; b.addEventListener('click', () => p.scrollBy({ left: dir * p.clientWidth * .8, behavior: 'smooth' })); wrap.appendChild(b); return b; };
-    const prev = mk('prev', '←', -1), next = mk('next', '→', 1);
-    const upd = () => { const max = p.scrollWidth - p.clientWidth; wrap.classList.toggle('can-scroll', max > 4); prev.disabled = p.scrollLeft < 4; next.disabled = p.scrollLeft > max - 4; };
-    p.addEventListener('scroll', upd, { passive: true }); window.addEventListener('resize', upd); setTimeout(upd, 300); upd();
   });
 })();
 

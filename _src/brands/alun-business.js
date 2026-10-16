@@ -60,7 +60,10 @@ module.exports = (H, B) => {
     `<div class="pxm" style="background:${P.preto}"></div>`
   ].join('');
 
-  const rgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)).join(' ');
+  // card com o logo oficial da marca (cor da própria marca), no lugar do nome em texto
+  const ecoCard = (b, hex, txt) => `<div class="card biz-ecocard"><div class="biz-ecologo">${lg(b, 'logo', hex, 'height:100%')}</div><p>${txt}</p></div>`;
+
+  const rgb = h =>[1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)).join(' ');
   const swatch = (name, role, hex) => ({ name, role, hex, rgb: rgb(hex) });
   const pair = (fg, bg, note) => { const r = ratio(fg, bg); return `<div class="biz-pair"><span style="background:${bg};color:${fg};${bg === '#FFFFFF' ? 'border:1px solid #0002' : ''}">Aa</span><div><b>${r.toFixed(1)}:1</b><small>${note}</small></div></div>`; };
 
@@ -77,10 +80,10 @@ module.exports = (H, B) => {
     </div>
     <p style="max-width:70ch;margin-top:22px">O resultado: empresas pressionadas a evoluir e a treinar seus times em meio a uma overdose de trilhas e conteúdos dispersos. Alun Business nasce como <b>evolução natural do ecossistema</b> — a integração de marcas líderes em educação corporativa numa solução única, full stack, em tecnologia e negócios.</p>
     <div class="grid g4" style="margin-top:20px">
-      ${card('Alura', 'Profundidade técnica e escala.')}
-      ${card('FIAP', 'Formação executiva, MBA, graduação e Pós-Tech.')}
-      ${card('PM3', 'Excelência em produto, growth e estratégia digital.')}
-      ${card('StartSe', 'Visão global, internacionalização e business trends.')}
+      ${ecoCard(alura, '#0429BC', 'Profundidade técnica e escala.')}
+      ${ecoCard(fiap, '#ED145B', 'Formação executiva, MBA, graduação e Pós-Tech.')}
+      ${ecoCard(pm3, '#452E78', 'Excelência em produto, growth e estratégia digital.')}
+      ${ecoCard(startse, '#0080ED', 'Visão global, internacionalização e business trends.')}
     </div>
     ${sub('O que enfatizamos')}
     <div class="two">
@@ -262,6 +265,8 @@ module.exports = (H, B) => {
   .biz-arch{display:flex;flex-direction:column;align-items:center;gap:clamp(24px,4vw,48px);padding:clamp(34px,6vw,72px) 24px}
   .biz-ecos{display:flex;flex-wrap:wrap;justify-content:center;gap:20px clamp(24px,5vw,64px)}
   .biz-eco{display:inline-flex;align-items:center}
+  .biz-ecologo{height:34px;display:flex;align-items:center;margin-bottom:14px}
+  .biz-ecologo .lg{height:100%;max-width:100%}
   @media screen and (max-width:760px){.biz-px{grid-template-columns:1fr}.biz-pxfig{max-width:none}.pxrow{grid-template-columns:repeat(4,1fr)}}
   `;
 

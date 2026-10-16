@@ -86,7 +86,7 @@
   });
 })();
 
-// ---- componentes em abas + peças em carrossel ----
+// ---- componentes em abas ----
 (function(){
   const $ = (s, r=document) => [...r.querySelectorAll(s)];
   $('.wrap').forEach(w => {
@@ -100,13 +100,6 @@
     });
     function sel(i){ comps.forEach((c, k) => { c.classList.toggle('is-hidden', k !== i); btns[k].setAttribute('aria-selected', k === i ? 'true' : 'false'); }); window.dispatchEvent(new Event('resize')); }
     w.insertBefore(bar, comps[0]); const tq = location.search.match(/[?&]tab=([0-9]+)/); sel(tq ? Math.min(+tq[1], comps.length - 1) : 0);
-  });
-  $('.pieces').forEach(p => {
-    const wrap = document.createElement('div'); wrap.className = 'pieces-wrap'; p.parentNode.insertBefore(wrap, p); wrap.appendChild(p);
-    const mk = (cls, t, dir) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'pc-nav ' + cls; b.setAttribute('aria-label', dir < 0 ? 'Anterior' : 'Próxima'); b.textContent = t; b.addEventListener('click', () => p.scrollBy({ left: dir * p.clientWidth * .8, behavior: 'smooth' })); wrap.appendChild(b); return b; };
-    const prev = mk('prev', '←', -1), next = mk('next', '→', 1);
-    const upd = () => { const max = p.scrollWidth - p.clientWidth; wrap.classList.toggle('can-scroll', max > 4); prev.disabled = p.scrollLeft < 4; next.disabled = p.scrollLeft > max - 4; };
-    p.addEventListener('scroll', upd, { passive: true }); window.addEventListener('resize', upd); setTimeout(upd, 300); upd();
   });
 })();
 

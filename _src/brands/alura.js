@@ -270,8 +270,6 @@ module.exports = (H) => {
     <p class="reveal" style="max-width:70ch">Patterns são expressões visuais da essência técnica e dinâmica: nascem de regras claras, mas permitem variações. <b style="color:#fff">Opacidade randômica entre 15 e 85%</b>; quando houver cor, sempre as <b style="color:#fff">Brand Colors</b> — nunca cores complementares ou fora do guia. Podem ser criados com o plugin Generista (Figma) ou no Cavalry.</p>
     <div class="pat-box reveal">
       <canvas id="patDemo" data-gfx="quads" data-seed="21" data-mode="quads"></canvas>
-      <div class="pat-ctl"><button class="btn btn-primary btn-sm" id="patNew" type="button">Novo pattern</button>
-        <div class="dl-seg" id="patMode" role="group" aria-label="Tipo de pattern"><button type="button" data-m="quads" class="on">Quads</button><button type="button" data-m="lines">Linhas</button><button type="button" data-m="dots">Pontos</button></div></div>
     </div>
 
     ${sub('O círculo')}
@@ -555,12 +553,6 @@ module.exports = (H) => {
       ctx.globalAlpha=1;
     }
     window.GFX={quads:function(cv){quads(cv);}};
-    window.addEventListener('load',function(){
-      var d=document.getElementById('patDemo'),nb=document.getElementById('patNew'),seg=document.getElementById('patMode');if(!d)return;
-      var seed=+d.dataset.seed,mode='quads';
-      nb&&nb.addEventListener('click',function(){seed=Math.floor(Math.random()*9000)+10;d.dataset.seed=seed;quads(d,seed,mode);});
-      seg&&seg.addEventListener('click',function(e){var b=e.target.closest('button[data-m]');if(!b)return;mode=b.dataset.m;d.dataset.mode=mode;[].forEach.call(seg.querySelectorAll('button'),function(x){x.classList.toggle('on',x===b)});quads(d,seed,mode);});
-    });
   })();
   `;
 
