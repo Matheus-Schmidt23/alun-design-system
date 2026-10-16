@@ -107,19 +107,6 @@ module.exports = (H) => {
     id: 'logo', num: '02', label: 'Logo', cls: 'black', title: ['O F que', 'abre caminho'],
     lead: 'O logotipo da FIAP é o ativo central do sistema. Cada produto tem a sua versão — Graduação, MBA, Empresas, Nano Courses, FIAP School, Colégio Módulo, Next e <i>Let’s Rock The Future</i> — com redução mínima e área de segurança próprias. O <b style="color:#fff">F</b> também é o grafismo-assinatura da marca.',
     body: `
-    <div class="logo-grid reveal" style="margin-top:44px">
-      ${tile(B, { bg: `background:#000;color:#fff;border:1px solid rgba(255,255,255,.2)`, hex: MG, label: 'Magenta — padrão em fundo preto' })}
-      ${tile(B, { bg: 'background:#000;color:#fff;border:1px solid rgba(255,255,255,.2)', hex: WH, label: 'Branco — sobre preto ou imagem escura' })}
-      ${tile(B, { bg: `background:${MG};color:#fff`, hex: WH, label: 'Branco — sobre Magenta' })}
-      ${tile(B, { bg: 'background:#fff;color:#14191C', hex: MG, label: 'Magenta — sobre branco' })}
-      ${tile(B, { bg: 'background:#C8C8C6;color:#000', hex: BK, label: 'Preto — sobre Cool Gray 3 C' })}
-      ${tile(B, { bg: `background:#0E0F10;color:#fff;border:1px solid rgba(255,255,255,.2)`, hex: UL, label: 'Cinza claro — uso discreto' })}
-      ${tile(B, { bg: 'background:#000;color:#fff;border:1px solid rgba(255,255,255,.2)', kind: 'symbol', hex: MG, label: 'F — favicon, avatar, redução máxima' })}
-      ${tile(B, { bg: `background:${MG};color:#fff`, kind: 'symbol', hex: WH, label: 'F branco — sobre Magenta' })}
-      ${tile(B, { bg: 'background:#fff;color:#14191C', kind: 'symbol', hex: BK, label: 'F preto — sobre branco' })}
-    </div>
-    <p class="reveal" style="margin-top:14px;font-size:13.5px">O arquivo oficial inclui as variações de uso: <b style="color:#fff">rara utilização</b> (documentos oficiais) e <b style="color:#fff">CNPJ</b> (documentos oficiais); <b style="color:#fff">Graduação ON</b> e <b style="color:#fff">MBA ON</b> (site e meios digitais), <b style="color:#fff">Vestibular</b> e <b style="color:#fff">MBA Refresh</b>.</p>
-
     ${sub('Baixar o logo em SVG')}
     <div class="dl-bar reveal"><span class="dl-note">Vetor oficial · fundo transparente · escala sem perda de qualidade</span></div>
     <div class="dl-grid reveal" id="dlGrid"></div>

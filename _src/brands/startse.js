@@ -110,19 +110,6 @@ module.exports = (H) => {
     id: 'logo', num: '02', label: 'Nossa logo', cls: 'dark', title: ['Um ponto', 'de partida'],
     lead: 'A marca é o elemento mais visível da identidade: carrega o ponto de partida, a conexão entre as pessoas e o aprendizado contínuo. A <b style="color:#fff">assinatura completa</b> (wordmark + seta pontilhada, na horizontal) é a de uso preferencial.',
     body: `
-    <div class="logo-grid reveal" style="margin-top:44px">
-      ${tile(B, { bg: 'background:#FDFEFF;color:#1F2A33', hex: AC, label: 'Azul claro — sobre branco' })}
-      ${tile(B, { bg: `background:${CC};color:#1F2A33`, hex: AC, label: 'Azul claro — sobre cinza claro' })}
-      ${tile(B, { bg: `background:${AC};color:#fff`, hex: '#FFFFFF', label: 'Branca — sobre azul claro' })}
-      <div class="logo-tile" style="background:${AM};color:#fff"><span class="lg" style="height:44px"><svg viewBox="0 0 170 25" fill="none"><g fill="#fff"><path d="${DOT}${SYM_S}${LETTERS}"/></g><g fill="${AC}"><path d="${FULL}"/></g></svg></span><small>Wordmark branca, seta em azul claro — sobre azul marinho</small></div>
-      ${tile(B, { bg: 'background:#000;color:#fff', hex: '#FFFFFF', label: 'Branca — sobre preto (University)' })}
-      ${tile(B, { bg: 'background:#fff;color:#1F2A33', hex: AM, label: 'Azul marinho — sobre branco' })}
-      ${tile(B, { bg: 'background:#FDFEFF;color:#1F2A33', kind: 'symbol', hex: AC, label: 'Assinatura simplificada — apps e redes' })}
-      ${tile(B, { bg: `background:${CC};color:#1F2A33`, kind: 'symbol', hex: AC, label: 'Simplificada — sobre cinza claro' })}
-      ${tile(B, { bg: 'background:#000;color:#fff', kind: 'symbol', hex: '#FFFFFF', label: 'Simplificada — sobre preto' })}
-    </div>
-    <p class="reveal" style="margin-top:14px;font-size:13.5px">Aplicações da assinatura: fundo branco com componentes em azul claro · fundo cinza claro com componentes em azul claro · fundo azul claro com componentes brancos · fundo azul marinho com wordmark branca, símbolo azul claro e tagline branca.</p>
-
     ${sub('Baixar o logo em SVG')}
     <div class="dl-bar reveal"><span class="dl-note">Vetor oficial · fundo transparente · escala sem perda de qualidade</span></div>
     <div class="dl-grid reveal" id="dlGrid"></div>

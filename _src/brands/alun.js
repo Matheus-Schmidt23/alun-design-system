@@ -110,19 +110,6 @@ module.exports = (H) => {
     id: 'logo', num: '02', label: 'Logo & símbolo', cls: 'black', title: ['Tech', '&amp; touch'],
     lead: 'A marca nasce do encontro entre a origem da tecnologia e sua conexão com o humano — do código binário ao cartão perfurado. O logotipo de quatro letras em módulos retos e cantos arredondados dá o grid de toda a identidade. O símbolo, inspirado no cérebro, é o ponto de convergência entre máquina e mente: o equilíbrio entre <i>tech</i> e <i>touch</i>.',
     body: `
-    <div class="logo-grid reveal" style="margin-top:44px">
-      ${tile(B, { bg: 'background:#fff;color:#0D0C0C', hex: BL, label: 'Preto — padrão em fundo claro' })}
-      ${tile(B, { bg: `background:${CZ};color:#fff`, hex: PM, label: 'Placa Mãe — sobre Cinza' })}
-      ${tile(B, { bg: `background:${PM};color:#000`, hex: BL, label: 'Preto — sobre Placa Mãe' })}
-      ${tile(B, { bg: 'background:#000;color:#fff;border:1px solid rgba(255,255,255,.2)', hex: PM, label: 'Placa Mãe — sobre Preto' })}
-      ${tile(B, { bg: `background:${MOFF};color:#fff`, hex: PM, label: 'Placa Mãe — sobre Magenta Off' })}
-      ${tile(B, { bg: `background:${OON};color:#000`, hex: BL, label: 'Preto — sobre Odisseia On' })}
-      ${tile(B, { bg: 'background:#fff;color:#0D0C0C', kind: 'symbol', hex: BL, label: 'Símbolo — avatar, favicon, redução máxima' })}
-      ${tile(B, { bg: 'background:#000;color:#fff;border:1px solid rgba(255,255,255,.2)', kind: 'symbol', hex: PM, label: 'Símbolo Placa Mãe — sobre Preto' })}
-      ${tile(B, { bg: `background:${MON};color:#000`, kind: 'symbol', hex: BL, label: 'Símbolo preto — sobre Magenta On' })}
-    </div>
-    <p class="reveal" style="margin-top:14px;font-size:13.5px">O brandbook mostra o logo em Preto e Placa Mãe sobre fundos neutros e sobre fotografia e grafismo. As aplicações sobre cores de destaque seguem o contraste da seção Cores.</p>
-
     ${sub('Baixar o logo em SVG')}
     <div class="dl-bar reveal"><span class="dl-note">Vetor oficial · fundo transparente · escala sem perda de qualidade</span></div>
     <div class="dl-grid reveal" id="dlGrid"></div>

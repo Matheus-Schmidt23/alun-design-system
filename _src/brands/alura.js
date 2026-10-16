@@ -110,16 +110,6 @@ module.exports = (H) => {
     id: 'logo', num: '02', label: 'Logo', cls: 'black', title: ['Um logotipo,', 'nenhum ruído'],
     lead: 'O logo da Alura é um dos ativos mais valiosos da marca: tipografia limpa, minimalista e moderna, de curvas sutis e equilíbrio visual. Ele traduz a essência contemporânea e tecnológica da Alura e orienta decisões de design. <b style="color:#fff">Nenhuma alteração é permitida</b> — proporções, cores e espaçamentos seguem rigorosamente o guia.',
     body: `
-    <div class="logo-grid reveal" style="margin-top:44px">
-      ${tile(B, { bg: `background:${WS};color:${NB}`, hex: NB, label: 'New Black — padrão em fundo claro' })}
-      ${tile(B, { bg: `background:${NB};color:#fff;border:1px solid rgba(255,255,255,.18)`, hex: '#fff', label: 'Branco — padrão em fundo escuro' })}
-      ${tile(B, { bg: `background:${TB};color:#fff`, hex: '#fff', label: 'Branco — sobre Tech Blue' })}
-      ${tile(B, { bg: 'background:#fff;color:#1C1D21', hex: TB, label: 'Tech Blue — sobre branco' })}
-      ${tile(B, { bg: `background:${BU};color:#fff`, hex: '#fff', label: 'Branco — sobre Blue Universe' })}
-      ${tile(B, { bg: 'background:#7A9FF0;color:#010C53', hex: NB, label: 'New Black — sobre Azul 300' })}
-    </div>
-    <p class="reveal" style="margin-top:14px;font-size:13.5px">O guia prevê versões positiva e negativa, e variações para a linha <b style="color:#fff">Alura Para Empresas</b> (<i>primary</i> e <i>secondary</i>). O logo pode ser aplicado contra fundos coloridos da paleta, fotografias, gradientes ou ilustrações — desde que o contraste garanta a leitura. Sobre imagem com pouca leitura, use um fundo neutro, sem grafismos ou textos atrás.</p>
-
     ${sub('Baixar o logo em SVG')}
     <div class="dl-bar reveal"><span class="dl-note">Vetor oficial · fundo transparente · escala sem perda de qualidade</span></div>
     <div class="dl-grid reveal" id="dlGrid"></div>

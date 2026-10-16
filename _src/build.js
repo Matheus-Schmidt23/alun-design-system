@@ -116,6 +116,10 @@ if (fs.existsSync(pm3Src)) {
     const blockClose = html.lastIndexOf('</div>', wrapClose - 1); // fecha .wrong
     html = html.slice(0, w0).trimEnd() + '\n  ' + html.slice(blockClose + '</div>'.length).trimStart();
   }
+  // remove o campo de exibição do logo (mantém só o download em SVG)
+  const lg0 = html.indexOf('<div class="logo-grid reveal"'), lg1 = html.indexOf('<h3 class="sub reveal">Baixar em PNG</h3>', lg0);
+  if (lg0 < 0 || lg1 < 0) throw new Error('PM3: bloco do logo não encontrado para o patch');
+  html = html.slice(0, lg0) + html.slice(lg1);
   // download do logo: só SVG (sem seletor de largura / PNG)
   const d0 = html.indexOf('<h3 class="sub reveal">Baixar em PNG</h3>'), d1 = html.indexOf('<div class="dl-grid', d0);
   if (d0 < 0 || d1 < 0) throw new Error('PM3: bloco de download não encontrado para o patch');
