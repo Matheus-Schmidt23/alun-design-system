@@ -243,7 +243,17 @@ module.exports = (H) => {
       <div class="card"><div class="label-k">Paleta e tom</div><p>Tons terrosos, verdes, beges e neutros. Cores da paleta, principalmente as primárias, nos <i>props</i>. Sem filtros.</p></div>
       <div class="card"><div class="label-k">Luz</div><p>Natural, com sombras marcadas ou suaves; luz de janela para atmosferas calorosas; indireta em ambientes fechados.</p></div>
       <div class="card"><div class="label-k">Diversidade</div><p>Gênero, cor, idade, estilo, corpo e contexto social — múltiplas realidades do Brasil conectado à tecnologia.</p></div>
-    </div>`
+    </div>
+
+    ${H.imgBand({
+      tiles: [
+        { inner: '<div class="fill" style="background:radial-gradient(circle at 30% 30%,#e8c9a3,#8a6a4a 55%,#3b2c20)"></div>', name: 'Documental', use: 'Luz natural, tons terrosos' },
+        { inner: '<div class="fill" style="background:radial-gradient(circle at 50% 35%,#8a8a8a 0,#444444 55%,#1b1b1b)"></div>', name: 'Autoral', use: 'P&amp;B, fundo #444444' },
+        { inner: '<div class="fill" style="background:radial-gradient(circle at 70% 25%,#7A9FF0,#0429BC 50%,#010C53)"></div>', name: 'High-end', use: 'Topo de funil' },
+        { inner: '<div class="fill" style="background:linear-gradient(135deg,#f0ede6,#c9c3b6)"></div>', name: 'Performance', use: 'Realista, “não produzido”' }
+      ],
+      note: 'os blocos de cor ilustram o tom de cada tratamento — não são fotografias. Use imagens do acervo da marca e confirme os direitos de uso e de imagem antes de publicar peças externas.'
+    })}`
   });
 
   // ---------------- 07 COMPONENTES ----------------

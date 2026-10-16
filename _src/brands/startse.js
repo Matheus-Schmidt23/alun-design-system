@@ -215,7 +215,19 @@ module.exports = (H) => {
     ${sub('Ícones')}
     <p class="reveal" style="max-width:68ch">Família de ícones de <b style="color:#fff">traço fino e contínuo</b>, em azul marinho, com cantos arredondados — da ideia ao troféu. O manual traz 50 ícones de negócios, educação, tecnologia e IA.</p>
     <div class="icgrid reveal">${icons.slice(0, 6).map(([n, svg]) => `<div><div class="pi">${svg}</div><span>${n}</span></div>`).join('')}</div>
-    <p class="reveal" style="margin-top:12px;font-size:13px;color:var(--c-soft)">Ícones redesenhados como referência de estilo. A biblioteca oficial (50 ícones) está na seção “Ícones” do manual.</p>`
+    <p class="reveal" style="margin-top:12px;font-size:13px;color:var(--c-soft)">Ícones redesenhados como referência de estilo. A biblioteca oficial (50 ícones) está na seção “Ícones” do manual.</p>
+
+    ${H.imgBand({
+      chip: 'proposta',
+      lead: 'O manual não define fotografia. Recomendação deste guia: pessoas reais em contexto de negócios, luz natural e fundo discreto; o azul claro e o azul marinho entram em faixas, bandas e na seta pontilhada — nunca como filtro sobre o rosto.',
+      tiles: [
+        { inner: '<div class="fill" style="background:#0080ED"></div>', name: 'Azul claro', use: 'Faixas e bandas' },
+        { inner: '<div class="fill" style="background:#00183C"></div>', name: 'Azul marinho', use: 'Fundo institucional' },
+        { inner: '<div class="fill" style="background:#D1D9DB"></div>', name: 'Cinza claro', use: 'Fundos neutros' },
+        { inner: '<div class="fill" style="background:#000"></div>', name: 'Preto', use: 'StartSe University' }
+      ],
+      note: 'as amostras são cores de fundo, não fotografias — use imagens do acervo StartSe e confirme os direitos de uso e de imagem antes de publicar peças externas.'
+    })}`
   });
 
   // ---------------- 06 COMPONENTES ----------------

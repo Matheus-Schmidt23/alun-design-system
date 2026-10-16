@@ -50,6 +50,12 @@ const dd = (ok, no) => `<div class="dd reveal" style="margin-top:24px"><div clas
 const dodont = (ok, no, okT = 'Escreva assim', noT = 'Evite') => `<div class="dodont reveal"><div class="do"><h4>${okT}</h4><ul>${li(ok)}</ul></div><div class="dont"><h4>${noT}</h4><ul>${li(no)}</ul></div></div>`;
 const sub = (t, chip) => `<h3 class="sub reveal">${t}${chip ? ` <span class="chip-prop">${chip}</span>` : ''}</h3>`;
 
+// faixa compacta de uso de imagens: 4 amostras + aviso de direitos
+const imgBand = ({ tiles, note, chip, lead }) => `${sub('Uso de imagens', chip)}
+    ${lead ? `<p class="reveal" style="max-width:70ch">${lead}</p>` : ''}
+    <div class="tex-grid tex-strip reveal">${tiles.map(t => `<div class="tex">${t.inner}<div class="cap"><b>${t.name}</b>${t.use}</div></div>`).join('')}</div>
+    <p class="reveal img-note"><span class="chip-prop">atenção</span>${note}</p>`;
+
 // tile de logo
 const tile = (B, { bg, kind = 'logo', hex, label, sym }) => `<div class="logo-tile${sym || kind === 'symbol' ? ' sym' : ''}" style="${bg}">${lg(B, kind, hex)}<small>${label}</small></div>`;
 
@@ -68,4 +74,4 @@ function tokensPre(groups, extra = '') {
 const lum = hex => { const c = [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16) / 255).map(v => v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4)); return .2126 * c[0] + .7152 * c[1] + .0722 * c[2]; };
 const ratio = (a, b) => { const l1 = lum(a), l2 = lum(b); return (Math.max(l1, l2) + .05) / (Math.min(l1, l2) + .05); };
 
-module.exports = { esc, lg, sec, sw, swGrid, ramp, card, rule, li, dd, dodont, sub, tile, tokensPre, lum, ratio };
+module.exports = { esc, lg, sec, sw, swGrid, ramp, card, rule, li, dd, dodont, sub, imgBand, tile, tokensPre, lum, ratio };

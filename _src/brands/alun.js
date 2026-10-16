@@ -239,6 +239,16 @@ module.exports = (H) => {
     </div>
     <p class="reveal" style="margin-top:14px;font-size:13.5px">Palavras-chave e <i>prompts</i> de referência para produção fotográfica ou geração por IA estão reunidos no fim do guia, em Tokens &amp; IA.</p>
 
+    ${H.imgBand({
+      tiles: [
+        { inner: '<canvas data-gfx="mosaic" data-seed="11" data-variant="full" data-mask="ellipse" data-cell="9"></canvas>', name: 'Mosaico', use: 'Magenta + laranja' },
+        { inner: '<canvas data-gfx="mosaic" data-seed="21" data-variant="mono" data-mask="ellipse" data-cell="9"></canvas>', name: 'Só magenta', use: 'Versão sóbria' },
+        { inner: `<div class="fill" style="background:${MOFF}"></div>`, name: 'Bloco de cor', use: 'Fundo da peça' },
+        { inner: '<canvas data-gfx="mosaic" data-seed="5" data-variant="full" data-mask="diag" data-cell="12"></canvas>', name: 'Faixa de módulos', use: 'Transição bloco ↔ imagem' }
+      ],
+      note: 'o grafismo ocupa um ou dois blocos por peça; as amostras são exemplos do guia — use imagens do acervo Alun e confirme os direitos de uso e de imagem antes de publicar peças externas.'
+    })}
+
     ${sub('Pictogramas')}
     <p class="reveal" style="max-width:68ch">A base construtiva é uma malha de <b>15 × 15 unidades</b>; a espessura mínima do traço é de 1 unidade. Personalidade derivada da marca, ligada a retas e curvas — didática e essencial.</p>
     <div class="picto reveal">

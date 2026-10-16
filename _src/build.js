@@ -133,6 +133,28 @@ if (fs.existsSync(pm3Src)) {
   const svgHandler = "grid.addEventListener('click',e=>{const b=e.target.closest('button[data-kind]');if(!b)return;const name='pm3-'+b.dataset.kind+'-'+b.dataset.k+'.svg';const blob=new Blob(['<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n'+svgStr(b.dataset.kind,b.dataset.hex)],{type:'image/svg+xml'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000);showToast('SVG baixado: '+name);});";
   html = html.slice(0, j0) + svgHandler + html.slice(j1 + jEnd.length);
   html = html.replace('>Baixar PNG</button>', '>Baixar SVG</button>');
+  // Grid & forma: remove "Formas de encaixe", "Tokens de forma" e "Formatos" (fim da seção)
+  const sh0 = html.indexOf('<h3 class="sub reveal">Formas de encaixe');
+  if (sh0 < 0) throw new Error('PM3: bloco de formas não encontrado para o patch');
+  const shSec = html.indexOf('</section>', sh0);
+  const shWrap = html.lastIndexOf('</div>', shSec);
+  html = html.slice(0, sh0).trimEnd() + '\n  ' + html.slice(shWrap);
+
+  // Texturas & fotografia: versão mais enxuta (sem as texturas de dados e sem a 5ª foto)
+  const dropLineWith = (needle) => {
+    const i = html.indexOf(needle); if (i < 0) throw new Error('PM3: não achei ' + needle);
+    const a = html.lastIndexOf('\n', i), b = html.indexOf('\n', i);
+    html = html.slice(0, a) + html.slice(b);
+  };
+  ['<b>Ondas de dados</b>', '<b>Montanhas de dados</b>', '<b>Linhas de dados</b>', '<b>Barras de dados</b>'].forEach(dropLineWith);
+  dropLineWith('As texturas de <b style="color:#fff">dados</b>');
+  const pg = html.indexOf('<div class="photo-grid reveal">');
+  if (pg >= 0) {
+    // remove a última foto da grade (a 5ª)
+    let idx = pg, last = -1;
+    for (let k = 0; k < 5; k++) { idx = html.indexOf('<div class="ph">', idx + 1); if (idx < 0) break; last = idx; }
+    if (last > pg) { const a = html.lastIndexOf('\n', last), b = html.indexOf('\n', last); html = html.slice(0, a) + html.slice(b); }
+  }
   fs.writeFileSync(path.join(OUT, 'pm3.html'), html);
   console.log('ok pm3.html', Math.round(fs.statSync(path.join(OUT, 'pm3.html')).size / 1024) + ' KB');
 }

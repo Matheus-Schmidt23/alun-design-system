@@ -221,6 +221,16 @@ module.exports = (H) => {
     lead: 'As peças FIAP vivem sobre fundos escuros com iluminação dramática — feixes de luz, partículas e gradientes — e prova social em destaque. O Design System 2.0 não fixa um guia de fotografia; reúne bibliotecas de imagens de cursos, desafios (<i>Challenges</i>), parceiros e eventos.',
     body: `
 
+    ${H.imgBand({
+      tiles: [
+        { inner: '<div class="fill" style="background:radial-gradient(circle at 70% 20%,rgba(237,20,91,.65),transparent 55%),radial-gradient(circle at 10% 90%,rgba(237,20,91,.28),transparent 50%),#050506"></div>', name: 'bgGradient', use: 'Preto com brilho magenta' },
+        { inner: '<canvas data-gfx="particles" data-seed="14"></canvas>', name: 'Partículas', use: 'Fio luminoso' },
+        { inner: '<div class="fill" style="background:linear-gradient(180deg,#000 0%,#14191C 45%,#75838B 140%)"></div>', name: 'Cinza azulado', use: 'Neutro de apoio' },
+        { inner: '<div class="fill" style="background:linear-gradient(135deg,#000,#ED145B)"></div>', name: 'Degradê de marca', use: 'Preto → Magenta' }
+      ],
+      note: 'o Design System 2.0 não fixa um guia de fotografia — use as bibliotecas de imagens de cursos, desafios, parceiros e eventos e confirme os direitos de uso e de imagem antes de publicar peças externas.'
+    })}
+
     ${sub('Prova social')}
     <div class="grid g3 reveal">
       <div class="seal"><div class="sn">5</div><div><b>Nota máxima</b><span>nas últimas 32 comissões de avaliação do MEC</span></div></div>

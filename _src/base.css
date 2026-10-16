@@ -432,3 +432,8 @@ html,body{overflow-x:clip}
   .dl-prev{height:80px}.dl-prev img{max-height:44px}.dl-prev.sym img{max-height:54px}
   .dl-card{padding:10px;gap:10px}
 }
+
+/* faixa "uso de imagens" */
+.tex-strip .tex{aspect-ratio:4/3}
+.img-note{margin-top:16px;font-size:13.5px;max-width:78ch}
+.img-note .chip-prop{margin:0 8px 0 0}
